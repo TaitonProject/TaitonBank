@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.taiton.entity.ServiceHasDetailsPaymentEntity">
+        <table name="service_has_details_payment" schema="taitonbankdb" catalog=""/>
+        <id-class class="com.taiton.entity.ServiceHasDetailsPaymentEntityPK"/>
+        <attributes>
+            <id name="serviceId">
+                <column name="Service_Id" precision="11"/>
+            </id>
+            <id name="detailsPaymentId">
+                <column name="Details_Payment_Id" precision="11"/>
+            </id>
+            <many-to-one name="serviceByServiceId" optional="true" target-entity="com.taiton.entity.ServiceEntity">
+                <join-column name="Service_Id" referenced-column-name="Id"/>
+            </many-to-one>
+            <many-to-one name="detailsPaymentByDetailsPaymentId" optional="true"
+                         target-entity="com.taiton.entity.DetailsPaymentEntity">
+                <join-column name="Details_Payment_Id" referenced-column-name="Id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

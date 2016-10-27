@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.taiton.entity.UserEntity">
+        <table name="user" schema="taitonbankdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="Id" precision="11"/>
+            </id>
+            <basic name="login">
+                <column name="Login" nullable="false" length="45"/>
+            </basic>
+            <basic name="password">
+                <column name="Password" length="45"/>
+            </basic>
+            <basic name="roleIdRole">
+                <column name="Role_idRole" precision="11"/>
+            </basic>
+            <basic name="isBlocked">
+                <column name="IsBlocked" precision="1"/>
+            </basic>
+            <many-to-one name="roleByRoleIdRole" optional="true" target-entity="com.taiton.entity.RoleEntity">
+                <join-column name="Role_idRole" referenced-column-name="Id"/>
+            </many-to-one>
+            <one-to-many name="accountsById" mapped-by="userByUserId" target-entity="com.taiton.entity.AccountEntity"/>
+            <one-to-many name="sessionCodesById" mapped-by="userByUserId"
+                         target-entity="com.taiton.entity.SessionCodeEntity"/>
+            <one-to-many name="sessionInformationsById" mapped-by="userByUserId"
+                         target-entity="com.taiton.entity.SessionInformationEntity"/>
+            <one-to-many name="userInfosById" mapped-by="userByUserId"
+                         target-entity="com.taiton.entity.UserInfoEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>
