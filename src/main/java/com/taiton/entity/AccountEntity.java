@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by Taiton on 10/27/2016.
+ * Created by Taiton on 11/4/2016.
  */
 @Entity
 @Table(name = "account", schema = "taitonbankdb", catalog = "")
@@ -12,12 +12,12 @@ public class AccountEntity {
     private Integer id;
     private String accountNumber;
     private Double accountBalance;
-    private Integer userId;
     private Integer currencyId;
     private Integer organiztaionId;
-    private UserEntity userByUserId;
+    private Integer clientId;
     private CurrencyEntity currencyByCurrencyId;
     private ServiceEntity serviceByOrganiztaionId;
+    private ClientEntity clientByClientId;
     private Collection<CardEntity> cardsById;
     private Collection<PaymentEntity> paymentsById;
 
@@ -52,16 +52,6 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "User_Id", nullable = true)
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    @Basic
     @Column(name = "Currency_Id", nullable = false)
     public Integer getCurrencyId() {
         return currencyId;
@@ -81,6 +71,16 @@ public class AccountEntity {
         this.organiztaionId = organiztaionId;
     }
 
+    @Basic
+    @Column(name = "Client_id", nullable = false)
+    public Integer getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Integer clientId) {
+        this.clientId = clientId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,10 +93,10 @@ public class AccountEntity {
             return false;
         if (accountBalance != null ? !accountBalance.equals(that.accountBalance) : that.accountBalance != null)
             return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
         if (currencyId != null ? !currencyId.equals(that.currencyId) : that.currencyId != null) return false;
         if (organiztaionId != null ? !organiztaionId.equals(that.organiztaionId) : that.organiztaionId != null)
             return false;
+        if (clientId != null ? !clientId.equals(that.clientId) : that.clientId != null) return false;
 
         return true;
     }
@@ -106,20 +106,10 @@ public class AccountEntity {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (accountNumber != null ? accountNumber.hashCode() : 0);
         result = 31 * result + (accountBalance != null ? accountBalance.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         result = 31 * result + (currencyId != null ? currencyId.hashCode() : 0);
         result = 31 * result + (organiztaionId != null ? organiztaionId.hashCode() : 0);
+        result = 31 * result + (clientId != null ? clientId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "User_Id", referencedColumnName = "Id")
-    public UserEntity getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
     }
 
     @ManyToOne
@@ -140,6 +130,16 @@ public class AccountEntity {
 
     public void setServiceByOrganiztaionId(ServiceEntity serviceByOrganiztaionId) {
         this.serviceByOrganiztaionId = serviceByOrganiztaionId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "Client_id", referencedColumnName = "id", nullable = false)
+    public ClientEntity getClientByClientId() {
+        return clientByClientId;
+    }
+
+    public void setClientByClientId(ClientEntity clientByClientId) {
+        this.clientByClientId = clientByClientId;
     }
 
     @OneToMany(mappedBy = "accountByAccountId")

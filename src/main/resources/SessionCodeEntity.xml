@@ -3,7 +3,7 @@
         version="2.0">
 
     <entity class="com.taiton.entity.SessionCodeEntity">
-        <table name="session_code" schema="taitonbankdb" catalog=""/>
+        <table name="session_code" schema="ibankdb" catalog=""/>
         <attributes>
             <id name="idSessionCode">
                 <column name="Id_Session_Code" precision="11"/>
@@ -13,9 +13,6 @@
             </basic>
             <basic name="sessionCodeNumber">
                 <column name="Session_Code_Number" precision="2"/>
-            </basic>
-            <basic name="userId">
-                <column name="User_Id" precision="11"/>
             </basic>
             <many-to-one name="userByUserId" optional="true" target-entity="com.taiton.entity.UserEntity">
                 <join-column name="User_Id" referenced-column-name="Id"/>

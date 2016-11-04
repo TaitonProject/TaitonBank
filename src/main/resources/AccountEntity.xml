@@ -14,23 +14,23 @@
             <basic name="accountBalance">
                 <column name="Account_Balance" precision="-1"/>
             </basic>
-            <basic name="userId">
-                <column name="User_Id" nullable="false" precision="11"/>
-            </basic>
             <basic name="currencyId">
                 <column name="Currency_Id" precision="11"/>
             </basic>
             <basic name="organiztaionId">
                 <column name="Organiztaion_Id" nullable="false" precision="11"/>
             </basic>
-            <many-to-one name="userByUserId" optional="true" target-entity="com.taiton.entity.UserEntity">
-                <join-column name="User_Id" nullable="false" referenced-column-name="Id"/>
-            </many-to-one>
+            <basic name="clientId">
+                <column name="Client_id" precision="11"/>
+            </basic>
             <many-to-one name="currencyByCurrencyId" optional="true" target-entity="com.taiton.entity.CurrencyEntity">
                 <join-column name="Currency_Id" referenced-column-name="Id"/>
             </many-to-one>
             <many-to-one name="serviceByOrganiztaionId" optional="true" target-entity="com.taiton.entity.ServiceEntity">
                 <join-column name="Organiztaion_Id" nullable="false" referenced-column-name="Id"/>
+            </many-to-one>
+            <many-to-one name="clientByClientId" optional="true" target-entity="com.taiton.entity.ClientEntity">
+                <join-column name="Client_id" referenced-column-name="id"/>
             </many-to-one>
             <one-to-many name="cardsById" mapped-by="accountByAccountId" target-entity="com.taiton.entity.CardEntity"/>
             <one-to-many name="paymentsById" mapped-by="accountByAccountId"

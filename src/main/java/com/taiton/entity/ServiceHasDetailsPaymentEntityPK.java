@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by Taiton on 10/27/2016.
+ * Created by Taiton on 11/4/2016.
  */
 public class ServiceHasDetailsPaymentEntityPK implements Serializable {
     private Integer serviceId;

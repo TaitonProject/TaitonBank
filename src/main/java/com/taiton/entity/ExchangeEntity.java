@@ -3,7 +3,7 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by Taiton on 10/27/2016.
+ * Created by Taiton on 11/4/2016.
  */
 @Entity
 @Table(name = "exchange", schema = "taitonbankdb", catalog = "")

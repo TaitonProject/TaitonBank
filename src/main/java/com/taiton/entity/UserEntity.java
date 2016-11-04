@@ -1,24 +1,18 @@
 package com.taiton.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by Taiton on 10/27/2016.
+ * Created by Taiton on 11/4/2016.
  */
 @Entity
-@Table(name = "user", schema = "taitonbankdb", catalog = "")
+@Table(name = "user", schema = "ibankdb", catalog = "")
 public class UserEntity {
     private Integer id;
     private String login;
     private String password;
-    private Integer roleIdRole;
     private Byte isBlocked;
-    private Collection<AccountEntity> accountsById;
-    private Collection<SessionCodeEntity> sessionCodesById;
-    private Collection<SessionInformationEntity> sessionInformationsById;
-    private RoleEntity roleByRoleIdRole;
-    private Collection<UserInfoEntity> userInfosById;
+    private RoleEntityEnum role;
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -31,7 +25,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "Login", nullable = true, length = 45)
+    @Column(name = "Login", nullable = false, length = 45)
     public String getLogin() {
         return login;
     }
@@ -51,16 +45,6 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "Role_idRole", nullable = false)
-    public Integer getRoleIdRole() {
-        return roleIdRole;
-    }
-
-    public void setRoleIdRole(Integer roleIdRole) {
-        this.roleIdRole = roleIdRole;
-    }
-
-    @Basic
     @Column(name = "IsBlocked", nullable = false)
     public Byte getIsBlocked() {
         return isBlocked;
@@ -68,6 +52,16 @@ public class UserEntity {
 
     public void setIsBlocked(Byte isBlocked) {
         this.isBlocked = isBlocked;
+    }
+
+    @Basic
+    @Column(name = "Role", nullable = false)
+    public RoleEntityEnum getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEntityEnum role) {
+        this.role = role;
     }
 
     @Override
@@ -80,8 +74,8 @@ public class UserEntity {
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (roleIdRole != null ? !roleIdRole.equals(that.roleIdRole) : that.roleIdRole != null) return false;
         if (isBlocked != null ? !isBlocked.equals(that.isBlocked) : that.isBlocked != null) return false;
+        if (role != that.role) return false;
 
         return true;
     }
@@ -91,54 +85,8 @@ public class UserEntity {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (roleIdRole != null ? roleIdRole.hashCode() : 0);
         result = 31 * result + (isBlocked != null ? isBlocked.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<AccountEntity> getAccountsById() {
-        return accountsById;
-    }
-
-    public void setAccountsById(Collection<AccountEntity> accountsById) {
-        this.accountsById = accountsById;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<SessionCodeEntity> getSessionCodesById() {
-        return sessionCodesById;
-    }
-
-    public void setSessionCodesById(Collection<SessionCodeEntity> sessionCodesById) {
-        this.sessionCodesById = sessionCodesById;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<SessionInformationEntity> getSessionInformationsById() {
-        return sessionInformationsById;
-    }
-
-    public void setSessionInformationsById(Collection<SessionInformationEntity> sessionInformationsById) {
-        this.sessionInformationsById = sessionInformationsById;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Role_idRole", referencedColumnName = "Id", nullable = false)
-    public RoleEntity getRoleByRoleIdRole() {
-        return roleByRoleIdRole;
-    }
-
-    public void setRoleByRoleIdRole(RoleEntity roleByRoleIdRole) {
-        this.roleByRoleIdRole = roleByRoleIdRole;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<UserInfoEntity> getUserInfosById() {
-        return userInfosById;
-    }
-
-    public void setUserInfosById(Collection<UserInfoEntity> userInfosById) {
-        this.userInfosById = userInfosById;
     }
 }
