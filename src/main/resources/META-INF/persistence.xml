@@ -36,10 +36,10 @@
         <class>com.taiton.entity.SessionInformationEntity</class>
         <class>com.taiton.entity.UserEntity</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/taitonbankdb"/>
+            <property name="hibernate.connection.url" value="${jdbc.url}"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="taiton"/>
-            <property name="hibernate.connection.password" value="1488"/>
+            <property name="hibernate.connection.username" value="${jdbc.username}"/>
+            <property name="hibernate.connection.password" value="${jdbc.password}"/>
         </properties>
     </persistence-unit>
 </persistence>
