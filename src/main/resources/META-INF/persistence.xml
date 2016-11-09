@@ -1,45 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="persistenceUnit">
-        <mapping-file>AccountEntity.xml</mapping-file>
-        <mapping-file>CardEntity.xml</mapping-file>
-        <mapping-file>CurrencyEntity.xml</mapping-file>
-        <mapping-file>DetailsPaymentEntity.xml</mapping-file>
-        <mapping-file>ExchangeEntity.xml</mapping-file>
-        <mapping-file>PaymentEntity.xml</mapping-file>
-        <mapping-file>ServiceEntity.xml</mapping-file>
-        <mapping-file>ServiceHasDetailsPaymentEntity.xml</mapping-file>
-        <mapping-file>TransferEntity.xml</mapping-file>
-        <mapping-file>ClientEntity.xml</mapping-file>
-        <mapping-file>ClientInfoEntity.xml</mapping-file>
-        <mapping-file>SessionCodeEntity.xml</mapping-file>
-        <mapping-file>SessionInformationEntity.xml</mapping-file>
-        <mapping-file>UserEntity.xml</mapping-file>
-        <mapping-file>SessionCodeEntity.xml</mapping-file>
-        <mapping-file>SessionInformationEntity.xml</mapping-file>
-        <mapping-file>UserEntity.xml</mapping-file>
-        <mapping-file>UserEntity.xml</mapping-file>
-        <mapping-file>UserEntity.xml</mapping-file>
-        <class>com.taiton.entity.AccountEntity</class>
-        <class>com.taiton.entity.CardEntity</class>
-        <class>com.taiton.entity.CurrencyEntity</class>
-        <class>com.taiton.entity.DetailsPaymentEntity</class>
-        <class>com.taiton.entity.ExchangeEntity</class>
-        <class>com.taiton.entity.PaymentEntity</class>
-        <class>com.taiton.entity.ServiceEntity</class>
-        <class>com.taiton.entity.ServiceHasDetailsPaymentEntity</class>
-        <class>com.taiton.entity.TransferEntity</class>
-        <class>com.taiton.entity.ClientEntity</class>
-        <class>com.taiton.entity.ClientInfoEntity</class>
-        <class>com.taiton.entity.SessionCodeEntity</class>
-        <class>com.taiton.entity.SessionInformationEntity</class>
-        <class>com.taiton.entity.UserEntity</class>
-        <properties>
-            <property name="hibernate.connection.url" value="${jdbc.url}"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="${jdbc.username}"/>
-            <property name="hibernate.connection.password" value="${jdbc.password}"/>
-        </properties>
-    </persistence-unit>
+    <persistence-unit name="persistenceUnit"/>
 </persistence>

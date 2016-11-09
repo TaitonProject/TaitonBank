@@ -1,9 +1,12 @@
 package com.taiton.entity;
 
+import org.hibernate.internal.util.compare.EqualsHelper;
+
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 @Entity
 @Table(name = "user", schema = "ibankdb", catalog = "")
@@ -13,6 +16,9 @@ public class UserEntity {
     private String password;
     private Byte isBlocked;
     private RoleEntityEnum role;
+    private Collection<SessionCodeEntity> sessionCodesById;
+    private Collection<SessionInformationEntity> sessionInformationsById;
+    private String confirmPassword;
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -88,5 +94,31 @@ public class UserEntity {
         result = 31 * result + (isBlocked != null ? isBlocked.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<SessionCodeEntity> getSessionCodesById() {
+        return sessionCodesById;
+    }
+
+    public void setSessionCodesById(Collection<SessionCodeEntity> sessionCodesById) {
+        this.sessionCodesById = sessionCodesById;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<SessionInformationEntity> getSessionInformationsById() {
+        return sessionInformationsById;
+    }
+
+    public void setSessionInformationsById(Collection<SessionInformationEntity> sessionInformationsById) {
+        this.sessionInformationsById = sessionInformationsById;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 @Entity
 @Table(name = "currency", schema = "taitonbankdb", catalog = "")

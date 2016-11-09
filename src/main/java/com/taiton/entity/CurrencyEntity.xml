@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.taiton.entity.CurrencyEntity">
+        <table name="currency" schema="taitonbankdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="Id" precision="11"/>
+            </id>
+            <basic name="name">
+                <column name="Name" length="3"/>
+            </basic>
+            <basic name="code">
+                <column name="Code" precision="3"/>
+            </basic>
+            <one-to-many name="accountsById" mapped-by="currencyByCurrencyId"
+                         target-entity="com.taiton.entity.AccountEntity"/>
+            <one-to-many name="exchangesById" mapped-by="currencyByCurrencyOriginal"
+                         target-entity="com.taiton.entity.ExchangeEntity"/>
+            <one-to-many name="exchangesById_0" mapped-by="currencyByCurrencyUltimate"
+                         target-entity="com.taiton.entity.ExchangeEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Collection;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 @Entity
 @Table(name = "card", schema = "taitonbankdb", catalog = "")
@@ -49,7 +49,7 @@ public class CardEntity {
     }
 
     @Basic
-    @Column(name = "Account_Id", nullable = false)
+    @JoinColumn(name = "Account_Id", nullable = false)
     public Integer getAccountId() {
         return accountId;
     }

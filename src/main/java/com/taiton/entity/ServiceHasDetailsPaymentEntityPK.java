@@ -2,16 +2,17 @@ package com.taiton.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import java.io.Serializable;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 public class ServiceHasDetailsPaymentEntityPK implements Serializable {
     private Integer serviceId;
     private Integer detailsPaymentId;
 
-    @Column(name = "Service_Id", nullable = false)
+    @JoinColumn(name = "Service_Id", nullable = false)
     @Id
     public Integer getServiceId() {
         return serviceId;
@@ -21,7 +22,7 @@ public class ServiceHasDetailsPaymentEntityPK implements Serializable {
         this.serviceId = serviceId;
     }
 
-    @Column(name = "Details_Payment_Id", nullable = false)
+    @JoinColumn(name = "Details_Payment_Id", nullable = false)
     @Id
     public Integer getDetailsPaymentId() {
         return detailsPaymentId;

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.taiton.entity.ExchangeEntity">
+        <table name="exchange" schema="taitonbankdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="Id" precision="11"/>
+            </id>
+            <basic name="currencyOriginal">
+                <column name="Currency_Original" precision="11"/>
+            </basic>
+            <basic name="currencyUltimate">
+                <column name="Currency_Ultimate" precision="11"/>
+            </basic>
+            <basic name="ratio">
+                <column name="Ratio" precision="-1"/>
+            </basic>
+            <many-to-one name="currencyByCurrencyOriginal" optional="true"
+                         target-entity="com.taiton.entity.CurrencyEntity">
+                <join-column name="Currency_Original" referenced-column-name="Id"/>
+            </many-to-one>
+            <many-to-one name="currencyByCurrencyUltimate" optional="true"
+                         target-entity="com.taiton.entity.CurrencyEntity">
+                <join-column name="Currency_Ultimate" referenced-column-name="Id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

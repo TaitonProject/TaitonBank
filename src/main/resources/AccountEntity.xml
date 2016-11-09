@@ -32,7 +32,6 @@
             <many-to-one name="clientByClientId" optional="true" target-entity="com.taiton.entity.ClientEntity">
                 <join-column name="Client_id" referenced-column-name="id"/>
             </many-to-one>
-            <one-to-many name="cardsById" mapped-by="accountByAccountId" target-entity="com.taiton.entity.CardEntity"/>
             <one-to-many name="paymentsById" mapped-by="accountByAccountId"
                          target-entity="com.taiton.entity.PaymentEntity"/>
         </attributes>

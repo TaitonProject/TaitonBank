@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.taiton.entity.UserEntity">
+        <table name="user" schema="ibankdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="Id" precision="11"/>
+            </id>
+            <basic name="login">
+                <column name="Login" length="45"/>
+            </basic>
+            <basic name="password">
+                <column name="Password" length="45"/>
+            </basic>
+            <basic name="isBlocked">
+                <column name="IsBlocked" precision="1"/>
+            </basic>
+            <basic name="role">
+                <column name="Role" precision="-1"/>
+            </basic>
+            <one-to-many name="sessionCodesById" mapped-by="userByUserId"
+                         target-entity="com.taiton.entity.SessionCodeEntity"/>
+            <one-to-many name="sessionInformationsById" mapped-by="userByUserId"
+                         target-entity="com.taiton.entity.SessionInformationEntity"/>
+        </attributes>
+    </entity>
+</entity-mappings>

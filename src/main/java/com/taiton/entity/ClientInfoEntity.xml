@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.taiton.entity.ClientInfoEntity">
+        <table name="client_info" schema="taitonbankdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="Id" precision="11"/>
+            </id>
+            <basic name="passportNumber">
+                <column name="Passport_Number" length="9"/>
+            </basic>
+            <basic name="authority">
+                <column name="Authority" length="45"/>
+            </basic>
+            <basic name="dateOfIssue">
+                <column name="Date_Of_Issue" precision="-1"/>
+            </basic>
+            <basic name="clientId">
+                <column name="Client_id" precision="11"/>
+            </basic>
+            <many-to-one name="clientByClientId" optional="true" target-entity="com.taiton.entity.ClientEntity">
+                <join-column name="Client_id" referenced-column-name="id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

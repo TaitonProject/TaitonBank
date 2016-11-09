@@ -2,28 +2,4 @@
 <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
         version="2.0">
 
-    <entity class="com.taiton.entity.CardEntity">
-        <table name="card" schema="taitonbankdb" catalog=""/>
-        <attributes>
-            <id name="id">
-                <column name="Id" precision="11"/>
-            </id>
-            <basic name="cardNumber">
-                <column name="Card_Number" precision="11"/>
-            </basic>
-            <basic name="dateOfExpiry">
-                <column name="Date_Of_Expiry" precision="-1"/>
-            </basic>
-            <basic name="accountId">
-                <column name="Account_Id" precision="11"/>
-            </basic>
-            <many-to-one name="accountByAccountId" optional="true" target-entity="com.taiton.entity.AccountEntity">
-                <join-column name="Account_Id" referenced-column-name="Id"/>
-            </many-to-one>
-            <one-to-many name="transfersById" mapped-by="cardByCardFrom"
-                         target-entity="com.taiton.entity.TransferEntity"/>
-            <one-to-many name="transfersById_0" mapped-by="cardByCardTo"
-                         target-entity="com.taiton.entity.TransferEntity"/>
-        </attributes>
-    </entity>
 </entity-mappings>

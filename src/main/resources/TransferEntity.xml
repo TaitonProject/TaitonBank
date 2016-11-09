@@ -20,12 +20,6 @@
             <basic name="amount">
                 <column name="Amount" precision="-1"/>
             </basic>
-            <many-to-one name="cardByCardFrom" optional="true" target-entity="com.taiton.entity.CardEntity">
-                <join-column name="Card_From" referenced-column-name="Id"/>
-            </many-to-one>
-            <many-to-one name="cardByCardTo" optional="true" target-entity="com.taiton.entity.CardEntity">
-                <join-column name="Card_To" referenced-column-name="Id"/>
-            </many-to-one>
         </attributes>
     </entity>
 </entity-mappings>

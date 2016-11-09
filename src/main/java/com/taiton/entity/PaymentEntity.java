@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 @Entity
 @Table(name = "payment", schema = "taitonbankdb", catalog = "")
@@ -60,7 +60,7 @@ public class PaymentEntity {
     }
 
     @Basic
-    @Column(name = "Account_Id", nullable = false)
+    @JoinColumn(name = "Account_Id", nullable = false)
     public Integer getAccountId() {
         return accountId;
     }
@@ -70,7 +70,7 @@ public class PaymentEntity {
     }
 
     @Basic
-    @Column(name = "Service_Id", nullable = false)
+    @JoinColumn(name = "Service_Id", nullable = false)
     public Integer getServiceId() {
         return serviceId;
     }

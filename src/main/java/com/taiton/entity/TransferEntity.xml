@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.taiton.entity.TransferEntity">
+        <table name="transfer" schema="taitonbankdb" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="Id" precision="11"/>
+            </id>
+            <basic name="cardFrom">
+                <column name="Card_From" precision="11"/>
+            </basic>
+            <basic name="cardTo">
+                <column name="Card_To" precision="11"/>
+            </basic>
+            <basic name="date">
+                <column name="Date" precision="-1"/>
+            </basic>
+            <basic name="amount">
+                <column name="Amount" precision="-1"/>
+            </basic>
+            <many-to-one name="cardByCardFrom" optional="true" target-entity="com.taiton.entity.CardEntity">
+                <join-column name="Card_From" referenced-column-name="Id"/>
+            </many-to-one>
+            <many-to-one name="cardByCardTo" optional="true" target-entity="com.taiton.entity.CardEntity">
+                <join-column name="Card_To" referenced-column-name="Id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

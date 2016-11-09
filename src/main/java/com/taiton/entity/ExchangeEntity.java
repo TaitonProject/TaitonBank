@@ -3,7 +3,7 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 @Entity
 @Table(name = "exchange", schema = "taitonbankdb", catalog = "")
@@ -26,7 +26,7 @@ public class ExchangeEntity {
     }
 
     @Basic
-    @Column(name = "Currency_Original", nullable = false)
+    @JoinColumn(name = "Currency_Original", nullable = false)
     public Integer getCurrencyOriginal() {
         return currencyOriginal;
     }
@@ -36,7 +36,7 @@ public class ExchangeEntity {
     }
 
     @Basic
-    @Column(name = "Currency_Ultimate", nullable = false)
+    @JoinColumn(name = "Currency_Ultimate", nullable = false)
     public Integer getCurrencyUltimate() {
         return currencyUltimate;
     }

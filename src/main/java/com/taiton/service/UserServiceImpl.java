@@ -1,9 +1,11 @@
 package com.taiton.service;
 
 import com.taiton.dao.UserDao;
+import com.taiton.entity.RoleEntityEnum;
 import com.taiton.entity.UserEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,38 +15,21 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService{
 
-    private UserDao UserDao;
+    @Autowired
+    private UserDao userDao;
 
-    public void setUserDAO(UserDao userDAO) {
-        this.UserDao = userDAO;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Override
+    public void save(UserEntity user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setRole(RoleEntityEnum.CLIENT);
+        userDao.save(user);
     }
 
-    @Transactional
-    public void addUser(UserEntity user) {
-        this.UserDao.addUser(user);
-    }
-
-    @Transactional
-    public void updateUser(UserEntity user) {
-        this.UserDao.updateUser(user);
-    }
-
-    @Transactional
-    public List<UserEntity> listUsers() {
-        return this.UserDao.listUsers();
-    }
-
-    @Transactional
-    public UserEntity getUserById(int id) {
-        return this.UserDao.getUserById(id);
-    }
-
-    @Transactional
-    public void removeUser(int id) {
-        this.UserDao.removeUser(id);
-    }
-
-    public UserEntity findByLoginAndPassword(String login, String password) {
-        return null;
+    @Override
+    public UserEntity findByLogin(String login) {
+        return userDao.findByLogin(login);
     }
 }

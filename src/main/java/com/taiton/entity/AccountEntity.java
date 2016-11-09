@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 @Entity
 @Table(name = "account", schema = "taitonbankdb", catalog = "")
@@ -52,7 +52,7 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "Currency_Id", nullable = false)
+    @JoinColumn(name = "Currency_Id", nullable = false)
     public Integer getCurrencyId() {
         return currencyId;
     }
@@ -62,7 +62,7 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "Organiztaion_Id", nullable = true)
+    @JoinColumn(name = "Organiztaion_Id", nullable = true)
     public Integer getOrganiztaionId() {
         return organiztaionId;
     }
@@ -72,7 +72,7 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "Client_id", nullable = false)
+    @JoinColumn(name = "Client_id", nullable = false)
     public Integer getClientId() {
         return clientId;
     }

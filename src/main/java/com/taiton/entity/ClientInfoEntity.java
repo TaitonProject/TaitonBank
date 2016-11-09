@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by Taiton on 11/4/2016.
+ * Created by Taiton on 11/9/2016.
  */
 @Entity
 @Table(name = "client_info", schema = "taitonbankdb", catalog = "")
@@ -57,7 +57,7 @@ public class ClientInfoEntity {
     }
 
     @Basic
-    @Column(name = "Client_id", nullable = false)
+    @JoinColumn(name = "Client_id", nullable = false)
     public Integer getClientId() {
         return clientId;
     }
