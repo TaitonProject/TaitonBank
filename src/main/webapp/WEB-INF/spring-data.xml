@@ -40,5 +40,5 @@
 
     <tx:annotation-driven/>
 
-    <jpa:repositories base-package="com.taiton.entity" />
+    <jpa:repositories base-package="com.taiton.dao" />
 </beans>

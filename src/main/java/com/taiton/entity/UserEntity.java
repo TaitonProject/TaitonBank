@@ -18,6 +18,9 @@ public class UserEntity {
     private RoleEntityEnum role;
     private Collection<SessionCodeEntity> sessionCodesById;
     private Collection<SessionInformationEntity> sessionInformationsById;
+
+
+    @Transient
     private String confirmPassword;
 
     @Id
