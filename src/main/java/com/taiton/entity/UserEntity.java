@@ -15,6 +15,7 @@ public class UserEntity {
     private String login;
     private String password;
     private Byte isBlocked;
+    @Enumerated(EnumType.STRING)
     private RoleEntityEnum role;
     private Collection<SessionCodeEntity> sessionCodesById;
     private Collection<SessionInformationEntity> sessionInformationsById;
@@ -24,6 +25,7 @@ public class UserEntity {
     private String confirmPassword;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id", nullable = false)
     public Integer getId() {
         return id;
@@ -65,6 +67,7 @@ public class UserEntity {
 
     @Basic
     @Column(name = "Role", nullable = false)
+    @Enumerated(EnumType.STRING)
     public RoleEntityEnum getRole() {
         return role;
     }
@@ -117,6 +120,7 @@ public class UserEntity {
         this.sessionInformationsById = sessionInformationsById;
     }
 
+    @Transient
     public String getConfirmPassword() {
         return confirmPassword;
     }
