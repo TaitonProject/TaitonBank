@@ -10,8 +10,8 @@
 
     <mvc:annotation-driven />
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
-
+    <!--<mvc:resources mapping="/resources/**" location="/resources/" />-->
+    <mvc:resources mapping="WEB-INF/pages/mainAuthorization/**" location="WEB-INF/pages/mainAuthorization/" />
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
