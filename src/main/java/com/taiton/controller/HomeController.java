@@ -49,7 +49,7 @@ public class HomeController {
         return "redirect:/welcome";
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
         if (error != null) {
             model.addAttribute("error", "Username or password is incorrect.");
@@ -60,7 +60,7 @@ public class HomeController {
         }
 
         return "index";
-    }
+    }*/
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
@@ -72,7 +72,10 @@ public class HomeController {
         return "admin";
     }
 
-
+    @RequestMapping(value = "index", method = RequestMethod.GET)
+    public String home(){
+        return "index";
+    }
 
 
 /*    @RequestMapping(value = "/registration", method = RequestMethod.GET)
