@@ -88,10 +88,10 @@
         <div id="modal-test" class="modal-container">
             <div class="shade"></div>
 
-                    <form class="sign-up">
+                    <form class="sign-up" method="post" action="/submit" modelAttribute="userForm">
                         <h1 class="sign-up-title">Вход в банк</h1>
-                        <input type="text" class="sign-up-input" placeholder="Имя пользователя" autofocus>
-                        <input type="password" class="sign-up-input" placeholder="Введите пароль">
+                        <input type="text" name="name" class="sign-up-input" placeholder="Имя пользователя" autofocus>
+                        <input type="password" name="password" class="sign-up-input" placeholder="Введите пароль">
                         <input type="submit" value="Войти!" class="sign-up-button icon-arrow-right">
                         <div class="popup-icon close-modal">x</div>
                     </form>
