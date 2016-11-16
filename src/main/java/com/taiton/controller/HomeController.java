@@ -27,6 +27,11 @@ public class HomeController {
     @Autowired
     private UserValidator userValidator;
 
+    @RequestMapping(value = "/bubu", method = RequestMethod.GET)
+    public String bubu(Model model) {
+        return "bubu";
+    }
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new UserEntity());
