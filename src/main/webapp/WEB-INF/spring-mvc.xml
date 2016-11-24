@@ -14,6 +14,13 @@
     <mvc:resources mapping="/img/**" location="/WEB-INF/pages/mainAuthorization/img/" />
     <mvc:resources mapping="/libs/**" location="/WEB-INF/pages/mainAuthorization/libs/" />
     <mvc:resources mapping="/WEB-INF/pages/mainAuthorization/**" location="/WEB-INF/pages/mainAuthorization/" />
+
+    <mvc:resources mapping="/js/**" location="/WEB-INF/pages/registration/js/" />
+    <mvc:resources mapping="/css/**" location="/WEB-INF/pages/registration/css/" />
+    <!--<mvc:resources mapping="/img/**" location="/WEB-INF/pages/registration/img/" />-->
+    <mvc:resources mapping="/libs/**" location="/WEB-INF/pages/registration/libs/" />
+    <mvc:resources mapping="/WEB-INF/pages/registration/**" location="/WEB-INF/pages/registration/" />
+
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
@@ -23,8 +30,8 @@
     </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/mainAuthorization/"/>
-        <property name="suffix" value=".html"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
 

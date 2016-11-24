@@ -27,16 +27,11 @@ public class HomeController {
     @Autowired
     private UserValidator userValidator;
 
-    @RequestMapping(value = "/bubu", method = RequestMethod.GET)
-    public String bubu(Model model) {
-        return "bubu";
-    }
-
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new UserEntity());
 
-        return "registration";
+        return "registration/registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
@@ -44,65 +39,14 @@ public class HomeController {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "registration/registration";
         }
 
         userService.save(userForm);
 
         securityService.autoLogin(userForm.getLogin(), userForm.getConfirmPassword());
 
-        return "redirect:/welcome";
-    }
-
-/*    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) {
-        if (error != null) {
-            model.addAttribute("error", "Username or password is incorrect.");
-        }
-
-        if (logout != null) {
-            model.addAttribute("message", "Logged out successfully.");
-        }
-
-        return "index";
-    }*/
-
-    @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
-    public String welcome(Model model) {
-        return "welcome";
-    }
-
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin(Model model) {
-        return "admin";
-    }
-
-    @RequestMapping(value = "index", method = RequestMethod.GET)
-    public String home(){
-        return "index";
-    }
-
-
-/*    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(Model model) {
-        model.addAttribute("userForm", new UserEntity());
-
-        return "registration";
-    }
-
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") UserEntity userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
-
-        if (bindingResult.hasErrors()) {
-            return "registration";
-        }
-
-        userService.save(userForm);
-
-        securityService.autoLogin(userForm.getLogin(), userForm.getConfirmPassword());
-
-        return "redirect:/welcome";
+        return "redirect:/home";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -115,29 +59,17 @@ public class HomeController {
             model.addAttribute("message", "Logged out successfully.");
         }
 
-        return "login";
+        return "mainAuthorization/login";
     }
 
-    @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/home"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        return "welcome";
+        return "home/home";
     }
+
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(Model model) {
-        return "admin";
-    }*/
-
-
-
-//    @RequestMapping(value = "/home", method = RequestMethod.GET)
-//    public String home(){
-//        return "login";
-//    }
-//
-//    @RequestMapping(value = "/", method = RequestMethod.POST)
-//    public String login(@ModelAttribute("user")UserEntity user){
-//        return "login2";
-//    }
-
+        return "admin/admin";
+    }
 }

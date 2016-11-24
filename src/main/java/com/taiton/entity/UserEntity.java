@@ -1,37 +1,31 @@
 package com.taiton.entity;
 
-import org.hibernate.internal.util.compare.EqualsHelper;
-
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 11/23/2016.
  */
 @Entity
-@Table(name = "user", schema = "ibankdb", catalog = "")
+@Table(name = "users", schema = "ibankdb", catalog = "")
 public class UserEntity {
-    private Integer id;
+    private Long id;
     private String login;
     private String password;
+
+    private transient String confirmPassword;
     private Byte isBlocked;
-    @Enumerated(EnumType.STRING)
-    private RoleEntityEnum role;
-    private Collection<SessionCodeEntity> sessionCodesById;
-    private Collection<SessionInformationEntity> sessionInformationsById;
 
-
-    @Transient
-    private String confirmPassword;
+    private Set<RolesEntity> roles;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id", nullable = false)
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,7 +40,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "Password", nullable = false, length = 45)
+    @Column(name = "Password", nullable = false, length = 255)
     public String getPassword() {
         return password;
     }
@@ -65,17 +59,6 @@ public class UserEntity {
         this.isBlocked = isBlocked;
     }
 
-    @Basic
-    @Column(name = "Role", nullable = false)
-    @Enumerated(EnumType.STRING)
-    public RoleEntityEnum getRole() {
-        return role;
-    }
-
-    public void setRole(RoleEntityEnum role) {
-        this.role = role;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,7 +70,6 @@ public class UserEntity {
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (isBlocked != null ? !isBlocked.equals(that.isBlocked) : that.isBlocked != null) return false;
-        if (role != that.role) return false;
 
         return true;
     }
@@ -98,26 +80,7 @@ public class UserEntity {
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (isBlocked != null ? isBlocked.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<SessionCodeEntity> getSessionCodesById() {
-        return sessionCodesById;
-    }
-
-    public void setSessionCodesById(Collection<SessionCodeEntity> sessionCodesById) {
-        this.sessionCodesById = sessionCodesById;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<SessionInformationEntity> getSessionInformationsById() {
-        return sessionInformationsById;
-    }
-
-    public void setSessionInformationsById(Collection<SessionInformationEntity> sessionInformationsById) {
-        this.sessionInformationsById = sessionInformationsById;
     }
 
     @Transient
@@ -128,4 +91,17 @@ public class UserEntity {
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
+
+    @ManyToMany
+    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+
+    public Set<RolesEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RolesEntity> roles) {
+        this.roles = roles;
+    }
+
 }
