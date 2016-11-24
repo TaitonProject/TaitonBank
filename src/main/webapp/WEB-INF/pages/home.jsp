@@ -1,30 +1,37 @@
-здесь нужно написать стартовую страницу, с полями login и password
-<%--
-  Created by IntelliJ IDEA.
-  User: Taiton
-  Date: 02.10.16
-  Time: 03:46
-  To change this template use File | Settings | File Templates.
---%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel='stylesheet' href='resources/css/login.css' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-  <title>Ну типа вот</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Welcome</title>
+
+  <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<div id="login_container">
-  <div id="form_container">
-    <p class="login-text">Sign in to Internet banking</p>
-    <form:form method='POST' modelAttribute="user" action="submit" enctype="application/x-www-form-urlencoded">
-      <form:input path="login" class='text_input' placeholder="login" aria-required="please enter login" />
-      <form:input path="password" aria-required="please enter password" type='password' class='text_input' placeholder="password" />
-      <form:button id='submit'>Submit</form:button>
-    </form:form>
-  </div>
+<body>
+
+<div class="container">
+
+  <c:if test="${pageContext.request.userPrincipal.name != null}">
+    <form id="logoutForm" method="POST" action="${contextPath}/logout">
+      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
+    <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
+    </h2>
+
+  </c:if>
+
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

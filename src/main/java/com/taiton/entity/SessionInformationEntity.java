@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 11/25/2016.
  */
 @Entity
 @Table(name = "session_information", schema = "ibankdb", catalog = "")
@@ -12,7 +12,6 @@ public class SessionInformationEntity {
     private Integer id;
     private Timestamp sessionStart;
     private Timestamp sessionEnd;
-    private Integer userId;
     private UserEntity userByUserId;
 
     @Id
@@ -45,16 +44,6 @@ public class SessionInformationEntity {
         this.sessionEnd = sessionEnd;
     }
 
-    @Basic
-    @JoinColumn(name = "User_Id", nullable = false)
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,7 +54,6 @@ public class SessionInformationEntity {
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (sessionStart != null ? !sessionStart.equals(that.sessionStart) : that.sessionStart != null) return false;
         if (sessionEnd != null ? !sessionEnd.equals(that.sessionEnd) : that.sessionEnd != null) return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
 
         return true;
     }
@@ -75,7 +63,6 @@ public class SessionInformationEntity {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (sessionStart != null ? sessionStart.hashCode() : 0);
         result = 31 * result + (sessionEnd != null ? sessionEnd.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
     }
 

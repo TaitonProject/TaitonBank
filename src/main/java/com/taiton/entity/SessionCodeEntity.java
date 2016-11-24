@@ -3,7 +3,7 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 11/25/2016.
  */
 @Entity
 @Table(name = "session_code", schema = "ibankdb", catalog = "")
@@ -11,7 +11,6 @@ public class SessionCodeEntity {
     private Integer idSessionCode;
     private Integer sessionCode;
     private Integer sessionCodeNumber;
-    private Integer userId;
     private UserEntity userByUserId;
 
     @Id
@@ -44,16 +43,6 @@ public class SessionCodeEntity {
         this.sessionCodeNumber = sessionCodeNumber;
     }
 
-    @Basic
-    @JoinColumn(name = "User_Id", nullable = false)
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -66,7 +55,6 @@ public class SessionCodeEntity {
         if (sessionCode != null ? !sessionCode.equals(that.sessionCode) : that.sessionCode != null) return false;
         if (sessionCodeNumber != null ? !sessionCodeNumber.equals(that.sessionCodeNumber) : that.sessionCodeNumber != null)
             return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
 
         return true;
     }
@@ -76,7 +64,6 @@ public class SessionCodeEntity {
         int result = idSessionCode != null ? idSessionCode.hashCode() : 0;
         result = 31 * result + (sessionCode != null ? sessionCode.hashCode() : 0);
         result = 31 * result + (sessionCodeNumber != null ? sessionCodeNumber.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
     }
 

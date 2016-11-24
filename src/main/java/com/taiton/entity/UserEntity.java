@@ -1,36 +1,43 @@
 package com.taiton.entity;
 
 import javax.persistence.*;
-import java.util.Set;
 
 /**
- * Created by Taiton on 11/23/2016.
+ * Created by Taiton on 11/25/2016.
  */
 @Entity
-@Table(name = "users", schema = "ibankdb", catalog = "")
+@Table(name = "user", schema = "ibankdb", catalog = "")
 public class UserEntity {
-    private Long id;
+    private Integer id;
     private String login;
     private String password;
-
-    private transient String confirmPassword;
     private Byte isBlocked;
+    private RolesEntity role;
+    private transient String confirmPassword;
 
-    private Set<RolesEntity> roles;
+    @Transient
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id", nullable = false)
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Login", nullable = false, length = 45)
+    @Column(name = "Login", nullable = true, length = 45)
     public String getLogin() {
         return login;
     }
@@ -40,7 +47,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "Password", nullable = false, length = 255)
+    @Column(name = "Password", nullable = false, length = 45)
     public String getPassword() {
         return password;
     }
@@ -83,25 +90,13 @@ public class UserEntity {
         return result;
     }
 
-    @Transient
-    public String getConfirmPassword() {
-        return confirmPassword;
+    @ManyToOne
+    @JoinColumn(name = "Role_idRole", referencedColumnName = "Id", nullable = false)
+    public RolesEntity getRole() {
+        return role;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setRole(RolesEntity roleByRoleIdRole) {
+        this.role = roleByRoleIdRole;
     }
-
-    @ManyToMany
-    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-
-    public Set<RolesEntity> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<RolesEntity> roles) {
-        this.roles = roles;
-    }
-
 }
