@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void save(UserEntity user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRole(roleDao.findOne(1L));
+        user.setRole(roleDao.findOne(3L));
         user.setIsBlocked((byte) 0);
         userDao.save(user);
     }

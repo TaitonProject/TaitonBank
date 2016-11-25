@@ -8,16 +8,17 @@ import javax.persistence.*;
 @Entity
 @Table(name = "role", schema = "ibankdb", catalog = "")
 public class RolesEntity {
-    private Integer id;
+    private Long id;
     private String nameRole;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id", nullable = false)
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
