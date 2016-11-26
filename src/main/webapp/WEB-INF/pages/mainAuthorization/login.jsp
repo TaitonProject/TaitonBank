@@ -39,6 +39,9 @@
            <div class="container">
                <h1 class="main-title">Taiton Bank <br>всегда с вами!</h1>
                 <button class="test-popup-btn center-popup-btn">Войти в банк</button>
+               <i class="fa fa-line-chart" aria-hidden="true"></i><i class="fa fa-line-chart" aria-hidden="true"></i><i class="fa fa-line-chart" aria-hidden="true"></i>
+
+
            </div>
        </section>
         <section class="about-us">
