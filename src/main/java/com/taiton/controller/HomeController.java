@@ -44,7 +44,7 @@ public class HomeController {
 
         userService.save(userForm);
 
-        securityService.autoLogin(userForm.getLogin(), userForm.getConfirmPassword());
+        securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
 
         return "redirect:/home";
     }

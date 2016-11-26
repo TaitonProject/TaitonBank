@@ -25,13 +25,13 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         UserEntity user = (UserEntity) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "Required");
-        if (user.getLogin().length() < 8 || user.getLogin().length() > 32) {
-            errors.rejectValue("login", "Size.userForm.login");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Required");
+        if (user.getUsername().length() < 8 || user.getUsername().length() > 32) {
+            errors.rejectValue("username", "Size.userForm.username");
         }
 
-        if (userService.findByLogin(user.getLogin()) != null) {
-            errors.rejectValue("login", "Duplicate.userForm.login");
+        if (userService.findByUsername(user.getUsername()) != null) {
+            errors.rejectValue("username", "Duplicate.userForm.username");
         }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");

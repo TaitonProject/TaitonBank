@@ -95,21 +95,21 @@
 
         <!--popup-block-->
 
-<%--        <div id="modal-test" class="modal-container">
+      <%--  <div id="modal-test" class="modal-container">
             <div class="shade"></div>
 
-                    <form class="sign-up" method="post" action="/submit" modelAttribute="userForm">
+                    <form class="sign-up" method="post" action="/login" modelAttribute="userForm">
                         <h1 class="sign-up-title">Вход в банк</h1>
                         <input type="text" name="name" class="sign-up-input" placeholder="Имя пользователя" autofocus>
                         <input type="password" name="password" class="sign-up-input" placeholder="Введите пароль">
-                        <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <input type="submit" value="Войти!" class="sign-up-button icon-arrow-right">
                         <div class="popup-icon close-modal">x</div>
                     </form>
 
         </div>--%>
 
-        <div id="modal-test" class="modal-container">
+<%--        <div id="modal-test" class="modal-container">
             <div class="shade"></div>
             <form method="POST" action="${contextPath}/login" class="sign-up">
                 <h1 class="sign-up-title">Вход в банк</h1>
@@ -123,21 +123,45 @@
 
                     <button class="sign-up-button icon-arrow-right" type="submit">Log In</button>
                     <div class="popup-icon close-modal">x</div>
-                    <%--<h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>--%>
+                    &lt;%&ndash;<h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>&ndash;%&gt;
+                </div>
+
+            </form>
+
+        </div>--%>
+
+        <div class="container">
+
+            <form method="POST" action="${contextPath}/login" class="form-signin">
+                <h2 class="form-heading">Log in</h2>
+
+                <div class="form-group ${error != null ? 'has-error' : ''}">
+                    <span>${message}</span>
+                    <input name="username" type="text" class="form-control" placeholder="Username"
+                           autofocus="true"/>
+                    <input name="password" type="password" class="form-control" placeholder="Password"/>
+                    <span>${error}</span>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+                    <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
                 </div>
 
             </form>
 
         </div>
 
+        <body>
 
-        <%--<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>--%>
+
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <%--<script src="libs/less.min.js"></script>--%>
+        <%--<script src="js/main.js"></script>--%>
+        <script src="libs/less.min.js"></script>
         <script src="js/popup.js"></script>
-        <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>--%>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

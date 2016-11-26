@@ -3,7 +3,8 @@ var xhr = new XMLHttpRequest();
 var body = 'name=' + encodeURIComponent(name) +
     '&password=' + encodeURIComponent(password);
 
-xhr.open("POST", '/home', true)
+
+xhr.open("POST", '/login', true)
 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 
 xhr.onreadystatechange = function() {

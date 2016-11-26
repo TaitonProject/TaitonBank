@@ -9,6 +9,6 @@ public interface UserService {
 
     void save(UserEntity userEntity);
 
-    UserEntity findByLogin(String login);
+    UserEntity findByUsername(String username);
 
 }
