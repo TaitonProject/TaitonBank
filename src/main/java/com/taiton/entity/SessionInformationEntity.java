@@ -7,7 +7,7 @@ import java.sql.Timestamp;
  * Created by Taiton on 11/25/2016.
  */
 @Entity
-@Table(name = "session_information", schema = "ibankdb", catalog = "")
+@Table(name = "session_information", schema = "heroku_893975b12603774", catalog = "")
 public class SessionInformationEntity {
     private Integer id;
     private Timestamp sessionStart;
