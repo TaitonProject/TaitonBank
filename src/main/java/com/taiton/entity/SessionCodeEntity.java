@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Taiton on 11/25/2016.
  */
 @Entity
-@Table(name = "session_code", schema = "ibankdb", catalog = "")
+@Table(name = "session_code", schema = "heroku_893975b12603774", catalog = "")
 public class SessionCodeEntity {
     private Integer idSessionCode;
     private Integer sessionCode;

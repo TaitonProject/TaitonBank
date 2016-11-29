@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Taiton on 11/25/2016.
  */
 @Entity
-@Table(name = "role", schema = "ibankdb", catalog = "")
+@Table(name = "role", schema = "heroku_893975b12603774", catalog = "")
 public class RolesEntity {
     private Long id;
     private String nameRole;

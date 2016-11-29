@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by Taiton on 11/25/2016.
  */
 @Entity
-@Table(name = "user", schema = "ibankdb", catalog = "")
+@Table(name = "user", schema = "heroku_893975b12603774", catalog = "")
 public class UserEntity {
     private Integer id;
     private String username;
