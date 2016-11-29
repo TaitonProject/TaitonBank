@@ -69,7 +69,7 @@ public class HomeController {
         return "mainAuthorization/login";
     }
 
-    @RequestMapping(value = {"/home"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public String welcome(Model model) {
         return "home/home";
     }
