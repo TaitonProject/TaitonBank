@@ -1,8 +1,10 @@
 package com.taiton.controller;
 
+import com.taiton.entity.RolesEntity;
 import com.taiton.entity.UserEntity;
 import com.taiton.service.SecurityService;
 import com.taiton.service.UserService;
+import com.taiton.validator.RoleValidator;
 import com.taiton.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,18 +29,23 @@ public class HomeController {
     @Autowired
     private UserValidator userValidator;
 
+    @Autowired
+    private RoleValidator roleValidator;
+
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new UserEntity());
-
+//        model.addAttribute("role", new String());
         return "registration/registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") UserEntity userForm, BindingResult bindingResult, Model model) {
         userValidator.validate(userForm, bindingResult);
+//        roleValidator.validate(role, bindingResultRole);
 
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors() /*|| bindingResultRole.hasErrors()*/) {
             return "registration/registration";
         }
 

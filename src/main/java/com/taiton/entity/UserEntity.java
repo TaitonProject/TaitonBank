@@ -15,6 +15,17 @@ public class UserEntity {
     private RolesEntity role;
     private transient String confirmPassword;
 
+    private transient String roleName;
+
+    @Transient
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
     @Transient
     public String getConfirmPassword() {
         return confirmPassword;

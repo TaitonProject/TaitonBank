@@ -21,33 +21,54 @@
 
         <div  id="registration-form" class="modal-container" >
 
-            <form:form method="POST" modelAttribute="userForm" class="form-signin">
+            <form id="formRegistration" method="POST" class="form-signin">
                 <h2 class="form-signin-heading">Create your account</h2>
-                <spring:bind path="username">
+                <spring:bind path="userForm.username">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="text" path="username" class="form-control" placeholder="Username"
-                                    autofocus="true"></form:input>
-                        <form:errors path="username"></form:errors>
+                        <input type="text" name="${status.expression}" value="${status.value}" class="form-control" placeholder="Username"
+                                    autofocus="true">
+                        <errors path="username"></errors>
                     </div>
                 </spring:bind>
 
-                <spring:bind path="password">
+                <spring:bind path="userForm.password">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
-                        <form:errors path="password"></form:errors>
+                        <input type="password" name="${status.expression}" value="${status.value}" class="form-control" placeholder="Password">
+                        <errors path="password"></errors>
                     </div>
                 </spring:bind>
 
-                <spring:bind path="confirmPassword">
+                <spring:bind path="userForm.confirmPassword">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:input type="password" path="confirmPassword" class="form-control"
-                                    placeholder="Confirm your password"></form:input>
-                        <form:errors path="confirmPassword"></form:errors>
+                        <input type="password" name="${status.expression}" value="${status.value}" class="form-control"
+                                    placeholder="Confirm your password">
+                        <errors path="confirmPassword"></errors>
                     </div>
                 </spring:bind>
+
+                <%--<spring:bind path="role">--%>
+                    <%--<div class="form-group ${status.error ? 'has-error' : ''}">
+                        <form:radiobutton path="role" value="client" name="client" class="form-control"/>Client
+                        <form:radiobutton path="role" value="operator" name="client" class="form-control"/>Operator
+                        <form:radiobutton path="role" value="administration" name="client" class="form-control"/>Administration
+                    </div>--%>
+                <%--</spring:bind>--%>
+
+                <spring:bind path="userForm.roleName">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        <select form="formRegistration" name="Выберите роль" required size="1">
+                            <option value="client">Клиент</option>
+                            <option value="operator">Оператор</option>
+                            <option value="administration">Администратор</option>
+                        </select>
+                        <errors path="role"></errors>
+                    </div>
+                </spring:bind>
+
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-            </form:form>
+            </form>
 
         </div>
 
