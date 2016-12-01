@@ -1,43 +1,39 @@
 package com.taiton.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
-@Table(name = "service", schema = "taitonbankdb", catalog = "")
+@Table(name = "service", schema = "heroku_893975b12603774", catalog = "")
 public class ServiceEntity {
-    private Integer id;
-    private Double comission;
+    private int id;
+    private double comission;
     private String name;
-    private Collection<AccountEntity> accountsById;
-    private Collection<PaymentEntity> paymentsById;
-    private Collection<ServiceHasDetailsPaymentEntity> serviceHasDetailsPaymentsById;
 
     @Id
-    @Column(name = "Id", nullable = false)
-    public Integer getId() {
+    @Column(name = "Id")
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Comission", nullable = false, precision = 0)
-    public Double getComission() {
+    @Column(name = "Comission")
+    public double getComission() {
         return comission;
     }
 
-    public void setComission(Double comission) {
+    public void setComission(double comission) {
         this.comission = comission;
     }
 
     @Basic
-    @Column(name = "Name", nullable = false, length = 45)
+    @Column(name = "Name")
     public String getName() {
         return name;
     }
@@ -53,8 +49,8 @@ public class ServiceEntity {
 
         ServiceEntity that = (ServiceEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (comission != null ? !comission.equals(that.comission) : that.comission != null) return false;
+        if (id != that.id) return false;
+        if (Double.compare(that.comission, comission) != 0) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
@@ -62,36 +58,12 @@ public class ServiceEntity {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (comission != null ? comission.hashCode() : 0);
+        int result;
+        long temp;
+        result = id;
+        temp = Double.doubleToLongBits(comission);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "serviceByOrganiztaionId")
-    public Collection<AccountEntity> getAccountsById() {
-        return accountsById;
-    }
-
-    public void setAccountsById(Collection<AccountEntity> accountsById) {
-        this.accountsById = accountsById;
-    }
-
-    @OneToMany(mappedBy = "serviceByServiceId")
-    public Collection<PaymentEntity> getPaymentsById() {
-        return paymentsById;
-    }
-
-    public void setPaymentsById(Collection<PaymentEntity> paymentsById) {
-        this.paymentsById = paymentsById;
-    }
-
-    @OneToMany(mappedBy = "serviceByServiceId")
-    public Collection<ServiceHasDetailsPaymentEntity> getServiceHasDetailsPaymentsById() {
-        return serviceHasDetailsPaymentsById;
-    }
-
-    public void setServiceHasDetailsPaymentsById(Collection<ServiceHasDetailsPaymentEntity> serviceHasDetailsPaymentsById) {
-        this.serviceHasDetailsPaymentsById = serviceHasDetailsPaymentsById;
     }
 }

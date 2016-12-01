@@ -4,28 +4,27 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Taiton on 11/25/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
 @Table(name = "session_information", schema = "heroku_893975b12603774", catalog = "")
 public class SessionInformationEntity {
-    private Integer id;
+    private int id;
     private Timestamp sessionStart;
     private Timestamp sessionEnd;
-    private UserEntity userByUserId;
 
     @Id
-    @Column(name = "Id", nullable = false)
-    public Integer getId() {
+    @Column(name = "Id")
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Session_Start", nullable = false)
+    @Column(name = "Session_Start")
     public Timestamp getSessionStart() {
         return sessionStart;
     }
@@ -35,7 +34,7 @@ public class SessionInformationEntity {
     }
 
     @Basic
-    @Column(name = "Session_End", nullable = false)
+    @Column(name = "Session_End")
     public Timestamp getSessionEnd() {
         return sessionEnd;
     }
@@ -51,7 +50,7 @@ public class SessionInformationEntity {
 
         SessionInformationEntity that = (SessionInformationEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
         if (sessionStart != null ? !sessionStart.equals(that.sessionStart) : that.sessionStart != null) return false;
         if (sessionEnd != null ? !sessionEnd.equals(that.sessionEnd) : that.sessionEnd != null) return false;
 
@@ -60,19 +59,9 @@ public class SessionInformationEntity {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (sessionStart != null ? sessionStart.hashCode() : 0);
         result = 31 * result + (sessionEnd != null ? sessionEnd.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "User_Id", referencedColumnName = "Id", nullable = false)
-    public UserEntity getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
     }
 }

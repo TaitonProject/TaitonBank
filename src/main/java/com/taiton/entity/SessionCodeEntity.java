@@ -3,43 +3,42 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by Taiton on 11/25/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
 @Table(name = "session_code", schema = "heroku_893975b12603774", catalog = "")
 public class SessionCodeEntity {
-    private Integer idSessionCode;
-    private Integer sessionCode;
-    private Integer sessionCodeNumber;
-    private UserEntity userByUserId;
+    private int idSessionCode;
+    private int sessionCode;
+    private int sessionCodeNumber;
 
     @Id
-    @Column(name = "Id_Session_Code", nullable = false)
-    public Integer getIdSessionCode() {
+    @Column(name = "Id_Session_Code")
+    public int getIdSessionCode() {
         return idSessionCode;
     }
 
-    public void setIdSessionCode(Integer idSessionCode) {
+    public void setIdSessionCode(int idSessionCode) {
         this.idSessionCode = idSessionCode;
     }
 
     @Basic
-    @Column(name = "Session_Code", nullable = false)
-    public Integer getSessionCode() {
+    @Column(name = "Session_Code")
+    public int getSessionCode() {
         return sessionCode;
     }
 
-    public void setSessionCode(Integer sessionCode) {
+    public void setSessionCode(int sessionCode) {
         this.sessionCode = sessionCode;
     }
 
     @Basic
-    @Column(name = "Session_Code_Number", nullable = false)
-    public Integer getSessionCodeNumber() {
+    @Column(name = "Session_Code_Number")
+    public int getSessionCodeNumber() {
         return sessionCodeNumber;
     }
 
-    public void setSessionCodeNumber(Integer sessionCodeNumber) {
+    public void setSessionCodeNumber(int sessionCodeNumber) {
         this.sessionCodeNumber = sessionCodeNumber;
     }
 
@@ -50,30 +49,18 @@ public class SessionCodeEntity {
 
         SessionCodeEntity that = (SessionCodeEntity) o;
 
-        if (idSessionCode != null ? !idSessionCode.equals(that.idSessionCode) : that.idSessionCode != null)
-            return false;
-        if (sessionCode != null ? !sessionCode.equals(that.sessionCode) : that.sessionCode != null) return false;
-        if (sessionCodeNumber != null ? !sessionCodeNumber.equals(that.sessionCodeNumber) : that.sessionCodeNumber != null)
-            return false;
+        if (idSessionCode != that.idSessionCode) return false;
+        if (sessionCode != that.sessionCode) return false;
+        if (sessionCodeNumber != that.sessionCodeNumber) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = idSessionCode != null ? idSessionCode.hashCode() : 0;
-        result = 31 * result + (sessionCode != null ? sessionCode.hashCode() : 0);
-        result = 31 * result + (sessionCodeNumber != null ? sessionCodeNumber.hashCode() : 0);
+        int result = idSessionCode;
+        result = 31 * result + sessionCode;
+        result = 31 * result + sessionCodeNumber;
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "User_Id", referencedColumnName = "Id", nullable = false)
-    public UserEntity getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(UserEntity userByUserId) {
-        this.userByUserId = userByUserId;
     }
 }

@@ -3,27 +3,26 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by Taiton on 11/25/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
 @Table(name = "role", schema = "heroku_893975b12603774", catalog = "")
-public class RolesEntity {
-    private Long id;
+public class RoleEntity {
+    private int id;
     private String nameRole;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id", nullable = false)
-    public Long getId() {
+    @Column(name = "Id")
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Name_Role", nullable = false, length = 45)
+    @Column(name = "Name_Role")
     public String getNameRole() {
         return nameRole;
     }
@@ -37,9 +36,9 @@ public class RolesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RolesEntity that = (RolesEntity) o;
+        RoleEntity that = (RoleEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
         if (nameRole != null ? !nameRole.equals(that.nameRole) : that.nameRole != null) return false;
 
         return true;
@@ -47,7 +46,7 @@ public class RolesEntity {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (nameRole != null ? nameRole.hashCode() : 0);
         return result;
     }

@@ -1,33 +1,31 @@
 package com.taiton.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
-@Table(name = "currency", schema = "taitonbankdb", catalog = "")
+@Table(name = "currency", schema = "heroku_893975b12603774", catalog = "")
 public class CurrencyEntity {
-    private Integer id;
+    private int id;
     private String name;
-    private Integer code;
-    private Collection<AccountEntity> accountsById;
-    private Collection<ExchangeEntity> exchangesById;
-    private Collection<ExchangeEntity> exchangesById_0;
+    private int code;
+    private double priceBuy;
+    private double priceSell;
 
     @Id
-    @Column(name = "Id", nullable = false)
-    public Integer getId() {
+    @Column(name = "Id")
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Name", nullable = false, length = 3)
+    @Column(name = "Name")
     public String getName() {
         return name;
     }
@@ -37,13 +35,33 @@ public class CurrencyEntity {
     }
 
     @Basic
-    @Column(name = "Code", nullable = false)
-    public Integer getCode() {
+    @Column(name = "Code")
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
+    }
+
+    @Basic
+    @Column(name = "Price_Buy")
+    public double getPriceBuy() {
+        return priceBuy;
+    }
+
+    public void setPriceBuy(double priceBuy) {
+        this.priceBuy = priceBuy;
+    }
+
+    @Basic
+    @Column(name = "Price_Sell")
+    public double getPriceSell() {
+        return priceSell;
+    }
+
+    public void setPriceSell(double priceSell) {
+        this.priceSell = priceSell;
     }
 
     @Override
@@ -53,45 +71,26 @@ public class CurrencyEntity {
 
         CurrencyEntity that = (CurrencyEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
+        if (code != that.code) return false;
+        if (Double.compare(that.priceBuy, priceBuy) != 0) return false;
+        if (Double.compare(that.priceSell, priceSell) != 0) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
-        if (code != null ? !code.equals(that.code) : that.code != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result;
+        long temp;
+        result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (code != null ? code.hashCode() : 0);
+        result = 31 * result + code;
+        temp = Double.doubleToLongBits(priceBuy);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(priceSell);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
-    }
-
-    @OneToMany(mappedBy = "currencyByCurrencyId")
-    public Collection<AccountEntity> getAccountsById() {
-        return accountsById;
-    }
-
-    public void setAccountsById(Collection<AccountEntity> accountsById) {
-        this.accountsById = accountsById;
-    }
-
-    @OneToMany(mappedBy = "currencyByCurrencyOriginal")
-    public Collection<ExchangeEntity> getExchangesById() {
-        return exchangesById;
-    }
-
-    public void setExchangesById(Collection<ExchangeEntity> exchangesById) {
-        this.exchangesById = exchangesById;
-    }
-
-    @OneToMany(mappedBy = "currencyByCurrencyUltimate")
-    public Collection<ExchangeEntity> getExchangesById_0() {
-        return exchangesById_0;
-    }
-
-    public void setExchangesById_0(Collection<ExchangeEntity> exchangesById_0) {
-        this.exchangesById_0 = exchangesById_0;
     }
 }

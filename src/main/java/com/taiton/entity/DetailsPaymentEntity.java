@@ -1,30 +1,28 @@
 package com.taiton.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
-@Table(name = "details_payment", schema = "taitonbankdb", catalog = "")
+@Table(name = "details_payment", schema = "heroku_893975b12603774", catalog = "")
 public class DetailsPaymentEntity {
-    private Integer id;
+    private int id;
     private String info;
-    private Collection<ServiceHasDetailsPaymentEntity> serviceHasDetailsPaymentsById;
 
     @Id
-    @Column(name = "Id", nullable = false)
-    public Integer getId() {
+    @Column(name = "Id")
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Info", nullable = false, length = 45)
+    @Column(name = "Info")
     public String getInfo() {
         return info;
     }
@@ -40,7 +38,7 @@ public class DetailsPaymentEntity {
 
         DetailsPaymentEntity that = (DetailsPaymentEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
         if (info != null ? !info.equals(that.info) : that.info != null) return false;
 
         return true;
@@ -48,17 +46,8 @@ public class DetailsPaymentEntity {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (info != null ? info.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "detailsPaymentByDetailsPaymentId")
-    public Collection<ServiceHasDetailsPaymentEntity> getServiceHasDetailsPaymentsById() {
-        return serviceHasDetailsPaymentsById;
-    }
-
-    public void setServiceHasDetailsPaymentsById(Collection<ServiceHasDetailsPaymentEntity> serviceHasDetailsPaymentsById) {
-        this.serviceHasDetailsPaymentsById = serviceHasDetailsPaymentsById;
     }
 }

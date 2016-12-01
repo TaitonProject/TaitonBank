@@ -3,34 +3,34 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
-@Table(name = "service_has_details_payment", schema = "taitonbankdb", catalog = "")
+@Table(name = "service_has_details_payment", schema = "heroku_893975b12603774", catalog = "")
 @IdClass(ServiceHasDetailsPaymentEntityPK.class)
 public class ServiceHasDetailsPaymentEntity {
-    private Integer serviceId;
-    private Integer detailsPaymentId;
+    private int serviceId;
+    private int detailsPaymentId;
     private ServiceEntity serviceByServiceId;
     private DetailsPaymentEntity detailsPaymentByDetailsPaymentId;
 
     @Id
-    @Column(name = "Service_Id", nullable = false)
-    public Integer getServiceId() {
+    @Column(name = "Service_Id")
+    public int getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(Integer serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
 
     @Id
-    @Column(name = "Details_Payment_Id", nullable = false)
-    public Integer getDetailsPaymentId() {
+    @Column(name = "Details_Payment_Id")
+    public int getDetailsPaymentId() {
         return detailsPaymentId;
     }
 
-    public void setDetailsPaymentId(Integer detailsPaymentId) {
+    public void setDetailsPaymentId(int detailsPaymentId) {
         this.detailsPaymentId = detailsPaymentId;
     }
 
@@ -41,17 +41,16 @@ public class ServiceHasDetailsPaymentEntity {
 
         ServiceHasDetailsPaymentEntity that = (ServiceHasDetailsPaymentEntity) o;
 
-        if (serviceId != null ? !serviceId.equals(that.serviceId) : that.serviceId != null) return false;
-        if (detailsPaymentId != null ? !detailsPaymentId.equals(that.detailsPaymentId) : that.detailsPaymentId != null)
-            return false;
+        if (serviceId != that.serviceId) return false;
+        if (detailsPaymentId != that.detailsPaymentId) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = serviceId != null ? serviceId.hashCode() : 0;
-        result = 31 * result + (detailsPaymentId != null ? detailsPaymentId.hashCode() : 0);
+        int result = serviceId;
+        result = 31 * result + detailsPaymentId;
         return result;
     }
 

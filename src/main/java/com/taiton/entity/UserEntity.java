@@ -3,28 +3,17 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by Taiton on 11/25/2016.
+ * Created by VitalitY on 02.12.2016.
  */
 @Entity
 @Table(name = "user", schema = "heroku_893975b12603774", catalog = "")
 public class UserEntity {
-    private Integer id;
+    private int id;
     private String username;
     private String password;
-    private Byte isBlocked;
-    private RolesEntity role;
+    private byte isBlocked;
+    private RoleEntity roleByRoleIdRole;
     private transient String confirmPassword;
-
-    private transient String roleName;
-
-    @Transient
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
 
     @Transient
     public String getConfirmPassword() {
@@ -36,28 +25,27 @@ public class UserEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id", nullable = false)
-    public Integer getId() {
+    @Column(name = "Id")
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Username", nullable = true, length = 45)
+    @Column(name = "Username")
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String login) {
-        this.username = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Basic
-    @Column(name = "Password", nullable = false, length = 45)
+    @Column(name = "Password")
     public String getPassword() {
         return password;
     }
@@ -67,12 +55,12 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "IsBlocked", nullable = false)
-    public Byte getIsBlocked() {
+    @Column(name = "IsBlocked")
+    public byte getIsBlocked() {
         return isBlocked;
     }
 
-    public void setIsBlocked(Byte isBlocked) {
+    public void setIsBlocked(byte isBlocked) {
         this.isBlocked = isBlocked;
     }
 
@@ -83,30 +71,30 @@ public class UserEntity {
 
         UserEntity that = (UserEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
+        if (isBlocked != that.isBlocked) return false;
         if (username != null ? !username.equals(that.username) : that.username != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (isBlocked != null ? !isBlocked.equals(that.isBlocked) : that.isBlocked != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (isBlocked != null ? isBlocked.hashCode() : 0);
+        result = 31 * result + (int) isBlocked;
         return result;
     }
 
     @ManyToOne
     @JoinColumn(name = "Role_idRole", referencedColumnName = "Id", nullable = false)
-    public RolesEntity getRole() {
-        return role;
+    public RoleEntity getRoleByRoleIdRole() {
+        return roleByRoleIdRole;
     }
 
-    public void setRole(RolesEntity roleByRoleIdRole) {
-        this.role = roleByRoleIdRole;
+    public void setRoleByRoleIdRole(RoleEntity roleByRoleIdRole) {
+        this.roleByRoleIdRole = roleByRoleIdRole;
     }
 }

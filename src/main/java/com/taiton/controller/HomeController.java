@@ -1,6 +1,5 @@
 package com.taiton.controller;
 
-import com.taiton.entity.RolesEntity;
 import com.taiton.entity.UserEntity;
 import com.taiton.service.SecurityService;
 import com.taiton.service.UserService;

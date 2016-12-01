@@ -1,6 +1,5 @@
 package com.taiton.service;
 
-import com.taiton.entity.RolesEntity;
 import com.taiton.entity.UserEntity;
 
 /**

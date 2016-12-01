@@ -2,7 +2,6 @@ package com.taiton.service;
 
 
 import com.taiton.dao.UserDao;
-import com.taiton.entity.RolesEntity;
 import com.taiton.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserEntity user = userDao.findByUsername(username);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().getNameRole()));
+        grantedAuthorities.add(new SimpleGrantedAuthority(user.getRoleByRoleIdRole().getNameRole()));
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
 }
