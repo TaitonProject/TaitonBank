@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 12/1/2016.
  */
 @Entity
-@Table(name = "payment", schema = "taitonbankdb", catalog = "")
+@Table(name = "payment", schema = "heroku_303647c7ded8d0f", catalog = "")
 public class PaymentEntity {
     private Integer id;
     private Timestamp date;
@@ -60,7 +60,7 @@ public class PaymentEntity {
     }
 
     @Basic
-    @JoinColumn(name = "Account_Id", nullable = false)
+    @Column(name = "Account_Id", nullable = false)
     public Integer getAccountId() {
         return accountId;
     }
@@ -70,7 +70,7 @@ public class PaymentEntity {
     }
 
     @Basic
-    @JoinColumn(name = "Service_Id", nullable = false)
+    @Column(name = "Service_Id", nullable = false)
     public Integer getServiceId() {
         return serviceId;
     }

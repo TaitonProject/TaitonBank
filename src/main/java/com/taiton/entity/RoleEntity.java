@@ -1,24 +1,25 @@
 package com.taiton.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
- * Created by Taiton on 11/25/2016.
+ * Created by Taiton on 12/1/2016.
  */
 @Entity
-@Table(name = "role", schema = "heroku_893975b12603774", catalog = "")
-public class RolesEntity {
-    private Long id;
+@Table(name = "role", schema = "heroku_303647c7ded8d0f", catalog = "")
+public class RoleEntity {
+    private Integer id;
     private String nameRole;
+    private Collection<UserEntity> usersById;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id", nullable = false)
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -37,7 +38,7 @@ public class RolesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RolesEntity that = (RolesEntity) o;
+        RoleEntity that = (RoleEntity) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (nameRole != null ? !nameRole.equals(that.nameRole) : that.nameRole != null) return false;
@@ -50,5 +51,14 @@ public class RolesEntity {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (nameRole != null ? nameRole.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "roleByRoleIdRole")
+    public Collection<UserEntity> getUsersById() {
+        return usersById;
+    }
+
+    public void setUsersById(Collection<UserEntity> usersById) {
+        this.usersById = usersById;
     }
 }

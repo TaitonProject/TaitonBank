@@ -1,6 +1,5 @@
 package com.taiton.controller;
 
-import com.taiton.entity.RolesEntity;
 import com.taiton.entity.UserEntity;
 import com.taiton.service.SecurityService;
 import com.taiton.service.UserService;
@@ -32,8 +31,13 @@ public class HomeController {
     @Autowired
     private RoleValidator roleValidator;
 
+/*    @RequestMapping(value = "/login?error", method = RequestMethod.GET)
+    public String errorAuthorization(Model model){
+        model.addAttribute("error", new String());
+        return "mainAuthorization/login";
+    }*/
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new UserEntity());
 //        model.addAttribute("role", new String());
@@ -45,7 +49,7 @@ public class HomeController {
         userValidator.validate(userForm, bindingResult);
 //        roleValidator.validate(role, bindingResultRole);
 
-        if (bindingResult.hasErrors() /*|| bindingResultRole.hasErrors()*/) {
+        if (bindingResult.hasErrors() *//*|| bindingResultRole.hasErrors()*//*) {
             return "registration/registration";
         }
 
@@ -54,7 +58,7 @@ public class HomeController {
         securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
 
         return "redirect:/home";
-    }
+    }*/
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {

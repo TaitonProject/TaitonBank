@@ -4,17 +4,17 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 12/1/2016.
  */
 @Entity
-@Table(name = "currency", schema = "taitonbankdb", catalog = "")
+@Table(name = "currency", schema = "heroku_303647c7ded8d0f", catalog = "")
 public class CurrencyEntity {
     private Integer id;
     private String name;
     private Integer code;
+    private Double priceBuy;
+    private Double priceSell;
     private Collection<AccountEntity> accountsById;
-    private Collection<ExchangeEntity> exchangesById;
-    private Collection<ExchangeEntity> exchangesById_0;
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -46,6 +46,26 @@ public class CurrencyEntity {
         this.code = code;
     }
 
+    @Basic
+    @Column(name = "Price_Buy", nullable = false, precision = 0)
+    public Double getPriceBuy() {
+        return priceBuy;
+    }
+
+    public void setPriceBuy(Double priceBuy) {
+        this.priceBuy = priceBuy;
+    }
+
+    @Basic
+    @Column(name = "Price_Sell", nullable = false, precision = 0)
+    public Double getPriceSell() {
+        return priceSell;
+    }
+
+    public void setPriceSell(Double priceSell) {
+        this.priceSell = priceSell;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,6 +76,8 @@ public class CurrencyEntity {
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (code != null ? !code.equals(that.code) : that.code != null) return false;
+        if (priceBuy != null ? !priceBuy.equals(that.priceBuy) : that.priceBuy != null) return false;
+        if (priceSell != null ? !priceSell.equals(that.priceSell) : that.priceSell != null) return false;
 
         return true;
     }
@@ -65,6 +87,8 @@ public class CurrencyEntity {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (code != null ? code.hashCode() : 0);
+        result = 31 * result + (priceBuy != null ? priceBuy.hashCode() : 0);
+        result = 31 * result + (priceSell != null ? priceSell.hashCode() : 0);
         return result;
     }
 
@@ -75,23 +99,5 @@ public class CurrencyEntity {
 
     public void setAccountsById(Collection<AccountEntity> accountsById) {
         this.accountsById = accountsById;
-    }
-
-    @OneToMany(mappedBy = "currencyByCurrencyOriginal")
-    public Collection<ExchangeEntity> getExchangesById() {
-        return exchangesById;
-    }
-
-    public void setExchangesById(Collection<ExchangeEntity> exchangesById) {
-        this.exchangesById = exchangesById;
-    }
-
-    @OneToMany(mappedBy = "currencyByCurrencyUltimate")
-    public Collection<ExchangeEntity> getExchangesById_0() {
-        return exchangesById_0;
-    }
-
-    public void setExchangesById_0(Collection<ExchangeEntity> exchangesById_0) {
-        this.exchangesById_0 = exchangesById_0;
     }
 }

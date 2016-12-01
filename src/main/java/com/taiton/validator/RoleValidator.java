@@ -1,6 +1,6 @@
 package com.taiton.validator;
 
-import com.taiton.entity.RolesEntity;
+import com.taiton.entity.RoleEntity;
 import com.taiton.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class RoleValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return RolesEntity.class.equals(aClass);
+        return RoleEntity.class.equals(aClass);
     }
 
     @Override

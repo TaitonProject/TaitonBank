@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497a451c-d22b-4158-a147-04e9b19acf51" name="Default" comment="">
+    <list default="true" id="497a451c-d22b-4158-a147-04e9b19acf51" name="Default" comment="Deploy">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/controller/RegistrationController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/UserInfoEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration2.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registrationDone.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ClientEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ClientInfoEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ExchangeEntity.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/AccountEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/CardEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/ClientEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/ClientInfoEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/CurrencyEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/DetailsPaymentEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/ExchangeEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/PaymentEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/ServiceEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/ServiceHasDetailsPaymentEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/SessionCodeEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/SessionInformationEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/TransferEntity.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/UserEntity.xml" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/RolesEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/RoleEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/controller/HomeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/dao/RoleDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/dao/RoleDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/AccountEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/AccountEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/CardEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/CardEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/CurrencyEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/CurrencyEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/DetailsPaymentEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/DetailsPaymentEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/PaymentEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/PaymentEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntityPK.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntityPK.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionCodeEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionCodeEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionInformationEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionInformationEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/TransferEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/TransferEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/service/UserDetailsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/service/UserDetailsServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/service/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/service/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/validator/RoleValidator.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/validator/RoleValidator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/database.properties" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,6 +71,24 @@
         <option name="myItemId" />
         <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - heroku_303647c7ded8d0f@eu-cdbr-west-01.cleardb.com" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - heroku_303647c7ded8d0f@eu-cdbr-west-01.cleardb.com" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="session_information" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -37,11 +97,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="spring-mvc.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc.xml">
+      <file leaf-file-name="database.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/database.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -50,111 +110,203 @@
       <file leaf-file-name="spring-data.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-data.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+            <state relative-caret-position="250">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/database.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccountEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/AccountEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+            <state relative-caret-position="425">
+              <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#741#742#0" expanded="false" />
-                <element signature="e#766#767#0" expanded="false" />
-                <element signature="e#803#804#0" expanded="false" />
-                <element signature="e#831#832#0" expanded="false" />
-                <element signature="e#950#951#0" expanded="false" />
-                <element signature="e#986#987#0" expanded="false" />
-                <element signature="e#1044#1045#0" expanded="false" />
-                <element signature="e#1094#1095#0" expanded="false" />
-                <element signature="e#1217#1218#0" expanded="false" />
-                <element signature="e#1254#1255#0" expanded="false" />
-                <element signature="e#1314#1315#0" expanded="false" />
-                <element signature="e#1366#1367#0" expanded="false" />
-                <element signature="e#1471#1472#0" expanded="false" />
-                <element signature="e#1504#1505#0" expanded="false" />
-                <element signature="e#1557#1558#0" expanded="false" />
-                <element signature="e#1601#1602#0" expanded="false" />
-                <element signature="e#1713#1714#0" expanded="false" />
-                <element signature="e#1750#1751#0" expanded="false" />
-                <element signature="e#1811#1812#0" expanded="false" />
-                <element signature="e#1863#1864#0" expanded="false" />
-                <element signature="e#1964#1965#0" expanded="false" />
-                <element signature="e#1995#1996#0" expanded="false" />
-                <element signature="e#2044#2045#0" expanded="false" />
-                <element signature="e#2084#2085#0" expanded="false" />
-                <element signature="e#3721#3722#0" expanded="false" />
-                <element signature="e#3764#3765#0" expanded="false" />
-                <element signature="e#4051#4052#0" expanded="false" />
-                <element signature="e#4097#4098#0" expanded="false" />
-                <element signature="e#4399#4400#0" expanded="false" />
-                <element signature="e#4438#4439#0" expanded="false" />
-                <element signature="e#4508#4509#0" expanded="false" />
-                <element signature="e#4564#4565#0" expanded="false" />
-                <element signature="e#4664#4665#0" expanded="false" />
-                <element signature="e#4696#4697#0" expanded="false" />
-                <element signature="e#4762#4763#0" expanded="false" />
-                <element signature="e#4804#4805#0" expanded="false" />
-                <element signature="e#4910#4911#0" expanded="false" />
-                <element signature="e#4945#4946#0" expanded="false" />
-                <element signature="e#5020#5021#0" expanded="false" />
-                <element signature="e#5068#5069#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <marker date="1480547943152" expanded="true" signature="1173:2075" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spring-security.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-security.xml">
+      <file leaf-file-name="RadioController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/controller/RadioController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="33" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="33" />
+            <state relative-caret-position="153">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <file leaf-file-name="RegistrationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/controller/RegistrationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="111">
+              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserValidator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/validator/UserValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spring-root.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-root.xml">
+      <file leaf-file-name="SessionInformationEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionInformationEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="10" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="10" />
+            <state relative-caret-position="1054">
+              <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+              <folding>
+                <element signature="e#2435#2436#0" expanded="true" />
+                <element signature="e#2470#2471#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+              <folding>
+                <element signature="e#929#930#0" expanded="true" />
+                <element signature="e#967#968#0" expanded="true" />
+                <element signature="e#1029#1030#0" expanded="true" />
+                <element signature="e#1083#1084#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Persistence/JavaeeElement:/1489a2dc/entityManagerFactory/TaitonBank/jpa/JPA/PersistenceModel" pinned="false" current-in-tab="true">
+        <entry file="uml://Persistence/JavaeeElement:/1489a2dc/entityManagerFactory/TaitonBank/jpa/JPA/PersistenceModel">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>Persistence</ID>
+              <OriginalElement>JavaeeElement:/1489a2dc/entityManagerFactory/TaitonBank/jpa/JPA/PersistenceModel</OriginalElement>
+              <nodes>
+                <node x="905.5244047619047" y="44.0">RoleEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/RoleEntity.java</node>
+                <node x="606.25" y="509.0">ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java</node>
+                <node x="1054.5244047619049" y="22.0">SessionInformationEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionInformationEntity.java</node>
+                <node x="972.0375000000003" y="258.2299065420561">UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java</node>
+                <node x="1243.5244047619049" y="22.0">SessionCodeEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionCodeEntity.java</node>
+                <node x="50.3135402759234" y="281.9214953271028">CardEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CardEntity.java</node>
+                <node x="942.0375" y="454.0">UserInfoEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserInfoEntity.java</node>
+                <node x="555.5982142857142" y="0.0">AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java</node>
+                <node x="424.9869047619047" y="509.84672897196265">DetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/DetailsPaymentEntity.java</node>
+                <node x="0.0" y="11.0">TransferEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/TransferEntity.java</node>
+                <node x="691.25" y="221.0">PaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/PaymentEntity.java</node>
+                <node x="236.77522251891406" y="278.53644859813085">CurrencyEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CurrencyEntity.java</node>
+                <node x="443.2369047619047" y="276.0">ServiceHasDetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="UserInfoEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserInfoEntity.java" target="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java">
+                  <point x="0.0" y="-102.5" />
+                  <point x="0.0" y="69.5" />
+                </edge>
+                <edge source="CardEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CardEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+                  <point x="56.33333333333334" y="-58.5" />
+                  <point x="186.0702380952381" y="191.0" />
+                  <point x="576.4982142857142" y="191.0" />
+                  <point x="-83.60000000000002" y="80.5" />
+                </edge>
+                <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="SessionCodeEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionCodeEntity.java">
+                  <point x="70.875" y="-69.5" />
+                  <point x="1137.4125" y="201.0" />
+                  <point x="1362.5244047619049" y="201.0" />
+                  <point x="0.0" y="58.5" />
+                </edge>
+                <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="SessionInformationEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionInformationEntity.java">
+                  <point x="23.625" y="-69.5" />
+                  <point x="1090.1625" y="191.0" />
+                  <point x="1139.0244047619049" y="191.0" />
+                  <point x="0.0" y="58.5" />
+                </edge>
+                <edge source="ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java" target="PaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/PaymentEntity.java">
+                  <point x="49.66666666666663" y="-47.5" />
+                  <point x="730.4166666666666" y="429.0" />
+                  <point x="805.75" y="429.0" />
+                  <point x="0.0" y="91.5" />
+                </edge>
+                <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+                  <point x="-70.875" y="-69.5" />
+                  <point x="995.6625" y="191.0" />
+                  <point x="743.6982142857142" y="191.0" />
+                  <point x="83.60000000000002" y="80.5" />
+                </edge>
+                <edge source="CardEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CardEntity.java" target="TransferEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/TransferEntity.java">
+                  <point x="0.0" y="-58.5" />
+                  <point x="129.73690476190473" y="201.0" />
+                  <point x="141.75" y="201.0" />
+                  <point x="47.25" y="69.5" />
+                </edge>
+                <edge source="ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+                  <point x="0.0" y="-47.5" />
+                  <point x="680.75" y="429.0" />
+                  <point x="668.7369047619047" y="429.0" />
+                  <point x="668.7369047619047" y="201.0" />
+                  <point x="660.0982142857142" y="201.0" />
+                  <point x="0.0" y="80.5" />
+                </edge>
+                <edge source="DetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/DetailsPaymentEntity.java" target="ServiceHasDetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java">
+                  <point x="0.0" y="-36.5" />
+                  <point x="-53.75" y="36.5" />
+                </edge>
+                <edge source="PaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/PaymentEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+                  <point x="0.0" y="-91.5" />
+                  <point x="805.75" y="201.0" />
+                  <point x="701.8982142857142" y="201.0" />
+                  <point x="41.799999999999955" y="80.5" />
+                </edge>
+                <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="RoleEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/RoleEntity.java">
+                  <point x="-23.625" y="-69.5" />
+                  <point x="1042.9125" y="181.0" />
+                  <point x="970.0244047619047" y="181.0" />
+                  <point x="0.0" y="36.5" />
+                </edge>
+                <edge source="ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java" target="ServiceHasDetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java">
+                  <point x="-49.66666666666663" y="-47.5" />
+                  <point x="631.0833333333334" y="429.0" />
+                  <point x="604.4869047619047" y="429.0" />
+                  <point x="53.75" y="36.5" />
+                </edge>
+                <edge source="CurrencyEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CurrencyEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+                  <point x="0.0" y="-69.5" />
+                  <point x="328.7369047619047" y="201.0" />
+                  <point x="618.2982142857143" y="201.0" />
+                  <point x="-41.799999999999955" y="80.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.7879234167893961" x="741.2242990654206" y="289.5" />
+              <SelectedNodes />
+              <Categories>
+                <Category>Properties</Category>
+                <Category>Embeddables</Category>
+                <Category>Superclasses</Category>
+              </Categories>
             </state>
           </provider>
         </entry>
@@ -165,6 +317,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
@@ -196,22 +349,33 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-security.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taiton/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taiton/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/validator/UserValidator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taiton/service/UserDetailsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/mainAuthorization/login.jsp" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionInformationEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionCodeEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/RolesEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/database.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-data.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/database.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/validator/RoleValidator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/dao/RoleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/service/UserDetailsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registrationDone.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration2.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/controller/RegistrationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionInformationEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/CardEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/TransferEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/AccountEntity.java" />
+        <option value="dbtable:/1489a2dc/e8492826-a869-45c4-bdf7-f1264744a02a/heroku_303647c7ded8d0f.details_payment" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java" />
       </list>
     </option>
   </component>
@@ -244,9 +408,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1098" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -273,6 +438,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -552,10 +718,6 @@
               <option name="myItemId" value="taiton" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -597,43 +759,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taiton" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="configuration" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TaitonBank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TaitonBank" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -642,23 +773,24 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="JPA.DatabaseSchemaImportDialog" value="3856cb6e-b4f7-4d78-a4ac-a3fb36aac965" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="e8492826-a869-45c4-bdf7-f1264744a02a" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Taiton\Documents\GitHub\TaitonBank\src\main\webapp\resources" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="com.taiton.entity" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/mainAuthorization/libs" />
       <recent name="C:\Users\Taiton\Documents\GitHub\TaitonBank\src\main\webapp\WEB-INF\pages\mainAuthorization" />
     </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.taiton.entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Taiton\Documents\GitHub\TaitonBank\src\main\webapp\resources" />
+    </key>
   </component>
-  <component name="RunManager" selected="Heroku Deployment.Unnamed">
+  <component name="RunManager" selected="Tomcat Server.Unnamed">
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
       <deployment />
       <server-settings />
@@ -1096,7 +1228,7 @@
       <method />
     </configuration>
     <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.0.M10" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/login" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/registration" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="TaitonBank:war exploded">
@@ -1197,6 +1329,7 @@
       <workItem from="1480440389308" duration="260000" />
       <workItem from="1480440748883" duration="24000" />
       <workItem from="1480443131984" duration="1633000" />
+      <workItem from="1480536149857" duration="13712000" />
     </task>
     <task id="LOCAL-00001" summary="ура, сука, логинимся! (настроить отображение осталось и все)">
       <created>1480181347567</created>
@@ -1230,34 +1363,34 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33846000" />
+    <option name="totallyTimeSpent" value="47558000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1098" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28540772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11940298" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40262583" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32502708" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3217768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4321663" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26258206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36078006" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26002166" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18162619" sideWeight="0.25723472" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32755297" sideWeight="0.74276525" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.34067798" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.659322" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18176973" sideWeight="0.50643086" order="2" side_tool="true" content_ui="tabs" />
@@ -1312,7 +1445,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserServiceImpl.java</url>
-          <line>30</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -1330,7 +1463,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserDetailsServiceImpl.java</url>
-          <line>33</line>
+          <line>36</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -1344,137 +1477,61 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.0.RELEASE/spring-web-4.2.0.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2300">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="dbDummy://dbtable:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/ibankdb.user" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/mainAuthorization/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/AccountEntity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/CardEntity.xml">
+    <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ClientInfoEntity.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-security.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="108" selection-start-line="15" selection-start-column="108" selection-end-line="15" selection-end-column="108" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TaitonBank.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="33" column="62" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="62" />
+    <entry file="dbDummy://dbview:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/information_schema.COLUMNS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/validator/UserValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+    <entry file="dbDummy://dbview:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/information_schema.COLUMN_PRIVILEGES">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/SecurityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+    <entry file="dbDummy://dbview:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/information_schema.COLLATIONS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/SecurityServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="42" column="71" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="71" />
-          <folding />
+    <entry file="dbDummy://dbview:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/information_schema.COLLATION_CHARACTER_SET_APPLICABILITY">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserDetailsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/dao/RoleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/configuration/WebSecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+    <entry file="dbDummy://dbview:/1489a2dc/3856cb6e-b4f7-4d78-a4ac-a3fb36aac965/information_schema.CHARACTER_SETS">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1482,170 +1539,211 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e8492826-a869-45c4-bdf7-f1264744a02a/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/TransferEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionInformationEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="9" column="69" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionCodeEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntityPK.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/PaymentEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ExchangeEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/DetailsPaymentEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/CurrencyEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ClientInfoEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ClientEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="119">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/1489a2dc/e8492826-a869-45c4-bdf7-f1264744a02a/heroku_303647c7ded8d0f.user_info">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/1489a2dc/e8492826-a869-45c4-bdf7-f1264744a02a/heroku_303647c7ded8d0f.user">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/1489a2dc/e8492826-a869-45c4-bdf7-f1264744a02a/heroku_303647c7ded8d0f.role">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/1489a2dc/e8492826-a869-45c4-bdf7-f1264744a02a/heroku_303647c7ded8d0f.currency">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/modules.uml">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MODULES</ID>
+          <OriginalElement />
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="79.0" y="0.5" />
+          <SelectedNodes />
+          <Categories />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionCodeEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-550">
+          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/PaymentEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1145">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/CardEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/CurrencyEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/SecurityService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/RolesEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/SecurityServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        <state relative-caret-position="-43">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/validator/RoleValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
           <folding>
-            <element signature="e#385#386#0" expanded="false" />
-            <element signature="e#410#411#0" expanded="false" />
-            <element signature="e#444#445#0" expanded="false" />
-            <element signature="e#472#473#0" expanded="false" />
-            <element signature="e#581#582#0" expanded="false" />
-            <element signature="e#612#613#0" expanded="false" />
-            <element signature="e#660#661#0" expanded="false" />
-            <element signature="e#700#701#0" expanded="false" />
+            <element signature="e#588#589#0" expanded="true" />
+            <element signature="e#642#643#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/AccountEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/dao/RoleDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#741#742#0" expanded="false" />
-            <element signature="e#766#767#0" expanded="false" />
-            <element signature="e#803#804#0" expanded="false" />
-            <element signature="e#831#832#0" expanded="false" />
-            <element signature="e#950#951#0" expanded="false" />
-            <element signature="e#986#987#0" expanded="false" />
-            <element signature="e#1044#1045#0" expanded="false" />
-            <element signature="e#1094#1095#0" expanded="false" />
-            <element signature="e#1217#1218#0" expanded="false" />
-            <element signature="e#1254#1255#0" expanded="false" />
-            <element signature="e#1314#1315#0" expanded="false" />
-            <element signature="e#1366#1367#0" expanded="false" />
-            <element signature="e#1471#1472#0" expanded="false" />
-            <element signature="e#1504#1505#0" expanded="false" />
-            <element signature="e#1557#1558#0" expanded="false" />
-            <element signature="e#1601#1602#0" expanded="false" />
-            <element signature="e#1713#1714#0" expanded="false" />
-            <element signature="e#1750#1751#0" expanded="false" />
-            <element signature="e#1811#1812#0" expanded="false" />
-            <element signature="e#1863#1864#0" expanded="false" />
-            <element signature="e#1964#1965#0" expanded="false" />
-            <element signature="e#1995#1996#0" expanded="false" />
-            <element signature="e#2044#2045#0" expanded="false" />
-            <element signature="e#2084#2085#0" expanded="false" />
-            <element signature="e#3721#3722#0" expanded="false" />
-            <element signature="e#3764#3765#0" expanded="false" />
-            <element signature="e#4051#4052#0" expanded="false" />
-            <element signature="e#4097#4098#0" expanded="false" />
-            <element signature="e#4399#4400#0" expanded="false" />
-            <element signature="e#4438#4439#0" expanded="false" />
-            <element signature="e#4508#4509#0" expanded="false" />
-            <element signature="e#4564#4565#0" expanded="false" />
-            <element signature="e#4664#4665#0" expanded="false" />
-            <element signature="e#4696#4697#0" expanded="false" />
-            <element signature="e#4762#4763#0" expanded="false" />
-            <element signature="e#4804#4805#0" expanded="false" />
-            <element signature="e#4910#4911#0" expanded="false" />
-            <element signature="e#4945#4946#0" expanded="false" />
-            <element signature="e#5020#5021#0" expanded="false" />
-            <element signature="e#5068#5069#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserDetailsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="0" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/mainAuthorization/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="38" column="84" selection-start-line="38" selection-start-column="84" selection-end-line="38" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registrationDone.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration/registration2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+          <folding>
+            <element signature="e#1386#1392#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1658,67 +1756,282 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/TransferEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="278">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/1489a2dc/e8492826-a869-45c4-bdf7-f1264744a02a/heroku_303647c7ded8d0f.details_payment">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/database.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        <state relative-caret-position="51">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-mvc.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntityPK.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="-102">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+        <state relative-caret-position="502">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/DetailsPaymentEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+        <state relative-caret-position="190">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/RoleEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/UserInfoEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/AccountEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/CardEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-data.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        <state relative-caret-position="250">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-security.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="85">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="425">
+          <caret line="37" column="7" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1480547943152" expanded="true" signature="1173:2075" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/controller/RadioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/controller/RegistrationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/validator/UserValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/SessionInformationEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+          <folding>
+            <element signature="e#2435#2436#0" expanded="true" />
+            <element signature="e#2470#2471#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+          <folding>
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#967#968#0" expanded="true" />
+            <element signature="e#1029#1030#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://Persistence/JavaeeElement:/1489a2dc/entityManagerFactory/TaitonBank/jpa/JPA/PersistenceModel">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>Persistence</ID>
+          <OriginalElement>JavaeeElement:/1489a2dc/entityManagerFactory/TaitonBank/jpa/JPA/PersistenceModel</OriginalElement>
+          <nodes>
+            <node x="905.5244047619047" y="44.0">RoleEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/RoleEntity.java</node>
+            <node x="606.25" y="509.0">ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java</node>
+            <node x="1054.5244047619049" y="22.0">SessionInformationEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionInformationEntity.java</node>
+            <node x="972.0375000000003" y="258.2299065420561">UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java</node>
+            <node x="1243.5244047619049" y="22.0">SessionCodeEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionCodeEntity.java</node>
+            <node x="50.3135402759234" y="281.9214953271028">CardEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CardEntity.java</node>
+            <node x="942.0375" y="454.0">UserInfoEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserInfoEntity.java</node>
+            <node x="555.5982142857142" y="0.0">AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java</node>
+            <node x="424.9869047619047" y="509.84672897196265">DetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/DetailsPaymentEntity.java</node>
+            <node x="0.0" y="11.0">TransferEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/TransferEntity.java</node>
+            <node x="691.25" y="221.0">PaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/PaymentEntity.java</node>
+            <node x="236.77522251891406" y="278.53644859813085">CurrencyEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CurrencyEntity.java</node>
+            <node x="443.2369047619047" y="276.0">ServiceHasDetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="UserInfoEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserInfoEntity.java" target="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java">
+              <point x="0.0" y="-102.5" />
+              <point x="0.0" y="69.5" />
+            </edge>
+            <edge source="CardEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CardEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+              <point x="56.33333333333334" y="-58.5" />
+              <point x="186.0702380952381" y="191.0" />
+              <point x="576.4982142857142" y="191.0" />
+              <point x="-83.60000000000002" y="80.5" />
+            </edge>
+            <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="SessionCodeEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionCodeEntity.java">
+              <point x="70.875" y="-69.5" />
+              <point x="1137.4125" y="201.0" />
+              <point x="1362.5244047619049" y="201.0" />
+              <point x="0.0" y="58.5" />
+            </edge>
+            <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="SessionInformationEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/SessionInformationEntity.java">
+              <point x="23.625" y="-69.5" />
+              <point x="1090.1625" y="191.0" />
+              <point x="1139.0244047619049" y="191.0" />
+              <point x="0.0" y="58.5" />
+            </edge>
+            <edge source="ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java" target="PaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/PaymentEntity.java">
+              <point x="49.66666666666663" y="-47.5" />
+              <point x="730.4166666666666" y="429.0" />
+              <point x="805.75" y="429.0" />
+              <point x="0.0" y="91.5" />
+            </edge>
+            <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+              <point x="-70.875" y="-69.5" />
+              <point x="995.6625" y="191.0" />
+              <point x="743.6982142857142" y="191.0" />
+              <point x="83.60000000000002" y="80.5" />
+            </edge>
+            <edge source="CardEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CardEntity.java" target="TransferEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/TransferEntity.java">
+              <point x="0.0" y="-58.5" />
+              <point x="129.73690476190473" y="201.0" />
+              <point x="141.75" y="201.0" />
+              <point x="47.25" y="69.5" />
+            </edge>
+            <edge source="ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+              <point x="0.0" y="-47.5" />
+              <point x="680.75" y="429.0" />
+              <point x="668.7369047619047" y="429.0" />
+              <point x="668.7369047619047" y="201.0" />
+              <point x="660.0982142857142" y="201.0" />
+              <point x="0.0" y="80.5" />
+            </edge>
+            <edge source="DetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/DetailsPaymentEntity.java" target="ServiceHasDetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java">
+              <point x="0.0" y="-36.5" />
+              <point x="-53.75" y="36.5" />
+            </edge>
+            <edge source="PaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/PaymentEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+              <point x="0.0" y="-91.5" />
+              <point x="805.75" y="201.0" />
+              <point x="701.8982142857142" y="201.0" />
+              <point x="41.799999999999955" y="80.5" />
+            </edge>
+            <edge source="UserEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/UserEntity.java" target="RoleEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/RoleEntity.java">
+              <point x="-23.625" y="-69.5" />
+              <point x="1042.9125" y="181.0" />
+              <point x="970.0244047619047" y="181.0" />
+              <point x="0.0" y="36.5" />
+            </edge>
+            <edge source="ServiceEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceEntity.java" target="ServiceHasDetailsPaymentEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/ServiceHasDetailsPaymentEntity.java">
+              <point x="-49.66666666666663" y="-47.5" />
+              <point x="631.0833333333334" y="429.0" />
+              <point x="604.4869047619047" y="429.0" />
+              <point x="53.75" y="36.5" />
+            </edge>
+            <edge source="CurrencyEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/CurrencyEntity.java" target="AccountEntity#file://C:/Users/Taiton/Documents/GitHub/TaitonBank/src/main/java/com/taiton/entity/AccountEntity.java">
+              <point x="0.0" y="-69.5" />
+              <point x="328.7369047619047" y="201.0" />
+              <point x="618.2982142857143" y="201.0" />
+              <point x="-41.799999999999955" y="80.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.7879234167893961" x="741.2242990654206" y="289.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Properties</Category>
+            <Category>Embeddables</Category>
+            <Category>Superclasses</Category>
+          </Categories>
         </state>
       </provider>
     </entry>

@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.util.Collection;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 12/1/2016.
  */
 @Entity
-@Table(name = "service", schema = "taitonbankdb", catalog = "")
+@Table(name = "service", schema = "heroku_303647c7ded8d0f", catalog = "")
 public class ServiceEntity {
     private Integer id;
     private Double comission;

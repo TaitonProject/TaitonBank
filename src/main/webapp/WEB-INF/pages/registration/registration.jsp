@@ -46,17 +46,9 @@
                     </div>
                 </spring:bind>
 
-                <%--<spring:bind path="role">--%>
-                    <%--<div class="form-group ${status.error ? 'has-error' : ''}">
-                        <form:radiobutton path="role" value="client" name="client" class="form-control"/>Client
-                        <form:radiobutton path="role" value="operator" name="client" class="form-control"/>Operator
-                        <form:radiobutton path="role" value="administration" name="client" class="form-control"/>Administration
-                    </div>--%>
-                <%--</spring:bind>--%>
-
                 <spring:bind path="userForm.roleName">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
-                        <select form="formRegistration" name="Выберите роль" required size="1">
+                        <select name="Выберите роль" required size="1">
                             <option value="client">Клиент</option>
                             <option value="operator">Оператор</option>
                             <option value="administration">Администратор</option>

@@ -5,10 +5,10 @@ import java.sql.Date;
 import java.util.Collection;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 12/1/2016.
  */
 @Entity
-@Table(name = "card", schema = "taitonbankdb", catalog = "")
+@Table(name = "card", schema = "heroku_303647c7ded8d0f", catalog = "")
 public class CardEntity {
     private Integer id;
     private Integer cardNumber;
@@ -49,7 +49,7 @@ public class CardEntity {
     }
 
     @Basic
-    @JoinColumn(name = "Account_Id", nullable = false)
+    @Column(name = "Account_Id", nullable = false)
     public Integer getAccountId() {
         return accountId;
     }

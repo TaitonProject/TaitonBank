@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Taiton on 11/9/2016.
+ * Created by Taiton on 12/1/2016.
  */
 @Entity
-@Table(name = "transfer", schema = "taitonbankdb", catalog = "")
+@Table(name = "transfer", schema = "heroku_303647c7ded8d0f", catalog = "")
 public class TransferEntity {
     private Integer id;
     private Integer cardFrom;
@@ -28,7 +28,7 @@ public class TransferEntity {
     }
 
     @Basic
-    @JoinColumn(name = "Card_From", nullable = false)
+    @Column(name = "Card_From", nullable = false)
     public Integer getCardFrom() {
         return cardFrom;
     }
@@ -38,7 +38,7 @@ public class TransferEntity {
     }
 
     @Basic
-    @JoinColumn(name = "Card_To", nullable = false)
+    @Column(name = "Card_To", nullable = false)
     public Integer getCardTo() {
         return cardTo;
     }
