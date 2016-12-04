@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.*;
+
 /**
  * Created by Taiton on 10/25/2016.
  */
@@ -35,23 +37,28 @@ public class HomeController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("userForm", new UserEntity());
-//        model.addAttribute("role", new String());
-        return "registration/registration";
+        model.addAttribute("user", new UserEntity());
+        /*Map<String, RolesEntity> roles = new HashMap<>();
+        for(RolesEntity o: userService.getRolesSet())
+            roles.put(o.getNameRole(), o);*/
+        List<RolesEntity> roles = userService.getRolesSet();
+        model.addAttribute("roles", roles);
+        return "registration/registration2";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") UserEntity userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+    public String registration(@ModelAttribute("user") UserEntity user, BindingResult bindingResult, @ModelAttribute("role") RolesEntity role, Model model) {
+        userValidator.validate(user, bindingResult);
+        user.setRole(role);
 //        roleValidator.validate(role, bindingResultRole);
 
         if (bindingResult.hasErrors() /*|| bindingResultRole.hasErrors()*/) {
-            return "registration/registration";
+            return "registration/registration2";
         }
 
-        userService.save(userForm);
+        userService.save(user);
 
-        securityService.autoLogin(userForm.getUsername(), userForm.getConfirmPassword());
+        securityService.autoLogin(user.getUsername(), user.getConfirmPassword());
 
         return "redirect:/home";
     }

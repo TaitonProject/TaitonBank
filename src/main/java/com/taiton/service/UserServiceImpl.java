@@ -9,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -29,12 +30,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void save(UserEntity user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        if(user.getRoleName().equals("client"))
-            user.setRole(roleDao.findOne(1L));
-        if(user.getRoleName().equals("operator"))
-            user.setRole(roleDao.findOne(2L));
-        if(user.getRoleName().equals("administration"))
-            user.setRole(roleDao.findOne(3L));
+        //user.setRole(user.getRole());
 
 //        user.setRole(roleDao.findByNameRole("ROLE_" + role));
         user.setIsBlocked((byte) 0);
@@ -44,5 +40,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserEntity findByUsername(String username) {
         return userDao.findByUsername(username);
+    }
+
+    @Override
+    public List<RolesEntity> getRolesSet() {
+        return roleDao.findAll();
     }
 }
