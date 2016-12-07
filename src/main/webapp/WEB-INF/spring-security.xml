@@ -8,14 +8,16 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 <http auto-config="true">
-        <intercept-url pattern="/" access="hasAnyRole('ROLE_client', 'ROLE_operator' ,'ROLE_administration')"/>
-        <intercept-url pattern="/home" access="hasAnyRole('ROLE_client', 'ROLE_administration')"/>
+    <intercept-url pattern="/" access="hasAnyRole('ROLE_client', 'ROLE_operator' ,'ROLE_administration')"/>
+    <intercept-url pattern="/home" access="hasAnyRole('ROLE_client', 'ROLE_operator', 'ROLE_administration')"/>
         <!--<intercept-url pattern="/registration" access="hasRole('ROLE_administration')"/>-->
-        <intercept-url pattern="/admin" access="hasRole('ROLE_administration')"/>
-
-        <form-login login-page="/login" default-target-url="/home" authentication-failure-url="/login?error"
+        <!--<intercept-url pattern="/admin" access="hasRole('ROLE_administration')"/>-->
+    <!--<intercept-url pattern="/admin/**" access="hasRole('ROLE_administration')"/>
+    <intercept-url pattern="/user/**" access="hasRole('ROLE_client')"/>
+    <intercept-url pattern="/shared/**" access="hasAnyRole('ROLE_client', 'ROLE_administration')"/>
+-->
+    <form-login login-page="/login" default-target-url="/home" authentication-failure-url="/login?error"
                     username-parameter="username" password-parameter="password"/>
-
         <logout logout-success-url="/login?logout"/>
     </http>
 
