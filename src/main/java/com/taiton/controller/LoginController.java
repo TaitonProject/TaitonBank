@@ -10,15 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 
-    @RequestMapping("/login.html")
+    @RequestMapping("/login")
     public String login() {
-        return "mainAuthorization/login";
+        return "login/login";
     }
 
-/*    // Login form with error
-    @RequestMapping("/login-error.html")
-    public String loginError(Model model) {
-        model.addAttribute("loginError", true);
-        return "login.html";
-    }*/
 }

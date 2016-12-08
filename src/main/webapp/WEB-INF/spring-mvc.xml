@@ -9,18 +9,11 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:annotation-driven />
-    <mvc:resources mapping="/js/**" location="/WEB-INF/pages/mainAuthorization/js/" />
-    <mvc:resources mapping="/css/**" location="/WEB-INF/pages/mainAuthorization/css/" />
-    <mvc:resources mapping="/img/**" location="/WEB-INF/pages/mainAuthorization/img/" />
-    <mvc:resources mapping="/libs/**" location="/WEB-INF/pages/mainAuthorization/libs/" />
-    <mvc:resources mapping="/WEB-INF/pages/mainAuthorization/**" location="/WEB-INF/pages/mainAuthorization/" />
-
-    <mvc:resources mapping="/js/**" location="/WEB-INF/pages/registration/js/" />
-    <mvc:resources mapping="/css/**" location="/WEB-INF/pages/registration/css/" />
-    <mvc:resources mapping="/img/**" location="/WEB-INF/pages/registration/img/" />
-    <mvc:resources mapping="/libs/**" location="/WEB-INF/pages/registration/libs/" />
-    <mvc:resources mapping="/WEB-INF/pages/registration/**" location="/WEB-INF/pages/registration/" />
-    <mvc:resources mapping="/css/**" location="/css/**"/>
+    <mvc:resources mapping="/js/**" location="/WEB-INF/templates/login/js/" />
+    <mvc:resources mapping="/css/**" location="/WEB-INF/templates/login/css/" />
+    <mvc:resources mapping="/img/**" location="/WEB-INF/templates/login/img/" />
+    <mvc:resources mapping="/libs/**" location="/WEB-INF/templates/login/libs/" />
+    <mvc:resources mapping="/WEB-INF/templates/login/**" location="/WEB-INF/templates/login/" />
 
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
