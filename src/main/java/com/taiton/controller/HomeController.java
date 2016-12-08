@@ -14,7 +14,7 @@ public class HomeController {
     //это был метод get
     @RequestMapping(value = {"/home"})
     public String welcome( Model model) {
-        return "home";
+        return "home/home";
     }
 
 }

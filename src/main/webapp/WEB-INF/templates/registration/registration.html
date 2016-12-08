@@ -12,10 +12,14 @@
         <input th:text="${user.confirmPassword}" type="text" placeholder="Повторный пароль"/>
         <input type="button" value="Зарегестрировать"/>
     </form>
-    <tr th:each="user : ${userList}">
-        <td th:text="${user.username}"></td>
-        <td th:text="${user.password}"></td>
-        <td th:text="${user.getRoleByRoleIdRole().nameRole}"></td>
-    </tr>
+    <tbody>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.getRoleByRoleIdRole().nameRole}"></td>
+        </tr>
+    </tbody>
+
 </body>
+
 </html>
