@@ -50,4 +50,9 @@ public class RoleEntity {
         result = 31 * result + (nameRole != null ? nameRole.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return this.getNameRole();
+    }
 }
