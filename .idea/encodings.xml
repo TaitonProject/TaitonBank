@@ -5,11 +5,10 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/mainAuthorization/login.html" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/img" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/libs" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login3.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/css" charset="UTF-8" />
   </component>
 </project>

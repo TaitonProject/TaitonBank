@@ -1,6 +1,8 @@
 package com.taiton.controller;
 
+import com.taiton.dao.RoleDao;
 import com.taiton.dao.UserDao;
+import com.taiton.entity.RoleEntity;
 import com.taiton.entity.UserEntity;
 import com.taiton.service.SecurityService;
 import com.taiton.service.UserService;
@@ -31,10 +33,14 @@ public class RegistrationController {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private RoleDao roleDao;
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("user", new UserEntity());
         model.addAttribute("userList", userDao.findAll());
+        model.addAttribute("roleList", roleDao.findAll());
 //      model.addAttribute("role", new String());
         return "registration/registration";
     }

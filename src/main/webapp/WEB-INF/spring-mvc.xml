@@ -67,4 +67,19 @@
         <property name="characterEncoding" value="UTF-8"/>
         <property name="templateEngine" ref="templateEngine"/>
     </bean>
+
+    <mvc:annotation-driven conversion-service="conversionService" />
+
+    <bean id="conversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="com.taiton.service.formatters.RoleFormatter" />
+            </set>
+        </property>
+        <property name="converters">
+            <set>
+            </set>
+        </property>
+    </bean>
 </beans>
