@@ -19,6 +19,13 @@
     <mvc:resources mapping="/libs/**" location="/WEB-INF/templates/login/libs/" />
     <mvc:resources mapping="/WEB-INF/templates/login/**" location="/WEB-INF/templates/login/" />
 
+    <mvc:resources mapping="/js/**" location="/WEB-INF/templates/home/app/js/" />
+    <mvc:resources mapping="/css/**" location="/WEB-INF/templates/home/app/css/" />
+    <mvc:resources mapping="/controllers/**" location="/WEB-INF/templates/home/app/js/controllers" />
+    <mvc:resources mapping="/img/**" location="/WEB-INF/templates/home/app/content/" />
+    <mvc:resources mapping="/libs/**" location="/WEB-INF/templates/home/app/js/libs/" />
+    <mvc:resources mapping="/WEB-INF/templates/home/**" location="/WEB-INF/templates/home/" />
+
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>

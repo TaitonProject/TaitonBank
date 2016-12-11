@@ -13,7 +13,7 @@ public class HomeController {
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        return "home/home";
+        return "home/app/home";
     }
 
 }
