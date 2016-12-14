@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by VitalitY on 02.12.2016.
+ * Created by VitalitY on 14.12.2016.
  */
 @Entity
-@Table(name = "transfer", schema = "heroku_893975b12603774", catalog = "")
+@Table(name = "transfer", schema = "heroku_379802575654769", catalog = "")
 public class TransferEntity {
     private int id;
     private Timestamp date;

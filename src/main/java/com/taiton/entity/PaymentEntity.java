@@ -4,17 +4,16 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by VitalitY on 02.12.2016.
+ * Created by VitalitY on 14.12.2016.
  */
 @Entity
-@Table(name = "payment", schema = "heroku_893975b12603774", catalog = "")
+@Table(name = "payment", schema = "heroku_379802575654769", catalog = "")
 public class PaymentEntity {
     private int id;
     private Timestamp date;
     private String info;
     private double amount;
-    private byte save;
-    private AccountEntity accountByAccountId;
+    private CardEntity cardByCardId;
 
     @Id
     @Column(name = "Id")
@@ -56,16 +55,6 @@ public class PaymentEntity {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "Save")
-    public byte getSave() {
-        return save;
-    }
-
-    public void setSave(byte save) {
-        this.save = save;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,7 +64,6 @@ public class PaymentEntity {
 
         if (id != that.id) return false;
         if (Double.compare(that.amount, amount) != 0) return false;
-        if (save != that.save) return false;
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (info != null ? !info.equals(that.info) : that.info != null) return false;
 
@@ -91,17 +79,16 @@ public class PaymentEntity {
         result = 31 * result + (info != null ? info.hashCode() : 0);
         temp = Double.doubleToLongBits(amount);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (int) save;
         return result;
     }
 
     @ManyToOne
-    @JoinColumn(name = "Account_Id", referencedColumnName = "Id", nullable = false)
-    public AccountEntity getAccountByAccountId() {
-        return accountByAccountId;
+    @JoinColumn(name = "card_Id", referencedColumnName = "Id", nullable = false)
+    public CardEntity getCardByCardId() {
+        return cardByCardId;
     }
 
-    public void setAccountByAccountId(AccountEntity accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
+    public void setCardByCardId(CardEntity cardByCardId) {
+        this.cardByCardId = cardByCardId;
     }
 }

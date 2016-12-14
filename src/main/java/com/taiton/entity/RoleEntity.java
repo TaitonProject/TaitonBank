@@ -3,10 +3,10 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by VitalitY on 02.12.2016.
+ * Created by VitalitY on 14.12.2016.
  */
 @Entity
-@Table(name = "role", schema = "heroku_893975b12603774", catalog = "")
+@Table(name = "role", schema = "heroku_379802575654769", catalog = "")
 public class RoleEntity {
     private int id;
     private String nameRole;
@@ -49,10 +49,5 @@ public class RoleEntity {
         int result = id;
         result = 31 * result + (nameRole != null ? nameRole.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return this.getNameRole();
     }
 }

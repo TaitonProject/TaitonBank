@@ -2,7 +2,6 @@ package com.taiton.controller;
 
 import com.taiton.dao.RoleDao;
 import com.taiton.dao.UserDao;
-import com.taiton.entity.RoleEntity;
 import com.taiton.entity.UserEntity;
 import com.taiton.service.SecurityService;
 import com.taiton.service.UserService;

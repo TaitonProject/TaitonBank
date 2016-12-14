@@ -2,9 +2,6 @@ package com.taiton.service;
 
 import com.taiton.entity.UserEntity;
 
-import java.util.List;
-import java.util.Set;
-
 /**
  * Created by Taiton on 11/6/2016.
  */

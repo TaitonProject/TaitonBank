@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import java.io.Serializable;
 
 /**
- * Created by VitalitY on 02.12.2016.
+ * Created by VitalitY on 14.12.2016.
  */
 public class ServiceHasDetailsPaymentEntityPK implements Serializable {
     private int serviceId;

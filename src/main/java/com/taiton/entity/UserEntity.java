@@ -3,10 +3,10 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by VitalitY on 02.12.2016.
+ * Created by VitalitY on 14.12.2016.
  */
 @Entity
-@Table(name = "user", schema = "heroku_893975b12603774", catalog = "")
+@Table(name = "user", schema = "heroku_379802575654769", catalog = "")
 public class UserEntity {
     private int id;
     private String username;

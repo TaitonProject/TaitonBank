@@ -3,14 +3,15 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by VitalitY on 02.12.2016.
+ * Created by VitalitY on 14.12.2016.
  */
 @Entity
-@Table(name = "service", schema = "heroku_893975b12603774", catalog = "")
+@Table(name = "service", schema = "heroku_379802575654769", catalog = "")
 public class ServiceEntity {
     private int id;
     private double comission;
     private String name;
+    private AccountEntity accountByAccountId;
 
     @Id
     @Column(name = "Id")
@@ -65,5 +66,15 @@ public class ServiceEntity {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "account_Id", referencedColumnName = "Id", nullable = false)
+    public AccountEntity getAccountByAccountId() {
+        return accountByAccountId;
+    }
+
+    public void setAccountByAccountId(AccountEntity accountByAccountId) {
+        this.accountByAccountId = accountByAccountId;
     }
 }

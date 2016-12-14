@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by VitalitY on 02.12.2016.
+ * Created by VitalitY on 14.12.2016.
  */
 @Entity
-@Table(name = "user_info", schema = "heroku_893975b12603774", catalog = "")
+@Table(name = "user_info", schema = "heroku_379802575654769", catalog = "")
 public class UserInfoEntity {
     private int id;
     private String firstName;
