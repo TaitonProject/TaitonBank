@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home/home.html" charset="ISO-8859-1" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/mainAuthorization/login.html" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/js/myApp.js" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/css" charset="UTF-8" />
@@ -10,5 +9,7 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/libs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/lib/angular.min.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/myApp.js" charset="ISO-8859-1" />
   </component>
 </project>

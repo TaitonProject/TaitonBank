@@ -13,11 +13,20 @@
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
         </mvc:message-converters>
     </mvc:annotation-driven>
-    <mvc:resources mapping="/js/**" location="/WEB-INF/templates/login/js/" />
+
+    <!--<mvc:resources mapping="/js/**" location="/WEB-INF/templates/login/js/" />
     <mvc:resources mapping="/css/**" location="/WEB-INF/templates/login/css/" />
     <mvc:resources mapping="/img/**" location="/WEB-INF/templates/login/img/" />
     <mvc:resources mapping="/libs/**" location="/WEB-INF/templates/login/libs/" />
     <mvc:resources mapping="/WEB-INF/templates/login/**" location="/WEB-INF/templates/login/" />
+
+    <mvc:resources mapping="/js/**" location="/WEB-INF/templates/angular/js/" />
+    <mvc:resources mapping="/WEB-INF/templates/angular/**" location="/WEB-INF/templates/angular/" />
+
+    <mvc:resources mapping="/**" location="/WEB-INF/templates/resources/"/>
+    <mvc:resources mapping="/js/**" location="/WEB-INF/templates/angular/js/"/>-->
+
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
@@ -65,7 +74,7 @@
         <property name="templateEngine" ref="templateEngine"/>
     </bean>
 
-    <mvc:annotation-driven conversion-service="conversionService" />
+    <!--<mvc:annotation-driven conversion-service="conversionService" />-->
 
     <bean id="conversionService"
           class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
