@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularSpringApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+            <tr ng-repeat="user in users">
+                <td>Username: {{user.username}}</td>
+                <td>Password: {{user.password}}</td>
+                <td>Isblocked: {{user.isBlocked}}</td>
+            </tr>
+
+<script src="resources/js/lib/angular/angular.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/controllers/UserController.js"></script>
+<script src="resources/js/services.js"></script>
+<script src="resources/js/filters.js"></script>
+<script src="resources/js/directives.js"></script>
+</body>
+</html>

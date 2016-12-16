@@ -3,11 +3,10 @@ package com.taiton.controller;
 import com.taiton.dao.UserDao;
 import com.taiton.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -28,9 +27,14 @@ public class JacksonController {
         return new ResponseEntity(userEntityList, HttpStatus.OK);
     }*/
 
-    @GetMapping("/listUsers")
+    @RequestMapping("/listUsers.json")
     public @ResponseBody List<UserEntity> getUserList(){
-        List<UserEntity> userEntityList = userDao.findAll();
-        return userEntityList;
+        return userDao.findAll();
     }
+
+    @RequestMapping("/listUsers")
+    public String getListUsersPage(){
+        return "listUsers/listUsers";
+    }
+
 }
