@@ -57,6 +57,7 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.3" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.7.3" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.3" />
+          <element id="library" level="project" name="Maven: org.webjars:angularjs:1.4.9" />
         </element>
       </element>
       <element id="directory" name="META-INF">

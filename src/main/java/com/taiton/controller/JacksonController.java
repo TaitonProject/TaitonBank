@@ -29,12 +29,12 @@ public class JacksonController {
 
     @RequestMapping("/listUsers.json")
     public @ResponseBody List<UserEntity> getUserList(){
-        return userDao.findAll();
+        List<UserEntity> listUsers = userDao.findAll();
+        return listUsers;
     }
 
     @RequestMapping("/listUsers")
     public String getListUsersPage(){
         return "listUsers/listUsers";
     }
-
 }

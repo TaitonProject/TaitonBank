@@ -1,14 +1,13 @@
 /**
  * Created by Taiton on 12/15/2016.
  */
-
-var listUsersCtrl = function($scope, $http) {
-    $scope.fetchUserList = function () {
-        $http.get('/listUsers.json').success(function (listUsers) {
-            $scope.users = listUsers;
+/**
+ * UserController
+ * @constructor
+ */
+var UserController = function($scope, $http) {
+        $http.get('/listUsers.json').success(function (response) {
+                $scope.users = response;
         });
-    };
-
-    $scope.fetchUserList();
 };
 

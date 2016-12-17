@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="AngularSpringApp">
+<html lang="en" ng-app>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<div ng-controller="UserController">
             <tr ng-repeat="user in users">
-                <td>Username: {{user.username}}</td>
-                <td>Password: {{user.password}}</td>
-                <td>Isblocked: {{user.isBlocked}}</td>
+                <td>{{user.username}}</td>
             </tr>
-
+    <p>{{users[0].username}}</p>
+</div>
 <script src="resources/js/lib/angular/angular.js"></script>
-<script src="resources/js/app.js"></script>
 <script src="resources/js/controllers/UserController.js"></script>
 <script src="resources/js/services.js"></script>
 <script src="resources/js/filters.js"></script>
 <script src="resources/js/directives.js"></script>
+<script src="resources/js/app.js"></script>
 </body>
 </html>
