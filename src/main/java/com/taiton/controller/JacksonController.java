@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,9 +28,15 @@ public class JacksonController {
         return new ResponseEntity(userEntityList, HttpStatus.OK);
     }*/
 
-    @RequestMapping("/listUsers.json")
+/*    @RequestMapping("/listUsers.json")
     public @ResponseBody List<UserEntity> getUserList(){
         List<UserEntity> listUsers = userDao.findAll();
+        return listUsers;
+    }*/
+
+    @RequestMapping("/listUsers.json")
+    public @ResponseBody ArrayList<UserEntity> getUserList(){
+        ArrayList<UserEntity> listUsers = (ArrayList<UserEntity>) userDao.findAll();
         return listUsers;
     }
 
