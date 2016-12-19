@@ -1,5 +1,7 @@
 package com.taiton.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -13,6 +15,7 @@ public class UserEntity {
     private String password;
     private byte isBlocked;
     private RoleEntity roleByRoleIdRole;
+    @JsonIgnore
     private transient String confirmPassword;
 
     @Transient

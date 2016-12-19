@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="RoleApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="RoleController">
+<div>
+    <tr ng-repeat="role in roles">
+        <div>{{role.id}} {{role.nameRole}}</div>
+    </tr>
+    <p>{{roles}}</p>
+    <p>{{roles.length}}</p>
+    <p>{{roles.length}}</p>
+</div>
+<script src="resources/js/lib/angular/angular.js"></script>
+<script src="resources/js/controllers/RoleController.js"></script>
+<script src="resources/js/services.js"></script>
+<script src="resources/js/filters.js"></script>
+<script src="resources/js/directives.js"></script>
+<script src="resources/js/app.js"></script>
+</body>
+</html>
