@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<!--<ul ng-repeat="(key, val) in user">
+    <span>{{val}}</span>
+    <span>{{val}}</span>
+</ul>-->
 <div ng-controller="UserController">
-            <tr ng-repeat="user in users">
-                <td>{{user.username}}</td>
-            </tr>
-    <p>{{users[0].username}}</p>
+    {{2-5}}
+    <table border="1">
+        <tbody>
+        <tr>
+            <th ng-repeat="(key, val) in users[0]">{{key}}</th>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td ng-repeat="(key, val) in user.username">{{val}}</td>
+        </tr>
+        </tbody>
+    </table>
+<hr>
+    <p>{{users[0]}}</p>
 </div>
+
+
+<table>
+    <tr>
+        <td>1123</td>
+        <td>1123</td>
+        <td>1123</td>
+    </tr>
+    <tr>
+        <td>1123</td>
+        <td>1123</td>
+        <td>1123</td>
+    </tr>
+</table>
 <script src="resources/js/lib/angular/angular.js"></script>
 <script src="resources/js/controllers/UserController.js"></script>
 <script src="resources/js/services.js"></script>
