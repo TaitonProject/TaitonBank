@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="AppUser">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Title</title>
 </head>
 <body>
+
 <div ng-controller="UserController">
-            <tr ng-repeat="user in users">
-                <td>{{user.username}}</td>
-            </tr>
-    <p>{{users[0].username}}</p>
+    <table>
+        <div ng-repeat="user in users">
+            <div>{{user.username}}</div>
+            <div>{{user.password}}</div>
+            <div>{{user.isBlocked}}</div>
+            <div>{{user.roleByRoleIdRole.nameRole}}</div>
+        </div>
+    </table>
 </div>
+
 <script src="resources/js/lib/angular/angular.js"></script>
 <script src="resources/js/controllers/UserController.js"></script>
 <script src="resources/js/services.js"></script>

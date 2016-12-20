@@ -1,16 +1,14 @@
 'use strict';
 
-var AngularSpringApp = {};
+var TaitonBankApp = {};
 
-var App = angular.module('AngularSpringApp',['AngularSpringApp.filters', 'AngularSpringApp.services', 'AngularSpringApp.directives']);
+var App = angular.module('TaitonBankApp', ['TaitonBankApp.filters', 'TaitonBankApp.services', 'TaitonBankApp.directives']);
 
 // Declare app level module which depends on filters, and services
-/*App.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/listUsers', {
-        templateUrl: 'listUsers/listUsers',
-        controller: UserController
+App.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/registration', {
+        templateUrl: 'registration/layout',
+        controller: RegistrationController
     });
 
-    $routeProvider.otherwise({redirectTo: '/'});
-}]);*/
-
+}]);

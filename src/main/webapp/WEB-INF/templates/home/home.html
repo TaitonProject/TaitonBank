@@ -5,6 +5,7 @@
     <title></title>
 </head>
 <body>
+thymeleaf
     <form th:action="@{/logout}" method="post">
         <h1 th:inline="text">Привет, [[${#httpServletRequest.userPrincipal.name}]]</h1>
         <button>Выйти из кабинета</button>
