@@ -1,0 +1,89 @@
+/*#side-menu li a{
+  background: white;
+}
+.navbar-default.navbar-default{
+  background:#fbde01;
+  border-bottom: 1px solid black;
+}
+#side-menu li{
+  display: block;
+  margin: 3px auto;
+  padding: 5px 0;
+}
+#side-menu li a:hover{
+  cursor: pointer;
+  background: #fbde01;
+}*/
+/*#side-menu li a{
+  color: #fbde01;
+  transition: all 0.5s ease;
+}*/
+
+
+
+
+
+#side-menu li a i{
+  color: black;
+}
+#side-menu li a {
+  font-size: 16px;
+  color: #fbde01;
+  transition: all 1s ease;
+}
+
+.nav li a:hover #side-menu li a i {
+  color: black !important;
+}
+#side-menu li:hover #side-menu li a  {
+  color: black;
+}
+.nav>li>a{
+  border: 1px solid #fbde01;
+  display: block;
+  padding: 15px 20px;
+  border-radius: 15px;
+}
+#side-menu#side-menu>li>a:focus, #side-menu#side-menu>li>a:hover{
+
+  border: 1px solid black;
+  cursor: pointer;
+  color: black;
+}
+.nav>li>a:focus, .nav>li>a:hover{
+  background: #fbde01;
+  color: black !important;
+}
+.nav>li>a:focus #side-menu li a, .nav>li>a:hover #side-menu li a{
+  background: #fbde01;
+  color: black;
+}
+.fa.arrow:before{
+  position: relative;
+  right:10px;
+}
+
+.navbar-top-links li a{
+  border: none;
+}
+.navbar-top-links li a:hover{
+  border: none;
+  background: none;
+}
+
+.navbar-top-links li a i{
+  color: black;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand{
+  color: black;
+}
+.navbar-default.navbar-default{
+  border-bottom: none;
+}
+@media screen and (max-width: 768px){
+  .navbar-top-links .dropdown-user{
+    right: -115px;
+  }
+}
+
+

@@ -2,13 +2,13 @@
 
 var TaitonBankApp = {};
 
-var App = angular.module('TaitonBankApp', ['TaitonBankApp.filters', 'TaitonBankApp.services', 'TaitonBankApp.directives']);
+var App = angular.module('TaitonBankApp', []);
 
 // Declare app level module which depends on filters, and services
 App.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/registration', {
-        templateUrl: 'registration/layout',
-        controller: RegistrationController
+    $routeProvider.when('/user', {
+        templateUrl: 'pages/user_profile.html',
+        controller: ProfileController
     });
 
 }]);
