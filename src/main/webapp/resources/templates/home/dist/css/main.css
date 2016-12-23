@@ -87,3 +87,9 @@
 }
 
 
+#page-wrapper{
+  border-left: none;
+}
+#wrapper > nav{
+  background: #fbde01;
+}

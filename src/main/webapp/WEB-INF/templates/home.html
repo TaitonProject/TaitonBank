@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 
 <head>
 
@@ -169,15 +169,18 @@
         <div id="page-wrapper" style="min-height: 506px;">
             <div class="row">
                 <div class="col-lg-12">
-                <ng-view></ng-view>
+                    <p>1+14 = {{1+14}}</p>
+                    <div ng-view=""></div>
                 </div>
             </div>
         </div>
 
     </div>
+<script>
+    var myApp=angular.module('myApp', []);
+</script>
 
 
-    <p>1+14 = {{1+14}}</p>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
