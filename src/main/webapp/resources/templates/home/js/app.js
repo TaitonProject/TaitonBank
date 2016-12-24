@@ -1,4 +1,7 @@
-var myApp=angular.module('myApp', []);
-myApp.controller("phonesController", function ($scope) {
-
+myApp.config(function($routeProvider){
+    $routeProvider.when('/user',
+        {
+            templateUrl:'pages/user_profile.html',
+            controller:'QuestionController'
+        });
 });
