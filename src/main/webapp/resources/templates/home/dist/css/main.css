@@ -93,3 +93,14 @@
 #wrapper > nav{
   background: #fbde01;
 }
+
+/*.user-info h1{
+  color: red;
+}*/
+.navbar-default .navbar-toggle .icon-bar{
+  color: white;
+}
+i{
+  display: inline-block;
+  padding-right: 10px;
+}
