@@ -107,11 +107,11 @@ i{
 button{
   outline: none !important;
 }
-#wrapper > nav > ul > li > ul > li:nth-child(3) > a > form{
-  display: inline-block;
-  background: transparent;
+#wrapper > nav > ul > li > ul > form > li > button{
+    border: none;
+    background: transparent;
 }
-#wrapper > nav > ul > li > ul > li:nth-child(3) > a > form > button{
-  border: none;
-  background-color: transparent;
+#wrapper > nav > ul > li > ul > form{
+    text-align: left;
+    padding-left: 22px;
 }

@@ -30,7 +30,7 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'UserController'
     });
     $routeProvider.when('/phone', {
-        templateUrl: 'phone/phone',
+        templateUrl: 'pay/phone',
         controller: 'UserController'
     });
 
