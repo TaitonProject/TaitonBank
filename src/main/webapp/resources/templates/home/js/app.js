@@ -22,7 +22,7 @@ App.config(['$routeProvider', function ($routeProvider) {
 
 App.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/registration', {
-        templateUrl: 'registration/layout'
+        templateUrl: 'registration/user'
     });
 
     $routeProvider.when('/user', {
@@ -34,10 +34,6 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'UserController'
     });
 
-    $routeProvider.when('/phone', {
-        templateUrl: 'pay/phone',
-        controller: 'UserController'
-    });
 
     $routeProvider.otherwise({redirectTo: '/user'});
 }]);

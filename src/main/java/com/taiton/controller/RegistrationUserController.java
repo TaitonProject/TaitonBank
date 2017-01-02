@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Taiton on 12/7/2016.
  */
 @Controller
-@RequestMapping("/registration")
+@RequestMapping("/registration/user")
 public class RegistrationUserController {
 
     @Autowired
@@ -35,7 +35,7 @@ public class RegistrationUserController {
     @Autowired
     private RoleDao roleDao;
 
-    @RequestMapping("/layout")
+    @RequestMapping("/")
     public String getRegistrationPage() {
         return "registration/user";
     }
