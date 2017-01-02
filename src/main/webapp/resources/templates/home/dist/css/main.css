@@ -104,3 +104,6 @@ i{
   display: inline-block;
   padding-right: 10px;
 }
+button{
+  outline: none !important;
+}

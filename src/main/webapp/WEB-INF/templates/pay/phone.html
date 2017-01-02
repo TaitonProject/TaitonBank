@@ -1,81 +1,31 @@
 <div class="user-info container">
-    <h1>?????????? ? ???????</h1>
+    <h1>?????? ????????? ?????</h1>
     <hr>
-    <!--<div ng-controller="UserController">
-        <h1>User Info</h1>
-        <hr>
-        <table class="table table-hover">
-        <tr ng-repeat="user in users">
-            <td>{{user.username}}</td>
-        </tr>
-        </table>
 
-        <p>{{users[0].username}}</p>
-    </div>
--->
 
     <div class="container pays-history row">
-        <table class="table table-hover">
-            <caption class="lead">????????? ???????</caption>
-            <thead>
-            <tr>
-                <th>????? ???????</th>
-                <th>???????? ??????</th>
-                <th>?????</th>
-                <th>???? ??????</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="success">
-                <td>1</td>
-                <td>?????? ?????????? ?????????</td>
-                <td>32 $</td>
-                <td>13/12/2015</td>
-            </tr>
-            <tr class="success">
-                <td>12</td>
-                <td>?????? ??????????? ?????</td>
-                <td>38 $</td>
-                <td>06/12/2015</td>
-            </tr>
-            <tr class="success">
-                <td>3</td>
-                <td>?????? ?? ???????</td>
-                <td>54 $</td>
-                <td>05/04/2015</td>
-            </tr>
-            </tbody>
-        </table>
+        <form class="form-horizontal col-sm-4 " role="form">
+            <div class="form-group">
+                <label for="inputEmail3" class="control-label">????? ????????</label>
+                <div class="">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="+375 29 4363412">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobileOperator" class="control-label">??????? ????????</label>
+                <select class="form-control" id="mobileOperator">
+                    <option>Velcom</option>
+                    <option>MTC</option>
+                    <option>Life:)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <button type="submit" class="btn btn-warning">????????</button>
+                </div>
+            </div>
+        </form>
     </div>
 
-    <div class="container exchange-rates">
-        <table class="table table-hover">
-            <caption class="lead">????? ?????</caption>
-            <thead>
-            <tr>
-                <th>??????</th>
-                <th>???????</th>
-                <th>???????</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="success">
-                <td>RUB</td>
-                <td>3,1850</td>
-                <td>3,2000 </td>
-            </tr>
-            <tr class="success">
-                <td>EUR</td>
-                <td>2,0350</td>
-                <td>2,0440</td>
-            </tr>
-            <tr class="success">
-                <td>UDS</td>
-                <td>1,9450</td>
-                <td>1,9520</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
 
 </div>
