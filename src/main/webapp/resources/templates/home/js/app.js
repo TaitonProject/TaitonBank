@@ -38,6 +38,13 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'pay/phone',
         controller: 'UserController'
     });
+    $routeProvider.when('/edit_user', {
+        templateUrl: 'editing/user',
+        controller: 'UserController'
+    });
+    $routeProvider.when('/edit_personal', {
+        templateUrl: 'editing/personal',
+    });
 
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

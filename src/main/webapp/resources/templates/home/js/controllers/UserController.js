@@ -1,8 +1,10 @@
-/**
- * Created by egordragun on 25.12.16.
- */
 var UserController = function($scope, $http) {
-    $http.get('/listUsers.json').success(function (response) {
-        $scope.users = response;
-    });
+    $scope.fetchUserList = function () {
+        $http.get('/listUsers.json').success(function (listUsers) {
+            $scope.users = listUsers;
+        });
+    };
+
+    $scope.fetchUserList();
 };
+
