@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
 </head>
-<body>
-    editing user
-</body>
-</html>
+<div class="user-info container">
+    <h1>Редактирование пользовательского профиля</h1>
+    <hr>
+
+<div class="container" ng-controller="UserController">
+    <table border="1">
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>Username: {{user.username}}</td>
+            <td><button type="submit" class="btn btn-warning">Изменить</button></td>
+            <td><button type="submit" class="btn btn-danger">Удалить</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+    <div class="container pays-history">
+        <form class="form-horizontal col-sm-4 " role="form">
+            <div class="form-group">
+                <label class="control-label">Найти пользователя</label>
+                <select class="form-control">
+                    <option>Velcom</option>
+                    <option>MTC</option>
+                    <option>Life:)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Сменить имя</label>
+                <div class="">
+                    <input type="text" class="form-control" placeholder="Имя">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Сменить пароль</label>
+                <div class="">
+                    <input type="password" class="form-control" placeholder="Пароль">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox"> Блокировать пользователя
+                </label>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <button type="submit" class="btn btn-warning">Изменить</button>
+                    <button type="submit" class="btn btn-danger">Удалить</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>
