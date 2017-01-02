@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Taiton on 11/6/2016.
  */
@@ -28,5 +30,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserEntity findByUsername(String username) {
         return userDao.findByUsername(username);
+    }
+
+    @Override
+    public List<UserEntity> findAll() {
+        return userDao.findAll();
     }
 }

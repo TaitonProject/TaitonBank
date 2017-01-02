@@ -1,14 +1,16 @@
 package com.taiton.controller;
 
-import com.taiton.dao.RoleDao;
-import com.taiton.dao.UserDao;
 import com.taiton.entity.RoleEntity;
 import com.taiton.entity.UserEntity;
+import com.taiton.service.RoleService;
 import com.taiton.service.SecurityService;
 import com.taiton.service.UserService;
 import com.taiton.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +20,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/registration")
-public class RegistrationUserController {
+public class UserRegistrationController {
 
     @Autowired
     private UserService userService;
@@ -30,15 +32,7 @@ public class RegistrationUserController {
     private UserValidator userValidator;
 
     @Autowired
-    private UserDao userDao;
-
-    @Autowired
-    private RoleDao roleDao;
-
-    @RequestMapping()
-    public String getRegistrationPage(){
-        return "registration/layout";
-    }
+    private RoleService roleService;
 
     @RequestMapping("/user")
     public String getUserRegistrationPage() {
@@ -47,21 +41,24 @@ public class RegistrationUserController {
 
     @GetMapping("registration.json")
     public @ResponseBody List<UserEntity> fetchListUsers(){
-        return userDao.findAll();
+        return userService.findAll();
     }
 
     @GetMapping("listRoles.json")
     public @ResponseBody List<RoleEntity> fetchListRoles(){
-        return roleDao.findAll();
+        return roleService.findAll();
     }
 
     @PostMapping("/addUser")
-    public @ResponseBody void registeredUser(@RequestBody UserEntity user) {
-       /* userValidator.validate(user, bindingResult);
+    public @ResponseBody
+    ResponseEntity<Void> registeredUser(@RequestBody UserEntity user, BindingResult bindingResult) {
+        user.setRoleByRoleIdRole(roleService.find(1));
+/*        userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "registration/layout";
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }*/
         userService.save(user);
-        securityService.autoLogin(user.getUsername(), user.getConfirmPassword());
+//        securityService.autoLogin(user.getUsername(), user.getConfirmPassword());
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
