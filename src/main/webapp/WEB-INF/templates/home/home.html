@@ -160,13 +160,25 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li sec:authorize="hasRole('ROLE_administration')">
-                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Панель управления<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление пользователями<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#/user"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавить пользователя</a>
+                                    <a href="#/registration/user"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавление пользователя</a>
                                 </li>
                                 <li>
-                                    <a href="login.html"><i class="fa fa-user-times" aria-hidden="true"></i>Удалить пользователя</a>
+                                    <a href="#/editing/user"><i class="fa fa-user-times" aria-hidden="true"></i>Редактирование пользователя</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_administration')">
+                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление персоналом<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#/registration/admin"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавление персонала</a>
+                                </li>
+                                <li>
+                                    <a href="#/editing/admin"><i class="fa fa-user-times" aria-hidden="true"></i>Редактирование персонала</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -210,7 +222,7 @@
     <script src="resources/templates/home/js/filters.js"></script>
     <script src="resources/templates/home/js/directives.js"></script>
     <script src="resources/templates/home/js/app.js"></script>
-
+    <script src="resources/templates/home/"
 </body>
 
 </html>

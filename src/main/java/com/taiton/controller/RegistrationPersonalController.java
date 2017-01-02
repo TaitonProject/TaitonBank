@@ -9,7 +9,6 @@ import com.taiton.service.UserService;
 import com.taiton.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +17,8 @@ import java.util.List;
  * Created by Taiton on 12/7/2016.
  */
 @Controller
-@RequestMapping("/registration")
-public class RegistrationController {
+@RequestMapping("/registrationff")
+public class RegistrationPersonalController {
 
     @Autowired
     private UserService userService;
@@ -38,7 +37,7 @@ public class RegistrationController {
 
     @RequestMapping("/layout")
     public String getRegistrationPage() {
-        return "registration/layout";
+        return "registration/user";
     }
 
     @GetMapping("registration.json")

@@ -34,5 +34,10 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'UserController'
     });
 
+    $routeProvider.when('/phone', {
+        templateUrl: 'pay/phone',
+        controller: 'UserController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/user'});
 }]);
