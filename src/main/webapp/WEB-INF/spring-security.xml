@@ -23,7 +23,7 @@
     <form-login login-page="/login" default-target-url="/home" authentication-failure-url="/login?error"
                 always-use-default-target="true"
                     username-parameter="username" password-parameter="password"/>
-        <logout logout-success-url="/login?logout"/>
+        <logout logout-url="/logout" logout-success-url="/login?logout"/>
     </http>
 
     <beans:bean id="tokenRepository"
