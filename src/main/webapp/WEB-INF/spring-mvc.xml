@@ -58,6 +58,11 @@
         <!-- ypes, so this flag is "false" by default for safer backwards            -->
         <!-- compatibility.                                                          -->
         <property name="enableSpringELCompiler" value="true" />
+        <property name="additionalDialects">
+            <set>
+                <bean class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect" />
+            </set>
+        </property>
     </bean>
 
     <bean id="viewResolver"
