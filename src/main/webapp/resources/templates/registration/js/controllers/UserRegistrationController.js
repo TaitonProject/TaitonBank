@@ -16,4 +16,16 @@ UserRegistrationController = function ($scope, $http) {
             $scope.setError('беда при добавлении пользователя');
         })
     };
-}
+
+    $scope.fetchRoleList = function () {
+        $scope.resetError();
+        $http.get('/registration/listRoles.json').success(function (response) {
+            $scope.roles = response;
+            $scope.selectedOption = $scope.roles[0];
+        }).error(function () {
+            $scope.setError('беда в предосталвнии списка ролей')
+        });
+    };
+
+    $scope.fetchRoleList();
+};
