@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"  lang="en" ng-app="TaitonBankApp">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en" ng-app="TaitonBankApp">
 
 <head>
 
@@ -58,8 +58,13 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#/user"><i class="fa fa-user fa-fw"></i> User Profile</a>
                         </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
                         <li class="divider"></li>
-                        <li><a href="resources/templates/home/pageslogin.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
+                            <li><a><i class="fa fa-sign-out fa-fw"></i> <form th:action="@{/logout}" method="post"> <button>Выйти</button> </form></a>
+
+                        </form>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
