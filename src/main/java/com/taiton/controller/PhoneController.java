@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by egordragun on 26.12.16.
  */
 @Controller
-@RequestMapping("/phone")
+@RequestMapping("/pay")
 public class PhoneController {
-    @RequestMapping()
+    @RequestMapping("/phone")
     public String getPhonePage() {
         return "pay/phone";
     }

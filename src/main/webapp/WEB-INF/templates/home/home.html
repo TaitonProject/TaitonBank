@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="TaitonBankApp">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"  lang="en" ng-app="TaitonBankApp">
 
 <head>
 
@@ -50,15 +50,13 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right" sec:authorize="hasRole('ROLE_client')">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#/user"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="resources/templates/home/pageslogin.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -73,10 +71,10 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li>
+                        <li sec:authorize="hasRole('ROLE_client')">
                             <a href="#/user"><i class="fa fa-user fa-fw"></i> Главная</a>
                         </li>
-                        <li>
+                        <li sec:authorize="hasRole('ROLE_client')">
                             <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>Платежи<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -88,13 +86,13 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li sec:authorize="hasRole('ROLE_client')">
                             <a href="#/user"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
-                        <li>
+                        <li sec:authorize="hasRole('ROLE_client')">
                             <a href=""><i class="fa fa-edit fa-fw"></i> Forms</a>
                         </li>
-                        <li>
+                        <li sec:authorize="hasRole('ROLE_client')">
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -118,7 +116,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li sec:authorize="hasRole('ROLE_client')">
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -148,7 +146,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li sec:authorize="hasRole('ROLE_client')">
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -156,6 +154,18 @@
                                 </li>
                                 <li>
                                     <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_administration')">
+                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Панель управления<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="blank.html"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавить пользователя</a>
+                                </li>
+                                <li>
+                                    <a href="login.html"><i class="fa fa-user-times" aria-hidden="true"></i>Удалить пользователя</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
