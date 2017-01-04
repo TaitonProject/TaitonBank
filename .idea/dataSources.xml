@@ -13,6 +13,8 @@
         <property name="characterEncoding" value="utf8" />
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
+        <property name="utf8OutsideBmpIncludedColumnNamePattern" value="true" />
+        <property name="utf8OutsideBmpExcludedColumnNamePattern" value="true" />
       </driver-properties>
     </data-source>
   </component>

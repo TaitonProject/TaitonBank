@@ -1,11 +1,14 @@
 package com.taiton.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.taiton.jsonConverter.UserInfoDeserializer;
+
 import javax.persistence.*;
-import java.sql.Date;
 
 /**
  * Created by VitalitY on 14.12.2016.
  */
+@JsonDeserialize(using = UserInfoDeserializer.class)
 @Entity
 @Table(name = "user_info", schema = "heroku_379802575654769", catalog = "")
 public class UserInfoEntity {
@@ -14,8 +17,6 @@ public class UserInfoEntity {
     private String secondName;
     private String surName;
     private String pasportNumber;
-    private String authority;
-    private Date dateOfIssue;
     private UserEntity userByUserId;
 
     @Id
@@ -68,26 +69,6 @@ public class UserInfoEntity {
         this.pasportNumber = pasportNumber;
     }
 
-    @Basic
-    @Column(name = "Authority")
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-
-    @Basic
-    @Column(name = "Date_Of_Issue")
-    public Date getDateOfIssue() {
-        return dateOfIssue;
-    }
-
-    public void setDateOfIssue(Date dateOfIssue) {
-        this.dateOfIssue = dateOfIssue;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,9 +82,6 @@ public class UserInfoEntity {
         if (surName != null ? !surName.equals(that.surName) : that.surName != null) return false;
         if (pasportNumber != null ? !pasportNumber.equals(that.pasportNumber) : that.pasportNumber != null)
             return false;
-        if (authority != null ? !authority.equals(that.authority) : that.authority != null) return false;
-        if (dateOfIssue != null ? !dateOfIssue.equals(that.dateOfIssue) : that.dateOfIssue != null) return false;
-
         return true;
     }
 
@@ -114,8 +92,6 @@ public class UserInfoEntity {
         result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
         result = 31 * result + (surName != null ? surName.hashCode() : 0);
         result = 31 * result + (pasportNumber != null ? pasportNumber.hashCode() : 0);
-        result = 31 * result + (authority != null ? authority.hashCode() : 0);
-        result = 31 * result + (dateOfIssue != null ? dateOfIssue.hashCode() : 0);
         return result;
     }
 

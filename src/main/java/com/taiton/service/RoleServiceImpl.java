@@ -4,6 +4,7 @@ import com.taiton.dao.RoleDao;
 import com.taiton.entity.RoleEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Created by Taiton on 1/2/2017.
  */
 @Service
+@Transactional
 public class RoleServiceImpl implements RoleService {
 
     @Autowired

@@ -23,11 +23,18 @@ RegistrationController = function ($scope, $http) {
         $scope.resetError();
         $http.post('/registration/addUser', user).success(function () {
             $scope.fetchUsersList();
-            $scope.user.username = '';
-            $scope.user.password = '';
-            $scope.user.confirmPassword = '';
-            $scope.user.isBlocked = false;
-            $scope.user.roleByRoleIdRole = null;
+            $scope.user = {
+                username: '',
+                password: '',
+                confirmPassword: '',
+                info : {
+                    firstName: '',
+                    secondName: '',
+                    sureName: '',
+                    passportNumber: ''
+                }
+            };
+
         }).error(function () {
             $scope.setError('беда при добавлении пользователя');
         })
@@ -38,7 +45,7 @@ RegistrationController = function ($scope, $http) {
         $scope.errorMessage = message;
     };
 
-    $scope.resetError = function() {
+    $scope.resetError = function () {
         $scope.error = false;
         $scope.errorMessage = '';
     };

@@ -14,4 +14,6 @@ public interface UserService {
     UserEntity findByUsername(String username);
 
     List<UserEntity> findAll();
+
+    UserEntity findOne(int id);
 }

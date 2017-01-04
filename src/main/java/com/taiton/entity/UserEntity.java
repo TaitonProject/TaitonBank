@@ -1,12 +1,15 @@
 package com.taiton.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.taiton.jsonConverter.UserDeserializer;
 
 import javax.persistence.*;
 
 /**
  * Created by VitalitY on 14.12.2016.
  */
+
 @Entity
 @Table(name = "user", schema = "heroku_379802575654769", catalog = "")
 public class UserEntity {

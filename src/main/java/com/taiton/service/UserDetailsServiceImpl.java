@@ -21,7 +21,7 @@ import java.util.Set;
  * @version 1.0
  */
 
-
+@Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired

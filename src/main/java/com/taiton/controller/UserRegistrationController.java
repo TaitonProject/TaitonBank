@@ -2,8 +2,10 @@ package com.taiton.controller;
 
 import com.taiton.entity.RoleEntity;
 import com.taiton.entity.UserEntity;
+import com.taiton.entity.UserInfoEntity;
 import com.taiton.service.RoleService;
 import com.taiton.service.SecurityService;
+import com.taiton.service.UserInfoService;
 import com.taiton.service.UserService;
 import com.taiton.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,9 @@ public class UserRegistrationController {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private UserInfoService userInfoService;
+
     @RequestMapping("/user")
     public String getUserRegistrationPage() {
         return "registration/user";
@@ -50,15 +55,21 @@ public class UserRegistrationController {
     }
 
     @PostMapping("/addUser")
-    public @ResponseBody
-    ResponseEntity<Void> registeredUser(@RequestBody UserEntity user, BindingResult bindingResult) {
-        user.setRoleByRoleIdRole(roleService.find(1));
-/*        userValidator.validate(user, bindingResult);
+    public @ResponseBody ResponseEntity<Void> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
+        //Устанавливаем роль пользоватлея
+        userInfo.getUserByUserId().setRoleByRoleIdRole(roleService.find(1));
+
+        // Проверка валидности данных
+        /*userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }*/
-        userService.save(user);
-//        securityService.autoLogin(user.getUsername(), user.getConfirmPassword());
+
+        userService.save(userInfo.getUserByUserId());
+        // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+        userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+        userInfoService.save(userInfo);
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

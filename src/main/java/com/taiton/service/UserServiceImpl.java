@@ -5,6 +5,7 @@ import com.taiton.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * Created by Taiton on 11/6/2016.
  */
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
 
     @Autowired
@@ -35,5 +37,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<UserEntity> findAll() {
         return userDao.findAll();
+    }
+
+    @Override
+    public UserEntity findOne(int id) {
+        return userDao.findOne(id);
     }
 }
