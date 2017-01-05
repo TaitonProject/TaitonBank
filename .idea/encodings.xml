@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/error.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home/home.html" charset="UTF-8" />
@@ -8,6 +8,6 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/templates/home/less" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/resources/templates/home/vendor" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/templates/pages" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
