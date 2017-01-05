@@ -2,24 +2,31 @@
     <meta charset="utf-8">
 </head>
 <div class="user-info container">
+    <div class="title col-12">
     <h1>Редактирование пользовательского профиля</h1>
     <hr>
-
+</div>
 <div class="container">
-    <table border="1">
-        <tbody>
-        <tr ng-repeat="user in users">
-            <td>Username: {{user.username}}</td>
-            <td><button type="submit" class="btn btn-warning">Изменить</button></td>
-            <td><button type="submit" class="btn btn-danger">Удалить</button></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="form-group col-sm-4" style="display: block">
+        <label class="control-label">Поиск пользователей</label>
+        <div class="">
+            <input type="text" class="form-control" placeholder="Имя">
+        </div>
+    </div>
 </div>
     <div class="container pays-history">
         <form class="form-horizontal col-sm-4 " role="form">
+            <table border="1">
+                <tbody>
+                <tr ng-repeat="user in users">
+                    <td>Username: {{user.username}}</td>
+                    <td><button type="submit" style="background: transparent; border: none; padding-right: -10px !important;font-size: 18px;"><i class="fa fa-pencil-square select" aria-hidden="true"></i></button></td>
+                    <td><button type="submit" style="background: transparent; border: none;padding-right: -10px !important; font-size: 18px;"><i class="fa fa-times select" aria-hidden="true"></i></button></td>
+                </tr>
+                </tbody>
+            </table>
             <div class="form-group">
-                <label class="control-label">Найти пользователя</label>
+                <label class="control-label ">Найти пользователя</label>
                 <select class="form-control">
                     <option>Velcom</option>
                     <option>MTC</option>

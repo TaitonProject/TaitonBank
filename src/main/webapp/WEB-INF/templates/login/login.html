@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 
     <link rel="stylesheet" href="resources/templates/login/css/normalize.css">
+    <link rel="stylesheet" href="resources/templates/login/css/animate.css">
     <link rel="stylesheet" href="resources/templates/login/css/style.css" type="text/css" />
     <link rel="stylesheet" href="resources/templates/login/css/main.css">
     <link rel="stylesheet" href="resources/templates/login/libs/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -34,7 +35,7 @@
 <section class="about-us">
     <div class="container">
         <h2 class="second-title">Любите свои деньги и распоряжайтесь ими по-новому</h2>
-        <div class="plus-container">
+        <div class="plus-container wow bounceInLeft" data-wow-duration="2s" data-wow-delay="1s">
             <div class="plus-info">
                 <div class="info-logo">
                     <i class="fa fa-line-chart" aria-hidden="true"></i>
@@ -44,7 +45,7 @@
                 <span>Постоянный контроль за историей<br> расходов, остатками на<br> счетах, — все это<br> в новом наглядном интерфейсе</span>
             </div>
         </div>
-        <div class="plus-container">
+        <div class="plus-container wow bounceInLeft">
             <div class="plus-info">
                 <div class="info-logo">
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
@@ -54,7 +55,7 @@
                 <span>Оплата телефона, <br>коммунальных услуг<br> и много другого не отходя<br> от компьютера или телефона</span>
             </div>
         </div>
-        <div class="plus-container">
+        <div class="plus-container wow bounceInRight">
             <div class="plus-info">
                 <div class="info-logo">
                     <i class="fa fa-mobile" aria-hidden="true"></i>
@@ -63,7 +64,7 @@
                 <span>Пользуйтесь банкингом с любого<br> устройства, где есть выход в интернет<br> через сайт</span>
             </div>
         </div>
-        <div class="plus-container">
+        <div class="plus-container wow bounceInRight" data-wow-duration="2s" data-wow-delay="1s">
             <div class="plus-info">
                 <div class="info-logo">
                     <i class="fa fa-rocket" aria-hidden="true"></i>
@@ -114,6 +115,7 @@
 
 <script src="resources/templates/login/libs/less.min.js"></script>
 <script src="resources/templates/login/js/popup.js"></script>
+<script src="resources/templates/login/js/wow.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -133,5 +135,7 @@
     ga('create', 'UA-XXXXX-X', 'auto');
     ga('send', 'pageview');
 </script>
-
+<script>
+    new WOW().init();
+</script>
 </html>
