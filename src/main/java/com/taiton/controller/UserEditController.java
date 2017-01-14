@@ -42,9 +42,9 @@ public class UserEditController {
     }
 
     @DeleteMapping("/deleteUser/{id}")
-    public @ResponseBody ResponseEntity<Void> deleteUser(@PathVariable int id){
-        userService.delete(userInfoService.findOne(id).getUserByUserId().getId());
+    public @ResponseBody ResponseEntity<Void> deleteUser(@PathVariable("id") int id){
         userInfoService.delete(id);
+        userService.delete(userInfoService.findOne(id).getUserByUserId().getId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
