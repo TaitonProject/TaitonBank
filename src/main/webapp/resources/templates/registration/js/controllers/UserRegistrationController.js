@@ -6,7 +6,7 @@
  * @constructor
  */
 
-UserRegistrationController = function ($scope, $http) {
+UserEditingController = function ($scope, $http) {
 
     $scope.user = {};
 

@@ -18,9 +18,17 @@ public class UserInfoServiceImpl implements UserInfoService{
     @Autowired
     private UserInfoDao userInfoDao;
 
+    @Autowired
+    private UserService userService;
+
     @Override
     public void save(UserInfoEntity userInfoEntity) {
         userInfoDao.save(userInfoEntity);
+    }
+
+    @Override
+    public void delete(int id) {
+        userInfoDao.delete(id);
     }
 
     @Override

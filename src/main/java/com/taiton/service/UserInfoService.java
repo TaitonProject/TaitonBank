@@ -11,6 +11,8 @@ public interface UserInfoService {
 
     void save(UserInfoEntity userInfoEntity);
 
+    void delete(int id);
+
     UserInfoEntity findOne(int id);
 
     List<UserInfoEntity> findAll();

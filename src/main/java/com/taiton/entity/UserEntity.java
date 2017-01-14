@@ -16,7 +16,7 @@ public class UserEntity {
     private int id;
     private String username;
     private String password;
-    private byte isBlocked;
+    private boolean isBlocked;
     private RoleEntity roleByRoleIdRole;
     @JsonIgnore
     private transient String confirmPassword;
@@ -62,11 +62,11 @@ public class UserEntity {
 
     @Basic
     @Column(name = "IsBlocked")
-    public byte getIsBlocked() {
+    public boolean getIsBlocked() {
         return isBlocked;
     }
 
-    public void setIsBlocked(byte isBlocked) {
+    public void setIsBlocked(boolean isBlocked) {
         this.isBlocked = isBlocked;
     }
 
@@ -90,7 +90,6 @@ public class UserEntity {
         int result = id;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (int) isBlocked;
         return result;
     }
 

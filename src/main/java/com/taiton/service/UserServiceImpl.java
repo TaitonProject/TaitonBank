@@ -25,9 +25,14 @@ public class UserServiceImpl implements UserService{
     @Override
     public void save(UserEntity user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setIsBlocked((byte) 0);
         userDao.save(user);
     }
+
+    @Override
+    public void delete(int id) {
+        userDao.delete(id);
+    }
+
 
     @Override
     public UserEntity findByUsername(String username) {

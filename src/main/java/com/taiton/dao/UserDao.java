@@ -9,4 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface UserDao extends JpaRepository<UserEntity, Integer>{
     UserEntity findByUsername(String username);
+
+    @Override
+    void delete(Integer integer);
 }

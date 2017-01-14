@@ -1,63 +1,103 @@
-<head>
-    <meta charset="utf-8">
-</head>
-<div class="user-info container">
-    <div class="title col-12">
-    <h1>Редактирование пользовательского профиля</h1>
-    <hr>
-</div>
 <div class="container">
-    <div class="form-group col-sm-4" style="display: block">
-        <label class="control-label">Поиск пользователей</label>
-        <div class="">
-            <input type="text" class="form-control" placeholder="Имя">
+    <div class="title col-12">
+        <h1>Редактирование пользовательского профиля</h1>
+        <hr>
+    </div>
+    <form class="form-horizontal col-sm-4 " name="userForm">
+
+        <div class="form-group" ng-class="{ 'has-error' : user.surName.$invalid && !user.surName.$pristine }">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_surуName" ng-model="user.surName"
+                       placeholder="Фамилия" required="required" min="2" />
+            </div>
         </div>
-    </div>
-</div>
-    <div class="container pays-history">
-        <form class="form-horizontal col-sm-4 " role="form">
-            <table border="1">
-                <tbody>
-                <tr ng-repeat="user in users">
-                    <td>Username: {{user.username}}</td>
-                    <td><button type="submit" style="background: transparent; border: none; padding-right: -10px !important;font-size: 18px;"><i class="fa fa-pencil-square select" aria-hidden="true"></i></button></td>
-                    <td><button type="submit" style="background: transparent; border: none;padding-right: -10px !important; font-size: 18px;"><i class="fa fa-times select" aria-hidden="true"></i></button></td>
-                </tr>
-                </tbody>
-            </table>
-            <div class="form-group">
-                <label class="control-label ">Найти пользователя</label>
-                <select class="form-control">
-                    <option>Velcom</option>
-                    <option>MTC</option>
-                    <option>Life:)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Сменить имя</label>
-                <div class="">
-                    <input type="text" class="form-control" placeholder="Имя">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Сменить пароль</label>
-                <div class="">
-                    <input type="password" class="form-control" placeholder="Пароль">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>
-                    <input type="checkbox"> Блокировать пользователя
-                </label>
-            </div>
-            <div class="form-group">
-                <div class="">
-                    <button type="submit" class="btn btn-warning">Изменить</button>
-                    <button type="submit" class="btn btn-danger">Удалить</button>
-                </div>
-            </div>
-        </form>
-    </div>
 
+        <div class="form-group" ng-class="{ 'has-error' : user.firstName.$invalid && !user.firstName.$pristine }">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_firstName" ng-model="user.firstName"
+                       placeholder="Имя" required="required" min="2" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : user.secondName.$invalid && !user.secondName.$pristine }">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_secondName" ng-model="user.secondName"
+                       placeholder="Отчество" required="required" min="2" />
+            </div>
+        </div>
 
+        <div class="form-group" ng-class="{ 'has-error' : user.pasportNumber.$invalid && !user.pasportNumber.$pristine }">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_passportNumber" ng-model="user.pasportNumber"
+                       placeholder="Номер пасспорта" required="required" min="6" />
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.username.$invalid && !user.userByUserId.username.$pristine }">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_name" ng-model="user.userByUserId.username"
+                       placeholder="Логин" required="required" min="6" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.password.$invalid && !user.userByUserId.password.$pristine }">
+            <div class="controls">
+                <input type="password" class="form-control" id="user_password" ng-model="user.userByUserId.password"
+                       placeholder="Пароль" required="required" min="6" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.isBlocked.$invalid && !user.userByUserId.isBlocked.$pristine }">
+            <div class="checkbox">
+                <label><input type="checkbox" class="form-control" id="confirm_Password"
+                       ng-model="user.userByUserId.isBlocked" placeholder="Повторите пароль" required="required" min="6">Заблокировать</label>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+            <hr />
+            <div class="controls">
+                <button type="button" class="btn btn-warning"
+                        ng-click="editUser(user)">Изменить пользователя</button>
+            </div>
+        </div>
+        <table class="table">
+            <tr>
+                <th>Фамилия
+                </th>
+                <th>Имя
+                </th>
+                <th>Отчество
+                </th>
+                <th>Номер паспорта
+                </th>
+                <th>Логин
+                </th>
+                <th>Блокировка
+                </th>
+                <th>Действие
+                </th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>
+                    {{user.surName}}
+                </td>
+                <td>
+                    {{user.firstName}}
+                </td>
+                <td>
+                    {{user.secondName}}
+                </td>
+                <td>
+                    {{user.pasportNumber}}
+                </td>
+                <td>
+                    {{user.userByUserId.username}}
+                </td>
+                <td>
+                    {{user.userByUserId.isBlocked}}
+                </td>
+                <td>
+                    <input type="button" value="Редактировать" class="btn btn-primary" ng-click="edit(user)"/>
+                    <input type="button" value="Удалить" class="btn btn-primary" ng-click="deleteUser(user.id)"/>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>

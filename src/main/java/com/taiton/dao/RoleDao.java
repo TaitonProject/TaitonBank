@@ -8,4 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface RoleDao extends JpaRepository<RoleEntity, Integer> {
     RoleEntity findByNameRole(String name);
+
+    @Override
+    void delete(Integer integer);
 }

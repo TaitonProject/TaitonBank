@@ -1,14 +1,17 @@
 package com.taiton.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.taiton.jsonConverter.UserInfoDeserializer;
+import com.taiton.jsonConverter.UserInfoSerializer;
 
 import javax.persistence.*;
 
 /**
  * Created by VitalitY on 14.12.2016.
  */
-@JsonDeserialize(using = UserInfoDeserializer.class)
+/*@JsonDeserialize(using = UserInfoDeserializer.class)
+@JsonSerialize(using = UserInfoSerializer.class)*/
 @Entity
 @Table(name = "user_info", schema = "heroku_379802575654769", catalog = "")
 public class UserInfoEntity {

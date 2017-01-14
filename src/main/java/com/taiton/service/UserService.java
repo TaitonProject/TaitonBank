@@ -11,6 +11,8 @@ public interface UserService {
 
     void save(UserEntity userEntity);
 
+    void delete(int id);
+
     UserEntity findByUsername(String username);
 
     List<UserEntity> findAll();

@@ -18,8 +18,10 @@ public class UserDeserializer extends JsonDeserializer<UserEntity>{
     public UserEntity deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         UserEntity user = new UserEntity();
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
+        user.setId(node.get("id").asInt());
         user.setUsername(node.get("username").asText());
         user.setPassword(node.get("password").asText());
+        //user.setRoleByRoleIdRole(node.get("roleByRoleIdRole").);
         return user;
     }
 }

@@ -40,7 +40,7 @@ App.config(['$routeProvider', function ($routeProvider) {
     });
     $routeProvider.when('/edit_user', {
         templateUrl: 'editing/user',
-        controller: 'UserController'
+        controller: 'UserEditingController'
     });
     $routeProvider.when('/edit_personal', {
         templateUrl: 'editing/personal',

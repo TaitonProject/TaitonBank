@@ -11,4 +11,6 @@ public interface RoleService {
     List<RoleEntity> findAll();
 
     RoleEntity find(int id);
+
+    void delete(int id);
 }
