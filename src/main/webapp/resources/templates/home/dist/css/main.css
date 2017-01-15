@@ -183,3 +183,65 @@ button{
 .controls{
   position: relative;
 }
+
+.checked-subscribe {
+  display: inline-block;
+  margin-top: 15px;
+}
+.checked-subscribe[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+.checked-subscribe[type="checkbox"] + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  margin: 0;
+}
+.checked-subscribe[type="checkbox"] + label:before {
+  content: '';
+  position: absolute;
+  left:0; top: -13px;
+  width: 24px; height: 24px;
+  background: red;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+}
+.checked-subscribe[type="checkbox"] + label:after {
+  content: '\f00c';
+  font-family: FontAwesome;
+  color: white;
+  position: absolute;
+  top: -9px;
+  left: 2px;
+  font-size: 20px;
+  line-height: 0.8;
+  transition: all .2s;
+}
+.checked-subscribe[type="checkbox"] + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+.checked-subscribe[type="checkbox"]:checked + label:after {
+  opacity: 0;
+  transform: scale(1);
+}
+.checked-subscribe[type="checkbox"]:checked + label:before{
+  background: transparent;
+}
+.checked-subscribe label{
+  color: black;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+.check{
+  margin-top: 45px;
+}
+.text-blocked{
+  position: relative;
+  top: -13px;
+  left: 15px;
+  font-size: 18px;
+}
