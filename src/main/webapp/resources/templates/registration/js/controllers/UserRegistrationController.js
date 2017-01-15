@@ -39,6 +39,9 @@ UserRegistrationController = function ($scope, $http) {
             $scope.setError('беда при добавлении пользователя');
         })
     };
+    if(document.getElementById("confirm_Password").value !==  document.getElementById("user_password").value){
+        document.getElementById("confirm_password_info").value("Пароли не совпадают");
+    }
 
     $scope.setError = function (message) {
         $scope.error = false;
@@ -53,3 +56,6 @@ UserRegistrationController = function ($scope, $http) {
     $scope.fetchUsersList();
 };
 
+function stageController($scope) {
+    $scope.user_password = 'password';
+}
