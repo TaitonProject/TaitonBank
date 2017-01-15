@@ -57,7 +57,7 @@
         <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.password.$invalid && !user.userByUserId.password.$pristine }">
             <div class="controls">
                 <input type="password" class="form-control" id="user_password" name="password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" ng-model="user.userByUserId.password"
-                       placeholder="Пароль" required="required" min="6" />
+                       placeholder="Пароль" required="required" />
                 <span class="hasnt-error" ng-show="userForm.password.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.password.$invalid && !userForm.password.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
 Пароль (Строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов)</span>
