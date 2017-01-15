@@ -3,7 +3,7 @@
         <h1>Редактирование пользовательского профиля</h1>
         <hr>
     </div>
-    <form class="form-horizontal col-sm-4 " name="userForm">
+    <form class="form-horizontal col-sm-4 " name="user">
 
         <div class="form-group">
             <div class="controls">
@@ -63,7 +63,7 @@
  Пароль (Строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов)</span>
             </div>
         </div>
-        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.isBlocked.$invalid && !user.userByUserId.isBlocked.$pristine }">
+        <div class="form-group">
             <div class="checkbox" style="margin-top: 15px">
                 <label><input type="checkbox" class="form-control" id="confirm_Password"
                        ng-model="user.userByUserId.isBlocked">Заблокировать</label>
@@ -72,7 +72,7 @@
         <div class="form-group">
             <hr />
             <div class="controls">
-                <button type="button" class="btn btn-warning" ng-disabled="user.$invalid"
+                <button type="button" class="btn btn-warning" ng-disabled="user.$invalid || user.userByUserId.$invalid"
                         ng-click="editUser(user)">Изменить пользователя</button>
             </div>
         </div>
