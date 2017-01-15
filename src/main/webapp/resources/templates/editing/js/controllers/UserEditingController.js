@@ -29,7 +29,7 @@ UserEditingController = function ($scope, $http) {
                 firstName: '',
                 secondName: '',
                 pasportNumber: '',
-                userBuyUserId : {
+                userByUserId : {
                     username: '',
                     password: '',
                     isBlocked: null
@@ -42,14 +42,14 @@ UserEditingController = function ($scope, $http) {
 
     $scope.deleteUser = function (id) {
         $scope.resetError();
-        $http.delete('/editing/deleteUser', id).success(function () {
+        $http.delete('/editing/deleteUser/'+id).success(function () {
             $scope.fetchUsersList();
             $scope.user = {
                 surName: '',
                 firstName: '',
                 secondName: '',
                 pasportNumber: '',
-                userBuyUserId : {
+                userByUserId : {
                     username: '',
                     password: '',
                     isBlocked: null

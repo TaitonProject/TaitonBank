@@ -5,49 +5,49 @@
     </div>
     <form class="form-horizontal col-sm-4 " name="userForm">
 
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : user.surName.$invalid && !user.surName.$pristine }">
             <div class="controls">
-                <input type="text" class="form-control" id="user_sureName" ng-model="user.info.sureName"
+                <input type="text" class="form-control" id="user_surName" ng-model="user.surName"
                        placeholder="Фамилия" required="required" min="2" />
             </div>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : user.firstName.$invalid && !user.firstName.$pristine }">
             <div class="controls">
-                <input type="text" class="form-control" id="user_firstName" ng-model="user.info.firstName"
+                <input type="text" class="form-control" id="user_firstName" ng-model="user.firstName"
                        placeholder="Имя" required="required" min="2" />
             </div>
         </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : user.secondName.$invalid && !user.secondName.$pristine }">
             <div class="controls">
-                <input type="text" class="form-control" id="user_secondName" ng-model="user.info.secondName"
+                <input type="text" class="form-control" id="user_secondName" ng-model="user.secondName"
                        placeholder="Отчество" required="required" min="2" />
             </div>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : user.pasportNumber.$invalid && !user.pasportNumber.$pristine }">
             <div class="controls">
-                <input type="text" class="form-control" id="user_passportNumber" ng-model="user.info.passportNumber"
+                <input type="text" class="form-control" id="user_passportNumber" ng-model="user.pasportNumber"
                        placeholder="Номер пасспорта" required="required" min="6" />
             </div>
         </div>
 
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.username.$invalid && !user.userByUserId.username.$pristine }">
             <div class="controls">
-                <input type="text" class="form-control" id="user_name" ng-model="user.username"
+                <input type="text" class="form-control" id="user_name" ng-model="user.userByUserId.username"
                        placeholder="Логин" required="required" min="6" />
             </div>
         </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.password.$invalid && !user.userByUserId.password.$pristine }">
             <div class="controls">
-                <input type="password" class="form-control" id="user_password" ng-model="user.password"
+                <input type="password" class="form-control" id="user_password" ng-model="user.userByUserId.password"
                        placeholder="Пароль" required="required" min="6" />
             </div>
         </div>
-        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.confirmPassword.$invalid && !userForm.name.$pristine }">
             <div class="controls">
                 <input type="password" class="form-control" id="confirm_Password"
-                       ng-model="user.confirmPassword" placeholder="Повторите пароль" required="required" min="6" />
+                       ng-model="user.userByUserId.confirmPassword" placeholder="Повторите пароль" required="required" min="6" />
             </div>
         </div>
         <!--    <div class="control-group">

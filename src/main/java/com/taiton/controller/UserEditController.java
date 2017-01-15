@@ -2,6 +2,7 @@ package com.taiton.controller;
 
 import com.taiton.entity.UserInfoEntity;
 import com.taiton.service.UserInfoService;
+import com.taiton.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,9 @@ public class UserEditController {
     @Autowired
     UserInfoService userInfoService;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping("/user")
     public String getPhonePage() {
         return "editing/user";
@@ -37,9 +41,10 @@ public class UserEditController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteUser")
-    public @ResponseBody ResponseEntity<Void> deleteUser(@RequestBody int id){
+    @DeleteMapping("/deleteUser/{id}")
+    public @ResponseBody ResponseEntity<Void> deleteUser(@PathVariable("id") int id){
         userInfoService.delete(id);
+        userService.delete(userInfoService.findOne(id).getUserByUserId().getId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

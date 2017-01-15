@@ -6,7 +6,7 @@
  * @constructor
  */
 
-UserEditingController = function ($scope, $http) {
+UserRegistrationController = function ($scope, $http) {
 
     $scope.user = {};
 
@@ -24,14 +24,15 @@ UserEditingController = function ($scope, $http) {
         $http.post('/registration/addUser', user).success(function () {
             $scope.fetchUsersList();
             $scope.user = {
-                username: '',
-                password: '',
-                confirmPassword: '',
-                info : {
-                    firstName: '',
-                    secondName: '',
-                    sureName: '',
-                    passportNumber: ''
+                surName: '',
+                firstName: '',
+                secondName: '',
+                pasportNumber: '',
+                userByUserId : {
+                    username: '',
+                    password: '',
+                    confirmPassword: '',
+                    isBlocked: null
                 }
             };
         }).error(function () {
