@@ -9,11 +9,13 @@ import javax.persistence.*;
 @Table(name = "account", schema = "heroku_379802575654769", catalog = "")
 public class AccountEntity {
     private int id;
-    private String accountNumber;
+    private int accountNumber;
     private double accountBalance;
+    private Integer userId;
+    private Integer organizationId;
 
     @Id
-    @Column(name = "Id")
+    @Column(name = "Id", nullable = false)
     public int getId() {
         return id;
     }
@@ -23,17 +25,17 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "Account_Number")
-    public String getAccountNumber() {
+    @Column(name = "Account_Number", nullable = false, length = 45)
+    public int getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
+    public void setAccountNumber(int accountNumber) {
         this.accountNumber = accountNumber;
     }
 
     @Basic
-    @Column(name = "Account_Balance")
+    @Column(name = "Account_Balance", nullable = false, precision = 0)
     public double getAccountBalance() {
         return accountBalance;
     }
@@ -51,9 +53,6 @@ public class AccountEntity {
 
         if (id != that.id) return false;
         if (Double.compare(that.accountBalance, accountBalance) != 0) return false;
-        if (accountNumber != null ? !accountNumber.equals(that.accountNumber) : that.accountNumber != null)
-            return false;
-
         return true;
     }
 
@@ -62,9 +61,28 @@ public class AccountEntity {
         int result;
         long temp;
         result = id;
-        result = 31 * result + (accountNumber != null ? accountNumber.hashCode() : 0);
         temp = Double.doubleToLongBits(accountBalance);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    @Basic
+    @Column(name = "user_Id", nullable = true)
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    @Basic
+    @Column(name = "organization_id", nullable = true)
+    public Integer getOrganizationId() {
+        return organizationId;
+    }
+
+    public void setOrganizationId(Integer organizationId) {
+        this.organizationId = organizationId;
     }
 }

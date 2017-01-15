@@ -55,6 +55,7 @@ App.config(['$routeProvider', function ($routeProvider) {
 
     $routeProvider.when('/registration/userAccount', {
         templateUrl: 'registration/userAccount',
+        controller: 'UserAccountRegistrationController'
     });
 
     $routeProvider.otherwise({redirectTo: '/'});

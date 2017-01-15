@@ -12,9 +12,18 @@ public class ServiceEntity {
     private double comission;
     private String name;
     private AccountEntity accountByAccountId;
+    private OrganizationEntity organizationByOrganizationId;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setComission(Double comission) {
+        this.comission = comission;
+    }
 
     @Id
-    @Column(name = "Id")
+    @Column(name = "Id", nullable = false)
     public int getId() {
         return id;
     }
@@ -24,7 +33,7 @@ public class ServiceEntity {
     }
 
     @Basic
-    @Column(name = "Comission")
+    @Column(name = "Comission", nullable = false, precision = 0)
     public double getComission() {
         return comission;
     }
@@ -34,7 +43,7 @@ public class ServiceEntity {
     }
 
     @Basic
-    @Column(name = "Name")
+    @Column(name = "Name", nullable = false, length = 45)
     public String getName() {
         return name;
     }
@@ -76,5 +85,15 @@ public class ServiceEntity {
 
     public void setAccountByAccountId(AccountEntity accountByAccountId) {
         this.accountByAccountId = accountByAccountId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "organization_id", referencedColumnName = "Id", nullable = false)
+    public OrganizationEntity getOrganizationByOrganizationId() {
+        return organizationByOrganizationId;
+    }
+
+    public void setOrganizationByOrganizationId(OrganizationEntity organizationByOrganizationId) {
+        this.organizationByOrganizationId = organizationByOrganizationId;
     }
 }

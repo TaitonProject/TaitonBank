@@ -168,6 +168,13 @@
                                 <li>
                                     <a href="#/editing/userInfo"><i class="fa fa-pencil-square" aria-hidden="true"></i>Редактирование пользователя</a>
                                 </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_administration')">
+                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление счетами пользователей<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#/registration/userAccount"><i class="fa fa-user-plus" aria-hidden="true"></i>Добавление счета пользователя</a>
                                 </li>
@@ -229,6 +236,7 @@
     <script src="resources/templates/home/js/directives.js"></script>
     <script src="resources/templates/home/js/app.js"></script>
     <script src="resources/templates/registration/js/controllers/UserRegistrationController.js"></script>
+    <script src="resources/templates/registration/js/controllers/UserAccountRegistrationController.js"></script>
     <script src="resources/templates/editing/js/controllers/UserEditingController.js"></script>
 
 </body>

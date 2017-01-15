@@ -8,17 +8,6 @@
 
 UserRegistrationController = function ($scope, $http) {
 
-    $scope.user = {};
-
-    $scope.fetchUsersList = function () {
-        $scope.resetError();
-        $http.get('/registration/registration.json').success(function (response) {
-            $scope.users = response;
-        }).error(function () {
-            $scope.setError('беда в предосталвнии списка пользователей')
-        });
-    };
-
     $scope.addNewUser = function (user) {
         $scope.resetError();
         $http.post('/registration/addUser', user).success(function () {
@@ -49,7 +38,5 @@ UserRegistrationController = function ($scope, $http) {
         $scope.error = false;
         $scope.errorMessage = '';
     };
-
-    $scope.fetchUsersList();
 };
 

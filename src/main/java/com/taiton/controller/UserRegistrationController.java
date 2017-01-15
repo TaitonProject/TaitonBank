@@ -1,12 +1,7 @@
 package com.taiton.controller;
 
-import com.taiton.entity.RoleEntity;
-import com.taiton.entity.UserEntity;
-import com.taiton.entity.UserInfoEntity;
-import com.taiton.service.RoleService;
-import com.taiton.service.SecurityService;
-import com.taiton.service.UserInfoService;
-import com.taiton.service.UserService;
+import com.taiton.entity.*;
+import com.taiton.service.*;
 import com.taiton.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,6 +34,9 @@ public class UserRegistrationController {
     @Autowired
     private UserInfoService userInfoService;
 
+    @Autowired
+    private AccountService accountService;
+
     @RequestMapping("/userInfo")
     public String getUserRegistrationPage() {
         return "registration/userInfo";
@@ -57,6 +55,16 @@ public class UserRegistrationController {
     @GetMapping("/userAccount")
     public String getRegistrationUserAccountPage() {
         return "registration/userAccount";
+    }
+
+    @PostMapping("/userAccount")
+    public @ResponseBody ResponseEntity<Void> registerUserAccount(@RequestBody UserAccount account){
+        AccountEntity accountEntity = new AccountEntity();
+        accountEntity.setUserId(account.getUserId());
+        accountEntity.setAccountNumber(account.getNumber());
+        accountEntity.setAccountBalance(0);
+        accountService.save(accountEntity);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @PostMapping("/addUser")
