@@ -135,3 +135,51 @@ button{
     text-align: left;
     padding-left: 22px;
 }
+
+/*
+.update-button,.remove-button{
+  background: transparent;
+  border: none;
+}
+.update-button:before{
+  content: "\f00d";
+  font-family: FontAwesome;
+  font-size: 24px;
+  opacity: 0.8;
+  color: red;
+  transition: all 0.5s ease;
+}
+.update-button:before:hover{
+  cursor: pointer;
+  opacity: 1;
+}*/
+
+.has-error{
+  position: absolute;
+  color: red;
+  padding-left: 3px;
+}
+.hasnt-error{
+  top: 9px;
+  right: 0;
+  position: absolute;
+}
+.fa-times{
+  padding-right: 4px;
+  color: red;
+  font-size: 14px;
+}
+.form-control{
+  margin: 10px auto;
+}
+.fa-check{
+  color: green;
+}
+.has-error-input{
+  border: 1px solid red;
+  transition: all 0.5s ease;
+}
+
+.controls{
+  position: relative;
+}
