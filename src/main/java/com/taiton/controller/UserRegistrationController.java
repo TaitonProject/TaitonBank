@@ -1,6 +1,7 @@
 package com.taiton.controller;
 
 import com.taiton.entity.*;
+import com.taiton.entity.forJson.UserAccount;
 import com.taiton.service.*;
 import com.taiton.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;

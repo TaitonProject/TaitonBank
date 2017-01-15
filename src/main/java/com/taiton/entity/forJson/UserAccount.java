@@ -1,4 +1,4 @@
-package com.taiton.entity;
+package com.taiton.entity.forJson;
 
 /**
  * Created by Taiton on 1/15/2017.

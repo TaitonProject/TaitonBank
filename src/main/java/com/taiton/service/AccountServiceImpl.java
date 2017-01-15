@@ -39,4 +39,9 @@ public class AccountServiceImpl implements AccountService {
     public void save(AccountEntity accountEntity) {
         accountDao.save(accountEntity);
     }
+
+    @Override
+    public AccountEntity findByAccountNumber(int accountNumber) {
+        return accountDao.findByAccountNumber(accountNumber);
+    }
 }

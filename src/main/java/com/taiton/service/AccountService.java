@@ -16,4 +16,6 @@ public interface AccountService {
     void delete(int id);
 
     void save(AccountEntity accountEntity);
+
+    AccountEntity findByAccountNumber(int accountNumber);
 }
