@@ -39,9 +39,9 @@ public class UserRegistrationController {
     @Autowired
     private UserInfoService userInfoService;
 
-    @RequestMapping("/user")
+    @RequestMapping("/userInfo")
     public String getUserRegistrationPage() {
-        return "registration/user";
+        return "registration/userInfo";
     }
 
     @GetMapping("registration.json")
@@ -52,6 +52,11 @@ public class UserRegistrationController {
     @GetMapping("listRoles.json")
     public @ResponseBody List<RoleEntity> fetchListRoles(){
         return roleService.findAll();
+    }
+
+    @GetMapping("/userAccount")
+    public String getRegistrationUserAccountPage() {
+        return "registration/userAccount";
     }
 
     @PostMapping("/addUser")

@@ -25,8 +25,8 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'registration/layout',
 
     });
-    $routeProvider.when('/registration/user', {
-        templateUrl: 'registration/user',
+    $routeProvider.when('/registration/userInfo', {
+        templateUrl: 'registration/userInfo',
         controller: 'UserRegistrationController'
     });
 
@@ -38,12 +38,23 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'pay/phone',
         controller: 'UserController'
     });
-    $routeProvider.when('/edit_user', {
-        templateUrl: 'editing/user',
+    $routeProvider.when('/editing/userInfo', {
+        templateUrl: 'editing/userInfo',
         controller: 'UserEditingController'
     });
     $routeProvider.when('/edit_personal', {
         templateUrl: 'editing/personal',
+    });
+    $routeProvider.when('/editing/personal', {
+        templateUrl: 'editing/personal',
+    });
+
+    $routeProvider.when('/editing/userAccount', {
+        templateUrl: 'editing/userAccount',
+    });
+
+    $routeProvider.when('/registration/userAccount', {
+        templateUrl: 'registration/userAccount',
     });
 
     $routeProvider.otherwise({redirectTo: '/'});

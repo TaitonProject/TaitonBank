@@ -1,0 +1,135 @@
+<div class="container row">
+    <div class="title col-12">
+        <h1>Редактирование пользовательского профиля</h1>
+        <hr>
+    </div>
+    <form class="form-horizontal col-sm-4 " name="userForm">
+
+        <div class="form-group">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_surName" name="surname" ng-model="user.surName"
+                       placeholder="Фамилия" required="required" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"/>
+                <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+Неверное написание фамилии</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_firstName" name="user_name" ng-model="user.firstName"
+                       placeholder="Имя" required="required" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"/>
+                <span class="hasnt-error" ng-show="userForm.user_name.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.user_name.$invalid && !userForm.user_name.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+Неверное написание имени</span>
+            </div>
+        </div>
+
+        <div class="form-group" >
+            <div class="controls">
+                <input type="text" class="form-control" id="user_secondName" name="fatherName" ng-model="user.secondName"
+                       placeholder="Отчество" required="required" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"/>
+                <span class="hasnt-error" ng-show="userForm.fatherName.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.fatherName.$invalid && !userForm.fatherName.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+Неверное написание имени</span>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : user.pasportNumber.$invalid && !user.pasportNumber.$pristine }">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_passportNumber" ng-model="user.pasportNumber"
+                       placeholder="Номер пасспорта" name="passport" required="required" min="6" ng-pattern="/MP\d{1,6}$/"/>
+                <span class="hasnt-error" ng-show="userForm.passport.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.passport.$invalid && !userForm.passport.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+Неверный номер паспорта (MP "6 цифр после")</span>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.username.$invalid && !user.userByUserId.username.$pristine }">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_name" name="user_login" ng-model="user.userByUserId.username" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"
+                       placeholder="Логин" required="required" />
+                <span class="hasnt-error" ng-show="userForm.user_login.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.user_login.$invalid && !userForm.user_login.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+Неверное написание логина пользователя</span>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : user.userByUserId.password.$invalid && !user.userByUserId.password.$pristine }">
+            <div class="controls">
+                <input type="password" class="form-control" id="user_password" name="password" ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/" ng-model="user.userByUserId.password"
+                       placeholder="Пароль" required="required" min="6" />
+                <span class="hasnt-error" ng-show="userForm.password.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.password.$invalid && !userForm.password.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+Пароль (Строчные и прописные латинские буквы, цифры, спецсимволы. Минимум 8 символов)</span>
+            </div>
+        </div>
+        <!--<div
+        class="form-group">
+        <div class="checkbox" style="margin-top: 15px">
+        <label><input type="checkbox" class="form-control" id="confirm_Password"
+        ng-model="user.userByUserId.isBlocked">Заблокировать</label>
+        </div>
+        </div>-->
+        <div class="form-group">
+            <div class="controls check">
+                <input id="confirm_Password" class="checked-subscribe form-control" type="checkbox" ng-model="user.userByUserId.isBlocked" data-inventory-field="subscription" value="on">
+                <label for="confirm_Password"><span class="text-blocked">Заблокировать</span></label>
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="controls">
+                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                        ng-click="editUser(user)">Изменить пользователя</button>
+            </div>
+        </div>
+    </form>
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Фамилия
+                </th>
+                <th>Имя
+                </th>
+                <th>Отчество
+                </th>
+                <th>Номер паспорта
+                </th>
+                <th>Логин
+                </th>
+                <th>Блокировка
+                </th>
+                <th>Редактировать
+                </th>
+                <th>
+                    Удалить
+                </th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>
+                    {{user.surName}}
+                </td>
+                <td>
+                    {{user.firstName}}
+                </td>
+                <td>
+                    {{user.secondName}}
+                </td>
+                <td>
+                    {{user.pasportNumber}}
+                </td>
+                <td>
+                    {{user.userByUserId.username}}
+                </td>
+                <td>
+                    {{user.userByUserId.isBlocked}}
+                </td>
+                <td>
+                    <input type="button" value="Редактировать" class="update-button btn btn-warning" ng-click="edit(user)"/>
+                </td>
+                <td>
+                    <input type="button" value="Удалить" class="remove-button btn btn-danger" ng-click="deleteUser(user.id)"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

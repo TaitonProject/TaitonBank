@@ -6,7 +6,6 @@ import com.taiton.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +24,9 @@ public class UserEditController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/user")
+    @RequestMapping("/userInfo")
     public String getPhonePage() {
-        return "editing/user";
+        return "editing/userInfo";
     }
 
     @GetMapping("/listUsers.json")
@@ -46,6 +45,11 @@ public class UserEditController {
         userInfoService.delete(id);
         userService.delete(userInfoService.findOne(id).getUserByUserId().getId());
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/userAccount")
+    public String getEditUserAccountPage() {
+        return "editing/userAccount";
     }
 
 }
