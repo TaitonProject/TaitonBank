@@ -63,6 +63,11 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'UserBalanceEditingController'
     });
 
+    $routeProvider.when('/service/registration', {
+        templateUrl: '/service/registration',
+        controller: 'ServiceRegistrationController'
+    });
+
     $routeProvider.when('/organization/registration', {
         templateUrl: '/organization/registration',
         controller: 'OrganizationRegistrationController'

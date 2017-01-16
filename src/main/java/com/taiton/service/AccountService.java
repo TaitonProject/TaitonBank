@@ -9,7 +9,9 @@ import java.util.List;
  * Created by Taiton on 1/2/2017.
  */
 public interface AccountService {
-    List<AccountEntity> findAll();
+    List<AccountEntity> findAllUser();
+
+    List<AccountEntity> findAllOrganization();
 
     AccountEntity find(int id);
 

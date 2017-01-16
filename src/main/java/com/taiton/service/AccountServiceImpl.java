@@ -21,8 +21,13 @@ public class AccountServiceImpl implements AccountService {
     private AccountDao accountDao;
 
     @Override
-    public List<AccountEntity> findAll() {
-        return accountDao.findAll();
+    public List<AccountEntity> findAllUser() {
+        return accountDao.findAllUser();
+    }
+
+    @Override
+    public List<AccountEntity> findAllOrganization() {
+        return accountDao.findAllOrganization();
     }
 
     @Override
