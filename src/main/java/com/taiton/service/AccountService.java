@@ -18,4 +18,9 @@ public interface AccountService {
     void save(AccountEntity accountEntity);
 
     AccountEntity findByAccountNumber(int accountNumber);
+
+    List<AccountEntity> findAllUser();
+
+    List<AccountEntity> findAllOrganization();
+
 }

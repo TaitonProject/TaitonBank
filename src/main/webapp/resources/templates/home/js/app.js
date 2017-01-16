@@ -45,6 +45,7 @@ App.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/edit_personal', {
         templateUrl: 'editing/personal',
     });
+
     $routeProvider.when('/editing/personal', {
         templateUrl: 'editing/personal',
     });
@@ -66,6 +67,11 @@ App.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/organization/registration', {
         templateUrl: '/organization/registration',
         controller: 'OrganizationRegistrationController'
+    });
+
+    $routeProvider.when('/service/registration', {
+        templateUrl: '/service/registration',
+        controller: 'ServiceRegistrationController'
     });
 
     $routeProvider.otherwise({redirectTo: '/'});

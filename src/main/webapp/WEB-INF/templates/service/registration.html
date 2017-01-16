@@ -1,0 +1,58 @@
+<div class="container row">
+    <div class="title col-12">
+        <h1>Регистрация сервисов</h1>
+        <hr>
+    </div>
+    <form class="form-horizontal col-sm-4 " name="userForm">
+
+        <div class="form-group">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_service_name" name="account" ng-model="service.name"
+                       placeholder="Имя услуги" required="required" ng-pattern=""/>
+                <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_service_account" name="account" ng-model="service.account"
+                       placeholder="Номер аккаунта" required="required" ng-pattern=""/>
+                <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="controls">
+                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                        ng-click="addService(service)">Добавить услугу</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер услуги
+                </th>
+                <th>Имя услуги
+                </th>
+                <th>Дейсвтие
+                </th>
+            </tr>
+            <tr ng-repeat="organization in organizations">
+                <td>
+                    {{organization.id}}
+                </td>
+                <td>
+                    {{organization.name}}
+                </td>
+                <td>
+                    <input type="button" value="Выбрать организацию" class="update-button btn btn-warning" ng-click="setOrg(organization)"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
