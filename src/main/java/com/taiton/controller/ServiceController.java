@@ -88,8 +88,7 @@ public class ServiceController {
     @GetMapping("/organizationList.json")
     public @ResponseBody
     List<OrganizationEntity> fetchListOrganization(){
-        List<OrganizationEntity> ll = organizationService.findAll();
-        return ll;
+        return organizationService.findAll();
     }
 
 }

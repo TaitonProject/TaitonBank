@@ -12,7 +12,6 @@ public class AccountEntity {
     private int accountNumber;
     private double accountBalance;
     private Integer userId;
-    private Integer organizationId;
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -74,15 +73,5 @@ public class AccountEntity {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    @Basic
-    @Column(name = "organization_id", nullable = true)
-    public Integer getOrganizationId() {
-        return organizationId;
-    }
-
-    public void setOrganizationId(Integer organizationId) {
-        this.organizationId = organizationId;
     }
 }
