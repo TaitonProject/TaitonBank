@@ -63,5 +63,10 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'UserBalanceEditingController'
     });
 
+    $routeProvider.when('/organization/registration', {
+        templateUrl: '/organization/registration',
+        controller: 'OrganizationRegistrationController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

@@ -1,0 +1,54 @@
+<div class="container row">
+    <div class="title col-12">
+        <h1>Регистрация организации</h1>
+        <hr>
+    </div>
+    <form class="form-horizontal col-sm-4 " name="userForm">
+
+        <div class="form-group">
+            <div class="controls">
+                <input type="text" class="form-control" id="user_account" name="account" ng-model="organization.name"
+                       placeholder="Название организации" required="required" ng-pattern=""/>
+                <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+ Неверное написание фамилии</span>
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="controls">
+                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                        ng-click="addOrganization(organization)">Добавить/изменить организацию</button>
+            </div>
+        </div>
+    </form>
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер
+                </th>
+                <th>Название организации
+                </th>
+                <th>Редактирвоать
+                </th>
+                <th>Удалить
+                </th>
+            </tr>
+            <tr ng-repeat="org in organizations">
+                <td>
+                    {{org.id}}
+                </td>
+                <td>
+                    {{org.name}}
+                </td>
+                <td>
+                    <input type="button" value="Изменить название организации" class="update-button btn btn-warning" ng-click="setOrg(org)"/>
+                </td>
+                <td>
+                    <input type="button" value="Удалить организацию" class="remove-button btn btn-danger" ng-click="deleteOrganization(org.id)"/>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</div>

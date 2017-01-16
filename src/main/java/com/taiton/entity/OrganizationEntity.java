@@ -12,6 +12,7 @@ public class OrganizationEntity {
     private String name;
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "Id", nullable = false)
     public Integer getId() {
         return id;

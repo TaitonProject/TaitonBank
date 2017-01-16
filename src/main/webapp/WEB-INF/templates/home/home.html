@@ -199,6 +199,24 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li sec:authorize="hasRole('ROLE_administration')">
+                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление организациями и сервисами<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#/organization/registration"><i class="fa fa-user-plus" aria-hidden="true"></i>Управление организациями</a>
+                                </li>
+                                <li>
+                                    <a href="#/services/registration"><i class="fa fa-pencil-square" aria-hidden="true"></i>Добавление сервисов</a>
+                                </li>
+                                <li>
+                                    <a href="#/organization/editing"><i class="fa fa-user-plus" aria-hidden="true"></i>Редактирование организаций</a>
+                                </li>
+                                <li>
+                                    <a href="#/services/editing"><i class="fa fa-pencil-square" aria-hidden="true"></i>Редактирование сервисов</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -242,6 +260,9 @@
     <script src="resources/templates/registration/js/controllers/UserAccountRegistrationController.js"></script>
     <script src="resources/templates/editing/js/controllers/UserEditingController.js"></script>
     <script src="resources/templates/editing/js/controllers/UserBalanceEditingController.js"></script>
+
+    <script src="resources/templates/organization/js/controllers/OrganizationRegistrationController.js"></script>
+
 
 </body>
 
