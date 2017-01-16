@@ -48,12 +48,13 @@ public class ServiceController {
         ServiceEntity serviceEntity = new ServiceEntity();
         serviceEntity.setName(service.getName());
         serviceEntity.setOrganizationByOrganizationId(organizationService.find(service.getOrganizationId()));
-        serviceEntity.setAccountByAccountId(accountEntity);
+        //serviceEntity.setAccountByAccountId(accountEntity);
 
 
         if(organizationService.find(serviceEntity.getOrganizationByOrganizationId().getId()) != null &&
-                accountService.find(serviceEntity.getAccountByAccountId().getId()) == null &&
-                serviceService.findByName(serviceEntity.getName()) == null) {
+                accountService.findByAccountNumber(service.getAccount()) == null) {
+            accountService.save(accountEntity);
+            serviceEntity.setAccountByAccountId(accountService.findByAccountNumber(service.getAccount()));
             serviceService.save(serviceEntity);
             return new ResponseEntity<>(HttpStatus.OK);
         }

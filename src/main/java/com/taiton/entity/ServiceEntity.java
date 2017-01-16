@@ -9,17 +9,12 @@ import javax.persistence.*;
 @Table(name = "service", schema = "heroku_379802575654769", catalog = "")
 public class ServiceEntity {
     private int id;
-    private double comission;
     private String name;
     private AccountEntity accountByAccountId;
     private OrganizationEntity organizationByOrganizationId;
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public void setComission(Double comission) {
-        this.comission = comission;
     }
 
     @Id
@@ -32,15 +27,6 @@ public class ServiceEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "Comission", nullable = false, precision = 0)
-    public double getComission() {
-        return comission;
-    }
-
-    public void setComission(double comission) {
-        this.comission = comission;
-    }
 
     @Basic
     @Column(name = "Name", nullable = false, length = 45)
@@ -60,7 +46,6 @@ public class ServiceEntity {
         ServiceEntity that = (ServiceEntity) o;
 
         if (id != that.id) return false;
-        if (Double.compare(that.comission, comission) != 0) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
@@ -69,10 +54,7 @@ public class ServiceEntity {
     @Override
     public int hashCode() {
         int result;
-        long temp;
         result = id;
-        temp = Double.doubleToLongBits(comission);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }
