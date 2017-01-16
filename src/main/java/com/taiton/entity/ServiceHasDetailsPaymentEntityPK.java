@@ -2,33 +2,32 @@ package com.taiton.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import java.io.Serializable;
 
 /**
- * Created by VitalitY on 14.12.2016.
+ * Created by Taiton on 1/16/2017.
  */
 public class ServiceHasDetailsPaymentEntityPK implements Serializable {
-    private int serviceId;
-    private int detailsPaymentId;
+    private Integer serviceId;
+    private Integer detailsPaymentId;
 
-    @JoinColumn(name = "Service_Id", nullable = false)
+    @Column(name = "Service_Id", nullable = false)
     @Id
-    public int getServiceId() {
+    public Integer getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(int serviceId) {
+    public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
     }
 
-    @JoinColumn(name = "Details_Payment_Id", nullable = false)
+    @Column(name = "Details_Payment_Id", nullable = false)
     @Id
-    public int getDetailsPaymentId() {
+    public Integer getDetailsPaymentId() {
         return detailsPaymentId;
     }
 
-    public void setDetailsPaymentId(int detailsPaymentId) {
+    public void setDetailsPaymentId(Integer detailsPaymentId) {
         this.detailsPaymentId = detailsPaymentId;
     }
 
@@ -39,16 +38,17 @@ public class ServiceHasDetailsPaymentEntityPK implements Serializable {
 
         ServiceHasDetailsPaymentEntityPK that = (ServiceHasDetailsPaymentEntityPK) o;
 
-        if (serviceId != that.serviceId) return false;
-        if (detailsPaymentId != that.detailsPaymentId) return false;
+        if (serviceId != null ? !serviceId.equals(that.serviceId) : that.serviceId != null) return false;
+        if (detailsPaymentId != null ? !detailsPaymentId.equals(that.detailsPaymentId) : that.detailsPaymentId != null)
+            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = serviceId;
-        result = 31 * result + detailsPaymentId;
+        int result = serviceId != null ? serviceId.hashCode() : 0;
+        result = 31 * result + (detailsPaymentId != null ? detailsPaymentId.hashCode() : 0);
         return result;
     }
 }

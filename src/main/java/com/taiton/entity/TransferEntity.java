@@ -4,29 +4,49 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by VitalitY on 14.12.2016.
+ * Created by Taiton on 1/16/2017.
  */
 @Entity
 @Table(name = "transfer", schema = "heroku_379802575654769", catalog = "")
 public class TransferEntity {
-    private int id;
+    private Integer id;
+    private Integer cardFrom;
+    private Integer cardTo;
     private Timestamp date;
-    private double amount;
-    private CardEntity cardByCardFrom;
-    private CardEntity cardByCardTo;
+    private Double amount;
 
     @Id
-    @Column(name = "Id")
-    public int getId() {
+    @Column(name = "Id", nullable = false)
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Date")
+    @Column(name = "Card_From", nullable = false)
+    public Integer getCardFrom() {
+        return cardFrom;
+    }
+
+    public void setCardFrom(Integer cardFrom) {
+        this.cardFrom = cardFrom;
+    }
+
+    @Basic
+    @Column(name = "Card_To", nullable = false)
+    public Integer getCardTo() {
+        return cardTo;
+    }
+
+    public void setCardTo(Integer cardTo) {
+        this.cardTo = cardTo;
+    }
+
+    @Basic
+    @Column(name = "Date", nullable = false)
     public Timestamp getDate() {
         return date;
     }
@@ -36,12 +56,12 @@ public class TransferEntity {
     }
 
     @Basic
-    @Column(name = "Amount")
-    public double getAmount() {
+    @Column(name = "Amount", nullable = false, precision = 0)
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
@@ -52,41 +72,22 @@ public class TransferEntity {
 
         TransferEntity that = (TransferEntity) o;
 
-        if (id != that.id) return false;
-        if (Double.compare(that.amount, amount) != 0) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (cardFrom != null ? !cardFrom.equals(that.cardFrom) : that.cardFrom != null) return false;
+        if (cardTo != null ? !cardTo.equals(that.cardTo) : that.cardTo != null) return false;
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
+        if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = id;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (cardFrom != null ? cardFrom.hashCode() : 0);
+        result = 31 * result + (cardTo != null ? cardTo.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
-        temp = Double.doubleToLongBits(amount);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (amount != null ? amount.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Card_From", referencedColumnName = "Id", nullable = false)
-    public CardEntity getCardByCardFrom() {
-        return cardByCardFrom;
-    }
-
-    public void setCardByCardFrom(CardEntity cardByCardFrom) {
-        this.cardByCardFrom = cardByCardFrom;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Card_To", referencedColumnName = "Id", nullable = false)
-    public CardEntity getCardByCardTo() {
-        return cardByCardTo;
-    }
-
-    public void setCardByCardTo(CardEntity cardByCardTo) {
-        this.cardByCardTo = cardByCardTo;
     }
 }

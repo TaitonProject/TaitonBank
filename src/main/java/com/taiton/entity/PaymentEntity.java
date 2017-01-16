@@ -4,29 +4,30 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by VitalitY on 14.12.2016.
+ * Created by Taiton on 1/16/2017.
  */
 @Entity
 @Table(name = "payment", schema = "heroku_379802575654769", catalog = "")
 public class PaymentEntity {
-    private int id;
+    private Integer id;
     private Timestamp date;
     private String info;
-    private double amount;
-    private CardEntity cardByCardId;
+    private Double amount;
+    private Integer serviceId;
+    private Integer cardId;
 
     @Id
-    @Column(name = "Id")
-    public int getId() {
+    @Column(name = "Id", nullable = false)
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "Date")
+    @Column(name = "Date", nullable = false)
     public Timestamp getDate() {
         return date;
     }
@@ -36,7 +37,7 @@ public class PaymentEntity {
     }
 
     @Basic
-    @Column(name = "Info")
+    @Column(name = "Info", nullable = true, length = 255)
     public String getInfo() {
         return info;
     }
@@ -46,13 +47,33 @@ public class PaymentEntity {
     }
 
     @Basic
-    @Column(name = "Amount")
-    public double getAmount() {
+    @Column(name = "Amount", nullable = false, precision = 0)
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    @Basic
+    @Column(name = "Service_Id", nullable = false)
+    public Integer getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(Integer serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    @Basic
+    @Column(name = "card_Id", nullable = false)
+    public Integer getCardId() {
+        return cardId;
+    }
+
+    public void setCardId(Integer cardId) {
+        this.cardId = cardId;
     }
 
     @Override
@@ -62,33 +83,24 @@ public class PaymentEntity {
 
         PaymentEntity that = (PaymentEntity) o;
 
-        if (id != that.id) return false;
-        if (Double.compare(that.amount, amount) != 0) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (info != null ? !info.equals(that.info) : that.info != null) return false;
+        if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
+        if (serviceId != null ? !serviceId.equals(that.serviceId) : that.serviceId != null) return false;
+        if (cardId != null ? !cardId.equals(that.cardId) : that.cardId != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = id;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (info != null ? info.hashCode() : 0);
-        temp = Double.doubleToLongBits(amount);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (amount != null ? amount.hashCode() : 0);
+        result = 31 * result + (serviceId != null ? serviceId.hashCode() : 0);
+        result = 31 * result + (cardId != null ? cardId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "card_Id", referencedColumnName = "Id", nullable = false)
-    public CardEntity getCardByCardId() {
-        return cardByCardId;
-    }
-
-    public void setCardByCardId(CardEntity cardByCardId) {
-        this.cardByCardId = cardByCardId;
     }
 }

@@ -16,7 +16,7 @@ import java.util.Locale;
 public class RoleFormatter implements Formatter<RoleEntity> {
 
     @Autowired
-    RoleDao roleDao;
+    private RoleDao roleDao;
 
     @Override
     public RoleEntity parse(String s, Locale locale) throws ParseException {

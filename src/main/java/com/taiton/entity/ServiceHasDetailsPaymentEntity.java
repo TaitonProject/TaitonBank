@@ -3,34 +3,32 @@ package com.taiton.entity;
 import javax.persistence.*;
 
 /**
- * Created by VitalitY on 14.12.2016.
+ * Created by Taiton on 1/16/2017.
  */
 @Entity
-@Table(name = "service_has_details_payment", schema = "heroku_893975b12603774", catalog = "")
+@Table(name = "service_has_details_payment", schema = "heroku_379802575654769", catalog = "")
 @IdClass(ServiceHasDetailsPaymentEntityPK.class)
 public class ServiceHasDetailsPaymentEntity {
-    private int serviceId;
-    private int detailsPaymentId;
-    private ServiceEntity serviceByServiceId;
-    private DetailsPaymentEntity detailsPaymentByDetailsPaymentId;
+    private Integer serviceId;
+    private Integer detailsPaymentId;
 
     @Id
-    @Column(name = "Service_Id")
-    public int getServiceId() {
+    @Column(name = "Service_Id", nullable = false)
+    public Integer getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(int serviceId) {
+    public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
     }
 
     @Id
-    @Column(name = "Details_Payment_Id")
-    public int getDetailsPaymentId() {
+    @Column(name = "Details_Payment_Id", nullable = false)
+    public Integer getDetailsPaymentId() {
         return detailsPaymentId;
     }
 
-    public void setDetailsPaymentId(int detailsPaymentId) {
+    public void setDetailsPaymentId(Integer detailsPaymentId) {
         this.detailsPaymentId = detailsPaymentId;
     }
 
@@ -41,36 +39,17 @@ public class ServiceHasDetailsPaymentEntity {
 
         ServiceHasDetailsPaymentEntity that = (ServiceHasDetailsPaymentEntity) o;
 
-        if (serviceId != that.serviceId) return false;
-        if (detailsPaymentId != that.detailsPaymentId) return false;
+        if (serviceId != null ? !serviceId.equals(that.serviceId) : that.serviceId != null) return false;
+        if (detailsPaymentId != null ? !detailsPaymentId.equals(that.detailsPaymentId) : that.detailsPaymentId != null)
+            return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = serviceId;
-        result = 31 * result + detailsPaymentId;
+        int result = serviceId != null ? serviceId.hashCode() : 0;
+        result = 31 * result + (detailsPaymentId != null ? detailsPaymentId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Service_Id", referencedColumnName = "Id", nullable = false)
-    public ServiceEntity getServiceByServiceId() {
-        return serviceByServiceId;
-    }
-
-    public void setServiceByServiceId(ServiceEntity serviceByServiceId) {
-        this.serviceByServiceId = serviceByServiceId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "Details_Payment_Id", referencedColumnName = "Id", nullable = false)
-    public DetailsPaymentEntity getDetailsPaymentByDetailsPaymentId() {
-        return detailsPaymentByDetailsPaymentId;
-    }
-
-    public void setDetailsPaymentByDetailsPaymentId(DetailsPaymentEntity detailsPaymentByDetailsPaymentId) {
-        this.detailsPaymentByDetailsPaymentId = detailsPaymentByDetailsPaymentId;
     }
 }
