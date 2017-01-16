@@ -265,3 +265,14 @@ button{
   color:#F00;
   font-size:14px;
 }
+
+.form-group h2{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.table-cont{
+  overflow: auto;
+  max-height: 400px;
+}
