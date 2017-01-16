@@ -45,6 +45,7 @@ App.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/edit_personal', {
         templateUrl: 'editing/personal',
     });
+
     $routeProvider.when('/editing/personal', {
         templateUrl: 'editing/personal',
     });

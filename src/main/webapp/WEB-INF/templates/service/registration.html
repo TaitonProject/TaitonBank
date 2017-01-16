@@ -1,6 +1,6 @@
 <div class="container row">
     <div class="title col-12">
-        <h1>Ð ÐµÐ³Ð¸ÑÑÑÐ°ÑÐ¸Ñ ÑÐµÑÐ²Ð¸ÑÐ¾Ð² Ð¾ÑÐ³Ð°Ð½Ð¸Ð·Ð°ÑÐ¸Ð¸</h1>
+        <h1>Регистрация сервисов</h1>
         <hr>
     </div>
     <form class="form-horizontal col-sm-4 " name="userForm">
@@ -8,27 +8,25 @@
         <div class="form-group">
             <div class="controls">
                 <input type="text" class="form-control" id="user_service_name" name="account" ng-model="service.name"
-                       placeholder="ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¾ÑÐ³Ð°Ð½Ð¸Ð·Ð°ÑÐ¸Ð¸" required="required" ng-pattern=""/>
+                       placeholder="Имя услуги" required="required" ng-pattern=""/>
                 <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- ÐÐµÐ²ÐµÑÐ½Ð¾Ðµ Ð½Ð°Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ñ ÑÑÐ»ÑÐ³Ð¸</span>
+                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i></span>
             </div>
         </div>
 
         <div class="form-group">
             <div class="controls">
                 <input type="text" class="form-control" id="user_service_account" name="account" ng-model="service.account"
-                       placeholder="ÐÐ¾Ð¼ÐµÑ ÑÑÐµÑÐ° ÑÐµÑÐ²Ð¸ÑÐ°" required="required" ng-pattern=""/>
+                       placeholder="Номер аккаунта" required="required" ng-pattern=""/>
                 <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- ÐÐµÐ²ÐµÑÐ½Ð¾Ðµ Ð½Ð°Ð¿Ð¸ÑÐ°Ð½Ð¸Ðµ Ð½Ð¾Ð¼ÐµÑÐ° ÑÑÐµÑÐ°</span>
+                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i></span>
             </div>
         </div>
 
         <div class="form-group ">
             <div class="controls">
                 <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
-                        ng-click="addService(service)">ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ ÑÑÐ»ÑÐ³Ñ</button>
+                        ng-click="addService(service)">Добавить услугу</button>
             </div>
         </div>
     </form>
@@ -36,11 +34,11 @@
     <div class="container row">
         <table border="1" class="table row">
             <tr>
-                <th>ÐÐ¾Ð¼ÐµÑ
+                <th>Номер услуги
                 </th>
-                <th>ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¾ÑÐ³Ð°Ð½Ð¸Ð·Ð°ÑÐ¸Ð¸
+                <th>Имя услуги
                 </th>
-                <th>ÐÑÐ±ÑÐ°ÑÑ
+                <th>Дейсвтие
                 </th>
             </tr>
             <tr ng-repeat="organization in organizations">
@@ -51,7 +49,7 @@
                     {{organization.name}}
                 </td>
                 <td>
-                    <input type="button" value="ÐÑÐ±ÑÐ°ÑÑ Ð¾ÑÐ³Ð°Ð½Ð¸Ð·Ð°ÑÐ¸Ñ" class="update-button btn btn-warning" ng-click="setOrg(organization)"/>
+                    <input type="button" value="Выбрать организацию" class="update-button btn btn-warning" ng-click="setOrg(organization)"/>
                 </td>
             </tr>
         </table>
