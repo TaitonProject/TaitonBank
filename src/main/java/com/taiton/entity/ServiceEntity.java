@@ -11,16 +11,8 @@ public class ServiceEntity {
     private int id;
     private double comission;
     private String name;
-    private AccountEntity accountByAccountId;
-    private OrganizationEntity organizationByOrganizationId;
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setComission(Double comission) {
-        this.comission = comission;
-    }
+    private Integer accountId;
+    private Integer organizationId;
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -77,23 +69,23 @@ public class ServiceEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "account_Id", referencedColumnName = "Id", nullable = false)
-    public AccountEntity getAccountByAccountId() {
-        return accountByAccountId;
+    @Basic
+    @Column(name = "account_Id", nullable = false)
+    public Integer getAccountId() {
+        return accountId;
     }
 
-    public void setAccountByAccountId(AccountEntity accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "organization_id", referencedColumnName = "Id", nullable = false)
-    public OrganizationEntity getOrganizationByOrganizationId() {
-        return organizationByOrganizationId;
+    @Basic
+    @Column(name = "organization_id", nullable = false)
+    public Integer getOrganizationId() {
+        return organizationId;
     }
 
-    public void setOrganizationByOrganizationId(OrganizationEntity organizationByOrganizationId) {
-        this.organizationByOrganizationId = organizationByOrganizationId;
+    public void setOrganizationId(Integer organizationId) {
+        this.organizationId = organizationId;
     }
 }

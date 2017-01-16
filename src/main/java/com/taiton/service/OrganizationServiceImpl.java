@@ -1,8 +1,6 @@
 package com.taiton.service;
 
-import com.taiton.dao.AccountDao;
 import com.taiton.dao.OrganizationDao;
-import com.taiton.entity.AccountEntity;
 import com.taiton.entity.OrganizationEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +20,8 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     public List<OrganizationEntity> findAll() {
-        return organizationDao.findAll();
+        List<OrganizationEntity> ff = organizationDao.findAll();
+        return ff;
     }
 
     @Override

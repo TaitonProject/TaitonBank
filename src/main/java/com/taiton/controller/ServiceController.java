@@ -47,12 +47,13 @@ public class ServiceController {
         // создание сервиса
         ServiceEntity serviceEntity = new ServiceEntity();
         serviceEntity.setName(service.getName());
-        serviceEntity.setOrganizationByOrganizationId(organizationService.find(service.getOrganizationId()));
-        serviceEntity.setAccountByAccountId(accountEntity);
+        serviceEntity.setOrganizationId(organizationService.find(service.getOrganizationId()).getId());
+        //serviceEntity.setOrganizationByOrganizationId(organizationService.find(service.getOrganizationId()));
+        serviceEntity.setAccountId(service.getAccount());
+        //serviceEntity.setAccountByAccountId(accountEntity);
 
-
-        if(organizationService.find(serviceEntity.getOrganizationByOrganizationId().getId()) != null &&
-                accountService.find(serviceEntity.getAccountByAccountId().getId()) == null &&
+        if(organizationService.find(serviceEntity.getOrganizationId()) != null &&
+                accountService.find(serviceEntity.getAccountId()) == null &&
                 serviceService.findByName(serviceEntity.getName()) == null) {
             serviceService.save(serviceEntity);
             return new ResponseEntity<>(HttpStatus.OK);
@@ -64,8 +65,8 @@ public class ServiceController {
     public @ResponseBody ResponseEntity<Void> deleteService(@PathVariable("id") int id) {
         // каскадное удаление сервиса (потом аккаунта, потом организациии)
         if (serviceService.find(id) != null) {
-            accountService.delete(serviceService.find(id).getAccountByAccountId().getId());
-            organizationService.delete(serviceService.find(id).getOrganizationByOrganizationId().getId());
+            accountService.delete(serviceService.find(id).getAccountId());
+            organizationService.delete(serviceService.find(id).getOrganizationId());
             serviceService.delete(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
@@ -85,8 +86,7 @@ public class ServiceController {
     }
 
     @GetMapping("/organizationList.json")
-    public @ResponseBody
-    List<OrganizationEntity> fetchListOrganization(){
+    public @ResponseBody List<OrganizationEntity> fetchListOrganization(){
         List<OrganizationEntity> ll = organizationService.findAll();
         return ll;
     }
