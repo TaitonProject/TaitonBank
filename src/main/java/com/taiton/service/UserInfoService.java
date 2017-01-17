@@ -19,4 +19,8 @@ public interface UserInfoService {
 
     UserInfoEntity findByPasportNumber(String pasportNumber);
 
+    List<UserInfoEntity> findWithoutRole(String role);
+
+    List<UserInfoEntity> findByUserRole(String role);
+
 }

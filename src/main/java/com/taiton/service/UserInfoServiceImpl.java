@@ -45,4 +45,14 @@ public class UserInfoServiceImpl implements UserInfoService{
     public UserInfoEntity findByPasportNumber(String pasportNumber) {
         return userInfoDao.findByPasportNumber(pasportNumber);
     }
+
+    @Override
+    public List<UserInfoEntity> findWithoutRole(String role) {
+        return userInfoDao.findWithoutRole(role);
+    }
+
+    @Override
+    public List<UserInfoEntity> findByUserRole(String role) {
+        return userInfoDao.findByUserRole(role);
+    }
 }

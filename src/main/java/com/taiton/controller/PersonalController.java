@@ -1,6 +1,7 @@
 package com.taiton.controller;
 
 import com.taiton.entity.RoleEntity;
+import com.taiton.entity.UserEntity;
 import com.taiton.entity.UserInfoEntity;
 import com.taiton.service.RoleService;
 import com.taiton.service.UserInfoService;
@@ -35,14 +36,27 @@ public class PersonalController {
     private UserInfoService userInfoService;
 
     @RequestMapping("/registration")
-    public String getPhonePage() {
+    public String getRegistrationPage() {
         return "personal/registration";
+    }
+
+    @RequestMapping("/editing")
+    public String getEditingPage() {
+        return "personal/editing";
     }
 
     @GetMapping("/rolesList.json")
     public @ResponseBody ResponseEntity<List<RoleEntity>> getRolesList(){
         if (roleService.findWithoutRole(ROLE_CLIENT) != null){
             return new ResponseEntity<>(roleService.findWithoutRole(ROLE_CLIENT), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping("/personalsList.json")
+    public @ResponseBody ResponseEntity<List<UserInfoEntity>> getListPersonals(){
+        if (userInfoService.findWithoutRole(ROLE_CLIENT) != null){
+            return new ResponseEntity<>(userInfoService.findWithoutRole(ROLE_CLIENT), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
@@ -68,6 +82,16 @@ public class PersonalController {
             return new ResponseEntity<>(HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @PutMapping("/editUser")
+    public @ResponseBody ResponseEntity<Void> editUser(@RequestBody UserInfoEntity userInfo) {
+            //userInfo.getUserByUserId().getRoleByRoleIdRole()
+            userService.save(userInfo.getUserByUserId());
+            // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+            userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+            userInfoService.save(userInfo);
+            return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

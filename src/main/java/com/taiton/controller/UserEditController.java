@@ -21,6 +21,8 @@ import java.util.List;
 @RequestMapping("/editing")
 public class UserEditController {
 
+    final static String ROLE_CLIENT = "ROLE_Client";
+
     @Autowired
     private UserInfoService userInfoService;
 
@@ -37,11 +39,15 @@ public class UserEditController {
 
     @GetMapping("/listUsers.json")
     public @ResponseBody List<UserInfoEntity> fetchListUsers() {
-        return userInfoService.findAll();
+        return userInfoService.findByUserRole(ROLE_CLIENT);
     }
 
     @PutMapping("/editUser")
     public @ResponseBody ResponseEntity<Void> editUser(@RequestBody UserInfoEntity userInfo) {
+
+        userService.save(userInfo.getUserByUserId());
+        // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+        userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
         userInfoService.save(userInfo);
         return new ResponseEntity<>(HttpStatus.OK);
     }
