@@ -46,17 +46,12 @@ public class UserEditController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteUser/{id}")
+/*    @DeleteMapping("/deleteUser/{id}")
     public @ResponseBody ResponseEntity<Void> deleteUser(@PathVariable("id") int id) {
         userInfoService.delete(id);
         userService.delete(userInfoService.findOne(id).getUserByUserId().getId());
         return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @GetMapping("/userAccount")
-    public String getEditUserAccountPage() {
-        return "editing/userAccount";
-    }
+    }*/
 
     @GetMapping("/addUserBalance")
     public String getEditUserAccountBalancePage() {

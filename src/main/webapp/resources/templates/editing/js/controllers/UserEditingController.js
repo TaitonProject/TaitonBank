@@ -40,7 +40,7 @@ UserEditingController = function ($scope, $http) {
         })
     };
 
-    $scope.deleteUser = function (id) {
+/*    $scope.deleteUser = function (id) {
         $scope.resetError();
         $http.delete('/editing/deleteUser/'+id).success(function () {
             $scope.fetchUsersList();
@@ -58,7 +58,7 @@ UserEditingController = function ($scope, $http) {
         }).error(function () {
             $scope.setError('беда при удалении пользователя');
         })
-    };
+    };*/
 
     $scope.edit = function (user) {
         $scope.resetError();

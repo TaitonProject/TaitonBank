@@ -21,9 +21,6 @@
                 </th>
                 <th>Редактировать
                 </th>
-                <th>
-                    Удалить
-                </th>
             </tr>
             <tr ng-repeat="user in users | filter:{surName:userSelect}">
                 <td>
@@ -46,9 +43,6 @@
                 </td>
                 <td>
                     <input type="button" value="Редактировать" class="update-button btn btn-warning" ng-click="edit(user)"/>
-                </td>
-                <td>
-                    <input type="button" value="Удалить" class="remove-button btn btn-danger" ng-click="deleteUser(user.id)"/>
                 </td>
             </tr>
         </table>
