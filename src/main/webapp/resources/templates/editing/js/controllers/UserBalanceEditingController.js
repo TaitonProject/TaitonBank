@@ -10,7 +10,7 @@ UserBalanceEditingController = function ($scope, $http) {
 
     $scope.account = {
         accountNumber : '',
-        accountBalance: 0
+        accountBalance: ''
     };
 
     $scope.editUserBalance = function (account) {

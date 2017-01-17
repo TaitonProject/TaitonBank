@@ -7,27 +7,29 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_surName" name="surname" ng-model="account.accountNumber"
-                       placeholder="Номер" required="required" />
+                <input type="text" class="form-control" id="accountNumberr" name="accountNumber" ng-model="account.accountNumber"
+                       placeholder="Номер" ng-pattern="/^[0-9]{9}$/" required="required" />
                 <span class="hasnt-error" ><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание номера счета</span>
+                <span class="hasnt-error" ng-show="userForm.accountNumber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.accountNumber.$invalid && !userForm.accountNumber.$pristine &&userForm.accountNumber.$dirty"><i class="fa fa-times" aria-hidden="true"></i>
+только числовые значения (9 цифр)</span>
             </div>
         </div>
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_firstName" name="user_name" ng-model="account.accountBalance"
-                       placeholder="Сумма" required="required"/>
+                <input type="text" class="form-control" id="accountBalance" ng-pattern="/^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?$/" name="accountBalance" ng-model="account.accountBalance"
+                       placeholder="Сумма (BYN)" required="required"/><span class="cost-info">BYN</span>
                 <span class="hasnt-error" ><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание суммы</span>
+                <span class="hasnt-error" ng-show="userForm.accountBalance.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.accountBalance.$invalid && !userForm.accountBalance.$pristine && userForm.accountBalance.$dirty"><i class="fa fa-times" aria-hidden="true"></i>
+неверный формат суммы (цифры и . или ,)</span>
             </div>
         </div>
 
         <div class="form-group ">
             <div class="controls">
-                <button type="button" class="btn btn-warning"
+                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
                         ng-click="editUserBalance(account)">Изменить баланс пользователя</button>
             </div>
         </div>

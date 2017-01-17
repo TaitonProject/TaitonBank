@@ -3,15 +3,16 @@
         <h1>Регистрация пользовательского счета</h1>
         <hr>
     </div>
-    <form class="form-horizontal col-sm-4 " name="userForm">
+    <input class="form-control col-sm-4" ng-model="userSelect" placeholder="Поиск пользователя по фамилии" type="text">
+    <form class="form-horizontal col-sm-4 add-account" name="userForm">
 
         <div class="form-group">
             <div class="controls">
                 <input type="text" class="form-control" id="user_account" name="account" ng-model="account.number"
-                       placeholder="Номер счета" required="required" ng-pattern=""/>
-                <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание фамилии</span>
+                       placeholder="Номер счета" required="required" ng-pattern="/^[0-9]{9}$/"/>
+                <span class="hasnt-error" ng-show="userForm.account.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.account.$invalid && !userForm.account.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+ номер счета должен состоять из 9 цифр</span>
             </div>
         </div>
 
@@ -40,7 +41,7 @@
                 <th>Действие
                 </th>
             </tr>
-            <tr ng-repeat="user in users">
+            <tr ng-repeat="user in users | filter:{surName:userSelect}">
                 <td>
                     {{user.surName}}
                 </td>
@@ -60,7 +61,12 @@
                     {{user.userByUserId.isBlocked}}
                 </td>
                 <td>
-                    <input type="button" value="Добавить счет" class="update-button btn btn-warning" ng-click="setUser(user.userByUserId.id)"/>
+                    <input id="add-account" type="button" value="Добавить счет" class="update-button btn btn-warning" ng-click="setUser(user.userByUserId.id)"/>
+                    <script>
+                        document.getElementById("add-account").onclick=function (e) {
+                            document.getElementsByClassName("add-account")[0].classList.add("open");
+                        }
+                    </script>
                 </td>
             </tr>
         </table>
