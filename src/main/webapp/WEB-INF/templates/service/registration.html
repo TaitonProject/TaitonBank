@@ -3,7 +3,40 @@
         <h1>Регистрация сервисов</h1>
         <hr>
     </div>
-    <form class="form-horizontal col-sm-4 " name="userForm">
+
+    <input class="form-control col-sm-4" ng-model="servSearch" placeholder="Поиск пользователя по названию организации" type="text">
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер услуги
+                </th>
+                <th>Имя услуги
+                </th>
+                <th>Дейсвтие
+                </th>
+            </tr>
+            <tr ng-repeat="organization in organizations | filter:{name:servSearch}">
+                <td>
+                    {{organization.id}}
+                </td>
+                <td>
+                    {{organization.name}}
+                </td>
+                <td>
+                    <input id="add-service" type="button" value="Выбрать организацию" class="update-button btn btn-warning" ng-click="setOrg(organization)"/>
+                </td>
+                <script>
+                    document.getElementById("add-service").onclick=function (e) {
+                        document.getElementsByClassName("add-account")[0].classList.add("open");
+                    }
+                    document.getElementById("addServ").onclick=function (e) {
+                        document.getElementsByClassName("add-account")[0].classList.remove("open");
+                    }
+                </script>
+            </tr>
+        </table>
+    </div>
+    <form class="form-horizontal col-sm-4 add-account" name="userForm">
 
         <div class="form-group">
             <div class="controls">
@@ -25,34 +58,10 @@
 
         <div class="form-group ">
             <div class="controls">
-                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                <button id="addServ" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
                         ng-click="addService(service)">Добавить услугу</button>
             </div>
         </div>
     </form>
-
-    <div class="container row">
-        <table border="1" class="table row">
-            <tr>
-                <th>Номер услуги
-                </th>
-                <th>Имя услуги
-                </th>
-                <th>Дейсвтие
-                </th>
-            </tr>
-            <tr ng-repeat="organization in organizations">
-                <td>
-                    {{organization.id}}
-                </td>
-                <td>
-                    {{organization.name}}
-                </td>
-                <td>
-                    <input type="button" value="Выбрать организацию" class="update-button btn btn-warning" ng-click="setOrg(organization)"/>
-                </td>
-            </tr>
-        </table>
-    </div>
 
 </div>

@@ -3,7 +3,44 @@
         <h1>Регистрация организации</h1>
         <hr>
     </div>
-    <form class="form-horizontal col-sm-4 " name="userForm">
+    <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск пользователя по названию организации" type="text">
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер
+                </th>
+                <th>Название организации
+                </th>
+                <th>Редактирвоать
+                </th>
+                <th>Удалить
+                </th>
+            </tr>
+            <tr ng-repeat="org in organizations | filter:{name:orgSearch}">
+                <td>
+                    {{org.id}}
+                </td>
+                <td>
+                    {{org.name}}
+                </td>
+                <td>
+                    <input id="add-update" type="button" value="Изменить название организации" class="update-button btn btn-warning" ng-click="setOrg(org)"/>
+                </td>
+                <td>
+                    <input type="button" value="Удалить организацию" class="remove-button btn btn-danger" ng-click="deleteOrganization(org.id)"/>
+                </td>
+                <script>
+                    document.getElementById("add-update").onclick=function (e) {
+                        document.getElementsByClassName("add-account")[0].classList.add("open");
+                    }
+                    document.getElementById("addOrg").onclick=function (e) {
+                        document.getElementsByClassName("add-account")[0].classList.remove("open");
+                    }
+                </script>
+            </tr>
+        </table>
+    </div>
+    <form class="form-horizontal col-sm-4 add-account" name="userForm">
 
         <div class="form-group">
             <div class="controls">
@@ -17,38 +54,10 @@
 
         <div class="form-group ">
             <div class="controls">
-                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                <button id="addOrg" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
                         ng-click="addOrganization(organization)">Добавить/изменить организацию</button>
             </div>
         </div>
     </form>
-    <div class="container row">
-        <table border="1" class="table row">
-            <tr>
-                <th>Номер
-                </th>
-                <th>Название организации
-                </th>
-                <th>Редактирвоать
-                </th>
-                <th>Удалить
-                </th>
-            </tr>
-            <tr ng-repeat="org in organizations">
-                <td>
-                    {{org.id}}
-                </td>
-                <td>
-                    {{org.name}}
-                </td>
-                <td>
-                    <input type="button" value="Изменить название организации" class="update-button btn btn-warning" ng-click="setOrg(org)"/>
-                </td>
-                <td>
-                    <input type="button" value="Удалить организацию" class="remove-button btn btn-danger" ng-click="deleteOrganization(org.id)"/>
-                </td>
 
-            </tr>
-        </table>
-    </div>
 </div>
