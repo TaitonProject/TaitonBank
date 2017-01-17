@@ -16,10 +16,18 @@ public class CardEntity {
     private int id;
     private int cardNumber;
     private Date dateOfExpiry;
-    private AccountEntity accountByAccountId;
+    private Integer accountId;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCardNumber(Integer cardNumber) {
+        this.cardNumber = cardNumber;
+    }
 
     @Id
-    @Column(name = "Id")
+    @Column(name = "Id", nullable = false)
     public int getId() {
         return id;
     }
@@ -29,7 +37,7 @@ public class CardEntity {
     }
 
     @Basic
-    @Column(name = "Card_Number")
+    @Column(name = "Card_Number", nullable = false)
     public int getCardNumber() {
         return cardNumber;
     }
@@ -39,7 +47,7 @@ public class CardEntity {
     }
 
     @Basic
-    @Column(name = "Date_Of_Expiry")
+    @Column(name = "Date_Of_Expiry", nullable = false)
     public Date getDateOfExpiry() {
         return dateOfExpiry;
     }
@@ -70,13 +78,13 @@ public class CardEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Account_Id", referencedColumnName = "Id", nullable = false)
-    public AccountEntity getAccountByAccountId() {
-        return accountByAccountId;
+    @Basic
+    @Column(name = "Account_Id", nullable = false)
+    public Integer getAccountId() {
+        return accountId;
     }
 
-    public void setAccountByAccountId(AccountEntity accountByAccountId) {
-        this.accountByAccountId = accountByAccountId;
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
     }
 }

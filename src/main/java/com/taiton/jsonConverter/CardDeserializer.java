@@ -21,26 +21,23 @@ import java.text.SimpleDateFormat;
  */
 public class CardDeserializer extends JsonDeserializer<CardEntity>{
 
-    @Autowired
-    private AccountService accountService;
-
     @Override
-    public CardEntity deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+    public CardEntity deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
+
         CardEntity card = new CardEntity();
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
-        int i = node.get("accountByAccountId").asInt();
-        AccountEntity accountEntity = accountService.find(i);
-        card.setAccountByAccountId(accountEntity);
+        card.setAccountId(node.get("accountId").asInt());
         String dateOfExpiryStr = node.get("dateOfExpiry").asText();
         SimpleDateFormat dateFomatter = new SimpleDateFormat("yyyy-MM-dd");
         Date dateOfExpiry = null;
         try {
-            dateOfExpiry = (Date) dateFomatter.parse(dateOfExpiryStr);
+            dateOfExpiry = new Date(dateFomatter.parse(dateOfExpiryStr).getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
         card.setCardNumber(node.get("cardNumber").asInt());
         card.setDateOfExpiry(dateOfExpiry);
+
         return card;
     }
 }

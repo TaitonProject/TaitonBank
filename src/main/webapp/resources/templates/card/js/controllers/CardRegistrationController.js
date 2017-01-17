@@ -13,13 +13,13 @@ CardRegistrationController = function ($scope, $http) {
         id: '',
         cardNumber: '',
         dateOfExpiry: '',
-        accountByAccountId: ''
+        accountId: ''
     };
     $scope.account = {};
 
     $scope.addCard = function (card) {
         $scope.resetError();
-        card.accountByAccountId = $scope.account.id;
+        card.accountId = $scope.account.id;
         $http.post('/card/addCard', card).success(function () {
             $scope.fetchServiceList();
             $scope.card = {

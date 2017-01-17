@@ -25,8 +25,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountEntity find(int id) {
-        AccountEntity a = accountDao.findOne(id);
-        return a;
+        return accountDao.findOne(id);
     }
 
     @Override
