@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 /**
  * Created by Taiton on 1/4/2017.
  */
-@Service
 public class CardDeserializer extends JsonDeserializer<CardEntity>{
 
     @Autowired
