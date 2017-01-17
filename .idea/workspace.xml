@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="497a451c-d22b-4158-a147-04e9b19acf51" name="Default" comment="">
+    <list default="true" id="497a451c-d22b-4158-a147-04e9b19acf51" name="Default" comment="новые порции">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TaitonBank.iml" afterPath="$PROJECT_DIR$/TaitonBank.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/card/registration.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/card/registration.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userAccount.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userAccount.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/service/registration.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/service/registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,7 +62,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registration.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/service/registration.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -77,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userInfo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html">
+      <file leaf-file-name="registration.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/card/registration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="38" column="131" selection-start-line="38" selection-start-column="131" selection-end-line="38" selection-end-column="131" />
+            <state relative-caret-position="569">
+              <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -90,8 +85,18 @@
       <file leaf-file-name="userInfo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="58" column="53" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="53" />
+            <state relative-caret-position="-344">
+              <caret line="93" column="115" selection-start-line="93" selection-start-column="115" selection-end-line="93" selection-end-column="115" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userInfo.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="38" column="131" selection-start-line="38" selection-start-column="131" selection-end-line="38" selection-end-column="131" />
               <folding />
             </state>
           </provider>
@@ -100,8 +105,8 @@
       <file leaf-file-name="userAccountBalance.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userAccountBalance.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="20" column="111" selection-start-line="20" selection-start-column="111" selection-end-line="20" selection-end-column="111" />
+            <state relative-caret-position="91">
+              <caret line="10" column="68" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="68" />
               <folding>
                 <element signature="n#style#0;n#span#3;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -156,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/templates/editing/js/controller/UserEditingController.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/entity/UserEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/jsonConverter/UserInfoSerializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/jsonConverter/UserSerializer.java" />
@@ -204,9 +208,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userAccount.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userAccountBalance.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/service/registration.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/card/registration.html" />
       </list>
     </option>
   </component>
@@ -443,6 +448,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="editing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaitonBank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaitonBank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="card" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1491,7 +1530,7 @@
       <workItem from="1484561454899" duration="4180000" />
       <workItem from="1484565879578" duration="5889000" />
       <workItem from="1484590083175" duration="753000" />
-      <workItem from="1484590986465" duration="13699000" />
+      <workItem from="1484590986465" duration="17000000" />
     </task>
     <task id="LOCAL-00001" summary="ура, сука, логинимся! (настроить отображение осталось и все)">
       <created>1480181347567</created>
@@ -1696,11 +1735,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484612179640</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="немного по фронту от Егора">
+      <created>1484687627804</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1484687627804</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296677000" />
+    <option name="totallyTimeSpent" value="299978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1803,8 +1849,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ура, сука, логинимся! (настроить отображение осталось и все)" />
-    <MESSAGE value="Подключил ClearDB SQL" />
     <MESSAGE value="Deploy" />
     <MESSAGE value="AngularJs подключил, resources папку добавил" />
     <MESSAGE value="angularjs json проба" />
@@ -1828,7 +1872,9 @@
     <MESSAGE value="Добавление аккаунта рабоатет (осталось толкьо скрыть)" />
     <MESSAGE value="ну все по валидации ок и вот новый коммит!" />
     <MESSAGE value="поправки от ягора" />
-    <option name="LAST_COMMIT_MESSAGE" value="поправки от ягора" />
+    <MESSAGE value="немного по фронту от Егора" />
+    <MESSAGE value="новые порции" />
+    <option name="LAST_COMMIT_MESSAGE" value="новые порции" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1934,13 +1980,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c57de63e-51cb-4239-b998-4aa58b788697/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/templates/home/js/directives.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -2176,8 +2215,6 @@
             <element signature="e#1190#1191#0" expanded="false" />
             <element signature="e#1244#1245#0" expanded="false" />
             <element signature="e#1292#1293#0" expanded="false" />
-            <element signature="e#1345#1346#0" expanded="false" />
-            <element signature="e#1736#1737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2248,36 +2285,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userAccountBalance.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="20" column="111" selection-start-line="20" selection-start-column="111" selection-end-line="20" selection-end-column="111" />
-          <folding>
-            <element signature="n#style#0;n#span#3;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userAccount.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="56" column="10" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="58" column="53" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="38" column="131" selection-start-line="38" selection-start-column="131" selection-end-line="38" selection-end-column="131" />
           <folding />
         </state>
       </provider>
@@ -2310,6 +2321,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userAccountBalance.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="10" column="68" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="68" />
+          <folding>
+            <element signature="n#style#0;n#span#3;n#div#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="131" selection-start-line="38" selection-start-column="131" selection-end-line="38" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-344">
+          <caret line="93" column="115" selection-start-line="93" selection-start-column="115" selection-end-line="93" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/card/registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
           <folding />
         </state>
       </provider>

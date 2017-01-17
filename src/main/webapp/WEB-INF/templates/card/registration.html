@@ -3,24 +3,25 @@
         <h1>Регистрация пользовательскогой карты</h1>
         <hr>
     </div>
-    <form class="form-horizontal col-sm-4 " name="userForm">
+    <input class="form-control col-sm-4" ng-model="cardSelect" placeholder="Поиск пользователя по фамилии" type="text">
+    <form class="form-horizontal col-sm-4 add-account" name="userForm">
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_surName" name="surname" ng-model="card.cardNumber"
-                       placeholder="Номер карты" required="required" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"/>
-                <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание номера карты</span>
+                <input type="text" class="form-control" id="user_surName" name="cardNamber" ng-model="card.cardNumber"
+                       placeholder="Номер карты" required="required" ng-pattern="/^[0-9]{9}$/"/>
+                <span class="hasnt-error" ng-show="userForm.cardNamber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.cardNamber.$invalid && !userForm.cardNamber.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+ Неверное написание номера карты (9 цифр)</span>
             </div>
         </div>
 
         <div class="form-group">
             <div class="controls">
-                <input type="date" class="form-control" id="user_firstName" name="user_name" ng-model="card.dateOfExpiry"
+                <input type="date" class="form-control" id="user_firstName" name="cardData" ng-model="card.dateOfExpiry"
                        placeholder="Имя" required="required"/>
-                <span class="hasnt-error" ng-show="userForm.user_name.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.user_name.$invalid && !userForm.user_name.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+                <span class="hasnt-error" ng-show="userForm.cardData.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.cardData.$invalid && !userForm.cardData.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
  Некорректная дата</span>
             </div>
         </div>
@@ -28,7 +29,7 @@
 
         <div class="form-group ">
             <div class="controls">
-                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                <button id="addСardClose" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
                         ng-click="addCard(card)">Добавить карту</button>
             </div>
         </div>
@@ -51,7 +52,7 @@
                 <th>Выбрать
                 </th>
             </tr>
-            <tr ng-repeat="us in users">
+            <tr ng-repeat="us in users | filter:{surName:cardSelect}">
                 <td>
                     {{us.surName}}
                 </td>
@@ -71,10 +72,11 @@
                     {{us.userByUserId.isBlocked}}
                 </td>
                 <td>
-                    <input type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setUser(us)"/>
+                    <input  type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setUser(us)"/>
                 </td>
             </tr>
         </table>
+
     </div>
 
     <div class="container container-table row">
@@ -90,10 +92,19 @@
                     {{account.accountNumber}}
                 </td>
                 <td>
-                    <input type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setAccount(account)"/>
+                    <input id="addCard" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setAccount(account)"/>
                 </td>
+                <script>
+                    document.getElementById("addСardClose").onclick=function () {
+                        document.getElementsByClassName("add-account")[0].classList.remove("open");
+                    }
+                    document.getElementById("addCard").onclick=function () {
+                        document.getElementsByClassName("add-account")[0].classList.add("open");
+                    }
+                </script>
             </tr>
         </table>
     </div>
 
 </div>
+

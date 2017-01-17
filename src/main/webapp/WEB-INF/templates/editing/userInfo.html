@@ -22,7 +22,7 @@
                 <th>Редактировать
                 </th>
             </tr>
-            <tr ng-repeat="user in users | filter:{surName:userSelect}">
+            <tr ng-repeat="user in users ">
                 <td>
                     {{user.surName}}
                 </td>
@@ -91,7 +91,7 @@
         <div class="form-group" ng-class="{ 'has-error' : user.pasportNumber.$invalid && !user.pasportNumber.$pristine }">
             <div class="controls">
                 <input type="text" class="form-control" id="user_passportNumber" ng-model="user.pasportNumber"
-                       placeholder="Номер пасспорта" name="passport" required="required" min="6" ng-pattern="/[A-Z]хъ{2}\d{1,6}$/"/>
+                       placeholder="Номер пасспорта" name="passport" required="required" min="6" ng-pattern="/[A-Z]{2}\d{1,6}$/"/>
                 <span class="hasnt-error" ng-show="userForm.passport.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.passport.$invalid && !userForm.passport.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
 Неверный номер паспорта (2 латинских буквы "6 цифр после")</span>
