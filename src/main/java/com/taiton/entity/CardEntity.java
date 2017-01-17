@@ -1,11 +1,15 @@
 package com.taiton.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.taiton.jsonConverter.CardDeserializer;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 /**
  * Created by VitalitY on 14.12.2016.
  */
+@JsonDeserialize(using = CardDeserializer.class)
 @Entity
 @Table(name = "card", schema = "heroku_379802575654769", catalog = "")
 public class CardEntity {

@@ -23,4 +23,8 @@ public interface AccountDao extends JpaRepository<AccountEntity, Integer> {
     @Query("select a from AccountEntity a where a.userId is not null")
     List<AccountEntity> findAllUser();
 
+    //@Query("select a from AccountEntity a where a.userId = ?1")
+    List<AccountEntity> findByUserId(int idUser);
+
+
 }

@@ -1,7 +1,6 @@
 package com.taiton.service;
 
 import com.taiton.entity.AccountEntity;
-import com.taiton.entity.RoleEntity;
 
 import java.util.List;
 
@@ -23,4 +22,5 @@ public interface AccountService {
 
     List<AccountEntity> findAllOrganization();
 
+    List<AccountEntity> findByUserId(int idUser);
 }

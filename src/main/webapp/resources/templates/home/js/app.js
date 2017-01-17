@@ -74,5 +74,10 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'ServiceRegistrationController'
     });
 
+    $routeProvider.when('/card/registration', {
+        templateUrl: '/card/registration',
+        controller: 'CardRegistrationController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

@@ -1,9 +1,7 @@
 package com.taiton.service;
 
 import com.taiton.dao.AccountDao;
-import com.taiton.dao.RoleDao;
 import com.taiton.entity.AccountEntity;
-import com.taiton.entity.RoleEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +25,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountEntity find(int id) {
-        return accountDao.findOne(id);
+        AccountEntity a = accountDao.findOne(id);
+        return a;
     }
 
     @Override
@@ -48,6 +47,11 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<AccountEntity> findAllOrganization() {
         return accountDao.findAllOrganization();
+    }
+
+    @Override
+    public List<AccountEntity> findByUserId(int idUser) {
+        return accountDao.findByUserId(idUser);
     }
 
     @Override

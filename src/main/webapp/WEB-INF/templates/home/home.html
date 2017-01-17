@@ -214,6 +214,15 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li sec:authorize="hasRole('ROLE_administration')">
+                            <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Работа с банковскими картами<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#/card/registration"><i class="fa fa-user-plus" aria-hidden="true"></i>Регистрация карт</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -261,6 +270,9 @@
     <script src="resources/templates/organization/js/controllers/OrganizationRegistrationController.js"></script>
 
     <script src="resources/templates/service/js/controllers/ServiceRegistrationController.js"></script>
+
+    <script src="resources/templates/card/js/controllers/CardRegistrationController.js"></script>
+
 
 </body>
 
