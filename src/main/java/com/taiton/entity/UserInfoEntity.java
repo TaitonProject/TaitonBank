@@ -1,10 +1,5 @@
 package com.taiton.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.taiton.jsonConverter.UserInfoDeserializer;
-import com.taiton.jsonConverter.UserInfoSerializer;
-
 import javax.persistence.*;
 
 /**

@@ -32,4 +32,9 @@ public class RoleServiceImpl implements RoleService {
     public void delete(int id) {
         roleDao.delete(id);
     }
+
+    @Override
+    public List<RoleEntity> findWithoutRole(String role) {
+        return roleDao.findWithoutRole(role);
+    }
 }

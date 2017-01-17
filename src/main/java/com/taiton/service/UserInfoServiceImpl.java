@@ -40,4 +40,9 @@ public class UserInfoServiceImpl implements UserInfoService{
     public List<UserInfoEntity> findAll() {
         return userInfoDao.findAll();
     }
+
+    @Override
+    public UserInfoEntity findByPasportNumber(String pasportNumber) {
+        return userInfoDao.findByPasportNumber(pasportNumber);
+    }
 }

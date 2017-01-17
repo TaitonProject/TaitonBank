@@ -70,20 +70,23 @@ public class UserRegistrationController {
 
     @PostMapping("/addUser")
     public @ResponseBody ResponseEntity<Void> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
-        //Устанавливаем роль пользоватлея
-        userInfo.getUserByUserId().setRoleByRoleIdRole(roleService.find(1));
+        if(userService.findByUsername(userInfo.getUserByUserId().getUsername()) == null) {
+            //Устанавливаем роль пользоватлея
+            userInfo.getUserByUserId().setRoleByRoleIdRole(roleService.find(1));
 
-        // Проверка валидности данных
+            // Проверка валидности данных
         /*userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }*/
 
-        userService.save(userInfo.getUserByUserId());
-        // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
-        userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
-        userInfoService.save(userInfo);
+            userService.save(userInfo.getUserByUserId());
+            // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+            userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+            userInfoService.save(userInfo);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }

@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface UserInfoDao extends JpaRepository<UserInfoEntity, Integer>{
     @Override
     void delete(Integer integer);
+
+    UserInfoEntity findByPasportNumber(String pasportNumber);
 }

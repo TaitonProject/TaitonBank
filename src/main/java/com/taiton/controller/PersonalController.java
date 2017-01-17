@@ -1,0 +1,73 @@
+package com.taiton.controller;
+
+import com.taiton.entity.RoleEntity;
+import com.taiton.entity.UserInfoEntity;
+import com.taiton.service.RoleService;
+import com.taiton.service.UserInfoService;
+import com.taiton.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * Created by egordragun on 26.12.16.
+ */
+@Controller
+@RequestMapping("/personal")
+public class PersonalController {
+
+    final static String ROLE_CLIENT = "ROLE_Client";
+    final static String ROLE_OPERATOR = "ROLE_Operator";
+    final static String ROLE_ADMIN = "ROLE_Administration";
+
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserInfoService userInfoService;
+
+    @RequestMapping("/registration")
+    public String getPhonePage() {
+        return "personal/registration";
+    }
+
+    @GetMapping("/rolesList.json")
+    public @ResponseBody ResponseEntity<List<RoleEntity>> getRolesList(){
+        if (roleService.findWithoutRole(ROLE_CLIENT) != null){
+            return new ResponseEntity<>(roleService.findWithoutRole(ROLE_CLIENT), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @PostMapping("/addUser")
+    public @ResponseBody ResponseEntity<Void> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
+        if(userService.findByUsername(userInfo.getUserByUserId().getUsername()) == null &&
+                userInfoService.findByPasportNumber(userInfo.getPasportNumber()) == null) {
+            //Устанавливаем роль пользоватлея
+            userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
+
+                // Проверка валидности данных
+            /*userValidator.validate(user, bindingResult);
+            if (bindingResult.hasErrors()) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }*/
+
+            userService.save(userInfo.getUserByUserId());
+            // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+            userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+            userInfoService.save(userInfo);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+}

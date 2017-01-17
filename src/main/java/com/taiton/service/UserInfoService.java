@@ -16,4 +16,7 @@ public interface UserInfoService {
     UserInfoEntity findOne(int id);
 
     List<UserInfoEntity> findAll();
+
+    UserInfoEntity findByPasportNumber(String pasportNumber);
+
 }

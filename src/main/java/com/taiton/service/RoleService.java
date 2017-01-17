@@ -1,6 +1,7 @@
 package com.taiton.service;
 
 import com.taiton.entity.RoleEntity;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface RoleService {
     RoleEntity find(int id);
 
     void delete(int id);
+
+    List<RoleEntity> findWithoutRole(String role);
 }
