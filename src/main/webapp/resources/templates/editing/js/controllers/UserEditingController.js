@@ -30,8 +30,6 @@ UserEditingController = function ($scope, $http) {
                 secondName: '',
                 pasportNumber: '',
                 userByUserId : {
-                    username: '',
-                    password: '',
                     isBlocked: null
                 }
             };

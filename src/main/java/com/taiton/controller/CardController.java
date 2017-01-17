@@ -18,6 +18,10 @@ import java.util.List;
 @RequestMapping("/card")
 public class CardController {
 
+    final static String ROLE_CLIENT = "ROLE_Client";
+    final static String ROLE_OPERATOR = "ROLE_Operator";
+    final static String ROLE_ADMIN = "ROLE_Administration";
+
     @Autowired
     private CardService cardService;
 
@@ -34,7 +38,7 @@ public class CardController {
 
     @GetMapping("/listUsers.json")
     public @ResponseBody List<UserInfoEntity> fetchListUsers(){
-        return userInfoService.findAll();
+        return userInfoService.findByUserRole(ROLE_CLIENT);
     }
 
     @GetMapping("/listUsersAccount.json/{idUser}")
