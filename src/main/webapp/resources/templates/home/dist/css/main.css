@@ -298,3 +298,6 @@ table{
   top: 8px;
   right: -35px;
 }
+input[type="button"]{
+  outline: navajowhite;
+}
