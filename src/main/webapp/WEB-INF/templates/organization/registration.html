@@ -44,11 +44,11 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_account" name="account" ng-model="organization.name"
-                       placeholder="Название организации" required="required" ng-pattern=""/>
-                <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание фамилии</span>
+                <input type="text" class="form-control" id="user_account" name="accountName" ng-model="organization.name"
+                       placeholder="Название организации" required="required" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z]{2,20}$/"/>
+                <span class="hasnt-error" ng-show="userForm.accountName.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.accountName.$invalid && !userForm.accountName.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+ Неверное написание организации</span>
             </div>
         </div>
 

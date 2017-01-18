@@ -301,3 +301,9 @@ table{
 input[type="button"]{
   outline: navajowhite;
 }
+.table{
+  margin-left: 0 !important;
+}
+table{
+  margin-left: 0 !important;
+}

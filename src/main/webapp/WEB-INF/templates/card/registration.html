@@ -4,36 +4,6 @@
         <hr>
     </div>
     <input class="form-control col-sm-4" ng-model="cardSelect" placeholder="Поиск пользователя по фамилии" type="text">
-    <form class="form-horizontal col-sm-4 add-account" name="userForm">
-
-        <div class="form-group">
-            <div class="controls">
-                <input type="text" class="form-control" id="user_surName" name="cardNamber" ng-model="card.cardNumber"
-                       placeholder="Номер карты" required="required" ng-pattern="/^[0-9]{9}$/"/>
-                <span class="hasnt-error" ng-show="userForm.cardNamber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.cardNamber.$invalid && !userForm.cardNamber.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание номера карты (9 цифр)</span>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="controls">
-                <input type="date" class="form-control" id="user_firstName" name="cardData" ng-model="card.dateOfExpiry"
-                       placeholder="Имя" required="required"/>
-                <span class="hasnt-error" ng-show="userForm.cardData.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.cardData.$invalid && !userForm.cardData.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- Некорректная дата</span>
-            </div>
-        </div>
-
-
-        <div class="form-group ">
-            <div class="controls">
-                <button id="addСardClose" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
-                        ng-click="addCard(card)">Добавить карту</button>
-            </div>
-        </div>
-    </form>
     <div class="container container-table row">
         <table border="1" class="table row">
             <tr>
@@ -99,6 +69,36 @@
                 </script>
             </tr>
         </table>
+        <form class="form-horizontal col-sm-4 add-account" name="userForm">
+
+            <div class="form-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="user_surName" name="cardNamber" ng-model="card.cardNumber"
+                           placeholder="Номер карты" required="required" ng-pattern="/^[0-9]{9}$/"/>
+                    <span class="hasnt-error" ng-show="userForm.cardNamber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span class="has-error" ng-show="userForm.cardNamber.$invalid && !userForm.cardNamber.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+ Неверное написание номера карты (9 цифр)</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="controls">
+                    <input type="date" class="form-control" id="user_firstName" name="cardData" ng-model="card.dateOfExpiry"
+                           placeholder="Имя" required="required"/>
+                    <span class="hasnt-error" ng-show="userForm.cardData.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span class="has-error" ng-show="userForm.cardData.$invalid && !userForm.cardData.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+ Некорректная дата</span>
+                </div>
+            </div>
+
+
+            <div class="form-group ">
+                <div class="controls">
+                    <button id="addСardClose" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                            ng-click="addCard(card)">Добавить карту</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 </div>
