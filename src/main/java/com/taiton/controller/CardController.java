@@ -48,8 +48,7 @@ public class CardController {
 
     @PostMapping("/addCard")
     public @ResponseBody ResponseEntity<Void> registrationCard(@RequestBody CardEntity card){
-        if(cardService.find(card.getAccountId()) == null &&
-                accountService.findByAccountNumber(card.getCardNumber()) == null &&
+        if(accountService.findByAccountNumber(card.getCardNumber()) == null &&
                 card.getDateOfExpiry().getTime() > System.currentTimeMillis()) {
             cardService.save(card);
             return new ResponseEntity<>(HttpStatus.OK);

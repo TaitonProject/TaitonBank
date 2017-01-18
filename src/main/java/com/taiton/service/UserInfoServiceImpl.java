@@ -55,4 +55,9 @@ public class UserInfoServiceImpl implements UserInfoService{
     public List<UserInfoEntity> findByUserRole(String role) {
         return userInfoDao.findByUserRole(role);
     }
+
+    @Override
+    public UserInfoEntity findByUserId(int userId) {
+        return userInfoDao.findByUserId(userId);
+    }
 }

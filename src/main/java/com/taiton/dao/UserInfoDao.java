@@ -22,4 +22,7 @@ public interface UserInfoDao extends JpaRepository<UserInfoEntity, Integer>{
     @Query("select a from UserInfoEntity a where a.userByUserId.roleByRoleIdRole.nameRole = ?1")
     List<UserInfoEntity> findByUserRole(String role);
 
+    @Query("select a from UserInfoEntity a where a.userByUserId.id = ?1")
+    UserInfoEntity findByUserId(int userId);
+
 }

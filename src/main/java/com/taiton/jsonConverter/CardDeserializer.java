@@ -27,6 +27,7 @@ public class CardDeserializer extends JsonDeserializer<CardEntity>{
         CardEntity card = new CardEntity();
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         card.setAccountId(node.get("accountId").asInt());
+        card.setCardNumber(node.get("cardNumber").asInt());
         String dateOfExpiryStr = node.get("dateOfExpiry").asText();
         SimpleDateFormat dateFomatter = new SimpleDateFormat("yyyy-MM-dd");
         Date dateOfExpiry = null;
@@ -35,7 +36,7 @@ public class CardDeserializer extends JsonDeserializer<CardEntity>{
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        card.setCardNumber(node.get("cardNumber").asInt());
+
         card.setDateOfExpiry(dateOfExpiry);
 
         return card;

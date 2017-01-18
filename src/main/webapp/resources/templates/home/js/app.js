@@ -89,5 +89,10 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'PersonalEditingController'
     });
 
+    $routeProvider.when('/user/profile', {
+        templateUrl: '/user/profile',
+        controller: 'UserProfileController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

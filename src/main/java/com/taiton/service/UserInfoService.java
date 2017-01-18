@@ -23,4 +23,5 @@ public interface UserInfoService {
 
     List<UserInfoEntity> findByUserRole(String role);
 
+    UserInfoEntity findByUserId(int userId);
 }
