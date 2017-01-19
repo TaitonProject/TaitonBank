@@ -87,67 +87,24 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li sec:authorize="hasRole('ROLE_client')">
+                        <!--<li sec:authorize="hasRole('ROLE_client')">
                             <a href="#/user"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li sec:authorize="hasRole('ROLE_client')">
                             <a href=""><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
+                        </li>-->
                         <li sec:authorize="hasRole('ROLE_client')">
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>Переводы<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
+                                    <a href="#/tranzactions/transferCards"><i class="fa fa-credit-card" aria-hidden="true"></i>С карты на карту</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li sec:authorize="hasRole('ROLE_client')">
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
-                        <li sec:authorize="hasRole('ROLE_client')">
+                        <!--<li sec:authorize="hasRole('ROLE_client')">
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -157,7 +114,7 @@
                                     <a href="login.html">Login Page</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            &lt;!&ndash; /.nav-second-level -->
                         </li>
                         <li sec:authorize="hasRole('ROLE_administration')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление пользователями<span class="fa arrow"></span></a>
@@ -170,7 +127,7 @@
                                 </li>
 
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
                         <li sec:authorize="hasRole('ROLE_administration')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление счетами пользователей<span class="fa arrow"></span></a>
@@ -182,7 +139,7 @@
                                     <a href="#/editing/addUserBalance"><i class="fa fa-pencil-square" aria-hidden="true"></i>Добавить средства на счет пользователя</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
                         <li sec:authorize="hasRole('ROLE_administration')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление персоналом<span class="fa arrow"></span></a>
@@ -194,7 +151,7 @@
                                     <a href="#/personal/editing"><i class="fa fa-pencil-square" aria-hidden="true"></i>Редактирование персонала</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
                         <li sec:authorize="hasRole('ROLE_administration')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление организациями и сервисами<span class="fa arrow"></span></a>
@@ -209,7 +166,7 @@
                                     <a href="#/service/editing"><i class="fa fa-pencil-square" aria-hidden="true"></i>Редактирование сервисов</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
                         <li sec:authorize="hasRole('ROLE_administration')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Работа с банковскими картами<span class="fa arrow"></span></a>
@@ -218,7 +175,7 @@
                                     <a href="#/card/registration"><i class="fa fa-user-plus" aria-hidden="true"></i>Регистрация карт</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                           <!-- &lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
                     </ul>
                 </div>
