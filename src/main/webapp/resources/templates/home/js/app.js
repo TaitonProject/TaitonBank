@@ -93,6 +93,10 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: '/user/profile',
         controller: 'UserProfileController'
     });
+    $routeProvider.when('/tranzactions/transferCards', {
+        templateUrl: '/tranzactions/transferCards',
+        controller: 'UserProfileController'
+    });
 
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
