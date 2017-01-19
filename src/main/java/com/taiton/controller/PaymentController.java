@@ -1,6 +1,7 @@
 package com.taiton.controller;
 
 import com.taiton.entity.*;
+import com.taiton.entity.forJson.PaymentInfo;
 import com.taiton.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,11 +52,20 @@ public class PaymentController {
 
     @PostMapping("/addPayment")
     public @ResponseBody
-    ResponseEntity<Void> addPayment(@RequestBody PaymentEntity paymentEntity){
-
-        if(accountService.find(cardService.find(paymentEntity.getCardByCardId().getId()).getAccountId()).getAccountBalance() >= paymentEntity.getAmount()){
+    ResponseEntity<Void> addPayment(@RequestBody PaymentInfo paymentInfo){
+        PaymentEntity paymentEntity = new PaymentEntity();
+        paymentEntity.setAmount(paymentInfo.getPayment().getAmount());
+        paymentEntity.setCardId(cardService.findByCardNumber(paymentInfo.getCard().getCardNumber()).getId());
+        paymentEntity.setInfo(paymentInfo.getPayment().getInfo());
+        paymentEntity.setServiceId(serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory()).getId());
+        //paymentEntity.setServiceId(paymentInfo.set);
+        if(accountService.find(cardService.find(paymentEntity.getCardId()).getAccountId()).getAccountBalance() >= paymentEntity.getAmount()){
             paymentEntity.setDate(new Timestamp(System.currentTimeMillis()));
             paymentService.save(paymentEntity);
+            AccountEntity accountEntity = accountService.find(paymentInfo.getCard().getAccountId());
+            double currentBalance =  accountEntity.getAccountBalance() - paymentEntity.getAmount();
+            accountEntity.setAccountBalance(currentBalance);
+            accountService.save(accountEntity);
             return new ResponseEntity<Void>(HttpStatus.OK);
         }
         return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);

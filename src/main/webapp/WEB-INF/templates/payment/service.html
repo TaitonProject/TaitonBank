@@ -7,7 +7,7 @@
 
     <div class="control-group">
         <div class="controls" >
-            <select ng-change="setCategory(service.categoryIdCategory)" ng-model="service.categoryIdCategory"
+            <select ng-change="setCategory(paymentInfo.category)" ng-model="paymentInfo.category"
                     ng-options="category as category.categoryName for category in categoryies">
             </select>
         </div>
@@ -61,18 +61,18 @@
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Введите платженые данные</label>
                 <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" placeholder="Платежные данные" ng-bind="payment.info">
+                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" placeholder="Платежные данные" ng-model="paymentInfo.payment.info">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Рубли</label>
                 <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail4" placeholder="Рубли" ng-bind="payment.Amount">
+                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail4" placeholder="Рубли" ng-model="paymentInfo.payment.amount">
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
-                    <button type="submit" class="btn btn-warning"ng-click="addPayment(payment)">Оплатить</button>
+                    <button type="submit" class="btn btn-warning" ng-click="addPayment(paymentInfo.payment)">Оплатить</button>
                     <!--<span>{{setError}}</span>-->
                 </div>
             </div>
