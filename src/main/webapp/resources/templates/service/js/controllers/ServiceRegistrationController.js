@@ -104,7 +104,4 @@ ServiceRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchCategoryList();
-    $scope.fetchOrganizationList();
-    $scope.fetchServiceList();
-
 };

@@ -44,4 +44,9 @@ public class OrganizationServiceImpl implements OrganizationService {
     public OrganizationEntity findByName(String name) {
         return organizationDao.findByName(name);
     }
+
+    @Override
+    public List<OrganizationEntity> findByCategory(int idCategory) {
+        return organizationDao.findByCategory(idCategory);
+    }
 }

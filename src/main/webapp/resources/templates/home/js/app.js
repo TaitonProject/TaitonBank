@@ -95,7 +95,12 @@ App.config(['$routeProvider', function ($routeProvider) {
     });
     $routeProvider.when('/transaction/transferCards', {
         templateUrl: '/transaction/transferCards',
-        controller: 'UserProfileController'
+        controller: 'UserProfileController'  // КОНТРОЛЛЕР ПОМЕНЯТЬ!
+    });
+
+    $routeProvider.when('/payment/service', {
+        templateUrl: '/payment/service',
+        controller: 'PaymentServiceController'
     });
 
     $routeProvider.otherwise({redirectTo: '/'});

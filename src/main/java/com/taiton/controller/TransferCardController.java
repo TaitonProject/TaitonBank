@@ -1,5 +1,7 @@
 package com.taiton.controller;
 
+import com.taiton.service.CardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,8 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/transaction")
 public class TransferCardController {
+
+    @Autowired
+    private CardService cardService;
+
     @RequestMapping("/transferCards")
-    public String getPhonePage() {
+    public String getCardTransactionPage() {
         return "transaction/transferCards";
     }
+
+
+
 }

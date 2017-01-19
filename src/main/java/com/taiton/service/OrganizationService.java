@@ -17,4 +17,7 @@ public interface OrganizationService {
     void save(OrganizationEntity organizationEntity);
 
     OrganizationEntity findByName(String name);
+
+    List<OrganizationEntity> findByCategory(int idCategory);
+
 }
