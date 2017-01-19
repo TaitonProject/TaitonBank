@@ -1,15 +1,15 @@
 package com.taiton.controller;
 
 import com.taiton.entity.*;
-import com.taiton.entity.forJson.Organization;
 import com.taiton.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -37,6 +37,12 @@ public class PaymentController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserInfoService userInfoService;
 
     @RequestMapping("/service")
     public String getPaymentServicePage() {
@@ -80,12 +86,21 @@ public class PaymentController {
         return categoryService.findAll();
     }
 
-    @GetMapping("/cardList.json/{cardNumber}")
+    @GetMapping("/cardList.json")
     public @ResponseBody
-    List<CategoryEntity> fetchListCard(@PathVariable int cardNumber){
-        return null;
-        //return cardService.findByCardNumber(cardNumber);
+    ResponseEntity fetchListCard(){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return new ResponseEntity<>(cardService.findByUser(userService.findByUsername(user.getUsername()).getId()), HttpStatus.OK);
     }
 
+    @GetMapping("/hello")
+    public @ResponseBody ResponseEntity<UserInfoEntity> helloUser(){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserEntity userEntity = userService.findByUsername(user.getUsername());
+        //UserInfoEntity userInfoEntity = userInfoService.findByUserId(userEntity.getId());
+
+
+        return new ResponseEntity<>(userInfoService.findByUserId(userEntity.getId()), HttpStatus.OK);
+    }
 
 }

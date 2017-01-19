@@ -17,4 +17,7 @@ public interface CardDao extends JpaRepository<CardEntity, Integer> {
     @Override
     void delete(Integer integer);
 
+    @Query("select a from CardEntity a, AccountEntity b where a.accountId = b.id and b.userId = ?1")
+    List<CardEntity> findByUser(int idUser);
+
 }

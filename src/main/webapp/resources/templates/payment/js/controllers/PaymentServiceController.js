@@ -21,6 +21,7 @@ PaymentServiceController = function ($scope, $http) {
     $scope.organization = {};
     $scope.account = {};
     $scope.category = {};
+    $scope.card = {};
 
     $scope.addPayment = function (card) {
         $scope.resetError();
@@ -77,6 +78,11 @@ PaymentServiceController = function ($scope, $http) {
         $scope.organization = organization;
     };
 
+    $scope.setCard = function (card) {
+        $scope.resetError();
+        $scope.card = card;
+    };
+
     $scope.setCategory = function (category) {
         $scope.resetError();
         $scope.fetchOrganizationList(category.idCategory);
@@ -94,5 +100,6 @@ PaymentServiceController = function ($scope, $http) {
     };
 
     $scope.fetchCategoryList();
+    $scope.fetchCardList();
 
 };

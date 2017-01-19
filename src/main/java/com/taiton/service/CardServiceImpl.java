@@ -42,4 +42,10 @@ public class CardServiceImpl implements CardService {
     public CardEntity findByCardNumber(int cardNumber) {
         return cardDao.findByCardNumber(cardNumber);
     }
+
+    @Override
+    public List<CardEntity> findByUser(int idUser) {
+        List<CardEntity> gg = cardDao.findByUser(idUser);
+        return gg;
+    }
 }

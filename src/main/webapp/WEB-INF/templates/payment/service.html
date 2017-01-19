@@ -36,6 +36,25 @@
         </table>
     </div>
 
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер карты
+                </th>
+                <th>Выбрать
+                </th>
+            </tr>
+            <tr ng-repeat="card in cards">
+                <td>
+                    {{card.cardNumber}}
+                </td>
+                <td>
+                    <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setCard(card)"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
     <div class="container pays-history">
         <form class="form-horizontal col-sm-4 " role="form" name="userForm">
 

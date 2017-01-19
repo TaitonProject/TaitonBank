@@ -18,4 +18,6 @@ public interface CardService {
 
     CardEntity findByCardNumber(int cardNumber);
 
+    List<CardEntity> findByUser(int idUser);
+
 }

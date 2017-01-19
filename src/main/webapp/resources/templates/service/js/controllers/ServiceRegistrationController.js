@@ -17,7 +17,6 @@ ServiceRegistrationController = function ($scope, $http) {
         $scope.resetError();
         service.organizationId = $scope.organization.id;
         service.accountId = $scope.account.id;
-        //service.categoryIdCategory = $scope.category;
         $http.post('/service/addService', service).success(function () {
             $scope.fetchServiceList();
             $scope.service = {
@@ -51,15 +50,6 @@ ServiceRegistrationController = function ($scope, $http) {
         });
     };
 
-    /*    $scope.fetchAccountList = function () {
-     $scope.resetError();
-     $http.get('/service/accountList.json').success(function (response) {
-     $scope.accounts = response;
-     }).error(function () {
-     $scope.setError('беда в предосталвнии списка аккаунтов')
-     });
-     };*/
-
     $scope.fetchOrganizationList = function () {
         $scope.resetError();
         $http.get('/service/organizationList.json').success(function (response) {
@@ -78,20 +68,20 @@ ServiceRegistrationController = function ($scope, $http) {
         });
     };
 
-    /*    $scope.setService = function (service) {
-     $scope.resetError();
-     $scope.service = service;
-     };*/
+    $scope.fetchCardList = function () {
+        $scope.resetError();
+        $http.get('/payment/cardList.json').success(function (response) {
+            $scope.cards = response;
+        }).error(function () {
+            $scope.setError('беда в предосталвнии списка карт')
+        });
+    };
 
     $scope.setOrg = function (organization) {
         $scope.resetError();
         $scope.organization = organization;
+        $scope.fetchCardList();
     };
-
-    /*    $scope.setAccount = function (account) {
-     $scope.resetError();
-     $scope.account = account;
-     };*/
 
     $scope.setError = function (message) {
         $scope.error = false;
