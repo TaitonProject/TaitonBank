@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Номер телефона</label>
                 <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" ng-pattern="/^[0-9]{9}$/" placeholder="+375 29 4363412" ng-pattern="/^([+]?[0-9\s-\(\)]{3,25})*$/i/">
+                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" ng-pattern="/^[0-9]{9}$/">
                     <span class="hasnt-error" ng-show="userForm.cardNamber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                     <span class="has-error" ng-show="userForm.cardNamber.$invalid && !userForm.cardNamber.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
  Неверное написание номера карты (9 цифр)</span>
