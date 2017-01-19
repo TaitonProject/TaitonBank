@@ -100,7 +100,20 @@
                             <!-- /.nav-second-level -->
                         </li>
                             <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
-                        <li sec:authorize="hasRole('ROLE_administration')">
+                        </li>
+                        <!--<li sec:authorize="hasRole('ROLE_client')">
+                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="blank.html">Blank Page</a>
+                                </li>
+                                <li>
+                                    <a href="login.html">Login Page</a>
+                                </li>
+                            </ul>
+                            &lt;!&ndash; /.nav-second-level -->
+                        </li>
+                        <li sec:authorize="hasRole('ROLE_operator')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление пользователями<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -113,7 +126,7 @@
                             </ul>
                             <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
-                        <li sec:authorize="hasRole('ROLE_administration')">
+                        <li sec:authorize="hasRole('ROLE_operator')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление счетами пользователей<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -137,22 +150,22 @@
                             </ul>
                             <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
-                        <li sec:authorize="hasRole('ROLE_administration')">
+                        <li sec:authorize="hasRole('ROLE_operator')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление организациями и сервисами<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#/organization/registration"><i class="fa fa-user-plus" aria-hidden="true"></i>Управление организациями</a>
                                 </li>
-                                <li>
+                                <!--<li>
                                     <a href="#/service/registration"><i class="fa fa-pencil-square" aria-hidden="true"></i>Добавление сервисов</a>
-                                </li>
-                                <li>
+                                </li>-->
+                                <!--<li>
                                     <a href="#/service/editing"><i class="fa fa-pencil-square" aria-hidden="true"></i>Редактирование сервисов</a>
-                                </li>
+                                </li>-->
                             </ul>
                             <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         </li>
-                        <li sec:authorize="hasRole('ROLE_administration')">
+                        <li sec:authorize="hasRole('ROLE_operator')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Работа с банковскими картами<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -216,7 +229,6 @@
 
     <script src="resources/templates/user/js/controllers/UserProfileController.js"></script>
 
-    <script src="resources/templates/payment/js/controllers/PaymentServiceController.js"></script>
 
 </body>
 

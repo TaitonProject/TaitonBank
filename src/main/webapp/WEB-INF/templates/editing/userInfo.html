@@ -37,15 +37,16 @@
                     {{user.userByUserId.isBlocked}}
                 </td>
                 <td>
-                    <input id="add-update" type="button" value="Редактировать" class="update-button btn btn-warning" ng-click="edit(user)"/>
-                    <script>
-                        document.getElementById("add-update").onclick=function (e) {
-                            document.getElementsByClassName("add-account")[0].classList.add("open");
+                    <input id="add-update" type="button" value="Редактировать" class="update-button btn btn-warning" ng-click="edit(user);"/>
+                    <!--<script>
+                        var butt = document.getElementsByClassName("add-account")[0];
+                        $scope.OpacityEnd=function  () {
+                            butt.classList.add("open");
                         }
                         document.getElementById("update").onclick=function (e) {
                             document.getElementsByClassName("add-account")[0].classList.remove("open");
                         }
-                    </script>
+                    </script>-->
                 </td>
             </tr>
         </table>

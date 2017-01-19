@@ -280,14 +280,14 @@ table{
   margin-left: 0;
 }
 
-.add-account{
+/*.add-account{
     opacity: 0;
     transition: all 0.5s ease;
 }
 
 .add-account.open{
     opacity: 1;
-}
+}*/
 #accountBalance:after{
   content: "BYN";
   position: relative;
@@ -302,8 +302,8 @@ input[type="button"]{
   outline: navajowhite;
 }
 .table{
-  margin-left: 0 !important;
+  margin-left: -15px !important;
 }
 table{
-  margin-left: 0 !important;
+  margin-left: -15px !important;
 }
