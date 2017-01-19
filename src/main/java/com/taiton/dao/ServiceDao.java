@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface ServiceDao extends JpaRepository<ServiceEntity, Integer> {
 
-    ServiceEntity findByName(String name);
+    ServiceEntity findByCategoryIdCategory(int categoryId);
+
 
     @Override
     void delete(Integer integer);

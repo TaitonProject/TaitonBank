@@ -11,15 +11,17 @@ ServiceRegistrationController = function ($scope, $http) {
     $scope.service = {};
     $scope.organization = {};
     $scope.account = {};
+    $scope.category = {};
 
     $scope.addService = function (service) {
         $scope.resetError();
         service.organizationId = $scope.organization.id;
         service.accountId = $scope.account.id;
+        //service.categoryIdCategory = $scope.category;
         $http.post('/service/addService', service).success(function () {
             $scope.fetchServiceList();
             $scope.service = {
-                name: '',
+                categoryIdCategory: null,
                 account: ''
             };
         }).error(function () {
@@ -32,7 +34,7 @@ ServiceRegistrationController = function ($scope, $http) {
         $http.delete('/service/deleteService/'+id).success(function () {
             $scope.fetchServiceList();
             $scope.service = {
-                name: '',
+                category: '',
                 account: ''
             };
         }).error(function () {
@@ -67,6 +69,15 @@ ServiceRegistrationController = function ($scope, $http) {
         });
     };
 
+    $scope.fetchCategoryList = function () {
+        $scope.resetError();
+        $http.get('/service/categoryList.json').success(function (response) {
+            $scope.categoryies = response;
+        }).error(function () {
+            $scope.setError('беда в предосталвнии списка организаций')
+        });
+    };
+
     /*    $scope.setService = function (service) {
      $scope.resetError();
      $scope.service = service;
@@ -92,6 +103,7 @@ ServiceRegistrationController = function ($scope, $http) {
         $scope.errorMessage = '';
     };
 
+    $scope.fetchCategoryList();
     $scope.fetchOrganizationList();
     $scope.fetchServiceList();
 

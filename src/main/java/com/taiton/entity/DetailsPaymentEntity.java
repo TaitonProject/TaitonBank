@@ -10,9 +10,14 @@ import javax.persistence.*;
 public class DetailsPaymentEntity {
     private int id;
     private String info;
+    private Integer serviceId;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     @Id
-    @Column(name = "Id")
+    @Column(name = "Id", nullable = false)
     public int getId() {
         return id;
     }
@@ -22,7 +27,7 @@ public class DetailsPaymentEntity {
     }
 
     @Basic
-    @Column(name = "Info")
+    @Column(name = "Info", nullable = false, length = 45)
     public String getInfo() {
         return info;
     }
@@ -49,5 +54,15 @@ public class DetailsPaymentEntity {
         int result = id;
         result = 31 * result + (info != null ? info.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "service_Id", nullable = false)
+    public Integer getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(Integer serviceId) {
+        this.serviceId = serviceId;
     }
 }

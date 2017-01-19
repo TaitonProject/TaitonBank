@@ -1,5 +1,6 @@
 package com.taiton.service;
 
+import com.taiton.entity.CategoryEntity;
 import com.taiton.entity.ServiceEntity;
 
 import java.util.List;
@@ -16,5 +17,5 @@ public interface ServiceService {
 
     void save(ServiceEntity serviceEntity);
 
-    ServiceEntity findByName(String name);
+    ServiceEntity findByCategoryIdCategory(int categoryId);
 }

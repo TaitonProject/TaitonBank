@@ -78,6 +78,7 @@
         <property name="formatters">
             <set>
                 <bean class="com.taiton.service.formatters.RoleFormatter" />
+                <bean class="com.taiton.service.formatters.CategoryFormatter"/>
             </set>
         </property>
         <property name="converters">

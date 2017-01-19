@@ -1,28 +1,31 @@
 package com.taiton.entity.forJson;
 
+import com.taiton.entity.CategoryEntity;
+
 /**
  * Created by Taiton on 1/16/2017.
  */
 public class Service {
-    private String name;
     private int account;
     private int organizationId;
+    private CategoryEntity categoryIdCategory;
 
-    public Service(String name, int account, int organizationId) {
-        this.name = name;
+    public Service( int account, int organizationId, CategoryEntity categoryEntity) {
         this.account = account;
         this.organizationId = organizationId;
+        this.categoryIdCategory = categoryEntity;
     }
 
     public Service() {
     }
 
-    public String getName() {
-        return name;
+
+    public CategoryEntity getCategoryIdCategory() {
+        return categoryIdCategory;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategoryIdCategory(CategoryEntity categoryEntity) {
+        this.categoryIdCategory = categoryEntity;
     }
 
     public int getAccount() {

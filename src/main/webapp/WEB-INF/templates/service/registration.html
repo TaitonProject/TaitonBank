@@ -38,12 +38,11 @@
     </div>
     <form class="form-horizontal col-sm-4 add-account" name="userForm">
 
-        <div class="form-group">
-            <div class="controls">
-                <input type="text" class="form-control" id="user_service_name" name="accountName" ng-model="service.name" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"
-                       placeholder="Имя услуги" required="required" />
-                <span class="hasnt-error" ng-show="userForm.accountName.$valid"><i class="fa fa-check" aria-hidden="true"></i>неправильное написания названия</span>
-                <span class="has-error" ng-show="userForm.accountName.$invalid && !userForm.accountName.$pristine"><i class="fa fa-times" aria-hidden="true"></i>неправильное написание номера счета</span>
+        <div class="control-group">
+            <div class="controls" >
+                <select ng-model="service.categoryIdCategory"
+                        ng-options="category as category.categoryName for category in categoryies">
+                </select>
             </div>
         </div>
 

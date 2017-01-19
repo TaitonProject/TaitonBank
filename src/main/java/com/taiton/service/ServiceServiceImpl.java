@@ -41,7 +41,7 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public ServiceEntity findByName(String name) {
-        return serviceDao.findByName(name);
+    public ServiceEntity findByCategoryIdCategory(int categoryId) {
+        return serviceDao.findByCategoryIdCategory(categoryId);
     }
 }
