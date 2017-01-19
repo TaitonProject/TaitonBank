@@ -11,7 +11,6 @@ UserRegistrationController = function ($scope, $http) {
     $scope.addNewUser = function (user) {
         $scope.resetError();
         $http.post('/registration/addUser', user).success(function () {
-            $scope.fetchUsersList();
             $scope.user = {
                 surName: '',
                 firstName: '',
@@ -20,8 +19,7 @@ UserRegistrationController = function ($scope, $http) {
                 userByUserId : {
                     username: '',
                     password: '',
-                    confirmPassword: '',
-                    isBlocked: null
+                    confirmPassword: ''
                 }
             };
         }).error(function () {
