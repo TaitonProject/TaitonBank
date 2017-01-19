@@ -63,6 +63,15 @@ PaymentServiceController = function ($scope, $http) {
         });
     };
 
+    $scope.fetchCardList = function () {
+        $scope.resetError();
+        $http.get('/payment/cardList.json').success(function (response) {
+            $scope.cards = response;
+        }).error(function () {
+            $scope.setError('беда в предосталвнии списка категорий')
+        });
+    };
+
     $scope.setOrg = function (organization) {
         $scope.resetError();
         $scope.organization = organization;
@@ -70,7 +79,7 @@ PaymentServiceController = function ($scope, $http) {
 
     $scope.setCategory = function (category) {
         $scope.resetError();
-        $scope.fetchOrganizationList(category.id);
+        $scope.fetchOrganizationList(category.idCategory);
         //$scope.organization = organization;
         $scope.category = category;
     };

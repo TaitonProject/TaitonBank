@@ -67,16 +67,24 @@ public class PaymentController {
         return accountService.findAllOrganization();
     }
 
-    @GetMapping("/organizationList.json")
+    @GetMapping("/organizationList.json/{idCategory}")
     public @ResponseBody
-    List<OrganizationEntity> fetchListOrganization(@RequestBody int idCategory){
-        return organizationService.findByCategory(idCategory);
+    List<OrganizationEntity> fetchListOrganization(@PathVariable int idCategory){
+        List<OrganizationEntity> gg = organizationService.findByCategory(idCategory);
+        return gg;
     }
 
     @GetMapping("/categoryList.json")
     public @ResponseBody
     List<CategoryEntity> fetchListCategory(){
         return categoryService.findAll();
+    }
+
+    @GetMapping("/cardList.json/{cardNumber}")
+    public @ResponseBody
+    List<CategoryEntity> fetchListCard(@PathVariable int cardNumber){
+        return null;
+        //return cardService.findByCardNumber(cardNumber);
     }
 
 

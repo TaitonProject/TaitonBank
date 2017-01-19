@@ -17,6 +17,6 @@ public interface OrganizationDao extends JpaRepository<OrganizationEntity, Integ
     @Override
     void delete(Integer integer);
 
-    @Query("select a from OrganizationEntity  a where a.id in (select s from ServiceEntity s where s.categoryIdCategory = ?1 )")
+    @Query("select a from OrganizationEntity  a where a.id in (select s.organizationId from ServiceEntity s where s.categoryIdCategory = ?1 )")
     List<OrganizationEntity> findByCategory(int idCategory);
 }
