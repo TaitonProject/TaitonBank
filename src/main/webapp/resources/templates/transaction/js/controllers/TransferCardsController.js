@@ -66,7 +66,6 @@ TransferCardsController = function ($scope, $http) {
         $scope.successMessage = '';
     };
 
-
     $scope.errorMessage = '';
     $scope.successMessage = '';
 

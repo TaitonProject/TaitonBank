@@ -21,29 +21,21 @@ ServiceRegistrationController = function ($scope, $http) {
         service.accountId = $scope.account.id;
         service.organizationId = $scope.organization.id;
         service.categoryIdCategory = $scope.category.idCategory;
-        $http.post('/service/addService', service).success(function () {
+        $http.post('/service/addService', service).success(function (response) {
             $scope.fetchServiceList();
             $scope.service = {
                 categoryIdCategory: null,
                 account: ''
             };
-        }).error(function () {
-            $scope.setError('беда при добавлении сервиса');
+            $scope.setTrueMessage(response);
+        }).error(function (response, status) {
+            if (status === 400){
+                $scope.setError(response)
+            } else {
+                $scope.setError(' Некорректные данные.');
+            }
         })
     };
-
-/*    $scope.deleteService = function (id) {
-        $scope.resetError();
-        $http.delete('/service/deleteService/'+id).success(function () {
-            $scope.fetchServiceList();
-            $scope.service = {
-                category: '',
-                account: ''
-            };
-        }).error(function () {
-            $scope.setError('беда при удалении сервиса');
-        })
-    };*/
 
     $scope.fetchServiceList = function () {
         $scope.resetError();
@@ -88,12 +80,20 @@ ServiceRegistrationController = function ($scope, $http) {
         $scope.errorMessage = message;
     };
 
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
+    };
+
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
 
     $scope.errorMessage = '';
+    $scope.successMessage = '';
 
     $scope.closed= function () {
         $scope.formVisible = false;

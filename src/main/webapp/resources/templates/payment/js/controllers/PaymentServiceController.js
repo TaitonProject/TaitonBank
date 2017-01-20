@@ -31,7 +31,7 @@ PaymentServiceController = function ($scope, $http) {
             }
 
         };
-        $http.post('/payment/addPayment', paymentInfo).success(function () {
+        $http.post('/payment/addPayment', paymentInfo).success(function (response) {
             //$scope.fetchServiceList();
             $scope.paymentInfo = {
                 category: '',
@@ -42,8 +42,13 @@ PaymentServiceController = function ($scope, $http) {
                     amount: ''
                 }
             };
-        }).error(function () {
-            $scope.setError('беда при добавлении карты');
+            $scope.setTrueMessage(response);
+        }).error(function (response, status) {
+            if (status === 400){
+                $scope.setError(response)
+            } else {
+                $scope.setError(' Некорректные данные.');
+            }
         })
     };
 
@@ -101,23 +106,30 @@ PaymentServiceController = function ($scope, $http) {
         //$scope.organization = organization;
         $scope.paymentInfo.category = category;
     };
+
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
+    };
+
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
     };
 
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
-
-    $scope.fetchCategoryList();
-    $scope.fetchCardList();
 
     $scope.closed= function () {
         $scope.formVisible = false;
         $scope.Fieldshow = false;
     };
 
+    $scope.fetchCategoryList();
+    $scope.fetchCardList();
 
 };

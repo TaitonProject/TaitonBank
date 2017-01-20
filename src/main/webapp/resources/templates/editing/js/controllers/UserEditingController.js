@@ -38,26 +38,6 @@ UserEditingController = function ($scope, $http) {
         })
     };
 
-/*    $scope.deleteUser = function (id) {
-        $scope.resetError();
-        $http.delete('/editing/deleteUser/'+id).success(function () {
-            $scope.fetchUsersList();
-            $scope.user = {
-                surName: '',
-                firstName: '',
-                secondName: '',
-                pasportNumber: '',
-                userByUserId : {
-                    username: '',
-                    password: '',
-                    isBlocked: null
-                }
-            };
-        }).error(function () {
-            $scope.setError('беда при удалении пользователя');
-        })
-    };*/
-
     $scope.edit = function (user) {
         $scope.resetError();
         $scope.user = user;
@@ -67,17 +47,25 @@ UserEditingController = function ($scope, $http) {
         $scope.formVisible = false;
     };
 
-
     $scope.setError = function (message) {
         $scope.error = true;
         $scope.errorMessage = message;
     };
 
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
+    };
+
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
+
     $scope.errorMessage = '';
+    $scope.successMessage = '';
 
     $scope.fetchUsersList();
 };

@@ -10,7 +10,7 @@ UserRegistrationController = function ($scope, $http) {
 
     $scope.addNewUser = function (user) {
         $scope.resetError();
-        $http.post('/registration/addUser', user).success(function () {
+        $http.post('/registration/addUser', user).success(function (response) {
             $scope.user = {
                 surName: '',
                 firstName: '',
@@ -22,8 +22,13 @@ UserRegistrationController = function ($scope, $http) {
                     confirmPassword: ''
                 }
             };
-        }).error(function () {
-            $scope.setError('беда при добавлении пользователя, возможно такой пользователь уже есть');
+            $scope.setTrueMessage(response)
+        }).error(function (response, status) {
+            if (status === 400){
+                $scope.setError(response)
+            } else {
+                $scope.setError(" Некорректные данные.")
+            }
         })
     };
     if(document.getElementById("confirm_Password").value !==  document.getElementById("user_password").value){
@@ -35,12 +40,20 @@ UserRegistrationController = function ($scope, $http) {
         $scope.errorMessage = message;
     };
 
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
+    };
+
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
 
     $scope.errorMessage = '';
+    $scope.successMessage = '';
 };
 
 function stageController($scope) {

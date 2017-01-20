@@ -20,13 +20,18 @@ CardRegistrationController = function ($scope, $http) {
     $scope.addCard = function (card) {
         $scope.resetError();
         card.accountId = $scope.account.id;
-        $http.post('/card/addCard', card).success(function () {
+        $http.post('/card/addCard', card).success(function (response) {
             $scope.card = {
                 cardNumber: '',
                 dateOfExpiry: null
             };
-        }).error(function () {
-            $scope.setError('беда при добавлении карты');
+            $scope.setTrueMessage(response);
+        }).error(function (response, status) {
+            if (status === 400){
+                $scope.setError(response)
+            } else {
+                $scope.setError(' Некорректные данные.');
+            }
         })
     };
 
@@ -61,14 +66,24 @@ CardRegistrationController = function ($scope, $http) {
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
+    };
+
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
     };
 
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
 
     $scope.closed= function () { 
         $scope.formVisible = false;

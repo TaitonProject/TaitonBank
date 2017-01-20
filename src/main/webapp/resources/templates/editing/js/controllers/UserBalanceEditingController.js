@@ -15,13 +15,14 @@ UserBalanceEditingController = function ($scope, $http) {
 
     $scope.editUserBalance = function (account) {
         $scope.resetError();
-        $http.post('/editing/addUserBalance', account).success(function () {
+        $http.post('/editing/addUserBalance', account).success(function (response) {
             $scope.account = {
                 accountNumber: '',
                 accountBalance: 0
             };
-        }).error(function () {
-            $scope.setError('беда при изменении баланса пользователя');
+            $scope.setTrueMessage(response);
+        }).error(function (response) {
+            $scope.setError(response);
         })
     };
 
@@ -30,11 +31,17 @@ UserBalanceEditingController = function ($scope, $http) {
         $scope.errorMessage = message;
     };
 
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
+    };
+
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
-    $scope.errorMessage = '';
 
 };
 

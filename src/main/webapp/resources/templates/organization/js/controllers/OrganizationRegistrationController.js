@@ -12,14 +12,18 @@ OrganizationRegistrationController = function ($scope, $http) {
 
     $scope.addOrganization = function (organization) {
         $scope.resetError();
-        $http.post('/organization/addOrganization', organization).success(function () {
+        $http.post('/organization/addOrganization', organization).success(function (response) {
             $scope.fetchOrganizationList();
             $scope.organization = {
                 id: '',
                 name: ''
             };
-        }).error(function () {
-            $scope.setError('беда при добавлении организации');
+            $scope.setTrueMessage(response);
+        }).error(function (response, status) {
+            if (status === 400) {
+                $scope.setError(response)
+            } else
+                $scope.setError(" Некорректные данные.")
         })
     };
 
@@ -37,10 +41,10 @@ OrganizationRegistrationController = function ($scope, $http) {
 
     $scope.fetchOrganizationList = function () {
         $scope.resetError();
-        $http.get('/organization/organizationList.json').success(function (response) {
+        $http.get('/organization/organizationList.json').success(function () {
             $scope.organizations = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка организаций')
+            $scope.setError(" Не удалось предоставить список организаций")
         });
     };
 
@@ -51,18 +55,24 @@ OrganizationRegistrationController = function ($scope, $http) {
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
+    };
+
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
     };
 
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
 
-   /* $scope.closed= function () {
-        $scope.formVisible = false;
-    };*/
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
 
     $scope.fetchOrganizationList();
 };
