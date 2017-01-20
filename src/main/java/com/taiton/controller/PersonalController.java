@@ -75,6 +75,7 @@ public class PersonalController {
             } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
                 return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
             } else {
+                int j = 10;
                 //Устанавливаем роль пользоватлея
                 userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
                 userService.save(userInfo.getUserByUserId());
@@ -88,6 +89,7 @@ public class PersonalController {
         }
     }
 
+    @Transactional
     @PutMapping("/editUser")
     public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
         try {
@@ -100,6 +102,7 @@ public class PersonalController {
             } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
                 return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
             } else {
+                int i = 0;
                 //Устанавливаем роль пользоватлея
                 userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
                 userService.save(userInfo.getUserByUserId());
