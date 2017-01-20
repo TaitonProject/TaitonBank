@@ -7,14 +7,14 @@
 
 
     <div class="container pays-history">
-        <form class="form-horizontal col-sm-4 " role="form">
+        <form class="form-horizontal col-sm-4 " role="form" name="userForm">
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Номер телефона</label>
                 <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" ng-pattern="/^[0-9]{9}$/">
-                    <span class="hasnt-error" ng-show="userForm.cardNamber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                    <span class="has-error" ng-show="userForm.cardNamber.$invalid && !userForm.cardNamber.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание номера карты (9 цифр)</span>
+                    <input type="text" name="transaction" class="form-control" id="inputEmail3"> <!--ng-pattern="/^((\+375)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/"-->
+                    <!--<span class="hasnt-error" ng-show="userForm.transaction.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span class="has-error" ng-show="userForm.transaction.$invalid && !userForm.transaction.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
+ Неверное написание номера телефона</span>-->
                 </div>
             </div>
             <div class="form-group">
@@ -28,6 +28,7 @@
             <div class="form-group">
                 <div class="">
                     <button type="submit" class="btn btn-warning">Оплатить</button>
+                    <!--<span ng-show="true">{{errorMessage}}</span>-->
                 </div>
             </div>
         </form>

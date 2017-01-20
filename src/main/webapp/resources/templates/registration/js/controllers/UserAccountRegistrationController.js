@@ -41,7 +41,7 @@ UserAccountRegistrationController = function ($scope, $http) {
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
     };
 
@@ -54,6 +54,8 @@ UserAccountRegistrationController = function ($scope, $http) {
         $scope.resetError();
         $scope.account.userId = userInfoId;
     };
+
+    $scope.errorMessage = '';
 
     $scope.fetchUsersList();
 };
