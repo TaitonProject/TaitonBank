@@ -46,6 +46,7 @@ PersonalEditingController = function ($scope, $http) {
     $scope.edit = function (user) {
         $scope.resetError();
         $scope.user = user;
+        $scope.formVisible = true;
     };
 
     $scope.setError = function (message) {
@@ -63,6 +64,9 @@ PersonalEditingController = function ($scope, $http) {
         $scope.success = false;
         $scope.errorMessage = '';
         $scope.successMessage = '';
+    };
+    $scope.closed= function () { 
+        $scope.formVisible = false; 
     };
 
 

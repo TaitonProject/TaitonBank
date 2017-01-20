@@ -46,6 +46,7 @@ TransferCardsController = function ($scope, $http) {
     $scope.setCard = function (card) {
         $scope.resetError();
         $scope.transfer.cardFrom = card;
+        $scope.formVisible = true;
     };
 
     $scope.setError = function (message) {
@@ -68,6 +69,10 @@ TransferCardsController = function ($scope, $http) {
 
     $scope.errorMessage = '';
     $scope.successMessage = '';
+
+    $scope.closed= function () { 
+        $scope.formVisible = false; 
+    };
 
     $scope.fetchCardList();
 

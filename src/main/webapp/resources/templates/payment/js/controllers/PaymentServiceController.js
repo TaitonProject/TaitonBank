@@ -86,11 +86,13 @@ PaymentServiceController = function ($scope, $http) {
     $scope.setOrg = function (organization) {
         $scope.resetError();
         $scope.paymentInfo.organization = organization;
+        $scope.Fieldshow = true;
     };
 
     $scope.setCard = function (card) {
         $scope.resetError();
         $scope.paymentInfo.card = card;
+        $scope.formVisible = true;
     };
 
     $scope.setCategory = function (category) {
@@ -111,5 +113,11 @@ PaymentServiceController = function ($scope, $http) {
 
     $scope.fetchCategoryList();
     $scope.fetchCardList();
+
+    $scope.closed= function () {
+        $scope.formVisible = false;
+        $scope.Fieldshow = false;
+    };
+
 
 };

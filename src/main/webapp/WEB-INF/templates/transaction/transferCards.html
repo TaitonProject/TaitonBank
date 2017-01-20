@@ -25,22 +25,30 @@
     </div>
 
     <div class="container pays-history">
-        <form class="form-horizontal col-sm-4 " role="form">
+        <form class="form-horizontal col-sm-4 " role="form" name="userForm" ng-show="formVisible">
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Введите номер карты получателя</label>
-                <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" placeholder="Номер карты" ng-model="transfer.cardTo">
+                <div class="controls">
+                    <input type="text" name="cardNumber" class="form-control" id="inputEmail3" placeholder="Номер карты"
+                           ng-model="transfer.cardTo" ng-pattern="/^[0-9]{9}$/">
+                    <span class="hasnt-error" ng-show="userForm.cardNumber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.cardNumber.$invalid && !userForm.cardNumber.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
+неверный формат платежных данных</span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Рубли</label>
-                <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail4" placeholder="Рубли" ng-model="transfer.amount">
+                <div class="controls">
+                    <input type="text" name="PayCard" class="form-control" id="inputEmail4" placeholder="Рубли" ng-model="transfer.amount" ng-pattern="/^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?$/"><span class="cost-info">BYN</span>
+                    <span class="hasnt-error" ng-show="userForm.PayCard.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.PayCard.$invalid && !userForm.PayCard.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
+неверный формат суммы (цифры и . или ,)</span>
+
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
-                    <button type="submit" class="btn btn-warning" ng-click="addTransfer(transfer)">Оплатить</button>
+                    <button type="submit" class="btn btn-warning" ng-click="addTransfer(transfer);closed();">Оплатить</button>
                 </div>
                 <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
                     <strong>Ошибка! </strong> {{errorMessage}}

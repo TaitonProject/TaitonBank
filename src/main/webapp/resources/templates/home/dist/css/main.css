@@ -288,6 +288,10 @@ button{
 .add-account.open{
     opacity: 1;
 }*/
+h4{
+  margin: 10px auto;
+}
+
 #accountBalance:after{
   content: "BYN";
   position: relative;

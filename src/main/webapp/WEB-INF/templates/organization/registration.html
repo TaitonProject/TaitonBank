@@ -40,7 +40,7 @@
             </tr>
         </table>
     </div>
-    <form class="form-horizontal col-sm-4 add-account" ng-show="formVisible" name="userForm">
+    <form class="form-horizontal col-sm-4 add-account" name="userForm">
 
         <div class="form-group">
             <div class="controls">
@@ -55,7 +55,7 @@
         <div class="form-group ">
             <div class="controls">
                 <button id="addOrg" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
-                        ng-click="addOrganization(organization);closed()">Добавить/изменить организацию</button>
+                        ng-click="addOrganization(organization)">Добавить/изменить организацию</button>
                 <span>{{setError}}</span>
             </div>
         </div>

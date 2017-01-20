@@ -6,13 +6,36 @@
     <hr>
 
     <div class="control-group">
-        <div class="controls" >
+
+        <div class="container row table-cont">
+            <h4>Выбирете карту для оплаты:</h4>
+            <table border="1" class="table row">
+                <tr>
+                    <th>Номер карты
+                    </th>
+                    <th>Выбрать
+                    </th>
+                </tr>
+                <tr ng-repeat="card in cards">
+                    <td>
+                        {{card.cardNumber}}
+                    </td>
+                    <td>
+                        <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setCard(card)"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="controls" style="margin: 25px auto" ng-show="formVisible">
+            <h4>Виды платежей:</h4>
             <select ng-change="setCategory(paymentInfo.category)" ng-model="paymentInfo.category"
                     ng-options="category as category.categoryName for category in categoryies">
             </select>
         </div>
     </div>
-    <div class="container row table-cont">
+    <div class="container row table-cont" ng-show="formVisible">
+        <h4>Выбирете организацию для оплаты:</h4>
         <table border="1" class="table row">
             <tr>
                 <th>Номер
@@ -36,44 +59,32 @@
         </table>
     </div>
 
-    <div class="container row">
-        <table border="1" class="table row">
-            <tr>
-                <th>Номер карты
-                </th>
-                <th>Выбрать
-                </th>
-            </tr>
-            <tr ng-repeat="card in cards">
-                <td>
-                    {{card.cardNumber}}
-                </td>
-                <td>
-                    <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setCard(card)"/>
-                </td>
-            </tr>
-        </table>
-    </div>
-
     <div class="container pays-history">
-        <form class="form-horizontal col-sm-4 " role="form" name="userForm">
+        <form class="form-horizontal col-sm-4 " role="form" name="userForm" style="padding: 0 !important;" ng-show="Fieldshow">
 
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Введите платженые данные</label>
-                <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" placeholder="Платежные данные" ng-model="paymentInfo.payment.info">
+                <div class="controls">
+                    <input type="text" name="paymentInfo" class="form-control" id="inputEmail3" placeholder="Платежные данные"
+                           ng-model="paymentInfo.payment.info" ng-pattern="/^[0-9]{9}$/">
+                    <span class="hasnt-error" ng-show="userForm.paymentInfo.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.paymentInfo.$invalid && !userForm.paymentInfo.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
+неверный формат платежных данных</span>
                 </div>
             </div>
-            <!--<div class="form-group">
+            <div class="form-group">
                 <label for="inputEmail3" class="control-label">Рубли</label>
-                <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail4" placeholder="Рубли" ng-bind="payment.Amount">
+                <div class="controls">
+                    <input type="text" name="accountBalance" class="form-control" id="inputEmail4" ng-model="paymentInfo.payment.amount"
+                           placeholder="Рубли" ng-pattern="/^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?$/"><span class="cost-info">BYN</span>
+                    <span class="hasnt-error" ng-show="userForm.accountBalance.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.accountBalance.$invalid && !userForm.accountBalance.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
+неверный формат суммы (цифры и . или ,)</span>
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
-                    <button type="submit" class="btn btn-warning"ng-click="addPayment(payment)">Оплатить</button>
-                    <!--<span>{{setError}}</span>-->
+                    <button type="submit" class="btn btn-warning"ng-click="addPayment(payment);closed();">Оплатить</button>
                 </div>
             </div>
         </form>

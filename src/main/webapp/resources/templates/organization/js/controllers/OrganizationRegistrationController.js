@@ -47,7 +47,7 @@ OrganizationRegistrationController = function ($scope, $http) {
     $scope.setOrg = function (organization) {
         $scope.resetError();
         $scope.organization = organization;
-        $scope.formVisible = true;
+        /*$scope.formVisible = true;*/
     };
 
     $scope.setError = function (message) {
@@ -60,9 +60,9 @@ OrganizationRegistrationController = function ($scope, $http) {
         $scope.errorMessage = '';
     };
 
-    $scope.closed= function () {
+   /* $scope.closed= function () {
         $scope.formVisible = false;
-    };
+    };*/
 
     $scope.fetchOrganizationList();
 };
