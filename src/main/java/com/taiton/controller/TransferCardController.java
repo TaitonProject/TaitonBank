@@ -76,7 +76,7 @@ public class TransferCardController {
         accountService.save(accCardFrom);
         accountService.save(accCardTo);
         int idCardFrom = cardService.findByCardNumber(transfer.getCardFrom()).getId();
-        int idCardTo = cardService.findByCardNumber(transfer.getCardFrom()).getId();
+        int idCardTo = cardService.findByCardNumber(transfer.getCardTo()).getId();
         transfer.setCardFrom(idCardFrom);
         transfer.setCardTo(idCardTo);
         transferService.save(transfer);
