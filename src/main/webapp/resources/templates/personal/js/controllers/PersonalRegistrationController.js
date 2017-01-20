@@ -10,21 +10,25 @@ PersonalRegistrationController = function ($scope, $http) {
 
     $scope.addNewUser = function (user) {
         $scope.resetError();
-        $http.post('/personal/addUser', user).success(function () {
+        $http.post('/personal/addUser', user).success(function (response) {
+            $scope.setTrueMessage(response);
             $scope.user = {
-                surName: '',
-                firstName: '',
-                secondName: '',
-                pasportNumber: '',
+                surName: null,
+                firstName: null,
+                secondName: null,
+                pasportNumber: null,
                 userByUserId : {
-                    username: '',
-                    password: '',
-                    confirmPassword: '',
+                    username: null,
+                    password: null,
+                    confirmPassword: null,
                     roleByRoleIdRole: null
                 }
             };
-        }).error(function () {
-            $scope.setError('беда при добавлении пользователя');
+        }).error(function (response, status) {
+            if(status === 400) {
+                $scope.setError(response);
+            } else
+                $scope.setError(" Некорректные данные.")
         })
     };
     if(document.getElementById("confirm_Password").value !==  document.getElementById("user_password").value){
@@ -36,19 +40,30 @@ PersonalRegistrationController = function ($scope, $http) {
         $http.get('/personal/rolesList.json').success(function (response) {
             $scope.roles = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка ролей')
+            $scope.setError(' Невозможно предоставить список ролей')
         });
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
+    };
+
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
     };
 
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
+
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
 
     $scope.fetchRoleList();
 

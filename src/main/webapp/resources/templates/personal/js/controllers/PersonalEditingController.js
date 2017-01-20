@@ -16,48 +16,32 @@ PersonalEditingController = function ($scope, $http) {
         $http.get('/personal/personalsList.json').success(function (response) {
             $scope.users = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка пользователей')
+            $scope.setError(' Невозможно предоставить список пользователей')
         });
     };
 
     $scope.editUser = function (user) {
         $scope.resetError();
-        $http.put('/personal/editUser', user).success(function () {
+        $http.put('/personal/editUser', user).success(function (response) {
+            $scope.setTrueMessage(response);
             $scope.fetchUsersList();
             $scope.user = {
-                surName: '',
-                firstName: '',
-                secondName: '',
-                pasportNumber: '',
+                surName: null,
+                firstName: null,
+                secondName: null,
+                pasportNumber: null,
                 userByUserId : {
                     isBlocked: null,
                     roleByRoleIdRole: null
                 }
             };
-        }).error(function () {
-            $scope.setError('беда при изменении пользователя');
+        }).error(function (response, status) {
+            if(status === 400) {
+                $scope.setError(response);
+            } else
+                $scope.setError(" Некорректные данные.")
         })
     };
-
-    /*    $scope.deleteUser = function (id) {
-     $scope.resetError();
-     $http.delete('/editing/deleteUser/'+id).success(function () {
-     $scope.fetchUsersList();
-     $scope.user = {
-     surName: '',
-     firstName: '',
-     secondName: '',
-     pasportNumber: '',
-     userByUserId : {
-     username: '',
-     password: '',
-     isBlocked: null
-     }
-     };
-     }).error(function () {
-     $scope.setError('беда при удалении пользователя');
-     })
-     };*/
 
     $scope.edit = function (user) {
         $scope.resetError();
@@ -65,14 +49,25 @@ PersonalEditingController = function ($scope, $http) {
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
+    };
+
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
     };
 
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
+
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
 
     $scope.fetchUsersList();
 };
