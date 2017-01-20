@@ -58,6 +58,7 @@ CardRegistrationController = function ($scope, $http) {
     $scope.setAccount = function (account) {
         $scope.resetError();
         $scope.account = account;
+        $scope.formVisible = true;
     };
 
     $scope.setError = function (message) {
@@ -68,6 +69,14 @@ CardRegistrationController = function ($scope, $http) {
     $scope.resetError = function () {
         $scope.error = false;
         $scope.errorMessage = '';
+    };
+
+    $scope.closed= function () { 
+        $scope.formVisible = false;
+     };
+
+    $scope.closed= function () { 
+        $scope.formVisible = false; 
     };
 
     $scope.fetchUsersList();

@@ -1,11 +1,11 @@
-<div class="container row">
+<div class="container row ">
     <div class="title col-12">
         <h1>Регистрация пользовательскогой карты</h1>
         <hr>
     </div>
     <input class="form-control col-sm-4" ng-model="cardSelect" placeholder="Поиск пользователя по фамилии" type="text">
-    <div class="container container-table row">
-        <table border="1" class="table row">
+    <div class="container row table-cont" style="margin-left: -15px !important;">
+        <table border="1" class="table row" style="margin-left: 0px !important;">
             <tr>
                 <th>Фамилия
                 </th>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="container container-table row">
-        <table border="1" class="table row">
+        <table border="1" class="table row" style="margin-left: 0px !important;">
             <tr>
                 <th>Номер счета
                 </th>
@@ -59,17 +59,17 @@
                 <td>
                     <input id="addCard" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setAccount(account)"/>
                 </td>
-                <script>
+                <!--<script>
                     document.getElementById("addСardClose").onclick=function () {
                         document.getElementsByClassName("add-account")[0].classList.remove("open");
                     }
                     document.getElementById("addCard").onclick=function () {
                         document.getElementsByClassName("add-account")[0].classList.add("open");
                     }
-                </script>
+                </script>-->
             </tr>
         </table>
-        <form class="form-horizontal col-sm-4 add-account" name="userForm">
+        <form class="form-horizontal col-sm-4 add-account" name="userForm" ng-show="formVisible">
 
             <div class="form-group">
                 <div class="controls">
@@ -95,7 +95,7 @@
             <div class="form-group ">
                 <div class="controls">
                     <button id="addСardClose" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
-                            ng-click="addCard(card)">Добавить карту</button>
+                            ng-click="addCard(card);closed()">Добавить карту</button>
                 </div>
             </div>
         </form>

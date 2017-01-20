@@ -75,6 +75,7 @@ ServiceRegistrationController = function ($scope, $http) {
     $scope.setOrg = function (organization) {
         $scope.resetError();
         $scope.organization = organization;
+        $scope.formVisible = true;
     };
 
     $scope.setCategory = function (category) {
@@ -93,6 +94,10 @@ ServiceRegistrationController = function ($scope, $http) {
     };
 
     $scope.errorMessage = '';
+
+    $scope.closed= function () {
+        $scope.formVisible = false;
+    };
 
     $scope.fetchCategoryList();
     $scope.fetchOrganizationList();

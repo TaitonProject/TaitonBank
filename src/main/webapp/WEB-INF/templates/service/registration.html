@@ -5,7 +5,7 @@
     </div>
 
     <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск организации по названию" type="text">
-    <div class="container row">
+    <div class="container row table-cont">
         <table border="1" class="table row">
             <tr>
                 <th>Номер
@@ -15,7 +15,7 @@
                 <th>Выбрать
                 </th>
             </tr>
-            <tr ng-repeat="org in organizations">
+            <tr ng-repeat="org in organizations | filter:{name:orgSearch}">
                 <td>
                     {{org.id}}
                 </td>
@@ -28,15 +28,14 @@
             </tr>
         </table>
     </div>
-    <div class="control-group">
-        <div class="controls" >
-            <select ng-change="setCategory(category)" ng-model="category"
-                    ng-options="category as category.categoryName for category in categoryies">
-            </select>
+    <form class="form-horizontal col-sm-4 add-account" name="userForm" ng-show="formVisible">
+        <div class="control-group">
+            <div class="controls" >
+                <select ng-change="setCategory(category)" ng-model="category"
+                        ng-options="category as category.categoryName for category in categoryies">
+                </select>
+            </div>
         </div>
-    </div>
-    <form class="form-horizontal col-sm-4 add-account" name="userForm">
-
         <div class="form-group">
             <div class="controls">
                 <input type="text" class="form-control" id="user_service_account" name="account" ng-model="service.account" ng-pattern="/^[0-9]{9}$/"
@@ -46,10 +45,10 @@
             </div>
         </div>
 
-        <div class="form-group ">
+        <div class="form-group">
             <div class="controls">
                 <button id="addServ" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
-                        ng-click="addService(service)">Добавить услугу</button>
+                        ng-click="addService(service); closed()">Добавить услугу</button>
                 <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
                     <strong>Ошибка! </strong> {{errorMessage}}
                 </div>

@@ -4,8 +4,8 @@
         <hr>
     </div>
     <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск пользователя по названию организации" type="text">
-    <div class="container row">
-        <table border="1" class="table row">
+    <div class="container row table-cont">
+        <table border="1" class="table  row">
             <tr>
                 <th>Номер
                 </th>
@@ -29,18 +29,18 @@
                 <td>
                     <input type="button" value="Удалить организацию" class="remove-button btn btn-danger" ng-click="deleteOrganization(org.id)"/>
                 </td>
-                <script>
+                <!--<script>
                     document.getElementById("add-update").onclick=function (e) {
                         document.getElementsByClassName("add-account")[0].classList.add("open");
                     }
                     document.getElementById("addOrg").onclick=function (e) {
                         document.getElementsByClassName("add-account")[0].classList.remove("open");
                     }
-                </script>
+                </script>-->
             </tr>
         </table>
     </div>
-    <form class="form-horizontal col-sm-4 add-account" name="userForm">
+    <form class="form-horizontal col-sm-4 add-account" ng-show="formVisible" name="userForm">
 
         <div class="form-group">
             <div class="controls">
@@ -55,7 +55,7 @@
         <div class="form-group ">
             <div class="controls">
                 <button id="addOrg" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
-                        ng-click="addOrganization(organization)">Добавить/изменить организацию</button>
+                        ng-click="addOrganization(organization);closed()">Добавить/изменить организацию</button>
                 <span>{{setError}}</span>
             </div>
         </div>

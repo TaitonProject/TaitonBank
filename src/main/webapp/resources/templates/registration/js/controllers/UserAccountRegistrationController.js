@@ -29,6 +29,7 @@ UserAccountRegistrationController = function ($scope, $http) {
     $scope.addUserAccount = function (account) {
         $scope.resetError();
 
+
         $http.post('/registration/userAccount', account).success(function () {
             $scope.fetchUsersList();
             $scope.account = {
@@ -53,9 +54,13 @@ UserAccountRegistrationController = function ($scope, $http) {
     $scope.setUser = function (userInfoId) {
         $scope.resetError();
         $scope.account.userId = userInfoId;
+        $scope.formVisible = true;
     };
 
     $scope.errorMessage = '';
+    $scope.closed= function () {
+        $scope.formVisible = false;
+    };
 
     $scope.fetchUsersList();
 };

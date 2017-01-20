@@ -271,23 +271,23 @@ button{
   margin: 0 auto;
   text-align: center;
 }
-.table{
+/*.table{
   margin-left: 0 !important;
-}
+}*/
 .table-cont{
   overflow: auto;
   max-height: 400px;
   margin-left: 0;
 }
 
-.add-account{
+/*.add-account{
     opacity: 0;
     transition: all 0.5s ease;
 }
 
 .add-account.open{
     opacity: 1;
-}
+}*/
 #accountBalance:after{
   content: "BYN";
   position: relative;
@@ -301,10 +301,9 @@ button{
 input[type="button"]{
   outline: navajowhite;
 }
-/*
 .table{
   margin-left: -15px !important;
 }
 table{
   margin-left: -15px !important;
-}*/
+}

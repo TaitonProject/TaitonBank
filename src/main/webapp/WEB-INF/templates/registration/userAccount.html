@@ -4,8 +4,8 @@
         <hr>
     </div>
     <input class="form-control col-sm-4" ng-model="userSelect" placeholder="Поиск пользователя по фамилии" type="text">
-    <div class="container row">
-        <table border="1" class="table row">
+    <div class="container row table-cont">
+        <table border="1" class="table  row">
             <tr>
                 <th>Фамилия
                 </th>
@@ -37,20 +37,21 @@
                     {{user.userByUserId.isBlocked}}
                 </td>
                 <td>
-                    <input id="add-account" type="button" value="Добавить счет" class="update-button btn btn-warning" ng-click="setUser(user.userByUserId.id)"/>
-                    <script>
+                    <input id="add-account" type="button" value="Добавить счет" class="update-button btn btn-warning"
+                           ng-click="setUser(user.userByUserId.id)"/>
+                    <!--<script>
                         document.getElementById("add-account").onclick=function (e) {
                             document.getElementsByClassName("add-account")[0].classList.add("open");
                         }
                         document.getElementById("update").onclick=function (e) {
                             document.getElementsByClassName("add-account")[0].classList.remove("open");
                         }
-                    </script>
+                    </script>-->
                 </td>
             </tr>
         </table>
     </div>
-    <form class="form-horizontal col-sm-4 add-account" name="userForm">
+    <form class="form-horizontal col-sm-4 add-account" ng-show="formVisible" name="userForm">
 
         <div class="form-group">
             <div class="controls">
@@ -65,7 +66,7 @@
         <div class="form-group ">
             <div class="controls">
                 <button id="update" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
-                        ng-click="addUserAccount(account)">Добавить счет</button>
+                        ng-click="addUserAccount(account);closed()">Добавить счет</button>
             </div>
             <!--<div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
                 <strong>Ошибка! </strong> {{errorMessage}}
