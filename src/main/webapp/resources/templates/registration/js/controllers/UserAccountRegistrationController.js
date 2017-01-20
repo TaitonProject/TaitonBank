@@ -36,7 +36,7 @@ UserAccountRegistrationController = function ($scope, $http) {
                 number: ''
             };
         }).error(function () {
-            $scope.setError('беда при добавлении пользователя');
+            $scope.setError('беда при добавлении пользователя, возможно такой пользователь уже существует');
         })
     };
 

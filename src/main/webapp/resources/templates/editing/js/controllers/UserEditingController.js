@@ -34,7 +34,7 @@ UserEditingController = function ($scope, $http) {
                 }
             };
         }).error(function () {
-            $scope.setError('беда при изменении пользователя');
+            $scope.setError('беда при изменении пользователя, возможно такой логин уже используется');
         })
     };
 
@@ -64,7 +64,7 @@ UserEditingController = function ($scope, $http) {
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
     };
 
@@ -72,6 +72,7 @@ UserEditingController = function ($scope, $http) {
         $scope.error = false;
         $scope.errorMessage = '';
     };
+    $scope.errorMessage = '';
 
     $scope.fetchUsersList();
 };

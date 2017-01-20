@@ -36,7 +36,7 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_passportNumber" ng-model="user.pasportNumber" ng-pattern="/[A-Za-z]{2}\d{1,6}$/"
+                <input type="text" class="form-control" id="user_passportNumber" ng-model="user.pasportNumber" ng-pattern="/[A-Za-z]{2}\d{7}$/"
                        placeholder="Номер пасспорта" name="passport" required="required" />
                 <span class="hasnt-error" ng-show="userForm.passport.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.passport.$invalid && !userForm.passport.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
@@ -87,6 +87,9 @@
         <div class="form-group">
             <div class="controls">
                 <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid" ng-click="addNewUser(user)">Добавить пользователя</button>
+                <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
+                    <strong>Ошибка! </strong> {{errorMessage}}
+                </div>
             </div>
         </div>
     </form>

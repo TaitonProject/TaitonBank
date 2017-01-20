@@ -31,7 +31,7 @@ UserRegistrationController = function ($scope, $http) {
     }
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
     };
 
@@ -39,6 +39,8 @@ UserRegistrationController = function ($scope, $http) {
         $scope.error = false;
         $scope.errorMessage = '';
     };
+
+    $scope.errorMessage = '';
 };
 
 function stageController($scope) {
