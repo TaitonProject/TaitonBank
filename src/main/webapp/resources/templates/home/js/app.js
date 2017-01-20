@@ -95,7 +95,7 @@ App.config(['$routeProvider', function ($routeProvider) {
     });
     $routeProvider.when('/transaction/transferCards', {
         templateUrl: '/transaction/transferCards',
-        controller: 'UserProfileController'  // КОНТРОЛЛЕР ПОМЕНЯТЬ!
+        controller: 'TransferCardsController'
     });
 
     $routeProvider.when('/payment/service', {

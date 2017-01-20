@@ -7,6 +7,8 @@ import com.taiton.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -79,7 +81,13 @@ public class UserRegistrationController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }*/
-
+            if (userInfo.getUserByUserId().getIsBlocked()){
+                User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+                //user.isEnabled()
+                UserEntity userEntity = userService.findByUsername(user.getUsername());
+                UserInfoEntity userInfoEntity = userInfoService.findByUserId(userEntity.getId());
+                //return new ResponseEntity<>(userInfoService.findByUserId(userEntity.getId()), HttpStatus.OK);
+            }
             userService.save(userInfo.getUserByUserId());
             // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
             userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());

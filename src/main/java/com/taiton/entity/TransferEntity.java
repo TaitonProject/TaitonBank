@@ -12,11 +12,11 @@ public class TransferEntity {
     private int id;
     private Timestamp date;
     private double amount;
-    private CardEntity cardByCardFrom;
-    private CardEntity cardByCardTo;
+    private Integer cardFrom;
+    private Integer cardTo;
 
     @Id
-    @Column(name = "Id")
+    @Column(name = "Id", nullable = false)
     public int getId() {
         return id;
     }
@@ -26,7 +26,7 @@ public class TransferEntity {
     }
 
     @Basic
-    @Column(name = "Date")
+    @Column(name = "Date", nullable = false)
     public Timestamp getDate() {
         return date;
     }
@@ -36,7 +36,7 @@ public class TransferEntity {
     }
 
     @Basic
-    @Column(name = "Amount")
+    @Column(name = "Amount", nullable = false, precision = 0)
     public double getAmount() {
         return amount;
     }
@@ -70,23 +70,23 @@ public class TransferEntity {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Card_From", referencedColumnName = "Id", nullable = false)
-    public CardEntity getCardByCardFrom() {
-        return cardByCardFrom;
+    @Basic
+    @Column(name = "Card_From", nullable = false)
+    public Integer getCardFrom() {
+        return cardFrom;
     }
 
-    public void setCardByCardFrom(CardEntity cardByCardFrom) {
-        this.cardByCardFrom = cardByCardFrom;
+    public void setCardFrom(Integer cardFrom) {
+        this.cardFrom = cardFrom;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Card_To", referencedColumnName = "Id", nullable = false)
-    public CardEntity getCardByCardTo() {
-        return cardByCardTo;
+    @Basic
+    @Column(name = "Card_To", nullable = false)
+    public Integer getCardTo() {
+        return cardTo;
     }
 
-    public void setCardByCardTo(CardEntity cardByCardTo) {
-        this.cardByCardTo = cardByCardTo;
+    public void setCardTo(Integer cardTo) {
+        this.cardTo = cardTo;
     }
 }
