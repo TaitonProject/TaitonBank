@@ -53,7 +53,7 @@ public class ServiceController {
         // создание сервиса
         ServiceEntity serviceEntity = new ServiceEntity();
         //CategoryEntity cat = categoryService.findByCategoryName(service.getCategoryIdCategory().getCategoryName());
-        serviceEntity.setCategoryIdCategory(service.getCategoryIdCategory().getIdCategory());
+        serviceEntity.setCategoryIdCategory(service.getCategoryIdCategory());
         serviceEntity.setOrganizationId(organizationService.find(service.getOrganizationId()).getId());
         //serviceEntity.setAccountByAccountId(accountEntity);
 
