@@ -47,7 +47,8 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public ServiceEntity findByOrganizationAndCategory(int idOrganization, int idCategory) {
-        return serviceDao.findByOrganizationAndCategory(idOrganization, idCategory);
+        ServiceEntity s = serviceDao.findByOrganizationAndCategory(idOrganization, idCategory);
+        return s;
     }
 
 

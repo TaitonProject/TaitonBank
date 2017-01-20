@@ -68,9 +68,12 @@
                 <button id="update" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
                         ng-click="addUserAccount(account);closed()">Добавить счет</button>
             </div>
-            <!--<div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
+            <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
                 <strong>Ошибка! </strong> {{errorMessage}}
-            </div>-->
+            </div>
+            <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
+                <strong>Выполнено! </strong> {{successMessage}}
+            </div>
         </div>
     </form>
 </div>

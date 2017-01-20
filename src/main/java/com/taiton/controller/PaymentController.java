@@ -60,13 +60,15 @@ public class PaymentController {
             paymentEntity.setAmount(paymentInfo.getPayment().getAmount());
             paymentEntity.setCardId(cardService.findByCardNumber(paymentInfo.getCard().getCardNumber()).getId());
             paymentEntity.setInfo(paymentInfo.getPayment().getInfo());
-            paymentEntity.setServiceId(serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory()).getId());
+            int service = serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory()).getId();
+
+            paymentEntity.setServiceId(service);
 
             if (categoryService.find(paymentInfo.getCategory().getIdCategory()) == null) {
                 return new ResponseEntity<>(" Данной категории не существует", HttpStatus.BAD_REQUEST);
             } else if (organizationService.find(paymentInfo.getOrganization().getId()) == null) {
                 return new ResponseEntity<>(" Данной организации не существует", HttpStatus.BAD_REQUEST);
-            } else if (cardService.find(paymentInfo.getCard().getId()) == null) {
+            } else if (cardService.find(paymentEntity.getCardId()) == null) {
                 return new ResponseEntity<>(" Данной карты не существует", HttpStatus.BAD_REQUEST);
             } else if (paymentInfo.getPayment().getAmount() <= 0) {
                 return new ResponseEntity<>(" Сумма должна быть положительным числом.", HttpStatus.BAD_REQUEST);
