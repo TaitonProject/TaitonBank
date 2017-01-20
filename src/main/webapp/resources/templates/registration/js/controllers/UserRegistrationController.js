@@ -23,7 +23,7 @@ UserRegistrationController = function ($scope, $http) {
                 }
             };
         }).error(function () {
-            $scope.setError('беда при добавлении пользователя');
+            $scope.setError('беда при добавлении пользователя, возможно такой пользователь уже есть');
         })
     };
     if(document.getElementById("confirm_Password").value !==  document.getElementById("user_password").value){

@@ -61,7 +61,12 @@ UserEditingController = function ($scope, $http) {
     $scope.edit = function (user) {
         $scope.resetError();
         $scope.user = user;
+        $scope.formVisible = true;
     };
+    $scope.closed= function () {
+        $scope.formVisible = false;
+    };
+
 
     $scope.setError = function (message) {
         $scope.error = true;

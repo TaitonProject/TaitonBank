@@ -39,7 +39,7 @@
                 <td>
                     <input id="add-account" type="button" value="Добавить счет" class="update-button btn btn-warning" ng-click="setUser(user.userByUserId.id)"/>
                     <script>
-                        this.document.getElementById("add-account").onclick=function (e) {
+                        document.getElementById("add-account").onclick=function (e) {
                             document.getElementsByClassName("add-account")[0].classList.add("open");
                         }
                         document.getElementById("update").onclick=function (e) {
