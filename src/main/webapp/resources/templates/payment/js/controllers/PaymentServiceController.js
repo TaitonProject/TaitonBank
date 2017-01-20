@@ -8,29 +8,39 @@
 
 PaymentServiceController = function ($scope, $http) {
 
-    $scope.user = {};
-    $scope.card = {
-        id: '',
-        cardNumber: '',
-        dateOfExpiry: '',
-        accountId: ''
+    $scope.paymentInfo = {
+        category: '',
+        organization: '',
+        card: '',
+        payment: {
+            info: '',
+            amount: ''
+        }
     };
-    $scope.account = {};
-    $scope.payment = {};
-    $scope.service = {};
-    $scope.organization = {};
-    $scope.account = {};
-    $scope.category = {};
-    $scope.card = {};
 
-    $scope.addPayment = function (card) {
+    $scope.addPayment = function (paymentInfo) {
         $scope.resetError();
-        card.accountId = $scope.account.id;
-        $http.post('/payment/addPayment', payment).success(function () {
-            $scope.fetchServiceList();
-            $scope.service = {
-                categoryIdCategory: null,
-                account: ''
+        //card.accountId = $scope.account.id;
+        paymentInfo = {
+            category: $scope.paymentInfo.category,
+            organization: $scope.paymentInfo.organization,
+            card: $scope.paymentInfo.card,
+            payment: {
+                info: $scope.paymentInfo.payment.info,
+                amount: $scope.paymentInfo.payment.amount
+            }
+
+        };
+        $http.post('/payment/addPayment', paymentInfo).success(function () {
+            //$scope.fetchServiceList();
+            $scope.paymentInfo = {
+                category: '',
+                organization: '',
+                card: '',
+                payment: {
+                    info: '',
+                    amount: ''
+                }
             };
         }).error(function () {
             $scope.setError('беда при добавлении карты');
@@ -75,19 +85,19 @@ PaymentServiceController = function ($scope, $http) {
 
     $scope.setOrg = function (organization) {
         $scope.resetError();
-        $scope.organization = organization;
+        $scope.paymentInfo.organization = organization;
     };
 
     $scope.setCard = function (card) {
         $scope.resetError();
-        $scope.card = card;
+        $scope.paymentInfo.card = card;
     };
 
     $scope.setCategory = function (category) {
         $scope.resetError();
         $scope.fetchOrganizationList(category.idCategory);
         //$scope.organization = organization;
-        $scope.category = category;
+        $scope.paymentInfo.category = category;
     };
     $scope.setError = function (message) {
         $scope.error = false;

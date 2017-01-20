@@ -15,8 +15,12 @@ ServiceRegistrationController = function ($scope, $http) {
 
     $scope.addService = function (service) {
         $scope.resetError();
-        service.organizationId = $scope.organization.id;
+        /*service.organizationId = $scope.organization.id;
         service.accountId = $scope.account.id;
+        service.categoryIdCategory = $scope.categoryIdCategory;*/
+        service.accountId = $scope.account.id;
+        service.organizationId = $scope.organization.id;
+        service.categoryIdCategory = $scope.category.idCategory;
         $http.post('/service/addService', service).success(function () {
             $scope.fetchServiceList();
             $scope.service = {
@@ -28,7 +32,7 @@ ServiceRegistrationController = function ($scope, $http) {
         })
     };
 
-    $scope.deleteService = function (id) {
+/*    $scope.deleteService = function (id) {
         $scope.resetError();
         $http.delete('/service/deleteService/'+id).success(function () {
             $scope.fetchServiceList();
@@ -39,7 +43,7 @@ ServiceRegistrationController = function ($scope, $http) {
         }).error(function () {
             $scope.setError('беда при удалении сервиса');
         })
-    };
+    };*/
 
     $scope.fetchServiceList = function () {
         $scope.resetError();
@@ -68,19 +72,14 @@ ServiceRegistrationController = function ($scope, $http) {
         });
     };
 
-    $scope.fetchCardList = function () {
-        $scope.resetError();
-        $http.get('/payment/cardList.json').success(function (response) {
-            $scope.cards = response;
-        }).error(function () {
-            $scope.setError('беда в предосталвнии списка карт')
-        });
-    };
-
     $scope.setOrg = function (organization) {
         $scope.resetError();
         $scope.organization = organization;
-        $scope.fetchCardList();
+    };
+
+    $scope.setCategory = function (category) {
+        $scope.resetError();
+        $scope.category = category;
     };
 
     $scope.setError = function (message) {
@@ -96,4 +95,5 @@ ServiceRegistrationController = function ($scope, $http) {
     $scope.errorMessage = '';
 
     $scope.fetchCategoryList();
+    $scope.fetchOrganizationList();
 };

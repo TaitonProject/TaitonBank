@@ -44,4 +44,11 @@ public class ServiceServiceImpl implements ServiceService {
     public ServiceEntity findByCategoryIdCategory(int categoryId) {
         return serviceDao.findByCategoryIdCategory(categoryId);
     }
+
+    @Override
+    public ServiceEntity findByOrganizationAndCategory(int idOrganization, int idCategory) {
+        return serviceDao.findByOrganizationAndCategory(idOrganization, idCategory);
+    }
+
+
 }

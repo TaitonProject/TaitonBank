@@ -4,47 +4,38 @@
         <hr>
     </div>
 
-    <input class="form-control col-sm-4" ng-model="servSearch" placeholder="Поиск пользователя по названию организации" type="text">
+    <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск организации по названию" type="text">
     <div class="container row">
         <table border="1" class="table row">
             <tr>
-                <th>Номер услуги
+                <th>Номер
                 </th>
-                <th>Имя услуги
+                <th>Название организации
                 </th>
-                <th>Дейсвтие
+                <th>Выбрать
                 </th>
             </tr>
-            <tr ng-repeat="organization in organizations | filter:{name:servSearch}">
+            <tr ng-repeat="org in organizations">
                 <td>
-                    {{organization.id}}
+                    {{org.id}}
                 </td>
                 <td>
-                    {{organization.name}}
+                    {{org.name}}
                 </td>
                 <td>
-                    <input id="add-service" type="button" value="Выбрать организацию" class="update-button btn btn-warning" ng-click="setOrg(organization)"/>
+                    <input id="add-update" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setOrg(org)"/>
                 </td>
-                <script>
-                    document.getElementById("add-service").onclick=function (e) {
-                        document.getElementsByClassName("add-account")[0].classList.add("open");
-                    }
-                    document.getElementById("addServ").onclick=function (e) {
-                        document.getElementsByClassName("add-account")[0].classList.remove("open");
-                    }
-                </script>
             </tr>
         </table>
     </div>
-    <form class="form-horizontal col-sm-4 add-account" name="userForm">
-
-        <div class="control-group">
-            <div class="controls" >
-                <select ng-model="service.categoryIdCategory"
-                        ng-options="category as category.categoryName for category in categoryies">
-                </select>
-            </div>
+    <div class="control-group">
+        <div class="controls" >
+            <select ng-change="setCategory(category)" ng-model="category"
+                    ng-options="category as category.categoryName for category in categoryies">
+            </select>
         </div>
+    </div>
+    <form class="form-horizontal col-sm-4 add-account" name="userForm">
 
         <div class="form-group">
             <div class="controls">

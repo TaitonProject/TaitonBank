@@ -18,4 +18,7 @@ public interface ServiceService {
     void save(ServiceEntity serviceEntity);
 
     ServiceEntity findByCategoryIdCategory(int categoryId);
+
+    ServiceEntity findByOrganizationAndCategory(int idOrganization, int idCategory);
+
 }
