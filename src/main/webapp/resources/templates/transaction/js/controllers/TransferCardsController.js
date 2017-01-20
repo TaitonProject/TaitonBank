@@ -18,14 +18,19 @@ TransferCardsController = function ($scope, $http) {
         $scope.resetError();
         transfer.cardFrom = $scope.transfer.cardFrom;
         transfer.amount = $scope.transfer.amount;
-        $http.post('/transaction/addTransfer', transfer).success(function () {
+        $http.post('/transaction/addTransfer', transfer).success(function (response) {
+            $scope.setTrueMessage(response);
             $scope.transfer = {
                 cardTo: null,
                 cardFrom: null,
                 amount: null
             };
-        }).error(function (response) {
-            $scope.setError(response);
+
+        }).error(function (response, status) {
+            if(status === 400) {
+                $scope.setError(response);
+            } else
+                $scope.setError(" Некорректные данные.")
         })
     };
 
@@ -48,10 +53,21 @@ TransferCardsController = function ($scope, $http) {
         $scope.errorMessage = message;
     };
 
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
+    };
+
     $scope.resetError = function () {
         $scope.error = false;
+        $scope.success = false;
         $scope.errorMessage = '';
+        $scope.successMessage = '';
     };
+
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
 
     $scope.fetchCardList();
 

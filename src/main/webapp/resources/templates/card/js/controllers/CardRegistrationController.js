@@ -21,7 +21,6 @@ CardRegistrationController = function ($scope, $http) {
         $scope.resetError();
         card.accountId = $scope.account.id;
         $http.post('/card/addCard', card).success(function () {
-            $scope.fetchServiceList();
             $scope.card = {
                 cardNumber: '',
                 dateOfExpiry: null
