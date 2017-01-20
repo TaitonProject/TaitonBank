@@ -65,6 +65,14 @@ public class PaymentController {
             AccountEntity accountEntity = accountService.find(paymentInfo.getCard().getAccountId());
             double currentBalance =  accountEntity.getAccountBalance() - paymentEntity.getAmount();
             accountEntity.setAccountBalance(currentBalance);
+
+            ServiceEntity servOrg = serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory());
+
+            AccountEntity orgAccount = accountService.find(servOrg.getAccountId());
+            double currentBalanceOrg = orgAccount.getAccountBalance() + paymentEntity.getAmount();
+            orgAccount.setAccountBalance(currentBalanceOrg);
+            accountService.save(orgAccount);
+
             accountService.save(accountEntity);
             return new ResponseEntity<Void>(HttpStatus.OK);
         }

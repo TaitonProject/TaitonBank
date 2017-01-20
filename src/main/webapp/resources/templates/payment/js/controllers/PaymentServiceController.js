@@ -32,7 +32,7 @@ PaymentServiceController = function ($scope, $http) {
 
         };
         $http.post('/payment/addPayment', paymentInfo).success(function () {
-            $scope.fetchServiceList();
+            //$scope.fetchServiceList();
             $scope.paymentInfo = {
                 category: '',
                 organization: '',
