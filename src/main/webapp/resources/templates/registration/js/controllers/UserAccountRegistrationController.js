@@ -36,12 +36,12 @@ UserAccountRegistrationController = function ($scope, $http) {
                 number: ''
             };
         }).error(function () {
-            $scope.setError('беда при добавлении пользователя');
+            $scope.setError('беда при добавлении пользователя, возможно такой пользователь уже существует');
         })
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
     };
 
@@ -54,6 +54,8 @@ UserAccountRegistrationController = function ($scope, $http) {
         $scope.resetError();
         $scope.account.userId = userInfoId;
     };
+
+    $scope.errorMessage = '';
 
     $scope.fetchUsersList();
 };

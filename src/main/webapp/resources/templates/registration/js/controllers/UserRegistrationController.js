@@ -23,7 +23,7 @@ UserRegistrationController = function ($scope, $http) {
                 }
             };
         }).error(function () {
-            $scope.setError('беда при добавлении пользователя');
+            $scope.setError('беда при добавлении пользователя, возможно такой пользователь уже есть');
         })
     };
     if(document.getElementById("confirm_Password").value !==  document.getElementById("user_password").value){
@@ -31,7 +31,7 @@ UserRegistrationController = function ($scope, $http) {
     }
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
     };
 
@@ -39,6 +39,8 @@ UserRegistrationController = function ($scope, $http) {
         $scope.error = false;
         $scope.errorMessage = '';
     };
+
+    $scope.errorMessage = '';
 };
 
 function stageController($scope) {

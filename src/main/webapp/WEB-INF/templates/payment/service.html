@@ -64,15 +64,15 @@
                     <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" placeholder="Платежные данные" ng-model="paymentInfo.payment.info">
                 </div>
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label for="inputEmail3" class="control-label">Рубли</label>
                 <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail4" placeholder="Рубли" ng-model="paymentInfo.payment.amount">
+                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail4" placeholder="Рубли" ng-bind="payment.Amount">
                 </div>
             </div>
             <div class="form-group">
                 <div class="">
-                    <button type="submit" class="btn btn-warning" ng-click="addPayment(paymentInfo.payment)">Оплатить</button>
+                    <button type="submit" class="btn btn-warning"ng-click="addPayment(payment)">Оплатить</button>
                     <!--<span>{{setError}}</span>-->
                 </div>
             </div>

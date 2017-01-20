@@ -83,7 +83,7 @@ ServiceRegistrationController = function ($scope, $http) {
     };
 
     $scope.setError = function (message) {
-        $scope.error = false;
+        $scope.error = true;
         $scope.errorMessage = message;
     };
 
@@ -91,6 +91,8 @@ ServiceRegistrationController = function ($scope, $http) {
         $scope.error = false;
         $scope.errorMessage = '';
     };
+
+    $scope.errorMessage = '';
 
     $scope.fetchCategoryList();
     $scope.fetchOrganizationList();
