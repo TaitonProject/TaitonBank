@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,12 +25,6 @@ public class UserRegistrationController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private SecurityService securityService;
-
-    @Autowired
-    private UserValidator userValidator;
 
     @Autowired
     private RoleService roleService;
@@ -61,40 +56,46 @@ public class UserRegistrationController {
     }
 
     @PostMapping("/userAccount")
-    public @ResponseBody ResponseEntity<Void> registerUserAccount(@RequestBody UserAccount account){
-        AccountEntity accountEntity = new AccountEntity();
-        accountEntity.setUserId(account.getUserId());
-        accountEntity.setAccountNumber(account.getNumber());
-        accountEntity.setAccountBalance(0);
-        accountService.save(accountEntity);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> registerUserAccount(@RequestBody UserAccount account){
+        try {
+            if (accountService.findByAccountNumber(account.getNumber()) != null) {
+                return new ResponseEntity<>(" Такой номер счета уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (userService.findOne(account.getUserId()) == null) {
+                return new ResponseEntity<>(" Такого пользователя не существует.", HttpStatus.BAD_REQUEST);
+            } else {
+                AccountEntity accountEntity = new AccountEntity();
+                accountEntity.setUserId(account.getUserId());
+                accountEntity.setAccountNumber(account.getNumber());
+                accountEntity.setAccountBalance(0);
+                accountService.save(accountEntity);
+                return new ResponseEntity<>(" Счет успешно добавлен.", HttpStatus.OK);
+            }
+        } catch (Exception e){
+            return new ResponseEntity<>(" Некорректные данные.", HttpStatus.BAD_REQUEST);
+        }
     }
 
+    @Transactional
     @PostMapping("/addUser")
-    public @ResponseBody ResponseEntity<Void> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
-        if(userService.findByUsername(userInfo.getUserByUserId().getUsername()) == null) {
-            //Устанавливаем роль пользоватлея
-            userInfo.getUserByUserId().setRoleByRoleIdRole(roleService.find(1));
-
-            // Проверка валидности данных
-        /*userValidator.validate(user, bindingResult);
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }*/
-            if (userInfo.getUserByUserId().getIsBlocked()){
-                User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-                //user.isEnabled()
-                UserEntity userEntity = userService.findByUsername(user.getUsername());
-                UserInfoEntity userInfoEntity = userInfoService.findByUserId(userEntity.getId());
-                //return new ResponseEntity<>(userInfoService.findByUserId(userEntity.getId()), HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
+        try {
+            if (userService.findByUsername(userInfo.getUserByUserId().getUsername()) != null) {
+                return new ResponseEntity<>(" Пользователь с таким логином уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
+                return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
+                return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
+            } else {
+                //Устанавливаем роль пользоватлея
+                userInfo.getUserByUserId().setRoleByRoleIdRole(roleService.find(1));
+                userService.save(userInfo.getUserByUserId());
+                // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+                userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+                userInfoService.save(userInfo);
+                return new ResponseEntity<>(" Пользователь успешно зарегестрирован.", HttpStatus.OK);
             }
-            userService.save(userInfo.getUserByUserId());
-            // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
-            userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
-            userInfoService.save(userInfo);
-
-            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }

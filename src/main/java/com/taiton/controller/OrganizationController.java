@@ -1,8 +1,8 @@
 package com.taiton.controller;
 
 import com.taiton.entity.OrganizationEntity;
-import com.taiton.entity.forJson.Organization;
 import com.taiton.service.OrganizationService;
+import com.taiton.service.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,38 +21,42 @@ public class OrganizationController {
     @Autowired
     private OrganizationService organizationService;
 
+    @Autowired
+    private ServiceService serviceService;
+
     @GetMapping("/registration")
     public String getOrganizationRegistrationPage(){
         return "organization/registration";
     }
 
-/*    @PostMapping("/addOrganization")
-    public @ResponseBody ResponseEntity<Void> addOrganization(@RequestBody Organization organization){
-        if(organizationService.findByName(organization.getName()) == null) {
-            OrganizationEntity organizationEntity = new OrganizationEntity();
-            organizationEntity.setName(organization.getName());
-            organizationService.save(organizationEntity);
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }*/
-
     @PostMapping("/addOrganization")
-    public @ResponseBody ResponseEntity<Void> addOrganization(@RequestBody OrganizationEntity organization){
-        if(organizationService.findByName(organization.getName()) == null) {
-            organizationService.save(organization);
-            return new ResponseEntity<>(HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> addOrganization(@RequestBody OrganizationEntity organization){
+        try {
+            if (organizationService.findByName(organization.getName()) != null) {
+                return new ResponseEntity<>(" Данная организация уже существует.", HttpStatus.BAD_REQUEST);
+            } else {
+                organizationService.save(organization);
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        } catch (Exception e){
+            return new ResponseEntity<>(" Некорректные данные..", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("/deleteOrganization/{id}")
-    public @ResponseBody ResponseEntity<Void> deleteOrganization(@PathVariable("id") int id) {
-        if (organizationService.find(id) != null) {
-            organizationService.delete(id);
-            return new ResponseEntity<>(HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> deleteOrganization(@PathVariable("id") int id) {
+        try {
+            OrganizationEntity organization = organizationService.find(id);
+
+            if (organization == null) {
+                return new ResponseEntity<>(" Данной организации не существует.", HttpStatus.BAD_REQUEST);
+            } else {
+                organizationService.delete(id);
+                return new ResponseEntity<>(" Организацию успешно удалена (счета и сервисы остались)", HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(" Некорректные данные", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/organizationList.json")

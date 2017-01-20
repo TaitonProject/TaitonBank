@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
@@ -50,33 +51,46 @@ public class PaymentController {
         return "payment/service";
     }
 
+    @Transactional
     @PostMapping("/addPayment")
     public @ResponseBody
-    ResponseEntity<Void> addPayment(@RequestBody PaymentInfo paymentInfo){
-        PaymentEntity paymentEntity = new PaymentEntity();
-        paymentEntity.setAmount(paymentInfo.getPayment().getAmount());
-        paymentEntity.setCardId(cardService.findByCardNumber(paymentInfo.getCard().getCardNumber()).getId());
-        paymentEntity.setInfo(paymentInfo.getPayment().getInfo());
-        paymentEntity.setServiceId(serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory()).getId());
-        //paymentEntity.setServiceId(paymentInfo.set);
-        if(accountService.find(cardService.find(paymentEntity.getCardId()).getAccountId()).getAccountBalance() >= paymentEntity.getAmount()){
-            paymentEntity.setDate(new Timestamp(System.currentTimeMillis()));
-            paymentService.save(paymentEntity);
-            AccountEntity accountEntity = accountService.find(paymentInfo.getCard().getAccountId());
-            double currentBalance =  accountEntity.getAccountBalance() - paymentEntity.getAmount();
-            accountEntity.setAccountBalance(currentBalance);
+    ResponseEntity<String> addPayment(@RequestBody PaymentInfo paymentInfo){
+        try {
+            PaymentEntity paymentEntity = new PaymentEntity();
+            paymentEntity.setAmount(paymentInfo.getPayment().getAmount());
+            paymentEntity.setCardId(cardService.findByCardNumber(paymentInfo.getCard().getCardNumber()).getId());
+            paymentEntity.setInfo(paymentInfo.getPayment().getInfo());
+            paymentEntity.setServiceId(serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory()).getId());
 
-            ServiceEntity servOrg = serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory());
+            if (categoryService.find(paymentInfo.getCategory().getIdCategory()) == null) {
+                return new ResponseEntity<>(" Данной категории не существует", HttpStatus.BAD_REQUEST);
+            } else if (organizationService.find(paymentInfo.getOrganization().getId()) == null) {
+                return new ResponseEntity<>(" Данной организации не существует", HttpStatus.BAD_REQUEST);
+            } else if (cardService.find(paymentInfo.getCard().getId()) == null) {
+                return new ResponseEntity<>(" Данной карты не существует", HttpStatus.BAD_REQUEST);
+            } else if (paymentInfo.getPayment().getAmount() <= 0) {
+                return new ResponseEntity<>(" Сумма должна быть положительным числом.", HttpStatus.BAD_REQUEST);
+            } else if (accountService.find(cardService.find(paymentEntity.getCardId()).getAccountId()).getAccountBalance() < paymentEntity.getAmount()) {
+                return new ResponseEntity<>(" Не хватает средств на счете.", HttpStatus.BAD_REQUEST);
+            } else {
+                paymentEntity.setDate(new Timestamp(System.currentTimeMillis()));
+                paymentService.save(paymentEntity);
+                AccountEntity accountEntity = accountService.find(paymentInfo.getCard().getAccountId());
+                double currentBalance = accountEntity.getAccountBalance() - paymentEntity.getAmount();
+                accountEntity.setAccountBalance(currentBalance);
 
-            AccountEntity orgAccount = accountService.find(servOrg.getAccountId());
-            double currentBalanceOrg = orgAccount.getAccountBalance() + paymentEntity.getAmount();
-            orgAccount.setAccountBalance(currentBalanceOrg);
-            accountService.save(orgAccount);
+                ServiceEntity servOrg = serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory());
 
-            accountService.save(accountEntity);
-            return new ResponseEntity<Void>(HttpStatus.OK);
+                AccountEntity orgAccount = accountService.find(servOrg.getAccountId());
+                double currentBalanceOrg = orgAccount.getAccountBalance() + paymentEntity.getAmount();
+                orgAccount.setAccountBalance(currentBalanceOrg);
+                accountService.save(orgAccount);
+                accountService.save(accountEntity);
+                return new ResponseEntity<>(" Платеж успешно прошел.", HttpStatus.OK);
+            }
+        } catch (Exception e){
+            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/serviceList.json")

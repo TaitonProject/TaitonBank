@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,32 +43,39 @@ public class ServiceController {
         return "service/registration";
     }
 
+    @Transactional
     @PostMapping("/addService")
-    public @ResponseBody ResponseEntity<Void> addService(@RequestBody Service service){
+    public @ResponseBody ResponseEntity<String> addService(@RequestBody Service service){
+        try {
+            // создание аккаунта
+            AccountEntity accountEntity = new AccountEntity();
+            accountEntity.setAccountBalance(0);
+            accountEntity.setAccountNumber(service.getAccount());
 
-        // создание аккаунта
-        AccountEntity accountEntity = new AccountEntity();
-        accountEntity.setAccountBalance(0);
-        accountEntity.setAccountNumber(service.getAccount());
-
-        // создание сервиса
-        ServiceEntity serviceEntity = new ServiceEntity();
-        //CategoryEntity cat = categoryService.findByCategoryName(service.getCategoryIdCategory().getCategoryName());
-        serviceEntity.setCategoryIdCategory(service.getCategoryIdCategory());
-        serviceEntity.setOrganizationId(organizationService.find(service.getOrganizationId()).getId());
-        //serviceEntity.setAccountByAccountId(accountEntity);
-
-
-        if(organizationService.find(serviceEntity.getOrganizationId()) != null &&
-                accountService.findByAccountNumber(service.getAccount()) == null) {
-            accountService.save(accountEntity);
-            serviceEntity.setAccountId(accountService.findByAccountNumber(service.getAccount()).getId());
-            serviceService.save(serviceEntity);
-            return new ResponseEntity<>(HttpStatus.OK);
+            // создание сервиса
+            ServiceEntity serviceEntity = new ServiceEntity();
+            //CategoryEntity cat = categoryService.findByCategoryName(service.getCategoryIdCategory().getCategoryName());
+            serviceEntity.setCategoryIdCategory(service.getCategoryIdCategory());
+            serviceEntity.setOrganizationId(organizationService.find(service.getOrganizationId()).getId());
+            //serviceEntity.setAccountByAccountId(accountEntity);
+            if (accountService.findByAccountNumber(accountEntity.getAccountNumber()) != null) {
+                return new ResponseEntity<>(" Данный счет уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (organizationService.find(service.getCategoryIdCategory()) == null) {
+                return new ResponseEntity<>(" Данной организации не существует.", HttpStatus.BAD_REQUEST);
+            } else if (categoryService.find(service.getCategoryIdCategory()) == null) {
+                return new ResponseEntity<>(" Данной категории не существует.", HttpStatus.BAD_REQUEST);
+            } else {
+                accountService.save(accountEntity);
+                serviceEntity.setAccountId(accountService.findByAccountNumber(service.getAccount()).getId());
+                serviceService.save(serviceEntity);
+                return new ResponseEntity<>(HttpStatus.OK);
+            }
+        } catch (Exception e){
+            return new ResponseEntity<String>(" Некорректные данные.", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+    // Не реализовано
     @DeleteMapping("/deleteService/{id}")
     public @ResponseBody ResponseEntity<Void> deleteService(@PathVariable("id") int id) {
         // каскадное удаление сервиса (потом аккаунта, потом организациии)
