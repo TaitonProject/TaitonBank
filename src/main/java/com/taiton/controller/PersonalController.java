@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,37 +62,55 @@ public class PersonalController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+    @Transactional
     @PostMapping("/addUser")
-    public @ResponseBody ResponseEntity<Void> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
-        if(userService.findByUsername(userInfo.getUserByUserId().getUsername()) == null &&
-                userInfoService.findByPasportNumber(userInfo.getPasportNumber()) == null) {
-            //Устанавливаем роль пользоватлея
-            userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
-
-                // Проверка валидности данных
-            /*userValidator.validate(user, bindingResult);
-            if (bindingResult.hasErrors()) {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            }*/
-
-            userService.save(userInfo.getUserByUserId());
-            // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
-            userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
-            userInfoService.save(userInfo);
-
-            return new ResponseEntity<>(HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
+        try {
+            if (userService.findByUsername(userInfo.getUserByUserId().getUsername()) != null) {
+                return new ResponseEntity<>(" Пользователь с таким логином уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
+                return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (userInfo.getUserByUserId().getRoleByRoleIdRole() == null) {
+                return new ResponseEntity<>(" Не выбрана роль пользователя.", HttpStatus.BAD_REQUEST);
+            } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
+                return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
+            } else {
+                //Устанавливаем роль пользоватлея
+                userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
+                userService.save(userInfo.getUserByUserId());
+                // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+                userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+                userInfoService.save(userInfo);
+                return new ResponseEntity<>(" Пользователь успешно зарегестрирован.", HttpStatus.OK);
+            }
+        } catch (Exception e){
+            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping("/editUser")
-    public @ResponseBody ResponseEntity<Void> editUser(@RequestBody UserInfoEntity userInfo) {
-            //userInfo.getUserByUserId().getRoleByRoleIdRole()
-            userService.save(userInfo.getUserByUserId());
-            // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
-            userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
-            userInfoService.save(userInfo);
-            return new ResponseEntity<>(HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
+        try {
+            if (userService.findByUsername(userInfo.getUserByUserId().getUsername()) != null) {
+                return new ResponseEntity<>(" Пользователь с таким логином уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
+                return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (userInfo.getUserByUserId().getRoleByRoleIdRole() == null) {
+                return new ResponseEntity<>(" Не выбрана роль пользователя.", HttpStatus.BAD_REQUEST);
+            } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
+                return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
+            } else {
+                //Устанавливаем роль пользоватлея
+                userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
+                userService.save(userInfo.getUserByUserId());
+                // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
+                userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+                userInfoService.save(userInfo);
+                return new ResponseEntity<>(" Пользователь успешно зарегестрирован.", HttpStatus.OK);
+            }
+        } catch (Exception e){
+            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
+        }
     }
 
 }
