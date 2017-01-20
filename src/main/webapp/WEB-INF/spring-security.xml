@@ -8,10 +8,10 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
-<http auto-config="true">
-    <csrf token-repository-ref="tokenRepository"/>
-    <intercept-url pattern="/" access="hasAnyRole('ROLE_client', 'ROLE_operator' ,'ROLE_administration')"/>
-    <intercept-url pattern="/home" access="hasAnyRole('ROLE_client', 'ROLE_operator', 'ROLE_administration')"/>
+    <http auto-config="true">
+        <csrf token-repository-ref="tokenRepository"/>
+        <intercept-url pattern="/" access="hasAnyRole('ROLE_client', 'ROLE_operator' ,'ROLE_administration')"/>
+        <intercept-url pattern="/home" access="hasAnyRole('ROLE_client', 'ROLE_operator', 'ROLE_administration')"/>
 
 
         <!--<intercept-url pattern="/registration" access="hasRole('ROLE_administration')"/>-->
@@ -20,7 +20,7 @@
     <intercept-url pattern="/user/**" access="hasRole('ROLE_client')"/>
     <intercept-url pattern="/shared/**" access="hasAnyRole('ROLE_client', 'ROLE_administration')"/>
 -->
-    <form-login login-page="/login" default-target-url="/home" authentication-failure-url="/login?error"
+        <form-login login-page="/login" default-target-url="/home" authentication-failure-url="/login?error"
                 always-use-default-target="true"
                     username-parameter="username" password-parameter="password"/>
         <logout logout-url="/logout" logout-success-url="/login?logout"/>

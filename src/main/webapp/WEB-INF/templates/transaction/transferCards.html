@@ -4,32 +4,46 @@
 <div class="user-info container">
     <h1>Перевод с карты на карту</h1>
     <hr>
-
+    <h2>Выберите карту, с которой хотите перевести средства</h2>
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер карты
+                </th>
+                <th>Выбрать
+                </th>
+            </tr>
+            <tr ng-repeat="card in cards">
+                <td>
+                    {{card.cardNumber}}
+                </td>
+                <td>
+                    <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setCard(card.cardNumber)"/>
+                </td>
+            </tr>
+        </table>
+    </div>
 
     <div class="container pays-history">
         <form class="form-horizontal col-sm-4 " role="form">
             <div class="form-group">
-                <label for="inputEmail3" class="control-label">Номер телефона</label>
+                <label for="inputEmail3" class="control-label">Введите номер карты получателя</label>
                 <div class="">
-                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" ng-pattern="/^[0-9]{9}$/">
-                    <span class="hasnt-error" ng-show="userForm.cardNamber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                    <span class="has-error" ng-show="userForm.cardNamber.$invalid && !userForm.cardNamber.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
- Неверное написание номера карты (9 цифр)</span>
+                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail3" placeholder="Номер карты" ng-model="transfer.cardTo">
                 </div>
             </div>
             <div class="form-group">
-                <label for="mobileOperator" class="control-label">Сотовый оператор</label>
-                <select class="form-control" id="mobileOperator">
-                    <option>Velcom</option>
-                    <option>MTC</option>
-                    <option>Life:)</option>
-                </select>
+                <label for="inputEmail3" class="control-label">Рубли</label>
+                <div class="">
+                    <input type="text" name="phoneNumber" class="form-control" id="inputEmail4" placeholder="Рубли" ng-model="transfer.amount">
+                </div>
             </div>
             <div class="form-group">
                 <div class="">
-                    <button type="submit" class="btn btn-warning">Оплатить</button>
+                    <button type="submit" class="btn btn-warning" ng-click="addTransfer(transfer)">Оплатить</button>
                 </div>
             </div>
+            <div ng-show="error">{{errorMessage}}</div>
         </form>
     </div>
 
