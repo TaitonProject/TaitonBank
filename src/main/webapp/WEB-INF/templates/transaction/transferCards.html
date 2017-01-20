@@ -42,6 +42,9 @@
                 <div class="">
                     <button type="submit" class="btn btn-warning" ng-click="addTransfer(transfer)">Оплатить</button>
                 </div>
+                <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
+                    <strong>Ошибка! </strong> {{errorMessage}}
+                </div>
             </div>
         </form>
     </div>
