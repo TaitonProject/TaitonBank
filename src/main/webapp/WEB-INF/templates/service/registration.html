@@ -36,6 +36,7 @@
     </div>
     <form class="form-horizontal col-sm-4 add-account" name="userForm" ng-show="formVisible">
         <div class="control-group">
+            <h4>Выберите категорию</h4>
             <div class="controls" >
                 <select ng-change="setCategory(category)" ng-model="category"
                         ng-options="category as category.categoryName for category in categoryies">
@@ -47,7 +48,7 @@
                 <input type="text" class="form-control" id="user_service_account" name="account" ng-model="service.account" ng-pattern="/^[0-9]{9}$/"
                        placeholder="Номер счета" required="required" />
                 <span class="hasnt-error" ng-show="userForm.account.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                <span class="has-error" ng-show="userForm.account.$invalid && !userForm.account.$pristine"><i class="fa fa-times" aria-hidden="true"></i></span>
+                <span class="has-error" ng-show="userForm.account.$invalid && !userForm.account.$pristine"><i class="fa fa-times" aria-hidden="true"></i>Неверный номер счета</span>
             </div>
         </div>
 
