@@ -13,8 +13,6 @@
                 </th>
                 <th>Редактирвоать
                 </th>
-                <th>Удалить
-                </th>
             </tr>
             <tr ng-repeat="org in organizations | filter:{name:orgSearch}">
                 <td>
@@ -25,9 +23,6 @@
                 </td>
                 <td>
                     <input id="add-update" type="button" value="Изменить название организации" class="update-button btn btn-warning" ng-click="setOrg(org)"/>
-                </td>
-                <td>
-                    <input type="button" value="Удалить организацию" class="remove-button btn btn-danger" ng-click="deleteOrganization(org.id)"/>
                 </td>
                 <!--<script>
                     document.getElementById("add-update").onclick=function (e) {
