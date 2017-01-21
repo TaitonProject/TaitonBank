@@ -39,7 +39,7 @@ public class OrganizationController {
                 return new ResponseEntity<>(HttpStatus.OK);
             }
         } catch (Exception e){
-            return new ResponseEntity<>(" Некорректные данные..", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(" Некорректные данные.", HttpStatus.BAD_REQUEST);
         }
     }
 
