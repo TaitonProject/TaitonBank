@@ -41,7 +41,7 @@ OrganizationRegistrationController = function ($scope, $http) {
 
     $scope.fetchOrganizationList = function () {
         $scope.resetError();
-        $http.get('/organization/organizationList.json').success(function () {
+        $http.get('/organization/organizationList.json').success(function (response) {
             $scope.organizations = response;
         }).error(function () {
             $scope.setError(" Не удалось предоставить список организаций")
