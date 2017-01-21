@@ -23,7 +23,6 @@ PersonalEditingController = function ($scope, $http) {
     $scope.editUser = function (user) {
         $scope.resetError();
         $http.put('/personal/editUser', user).success(function (response) {
-            $scope.setTrueMessage(response);
             $scope.fetchUsersList();
             $scope.user = {
                 surName: null,
@@ -35,6 +34,7 @@ PersonalEditingController = function ($scope, $http) {
                     roleByRoleIdRole: null
                 }
             };
+            $scope.setTrueMessage(response);
         }).error(function (response, status) {
             if(status === 400) {
                 $scope.setError(response);

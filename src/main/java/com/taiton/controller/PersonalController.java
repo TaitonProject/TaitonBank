@@ -96,8 +96,8 @@ public class PersonalController {
             } else {
                 int i = 0;
                 //Устанавливаем роль пользоватлея
-                userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
-                userService.save(userInfo.getUserByUserId());
+                //userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
+                //userService.save(userInfo.getUserByUserId());
                 // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
                 userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
                 userInfoService.save(userInfo);
