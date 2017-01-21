@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -51,7 +52,7 @@ public class CardController {
         try {
             if (cardService.findByCardNumber(card.getCardNumber()) != null) {
                 return new ResponseEntity<>("Данная карта уже существует.", HttpStatus.BAD_REQUEST);
-            } else if (card.getDateOfExpiry().getTime() > System.currentTimeMillis()) {
+            } else if (card.getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>("Недопустимая дата для регистрации карты. (Должна быть больше сегодняшнего числа)", HttpStatus.BAD_REQUEST);
             } else {
                 cardService.save(card);
