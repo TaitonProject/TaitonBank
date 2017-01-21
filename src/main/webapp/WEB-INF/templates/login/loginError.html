@@ -1,10 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ошибка авторизации</title>
-</head>
-<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<section  class="main-banner bannerHome">
+    <div class="container">
+        <h1 class="main-title">Ошибка <br>Авторизации</h1><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        <div class="figure"><p class="rectangle">x</p></div>
+        <a  href="#/"><button onclick="history.back()" class="center-popup-btn">Вернуться на главную</button></a>
+    </div>
+</section>
+<style>
+    i{
+        fill:red;
+        background: red;
+        font-size: 52px;
+    }
+    body{
+        background: url(http://localhost:8087/resources/templates/login/img/gory_domik_vershiny_sneg_92237_1920x1080.jpg) center top no-repeat;
+    overflow: none;
+    }
+    .figure{
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .figure .rectangle{
+        background: red;
+        color: white;
+        width: 70px;
+        height: 70px;
+        font-size: 50px;
+        border-radius: 35px;
+        font-family: fantasy;
+        position: relative;
+        top:-25px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    /*Velcom page style*/
+    .main-banner {
+        position: relative;
+        display: block;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        height: 100vh;
+    }
+    .main-banner .container {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 25%;
+    }
+    .main-banner h1 {
+        font-size: 62px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        color: white;
+        margin: 0 auto 50px auto;
+        font-weight: 200;
+        text-shadow: 0  1.5px black;
+    }
+    .main-banner button {
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        text-align: center;
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 20px;
+        text-shadow: 0 0 0 0.2px black;
+        font-size: 32px;
+        font-weight: 200;
+        outline: none;
+        padding: 20px 40px;
+        box-shadow: 0 6px white;
+        color: white;
+    }
+    .main-banner button:hover {
+        background: white;
+        color: black;
+        box-shadow: 0 4px gray;
+        cursor: pointer;
+        top: 2px;
+        transition: all 2s;
+    }
+    a{
+        text-decoration: none !important;
+    }
+    @media screen and (max-width: 580px) {
+        .main-banner .container.container {
+            padding-top: 40%;
+        }
+        .main-banner h1 {
+            font-size: 32px;
+        }
+        .main-banner button {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            text-align: center;
+            background: transparent;
+            border: 1px solid white;
+            border-radius: 20px;
+            text-shadow: 0 0 0 0.2px black;
+            font-size: 22px;
+            font-weight: 200;
+            outline: none;
+            padding: 10px 20px;
+            box-shadow: 0 6px white;
+            color: white;
+        }
+        .main-banner .container {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 15%;
+        }
+        .main-banner {
+            margin: 0 -15px;
+            height: 100vh;
+        }
+    }
 
-</body>
-</html>
+    body{
+        min-width: 320px;
+    }
+</style>
