@@ -47,13 +47,19 @@ public class CardController {
     }
 
     @PostMapping("/addCard")
-    public @ResponseBody ResponseEntity<Void> registrationCard(@RequestBody CardEntity card){
-        if(cardService.findByCardNumber(card.getCardNumber()) == null &&
-                card.getDateOfExpiry().getTime() > System.currentTimeMillis()) {
-            cardService.save(card);
-            return new ResponseEntity<>(HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> registrationCard(@RequestBody CardEntity card){
+        try {
+            if (cardService.findByCardNumber(card.getCardNumber()) != null) {
+                return new ResponseEntity<>("Данная карта уже существует.", HttpStatus.BAD_REQUEST);
+            } else if (card.getDateOfExpiry().getTime() > System.currentTimeMillis()) {
+                return new ResponseEntity<>("Недопустимая дата для регистрации карты. (Должна быть больше сегодняшнего числа)", HttpStatus.BAD_REQUEST);
+            } else {
+                cardService.save(card);
+                return new ResponseEntity<>("Карта успешно добавлена", HttpStatus.OK);
+            }
+        } catch(Exception e){
+            return new ResponseEntity<>("Некорректные данные", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
 
