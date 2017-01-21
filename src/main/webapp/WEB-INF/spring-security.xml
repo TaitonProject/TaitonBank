@@ -15,7 +15,7 @@
 
         <intercept-url pattern="/registration/**" access="hasRole('ROLE_operator')"/>
 
-        <intercept-url pattern="/editing/**" access="hasRole('ROLE_operator')"/>
+        <intercept-url pattern="/editing/**" access="hasAnyRole('ROLE_operator' ,'ROLE_administration')"/>
 
         <intercept-url pattern="/organization/**" access="hasRole('ROLE_operator')"/>
         <intercept-url pattern="/service/**" access="hasRole('ROLE_operator')"/>
