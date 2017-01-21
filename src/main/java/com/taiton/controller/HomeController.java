@@ -15,4 +15,8 @@ public class HomeController {
         return "home/home";
     }
 
+    @RequestMapping("/user")
+    public String getUserPage(){
+        return "home/user";
+    }
 }

@@ -100,18 +100,17 @@
                             <!-- /.nav-second-level -->
                         </li>
                             <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
-                        </li>
-                        <!--<li sec:authorize="hasRole('ROLE_client')">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                        <li sec:authorize="hasRole('ROLE_client')">
+                            <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>Архив<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">Blank Page</a>
+                                    <a href="#/archive/payment"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></i>Архив платежей</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">Login Page</a>
+                                    <a href="#/archive/transfer"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></i>Архив переводов</a>
                                 </li>
                             </ul>
-                            &lt;!&ndash; /.nav-second-level -->
+                            <!-- /.nav-second-level -->
                         </li>
                         <li sec:authorize="hasRole('ROLE_operator')">
                             <a href="#"><i class="fa fa-cog" aria-hidden="true"></i>Управление пользователями<span class="fa arrow"></span></a>
