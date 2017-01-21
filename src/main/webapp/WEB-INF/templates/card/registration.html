@@ -5,6 +5,12 @@
     </div>
     <input class="form-control col-sm-4" ng-model="cardSelect" placeholder="Поиск пользователя по фамилии" type="text">
     <div class="container row table-cont" style="margin-left: -15px !important;">
+        <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
+            <strong>Ошибка! </strong> {{errorMessage}}
+        </div>
+        <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
+            <strong>Выполнено! </strong> {{successMessage}}
+        </div>
         <table border="1" class="table row" style="margin-left: 0px !important;">
             <tr>
                 <th>Фамилия
@@ -96,12 +102,6 @@
                 <div class="controls">
                     <button id="addСardClose" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
                             ng-click="addCard(card);closed()">Добавить карту</button>
-                    <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
-                        <strong>Ошибка! </strong> {{errorMessage}}
-                    </div>
-                    <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
-                        <strong>Выполнено! </strong> {{successMessage}}
-                    </div>
                 </div>
             </div>
         </form>
