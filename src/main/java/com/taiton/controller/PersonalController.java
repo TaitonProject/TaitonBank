@@ -62,7 +62,7 @@ public class PersonalController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @Transactional
+
     @PostMapping("/addUser")
     public @ResponseBody ResponseEntity<String> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
         try { if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
@@ -86,7 +86,6 @@ public class PersonalController {
         }
     }
 
-    @Transactional
     @PutMapping("/editUser")
     public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
         try { if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {

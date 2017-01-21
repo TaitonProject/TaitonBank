@@ -76,7 +76,7 @@ public class UserEditController {
 
 
 
-    @Transactional
+
     @PutMapping("/editUser")
     public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
         try {

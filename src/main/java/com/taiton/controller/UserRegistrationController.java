@@ -75,7 +75,6 @@ public class UserRegistrationController {
         }
     }
 
-    @Transactional
     @PostMapping("/addUser")
     public @ResponseBody ResponseEntity<String> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
         try {
