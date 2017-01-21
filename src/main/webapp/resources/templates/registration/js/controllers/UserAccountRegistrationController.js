@@ -20,7 +20,6 @@ UserAccountRegistrationController = function ($scope, $http) {
         $scope.resetError();
         $http.get('/editing/listUsers.json').success(function (response) {
             $scope.users = response;
-            $scope.setError(response);
         }).error(function () {
             $scope.setError('беда в предосталвнии списка пользователей')
         });
