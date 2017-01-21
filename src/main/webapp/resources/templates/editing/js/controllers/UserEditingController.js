@@ -22,7 +22,7 @@ UserEditingController = function ($scope, $http) {
 
     $scope.editUser = function (user) {
         $scope.resetError();
-        $http.put('/editing/editUser', user).success(function () {
+        $http.put('/editing/editUser', user).success(function (response) {
             $scope.fetchUsersList();
             $scope.user = {
                 surName: '',
@@ -33,8 +33,13 @@ UserEditingController = function ($scope, $http) {
                     isBlocked: null
                 }
             };
-        }).error(function () {
-            $scope.setError('беда при изменении пользователя, возможно такой логин уже используется');
+            $scope.setTrueMessage(response)
+        }).error(function (response, status) {
+            if (status === 400){
+                $scope.setError(response);
+            } else {
+                $scope.setError('Некорректные данные.');
+            }
         })
     };
 
