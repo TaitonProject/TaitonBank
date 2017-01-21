@@ -13,7 +13,7 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_surName" ng-model="user.surName" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"
+                <input type="text" class="form-control" id="user_surName" ng-model="user.surName" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z]{2,20}$/"
                        placeholder="Фамилия" name="surname" required="required" />
                 <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
@@ -23,16 +23,16 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_firstName" ng-model="user.firstName" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"
+                <input type="text" class="form-control" id="user_firstName" ng-model="user.firstName" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z]{2,20}$/"
                        placeholder="Имя" name="user_name" required="required" />
                 <span class="hasnt-error" ng-show="userForm.user_name.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.user_name.$invalid && !userForm.user_name.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
  Неверное написание имени</span>
-            </div>
+
         </div>
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_secondName" ng-model="user.secondName" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"
+                <input type="text" class="form-control" id="user_secondName" ng-model="user.secondName" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z]{2,20}$/"
                        placeholder="Отчество" name="fatherName" required="required" />
                 <span class="hasnt-error" ng-show="userForm.fatherName.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.fatherName.$invalid && !userForm.fatherName.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_name" ng-model="user.userByUserId.username" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z0-9]{2,20}$/"
+                <input type="text" class="form-control" id="user_name" ng-model="user.userByUserId.username" ng-pattern="/^[[а-яА-ЯёЁa-zA-Z]{2,20}$/"
                        placeholder="Логин" required="required" name="user_login" />
                 <span class="hasnt-error" ng-show="userForm.user_login.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.user_login.$invalid && !userForm.user_login.$pristine"><i class="fa fa-times" aria-hidden="true"></i>

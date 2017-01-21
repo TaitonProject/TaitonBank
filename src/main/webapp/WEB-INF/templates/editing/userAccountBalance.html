@@ -24,12 +24,12 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="accountBalance" ng-pattern="/^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?$/" name="accountBalance" ng-model="account.accountBalance"
+                <input type="text" class="form-control" id="accountBalance" ng-pattern="/^-?((([1-9]\d+)|([1-9]))(([.,]\d{1,2})?))$|^-?0[,.]((\d[1-9])|([1-9]\d))$/" name="accountBalance" ng-model="account.accountBalance"
                        placeholder="Сумма (BYN)" required="required"/><span class="cost-info">BYN</span>
                 <span class="hasnt-error" ><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="hasnt-error" ng-show="userForm.accountBalance.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.accountBalance.$invalid && !userForm.accountBalance.$pristine && userForm.accountBalance.$dirty"><i class="fa fa-times" aria-hidden="true"></i>
-неверный формат суммы (цифры и . или ,)</span>
+неверный формат суммы (цифры и .)</span>
             </div>
         </div>
 
