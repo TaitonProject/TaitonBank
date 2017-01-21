@@ -60,9 +60,10 @@ public class UserEditController {
     public @ResponseBody ResponseEntity<String> addUserBalance(@RequestBody UserBalance userBalance) {
         try {
             AccountEntity accountEntity = accountService.findByAccountNumber(userBalance.getAccountNumber());
+            double money = accountEntity.getAccountBalance() + userBalance.getAccountBalance();
             if (accountEntity == null) {
                 return new ResponseEntity<>(" Такого счета не существует.", HttpStatus.BAD_REQUEST);
-            } else if ((accountEntity.getAccountBalance() + userBalance.getAccountBalance()) < 0)  {
+            } else if (money < 0)  {
                 return new ResponseEntity<>(" Неверные данные. Баланс счета должен оставаться неотрицательным числом.", HttpStatus.BAD_REQUEST);
             } else {
                 accountEntity.setAccountBalance(accountEntity.getAccountBalance() + userBalance.getAccountBalance());
