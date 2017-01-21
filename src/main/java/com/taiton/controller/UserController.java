@@ -32,12 +32,16 @@ public class UserController {
     }
 
     @PutMapping("/editPassword")
-    public @ResponseBody ResponseEntity<Void> editPassword(@RequestBody Password password){
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        UserEntity userEntity = userService.findByUsername(user.getUsername());
-        userEntity.setPassword(password.getPassword());
-        userService.save(userEntity);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public @ResponseBody ResponseEntity<String> editPassword(@RequestBody Password password){
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            UserEntity userEntity = userService.findByUsername(user.getUsername());
+            userEntity.setPassword(password.getPassword());
+            userService.save(userEntity);
+            return new ResponseEntity<>("Пароль изменен.", HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(" Незивестная ошибка", HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/hello")
