@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -57,6 +58,10 @@ public class TransferCardController {
                 return new ResponseEntity<>(" На карте недостаточно средств.", HttpStatus.BAD_REQUEST);
             } else if (transferEntity.getCardFrom() == transferEntity.getCardTo()) {
                 return new ResponseEntity<>(" Нельзя переводить деньги на тот же счет.", HttpStatus.BAD_REQUEST);
+            } else if (cardService.findByCardNumber(transferEntity.getCardTo()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
+                return new ResponseEntity<>(" Срок карты получателя истек.", HttpStatus.BAD_REQUEST);
+            } else if (cardService.findByCardNumber(transferEntity.getCardFrom()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
+                return new ResponseEntity<>(" Срок Вашей карты истек. Обратитесь в банк.", HttpStatus.BAD_REQUEST);
             } else {
                 transferEntity.setDate(new Timestamp(System.currentTimeMillis()));
                 transferFromToCard(transferEntity);

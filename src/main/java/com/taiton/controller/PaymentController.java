@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +77,8 @@ public class PaymentController {
                 return new ResponseEntity<>(" Сумма должна быть положительным числом.", HttpStatus.BAD_REQUEST);
             } else if (accountService.find(cardService.find(paymentEntity.getCardId()).getAccountId()).getAccountBalance() < paymentEntity.getAmount()) {
                 return new ResponseEntity<>(" Не хватает средств на счете.", HttpStatus.BAD_REQUEST);
+            } else if (cardService.find(paymentEntity.getCardId()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
+                return new ResponseEntity<>(" Срок вашей карты истек. Обратитесь в банк.", HttpStatus.BAD_REQUEST);
             } else {
                 paymentEntity.setDate(new Timestamp(System.currentTimeMillis()));
                 paymentService.save(paymentEntity);
