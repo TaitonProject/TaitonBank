@@ -39,7 +39,7 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public CardEntity findByCardNumber(int cardNumber) {
+    public CardEntity findByCardNumber(String cardNumber) {
         return cardDao.findByCardNumber(cardNumber);
     }
 

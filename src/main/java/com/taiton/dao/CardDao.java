@@ -12,7 +12,7 @@ import java.util.List;
 public interface CardDao extends JpaRepository<CardEntity, Integer> {
 
     //@Query("select a from AccountEntity a where a.accountNumber = ?1")
-    CardEntity findByCardNumber(int cardNumber);
+    CardEntity findByCardNumber(String cardNumber);
 
     @Override
     void delete(Integer integer);

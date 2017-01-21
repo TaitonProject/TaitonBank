@@ -54,7 +54,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountEntity findByAccountNumber(int accountNumber) {
+    public AccountEntity findByAccountNumber(String accountNumber) {
         return accountDao.findByAccountNumber(accountNumber);
     }
 }

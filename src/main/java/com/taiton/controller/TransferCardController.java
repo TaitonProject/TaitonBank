@@ -44,23 +44,23 @@ public class TransferCardController {
     public @ResponseBody
     ResponseEntity<String> addTransfer(@RequestBody TransferEntity transferEntity){
         try {
-            if (cardService.findByCardNumber(transferEntity.getCardFrom()) == null) {
+            if (cardService.findByCardNumber(transferEntity.getCardFrom().toString()) == null) {
                 return new ResponseEntity<>(" Карты отправителя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(cardService.findByCardNumber(transferEntity.getCardFrom()).getAccountId()) == null) {
+            } else if (accountService.find(cardService.find(transferEntity.getCardFrom()).getAccountId()) == null) {
                 return new ResponseEntity<>(" Счета отправителя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (cardService.findByCardNumber(transferEntity.getCardTo()) == null) {
+            } else if (cardService.find(transferEntity.getCardTo()) == null) {
                 return new ResponseEntity<>(" Карты получателя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(cardService.findByCardNumber(transferEntity.getCardTo()).getAccountId()) == null) {
+            } else if (accountService.find(cardService.find(transferEntity.getCardTo()).getAccountId()) == null) {
                 return new ResponseEntity<>(" Счета получателя не существует.", HttpStatus.BAD_REQUEST);
             } else if (transferEntity.getAmount() <= 0) {
                 return new ResponseEntity<>(" Некорректная сумма.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(cardService.findByCardNumber(transferEntity.getCardFrom()).getAccountId()).getAccountBalance() < transferEntity.getAmount()) {
+            } else if (accountService.find(cardService.find(transferEntity.getCardFrom()).getAccountId()).getAccountBalance() < transferEntity.getAmount()) {
                 return new ResponseEntity<>(" На карте недостаточно средств.", HttpStatus.BAD_REQUEST);
             } else if (transferEntity.getCardFrom() == transferEntity.getCardTo()) {
                 return new ResponseEntity<>(" Нельзя переводить деньги на тот же счет.", HttpStatus.BAD_REQUEST);
-            } else if (cardService.findByCardNumber(transferEntity.getCardTo()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
+            } else if (cardService.find(transferEntity.getCardTo()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>(" Срок карты получателя истек.", HttpStatus.BAD_REQUEST);
-            } else if (cardService.findByCardNumber(transferEntity.getCardFrom()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
+            } else if (cardService.find(transferEntity.getCardFrom()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>(" Срок Вашей карты истек. Обратитесь в банк.", HttpStatus.BAD_REQUEST);
             } else {
                 transferEntity.setDate(new Timestamp(System.currentTimeMillis()));
@@ -74,14 +74,14 @@ public class TransferCardController {
 
     @Transactional
     private void transferFromToCard(TransferEntity transfer){
-        AccountEntity accCardFrom = accountService.find(cardService.findByCardNumber(transfer.getCardFrom()).getAccountId());
-        AccountEntity accCardTo = accountService.find(cardService.findByCardNumber(transfer.getCardTo()).getAccountId());
+        AccountEntity accCardFrom = accountService.find(cardService.find(transfer.getCardFrom()).getAccountId());
+        AccountEntity accCardTo = accountService.find(cardService.find(transfer.getCardTo()).getAccountId());
         accCardFrom.setAccountBalance(accCardFrom.getAccountBalance() - transfer.getAmount());
         accCardTo.setAccountBalance(accCardTo.getAccountBalance() + transfer.getAmount());
         accountService.save(accCardFrom);
         accountService.save(accCardTo);
-        int idCardFrom = cardService.findByCardNumber(transfer.getCardFrom()).getId();
-        int idCardTo = cardService.findByCardNumber(transfer.getCardTo()).getId();
+        int idCardFrom = cardService.find(transfer.getCardFrom()).getId();
+        int idCardTo = cardService.find(transfer.getCardTo()).getId();
         transfer.setCardFrom(idCardFrom);
         transfer.setCardTo(idCardTo);
         transferService.save(transfer);

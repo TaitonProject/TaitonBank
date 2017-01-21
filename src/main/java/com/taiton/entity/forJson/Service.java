@@ -4,11 +4,11 @@ package com.taiton.entity.forJson;
  * Created by Taiton on 1/16/2017.
  */
 public class Service {
-    private int account;
+    private String account;
     private int organizationId;
     private int categoryIdCategory;
 
-    public Service( int account, int organizationId, int categoryEntity) {
+    public Service( String account, int organizationId, int categoryEntity) {
         this.account = account;
         this.organizationId = organizationId;
         this.categoryIdCategory = categoryEntity;
@@ -26,11 +26,11 @@ public class Service {
         this.categoryIdCategory = categoryEntity;
     }
 
-    public int getAccount() {
+    public String getAccount() {
         return account;
     }
 
-    public void setAccount(int account) {
+    public void setAccount(String account) {
         this.account = account;
     }
 

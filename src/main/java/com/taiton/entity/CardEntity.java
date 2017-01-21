@@ -14,17 +14,9 @@ import java.sql.Date;
 @Table(name = "card", schema = "heroku_379802575654769", catalog = "")
 public class CardEntity {
     private int id;
-    private int cardNumber;
+    private String cardNumber;
     private Date dateOfExpiry;
     private Integer accountId;
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setCardNumber(Integer cardNumber) {
-        this.cardNumber = cardNumber;
-    }
 
     @Id
     @Column(name = "Id", nullable = false)
@@ -38,11 +30,11 @@ public class CardEntity {
 
     @Basic
     @Column(name = "Card_Number", nullable = false)
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
@@ -73,7 +65,6 @@ public class CardEntity {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + cardNumber;
         result = 31 * result + (dateOfExpiry != null ? dateOfExpiry.hashCode() : 0);
         return result;
     }

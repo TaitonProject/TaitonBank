@@ -4,10 +4,10 @@ package com.taiton.entity.forJson;
  * Created by Taiton on 1/21/2017.
  */
 public class CardBalance {
-    private int cardNumber;
+    private String cardNumber;
     private double balance;
 
-    public CardBalance(int cardNumber, double balance) {
+    public CardBalance(String cardNumber, double balance) {
         this.cardNumber = cardNumber;
         this.balance = balance;
     }
@@ -15,11 +15,11 @@ public class CardBalance {
     public CardBalance() {
     }
 
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 

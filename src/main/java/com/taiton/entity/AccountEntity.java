@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "account", schema = "heroku_379802575654769", catalog = "")
 public class AccountEntity {
     private int id;
-    private int accountNumber;
+    private String accountNumber;
     private double accountBalance;
     private Integer userId;
 
@@ -24,12 +24,12 @@ public class AccountEntity {
     }
 
     @Basic
-    @Column(name = "Account_Number", nullable = false, length = 45)
-    public int getAccountNumber() {
+    @Column(name = "Account_Number", nullable = false)
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

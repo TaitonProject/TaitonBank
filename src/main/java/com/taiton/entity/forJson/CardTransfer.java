@@ -8,10 +8,10 @@ import com.taiton.entity.TransferEntity;
 public class CardTransfer {
 
     private TransferEntity transfer;
-    private int cardTo;
-    private int cardFrom;
+    private String cardTo;
+    private String cardFrom;
 
-    public CardTransfer(TransferEntity transfer, int cardTo, int cardFrom) {
+    public CardTransfer(TransferEntity transfer, String cardTo, String cardFrom) {
         this.transfer = transfer;
         this.cardTo = cardTo;
         this.cardFrom = cardFrom;
@@ -28,19 +28,19 @@ public class CardTransfer {
         this.transfer = transfer;
     }
 
-    public int getCardTo() {
+    public String getCardTo() {
         return cardTo;
     }
 
-    public void setCardTo(int cardTo) {
+    public void setCardTo(String cardTo) {
         this.cardTo = cardTo;
     }
 
-    public int getCardFrom() {
+    public String getCardFrom() {
         return cardFrom;
     }
 
-    public void setCardFrom(int cardFrom) {
+    public void setCardFrom(String cardFrom) {
         this.cardFrom = cardFrom;
     }
 }

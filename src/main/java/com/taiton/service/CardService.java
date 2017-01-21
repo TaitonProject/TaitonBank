@@ -16,7 +16,7 @@ public interface CardService {
 
     void save(CardEntity cardEntity);
 
-    CardEntity findByCardNumber(int cardNumber);
+    CardEntity findByCardNumber(String cardNumber);
 
     List<CardEntity> findByUser(int idUser);
 

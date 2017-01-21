@@ -16,7 +16,7 @@ public interface AccountService {
 
     void save(AccountEntity accountEntity);
 
-    AccountEntity findByAccountNumber(int accountNumber);
+    AccountEntity findByAccountNumber(String accountNumber);
 
     List<AccountEntity> findAllUser();
 

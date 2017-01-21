@@ -5,9 +5,9 @@ package com.taiton.entity.forJson;
  */
 public class UserAccount {
     private int userId;
-    private int number;
+    private String number;
 
-    public UserAccount(int userId, int number) {
+    public UserAccount(int userId, String number) {
         this.userId = userId;
         this.number = number;
     }
@@ -23,11 +23,11 @@ public class UserAccount {
         this.userId = userId;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 }

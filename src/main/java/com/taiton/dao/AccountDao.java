@@ -12,7 +12,7 @@ import java.util.List;
 public interface AccountDao extends JpaRepository<AccountEntity, Integer> {
 
     //@Query("select a from AccountEntity a where a.accountNumber = ?1")
-    AccountEntity findByAccountNumber(int accountNumber);
+    AccountEntity findByAccountNumber(String accountNumber);
 
     @Override
     void delete(Integer integer);
