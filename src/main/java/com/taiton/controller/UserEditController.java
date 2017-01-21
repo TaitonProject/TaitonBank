@@ -80,12 +80,8 @@ public class UserEditController {
     @PutMapping("/editUser")
     public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
         try {
-            if (userService.findByUsername(userInfo.getUserByUserId().getUsername()) != null) {
-                return new ResponseEntity<>(" Пользователь с таким логином уже существует.", HttpStatus.BAD_REQUEST);
-            } else if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
+             if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
                 return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
-            } else if (userInfo.getUserByUserId().getRoleByRoleIdRole() == null) {
-                return new ResponseEntity<>(" Не выбрана роль пользователя.", HttpStatus.BAD_REQUEST);
             } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
                 return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
             } else {
