@@ -2,6 +2,12 @@
     <div class="title col-12">
         <h1>Управление организациями</h1>
         <hr>
+        <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
+            <strong>Ошибка! </strong> {{errorMessage}}
+        </div>
+        <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
+            <strong>Выполнено! </strong> {{successMessage}}
+        </div>
     </div>
     <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск пользователя по названию организации" type="text">
     <div class="container row table-cont">
@@ -51,12 +57,6 @@
             <div class="controls">
                 <button id="addOrg" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
                         ng-click="addOrganization(organization)">Добавить/изменить организацию</button>
-                <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
-                    <strong>Ошибка! </strong> {{errorMessage}}
-                </div>
-                <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
-                    <strong>Выполнено! </strong> {{successMessage}}
-                </div>
             </div>
         </div>
     </form>

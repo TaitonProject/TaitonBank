@@ -2,17 +2,18 @@
     <div class="title col-12">
         <h1>Редактирование персонала</h1>
         <hr>
-    </div>
-
-
-    <input class="form-control col-sm-4" ng-model="userSelect" placeholder="Поиск пользователя по фамилии" type="text">
-    <div class="container table-cont row table-cont">
         <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
             <strong>Ошибка! </strong> {{errorMessage}}
         </div>
         <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
             <strong>Выполнено! </strong> {{successMessage}}
         </div>
+    </div>
+
+
+    <input class="form-control col-sm-4" ng-model="userSelect" placeholder="Поиск пользователя по фамилии" type="text">
+    <div class="container table-cont row table-cont">
+
         <table border="1" class="table row">
             <tr>
                 <th>Фамилия

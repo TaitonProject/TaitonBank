@@ -2,16 +2,16 @@
     <div class="title col-12">
         <h1>Регистрация сервисов</h1>
         <hr>
-    </div>
-
-    <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск организации по названию" type="text">
-    <div class="container row table-cont">
         <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
             <strong>Ошибка! </strong> {{errorMessage}}
         </div>
         <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
             <strong>Выполнено! </strong> {{successMessage}}
         </div>
+    </div>
+
+    <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск организации по названию" type="text">
+    <div class="container row table-cont">
         <table border="1" class="table row">
             <tr>
                 <th>Номер
