@@ -1,12 +1,14 @@
 package com.taiton.controller;
 
 import com.taiton.entity.*;
+import com.taiton.entity.forJson.CardTransfer;
 import com.taiton.entity.forJson.PaymentArchive;
 import com.taiton.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,9 @@ public class ArchiveController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private TransferService transferService;
 
     @RequestMapping("/payment")
     public String getPaymentArchivePage() {
@@ -59,5 +64,29 @@ public class ArchiveController {
             }
             return listPayment;
         }
+    }
+
+    @GetMapping("/listTransfer.json/{number}")
+    public @ResponseBody List<CardTransfer> getListTransfer(@PathVariable int number) {
+        List<TransferEntity> listTransfer = transferService.findByCard(number);
+        List<CardTransfer> listTransferCard = new ArrayList<>();
+
+        for (TransferEntity o : listTransfer){
+            /*String s = "";
+            CardEntity card = null;
+            if (cardService.find(o.getCardTo()).getAccountId() == number){
+                s = "Получено";
+            } else {
+                s = "Отправлено";
+            }
+            if (cardService.find(o.getCardTo()).getAccountId() != number && cardService.find(o.getCardFrom()).getAccountId() == number){
+                card = cardService.find(o.getCardTo());
+            } else {
+                card = cardService.find(o.getCardFrom());
+            }*/
+
+            listTransferCard.add(new CardTransfer (o, cardService.find(o.getCardTo()).getCardNumber() ,cardService.find(o.getCardFrom()).getCardNumber()));
+        }
+        return listTransferCard;
     }
 }

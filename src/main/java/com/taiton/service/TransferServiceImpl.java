@@ -38,4 +38,11 @@ public class TransferServiceImpl implements TransferService {
     public void save(TransferEntity transferEntity) {
         transferDao.save(transferEntity);
     }
+
+    @Override
+    public List<TransferEntity> findByCard(int card) {
+        return transferDao.findByCard(card);
+    }
+
+
 }

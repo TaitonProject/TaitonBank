@@ -17,4 +17,6 @@ public interface TransferService {
 
     void save(TransferEntity transferEntity);
 
+    List<TransferEntity> findByCard(int card);
+
 }

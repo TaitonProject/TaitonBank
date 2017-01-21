@@ -8,15 +8,44 @@
 
 ArchiveTransferController = function ($scope, $http) {
 
-    $scope.fetchTransferList = function (id) {
+    $scope.fetchTransferList = function (card) {
         $scope.resetError();
-        $http.get('/card/listUsersAccount.json/'+id).success(function (response) {
-            $scope.accounts = response;
+        number = card.id;
+        $http.get('/archive/listTransfer.json/'+number).success(function (response) {
+            $scope.transfers = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка аккаунтов')
+            $scope.setError('Ошибка в предоставлении списка переводов');
         });
     };
 
-    $scope.fetchTransferList();
+    $scope.fetchCardList = function () {
+        $scope.resetError();
+        $http.get('/payment/cardList.json').success(function (response) {
+            $scope.cards = response;
+        }).error(function () {
+            $scope.setError('Ошибка в предосталвнии списка карт.')
+        });
+    };
 
+    $scope.setError = function (message) {
+        $scope.error = true;
+        $scope.errorMessage = message;
+    };
+
+    $scope.setTrueMessage = function (message) {
+        $scope.success = true;
+        $scope.successMessage = message;
+    };
+
+    $scope.resetError = function () {
+        $scope.error = false;
+        $scope.success = false;
+        $scope.errorMessage = '';
+        $scope.successMessage = '';
+    };
+
+    $scope.errorMessage = '';
+    $scope.successMessage = '';
+
+    $scope.fetchCardList();
 };
