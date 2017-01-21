@@ -86,14 +86,14 @@
                 <div class="">
                     <button type="submit" class="btn btn-warning"ng-click="addPayment(payment);closed();">Оплатить</button>
                 </div>
-                <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
-                    <strong>Ошибка! </strong> {{errorMessage}}
-                </div>
-                <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
-                    <strong>Выполнено! </strong> {{successMessage}}
-                </div>
             </div>
         </form>
+        <div style="margin-top: 10px; margin-left: -15px !important;" class="alert alert-danger" ng-show="error">
+            <strong>Ошибка! </strong> {{errorMessage}}
+        </div>
+        <div style="margin-top: 10px; margin-left: -15px !important;" class="alert alert-success" ng-show="success">
+            <strong>Выполнено! </strong> {{successMessage}}
+        </div>
     </div>
 
 
