@@ -132,9 +132,14 @@ public class PaymentController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         UserEntity userEntity = userService.findByUsername(user.getUsername());
         //UserInfoEntity userInfoEntity = userInfoService.findByUserId(userEntity.getId());
-
-
         return new ResponseEntity<>(userInfoService.findByUserId(userEntity.getId()), HttpStatus.OK);
+    }
+
+    @GetMapping("/cardListBalance.json")
+    public @ResponseBody
+    ResponseEntity fetchListCardBalance(){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return new ResponseEntity<>(cardService.findByUser(userService.findByUsername(user.getUsername()).getId()), HttpStatus.OK);
     }
 
 }
