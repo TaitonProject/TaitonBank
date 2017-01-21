@@ -29,17 +29,20 @@ public class OrganizationController {
         return "organization/registration";
     }
 
+
+    // ???????????????????????????????????????
     @PostMapping("/addOrganization")
     public @ResponseBody ResponseEntity<String> addOrganization(@RequestBody OrganizationEntity organization){
         try {
-            if (organizationService.findByName(organization.getName()) != null) {
-                return new ResponseEntity<>(" Данная организация уже существует.", HttpStatus.BAD_REQUEST);
-            } else {
+            OrganizationEntity org = organizationService.findByName(organization.getName());
+            if (org == null) {
                 organizationService.save(organization);
-                return new ResponseEntity<>(HttpStatus.OK);
+                return new ResponseEntity<>(" Организацию добавлена.", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(" Данная организация уже существует.", HttpStatus.BAD_REQUEST);
             }
         } catch (Exception e){
-            return new ResponseEntity<>(" Некорректные данные.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(" Некорретные данные.", HttpStatus.BAD_REQUEST);
         }
     }
 
