@@ -3,6 +3,12 @@
         <h1>Редактирование и информация профиля</h1>
         <h1>Здравствуйте, {{user.surName}} {{user.firstName}} {{user.secondName}}</h1>
         <hr>
+        <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
+            <strong>Ошибка! </strong> {{errorMessage}}
+        </div>
+        <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
+            <strong>Выполнено! </strong> {{successMessage}}
+        </div>
     </div>
     <div sec:authorize="hasRole('ROLE_client')" class="container row table-cont" >
         <h4>Ваши карты:</h4>
