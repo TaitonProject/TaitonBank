@@ -14,4 +14,7 @@ public interface PaymentDao extends JpaRepository<PaymentEntity, Integer> {
 
     @Override
     void delete(Integer integer);
+
+    @Query("select a from PaymentEntity a where a.cardId = ?1")
+    List<PaymentEntity> findByCard(int cardNumber);
 }

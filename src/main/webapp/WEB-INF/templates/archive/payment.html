@@ -1,0 +1,64 @@
+<head>
+    <meta charset="utf-8">
+</head>
+<div class="user-info container">
+    <h1>Архив платежей</h1>
+    <hr>
+    <h2>Выберите карту, на которой хотите просмотреть операции</h2>
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер карты
+                </th>
+                <th>Выбрать
+                </th>
+            </tr>
+            <tr ng-repeat="card in cards">
+                <td>
+                    {{card.cardNumber}}
+                </td>
+                <td>
+                    <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="fetchPaymentList(card)"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Операции:</h2>
+    <div class="container row">
+        <table border="1" class="table row">
+            <tr>
+                <th>Дата
+                </th>
+                <th>Информация
+                </th>
+                <th>Сумма
+                </th>
+                <th>Услуга
+                </th>
+                <th>Организация
+                </th>
+            </tr>
+            <tr ng-repeat="pay in payments">
+                <td>
+                    {{pay.paymentEntity.date}}
+                </td>
+                <td>
+                    {{pay.paymentEntity.info}}
+                </td>
+                <td>
+                    {{pay.paymentEntity.amount}} руб.
+                </td>
+                <td>
+                    {{pay.serviceName}}
+                </td>
+                <td>
+                    {{pay.organizationName}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</div>

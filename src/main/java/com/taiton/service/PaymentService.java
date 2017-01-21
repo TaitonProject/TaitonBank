@@ -16,4 +16,7 @@ public interface PaymentService {
     void delete(int id);
 
     void save(PaymentEntity paymentEntity);
+
+    List<PaymentEntity> findByCard(int cardNumber);
+
 }

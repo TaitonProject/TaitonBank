@@ -103,5 +103,14 @@ App.config(['$routeProvider', function ($routeProvider) {
         controller: 'PaymentServiceController'
     });
 
+    $routeProvider.when('/archive/payment', {
+        templateUrl: '/archive/payment',
+        controller: 'ArchivePaymentController'
+    });
+
+    $routeProvider.when('/archive/transfer', {
+        templateUrl: '/archive/transfer',
+        controller: 'ArchiveTransferController'
+    });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

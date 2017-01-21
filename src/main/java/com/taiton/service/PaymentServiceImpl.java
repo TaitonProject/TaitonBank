@@ -20,7 +20,6 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private PaymentDao paymentDao;
 
-
     @Override
     public List<PaymentEntity> findAll() {
         return paymentDao.findAll();
@@ -39,5 +38,10 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public void save(PaymentEntity paymentEntity) {
         paymentDao.save(paymentEntity);
+    }
+
+    @Override
+    public List<PaymentEntity> findByCard(int cardNumber) {
+        return paymentDao.findByCard(cardNumber);
     }
 }
