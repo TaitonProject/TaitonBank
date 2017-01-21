@@ -64,7 +64,8 @@ public class UserEditController {
             if (accountEntity == null) {
                 return new ResponseEntity<>(" Такого счета не существует.", HttpStatus.BAD_REQUEST);
             } else if (money < 0)  {
-                return new ResponseEntity<>(" Неверные данные. Баланс счета должен оставаться неотрицательным числом.", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(" Неверные данные. Баланс счета должен оставаться неотрицательным числом. " +
+                        "Сейчас баланс данного счета составляет " + accountEntity.getAccountBalance() + " рублей", HttpStatus.BAD_REQUEST);
             } else {
                 accountEntity.setAccountBalance(accountEntity.getAccountBalance() + userBalance.getAccountBalance());
                 accountService.save(accountEntity);
