@@ -47,4 +47,5 @@ public class UserController {
         UserInfoEntity userInfoEntity = userInfoService.findByUserId(userEntity.getId());
         return new ResponseEntity<>(userInfoService.findByUserId(userEntity.getId()), HttpStatus.OK);
     }
+
 }

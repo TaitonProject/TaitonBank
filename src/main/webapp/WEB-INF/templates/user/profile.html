@@ -1,10 +1,28 @@
 <div class="container row">
     <div class="title col-12">
         <h1>Редактирование пользовательского профиля</h1>
-        <h1>Здарвствуйте, {{user.surName}} {{user.firstName}} {{user.secondName}}</h1>
+        <h1>Здравствуйте, {{user.surName}} {{user.firstName}} {{user.secondName}}</h1>
         <hr>
     </div>
-
+    <div class="container row table-cont">
+        <h4>Ваши карты:</h4>
+        <table border="1" class="table row">
+            <tr>
+                <th>Номер карты
+                </th>
+                <th>Баланс карты
+                </th>
+            </tr>
+            <tr ng-repeat="card in cards">
+                <td>
+                    {{card.cardNumber}}
+                </td>
+                <td>
+                    {{card.balance}}
+                </td>
+            </tr>
+        </table>
+    </div>
     <form class="form-horizontal col-sm-4" name="userForm">
         <h2>Изменить пароль</h2>
         <div class="form-group">

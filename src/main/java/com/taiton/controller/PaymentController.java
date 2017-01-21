@@ -1,6 +1,7 @@
 package com.taiton.controller;
 
 import com.taiton.entity.*;
+import com.taiton.entity.forJson.CardBalance;
 import com.taiton.entity.forJson.PaymentInfo;
 import com.taiton.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -139,7 +141,12 @@ public class PaymentController {
     public @ResponseBody
     ResponseEntity fetchListCardBalance(){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return new ResponseEntity<>(cardService.findByUser(userService.findByUsername(user.getUsername()).getId()), HttpStatus.OK);
+        List<CardEntity> cardList = cardService.findByUser(userService.findByUsername(user.getUsername()).getId());
+        List<CardBalance> cardBalanceList = new ArrayList<>();
+        for (int i = 0 ; i < cardList.size(); i++){
+            cardBalanceList.add(new CardBalance(cardList.get(i).getCardNumber(), accountService.find(cardList.get(i).getAccountId()).getAccountBalance()));
+        }
+        return new ResponseEntity<>(cardBalanceList, HttpStatus.OK);
     }
 
 }

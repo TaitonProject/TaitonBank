@@ -84,7 +84,7 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/cardList.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка категорий')
+            $scope.setError('беда в предосталвнии списка карт')
         });
     };
 

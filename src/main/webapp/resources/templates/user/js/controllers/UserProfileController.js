@@ -8,6 +8,11 @@
 
 UserProfileController = function ($scope, $http) {
 
+    $scope.card = {
+        cardNumber : '',
+        balance: ''
+    };
+
     $scope.user = {};
 
     $scope.password = {
@@ -40,6 +45,15 @@ UserProfileController = function ($scope, $http) {
         document.getElementById("confirm_password_info").value("Пароли не совпадают");
     }
 
+    $scope.fetchCardList = function () {
+        $scope.resetError();
+        $http.get('/payment/cardListBalance.json').success(function (response) {
+            $scope.cards = response;
+        }).error(function () {
+            $scope.setError('Ошибка в предоставлении списка карт')
+        });
+    };
+
     $scope.setError = function (message) {
         $scope.error = false;
         $scope.errorMessage = message;
@@ -51,6 +65,7 @@ UserProfileController = function ($scope, $http) {
     };
 
     $scope.helloUser();
+    $scope.fetchCardList();
 };
 
 function stageController($scope) {
