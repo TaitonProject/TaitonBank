@@ -20,7 +20,7 @@
     <intercept-url pattern="/user/**" access="hasRole('ROLE_client')"/>
     <intercept-url pattern="/shared/**" access="hasAnyRole('ROLE_client', 'ROLE_administration')"/>
 -->
-        <form-login login-page="/login" default-target-url="/home" authentication-failure-url="/loginError"
+        <form-login login-page="/login" default-target-url="/home#/user" authentication-failure-url="/loginError"
                 always-use-default-target="true"
                     username-parameter="username" password-parameter="password"/>
         <logout logout-url="/logout" logout-success-url="/login?logout"/>

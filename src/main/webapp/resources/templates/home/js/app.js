@@ -31,7 +31,7 @@ App.config(['$routeProvider', function ($routeProvider) {
     });
 
     $routeProvider.when('/user', {
-        templateUrl: 'user/users',
+        templateUrl: 'user',
         controller: 'UserController'
     });
     $routeProvider.when('/phone', {
