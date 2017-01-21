@@ -311,3 +311,65 @@ input[type="button"]{
 table{
   margin-left: -15px !important;
 }
+
+
+
+
+/*Velcom page style*/
+.main-banner {
+  position: relative;
+  display: block;
+  top: 0;
+  margin: 0 -30px;
+  left: 0;
+  background: url(http://localhost:8087/resources/templates/login/img/gory_domik_vershiny_sneg_92237_1920x1080.jpg) center top no-repeat;
+  background-size: cover;
+  height: 94vh;
+}
+.main-banner .container {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20%;
+}
+.main-banner h1 {
+  font-size: 62px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  color: white;
+  margin: 0 auto 50px auto;
+  font-weight: 200;
+  text-shadow: 0  1.5px black;
+}
+.main-banner button {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 20px;
+  text-shadow: 0 0 0 0.2px black;
+  font-size: 32px;
+  font-weight: 200;
+  outline: none;
+  padding: 20px 40px;
+  box-shadow: 0 6px white;
+  color: white;
+}
+.main-banner button:hover {
+  background: white;
+  color: black;
+  box-shadow: 0 4px gray;
+  top: 2px;
+  transition: all 2s;
+}
+a{
+  text-decoration: none !important;
+}
+@media screen and (max-width: 580px) {
+  .main-banner .container.container {
+    padding-top: 40%;
+  }
+}

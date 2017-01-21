@@ -72,9 +72,9 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li sec:authorize="hasRole('ROLE_client')">
+                        <!--<li sec:authorize="hasRole('ROLE_client')">
                             <a href="#/user"><i class="fa fa-user fa-fw"></i> Главная</a>
-                        </li>
+                        </li>-->
                         <li sec:authorize="hasRole('ROLE_client')">
                             <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>Платежи<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -83,6 +83,7 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+
                         </li>
                         <!--<li sec:authorize="hasRole('ROLE_client')">
                             <a href="#/user"><i class="fa fa-table fa-fw"></i> Tables</a>
@@ -101,13 +102,13 @@
                         </li>
                             <!--&lt;!&ndash; /.nav-second-level &ndash;&gt;-->
                         <li sec:authorize="hasRole('ROLE_client')">
-                            <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>Архив<span class="fa arrow"></span></a>
+                            <a href=""><i class="fa fa-book" aria-hidden="true"></i>Архив<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#/archive/payment"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></i>Архив платежей</a>
+                                    <a href="#/archive/payment"><i class="fa fa-th-list" aria-hidden="true"></i>Архив платежей</a>
                                 </li>
                                 <li>
-                                    <a href="#/archive/transfer"><i class="fa fa-credit-card-alt" aria-hidden="true"></i></i>Архив переводов</a>
+                                    <a href="#/archive/transfer"><i class="fa fa-th-list" aria-hidden="true"></i></i>Архив переводов</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
