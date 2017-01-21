@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="497a451c-d22b-4158-a147-04e9b19acf51" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/loginError.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/loginError.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -142,7 +141,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginError.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loginError.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/loginError.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -162,13 +161,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transferCards.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="transferCards.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
+            <state relative-caret-position="405">
+              <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -254,7 +255,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/taiton/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/main/home.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/templates/home/js/app.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/payment/service.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-security.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/editing.html" />
@@ -262,6 +262,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/home/user.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/login/loginError.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" />
       </list>
     </option>
   </component>
@@ -2135,13 +2136,6 @@
       <workItem from="1484930589629" duration="11879000" />
       <workItem from="1484951855362" duration="7942000" />
     </task>
-    <task id="LOCAL-00005" summary="AngularJs подключил, resources папку добавил">
-      <created>1481763446275</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1481763446275</updated>
-    </task>
     <task id="LOCAL-00006" summary="angularjs json проба">
       <created>1481925674621</created>
       <option name="number" value="00006" />
@@ -2478,11 +2472,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484967045803</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="гоорит ачаг! как горит то! Но все красиво)">
+      <created>1484974459834</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1484974459835</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361626000" />
+    <option name="totallyTimeSpent" value="362025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -2585,7 +2586,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="подправил user.html ng-model" />
     <MESSAGE value="еще подправил user.html" />
     <MESSAGE value="поменял иерархию url'ов" />
     <MESSAGE value="Добавление аккаунта рабоатет (осталось толкьо скрыть)" />
@@ -2610,7 +2610,8 @@
     <MESSAGE value="Добавил контроллеры для страниц loginError и main/home" />
     <MESSAGE value="добавление главной и так по мелочи" />
     <MESSAGE value="добавление главной и так по мелочи ч1" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавление главной и так по мелочи ч1" />
+    <MESSAGE value="гоорит ачаг! как горит то! Но все красиво)" />
+    <option name="LAST_COMMIT_MESSAGE" value="гоорит ачаг! как горит то! Но все красиво)" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2974,16 +2975,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="78" selection-start-line="8" selection-start-column="78" selection-end-line="8" selection-end-column="78" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -3053,6 +3044,18 @@
         <state relative-caret-position="135">
           <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="68" selection-start-line="27" selection-start-column="68" selection-end-line="27" selection-end-column="68" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
