@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="497a451c-d22b-4158-a147-04e9b19acf51" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/controller/PaymentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/controller/PaymentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/taiton/entity/forJson/CardBalance.java" afterPath="$PROJECT_DIR$/src/main/java/com/taiton/entity/forJson/CardBalance.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/user/profile.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/user/profile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/templates/payment/js/controllers/PaymentServiceController.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/templates/payment/js/controllers/PaymentServiceController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/templates/user/js/controllers/UserProfileController.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/templates/user/js/controllers/UserProfileController.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -102,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/user/profile.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-255">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -1447,7 +1441,7 @@
       <workItem from="1484590986465" duration="22596000" />
       <workItem from="1484818942471" duration="30368000" />
       <workItem from="1484930589629" duration="11879000" />
-      <workItem from="1484951855362" duration="6685000" />
+      <workItem from="1484951855362" duration="6787000" />
     </task>
     <task id="LOCAL-00001" summary="ура, сука, логинимся! (настроить отображение осталось и все)">
       <created>1480181347567</created>
@@ -1785,11 +1779,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484956716745</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Баланс карт в профиле пользователя">
+      <created>1484958866486</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1484958866486</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="354506000" />
+    <option name="totallyTimeSpent" value="354608000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1892,7 +1893,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Работает русский язык в бд" />
     <MESSAGE value="редактирование и удаление UserInfo (удаление не до конца рабоатет)" />
     <MESSAGE value="удаление работает (регистрация перестала работать контроллер отвалился)" />
     <MESSAGE value="удаление работает, но нужно удалять тогда и из spring security пользователя (подправил контроллер)" />
@@ -1917,7 +1917,8 @@
     <MESSAGE value="Валидация на уровне Angular контроллеров (не проверено)" />
     <MESSAGE value="Платежи проходят" />
     <MESSAGE value="Положить деньги на счет" />
-    <option name="LAST_COMMIT_MESSAGE" value="Положить деньги на счет" />
+    <MESSAGE value="Баланс карт в профиле пользователя" />
+    <option name="LAST_COMMIT_MESSAGE" value="Баланс карт в профиле пользователя" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2452,7 +2453,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/user/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
           <folding />
         </state>
       </provider>
