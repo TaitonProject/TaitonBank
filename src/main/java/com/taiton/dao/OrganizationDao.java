@@ -12,6 +12,7 @@ import java.util.List;
  */
 public interface OrganizationDao extends JpaRepository<OrganizationEntity, Integer> {
 
+    @Query("select a from OrganizationEntity a where a.name = ?1")
     OrganizationEntity findByName(String name);
 
     @Override
