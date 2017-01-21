@@ -322,7 +322,7 @@ table{
   top: 0;
   margin: 0 -30px;
   left: 0;
-  background: url(http://localhost:8087/resources/templates/login/img/gory_domik_vershiny_sneg_92237_1920x1080.jpg) center top no-repeat;
+  background: url(/resources/templates/login/img/gory_domik_vershiny_sneg_92237_1920x1080.jpg) center top no-repeat;
   background-size: cover;
   height: 94vh;
 }

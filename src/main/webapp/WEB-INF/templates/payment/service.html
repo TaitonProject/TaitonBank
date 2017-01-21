@@ -82,7 +82,7 @@
                 <label for="inputEmail3" class="control-label">Рубли</label>
                 <div class="controls">
                     <input type="text" name="accountBalance" class="form-control" id="inputEmail4" ng-model="paymentInfo.payment.amount"
-                           placeholder="Рубли" ng-pattern="/^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+)?$/"><span class="cost-info">BYN</span>
+                           placeholder="Рубли" ng-pattern="/^[-+]?[0-9]*[.,]?[0-9]+(?:[eE][-+]?[0-9]+){1,5}?$/"><span class="cost-info">BYN</span>
                     <span class="hasnt-error" ng-show="userForm.accountBalance.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                     <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.accountBalance.$invalid && !userForm.accountBalance.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
 неверный формат суммы (цифры и . или ,)</span>

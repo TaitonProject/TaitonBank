@@ -62,7 +62,7 @@ public class UserEditController {
             AccountEntity accountEntity = accountService.findByAccountNumber(userBalance.getAccountNumber());
             if (accountEntity == null) {
                 return new ResponseEntity<>(" Такого счета не существует.", HttpStatus.BAD_REQUEST);
-            } else if ((accountEntity.getAccountBalance() - userBalance.getAccountBalance()) < 0) {
+            } else if ((accountEntity.getAccountBalance() + userBalance.getAccountBalance()) < 0)  {
                 return new ResponseEntity<>(" Неверные данные. Баланс счета должен оставаться неотрицательным числом.", HttpStatus.BAD_REQUEST);
             } else {
                 accountEntity.setAccountBalance(accountEntity.getAccountBalance() + userBalance.getAccountBalance());
@@ -73,9 +73,6 @@ public class UserEditController {
             return new ResponseEntity<>(" Некорректные данные.",HttpStatus.BAD_REQUEST);
         }
     }
-
-
-
 
     @PutMapping("/editUser")
     public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {

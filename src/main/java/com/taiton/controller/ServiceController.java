@@ -60,7 +60,7 @@ public class ServiceController {
             //serviceEntity.setAccountByAccountId(accountEntity);
             if (accountService.findByAccountNumber(accountEntity.getAccountNumber()) != null) {
                 return new ResponseEntity<>(" Данный счет уже существует.", HttpStatus.BAD_REQUEST);
-            } else if (organizationService.find(service.getCategoryIdCategory()) == null) {
+            } else if (organizationService.find(service.getOrganizationId()) == null) {
                 return new ResponseEntity<>(" Данной организации не существует.", HttpStatus.BAD_REQUEST);
             } else if (categoryService.find(service.getCategoryIdCategory()) == null) {
                 return new ResponseEntity<>(" Данной категории не существует.", HttpStatus.BAD_REQUEST);
