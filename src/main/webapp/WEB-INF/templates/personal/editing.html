@@ -7,6 +7,12 @@
 
     <input class="form-control col-sm-4" ng-model="userSelect" placeholder="Поиск пользователя по фамилии" type="text">
     <div class="container table-cont row table-cont">
+        <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
+            <strong>Ошибка! </strong> {{errorMessage}}
+        </div>
+        <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
+            <strong>Выполнено! </strong> {{successMessage}}
+        </div>
         <table border="1" class="table row">
             <tr>
                 <th>Фамилия
@@ -95,12 +101,7 @@
             <div class="controls">
                 <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid" ng-click="editUser(user);closed()">Изменить персонал</button>
             </div>
-            <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
-                <strong>Ошибка! </strong> {{errorMessage}}
-            </div>
-            <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
-                <strong>Выполнено! </strong> {{successMessage}}
-            </div>
+
         </div>
     </form>
 </div>

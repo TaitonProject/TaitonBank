@@ -9,6 +9,12 @@
 
         <div class="container row table-cont">
             <h4>Выбирете карту для оплаты:</h4>
+            <div style="margin-top: 10px; margin-left: -15px !important;" class="alert alert-danger" ng-show="error">
+                <strong>Ошибка! </strong> {{errorMessage}}
+            </div>
+            <div style="margin-top: 10px; margin-left: -15px !important;" class="alert alert-success" ng-show="success">
+                <strong>Выполнено! </strong> {{successMessage}}
+            </div>
             <table border="1" class="table row">
                 <tr>
                     <th>Номер карты
@@ -88,12 +94,7 @@
                 </div>
             </div>
         </form>
-        <div style="margin-top: 10px; margin-left: -15px !important;" class="alert alert-danger" ng-show="error">
-            <strong>Ошибка! </strong> {{errorMessage}}
-        </div>
-        <div style="margin-top: 10px; margin-left: -15px !important;" class="alert alert-success" ng-show="success">
-            <strong>Выполнено! </strong> {{successMessage}}
-        </div>
+
     </div>
 
 
