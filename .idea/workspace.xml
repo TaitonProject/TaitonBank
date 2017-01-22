@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="497a451c-d22b-4158-a147-04e9b19acf51" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userAccountBalance.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userAccountBalance.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/payment/service.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/payment/service.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -64,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transferCards.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="transferCards.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="48" column="180" selection-start-line="48" selection-start-column="180" selection-end-line="48" selection-end-column="180" />
+            <state relative-caret-position="436">
+              <caret line="48" column="221" selection-start-line="48" selection-start-column="221" selection-end-line="48" selection-end-column="221" />
               <folding />
             </state>
           </provider>
@@ -84,7 +81,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registration.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="434">
@@ -210,8 +207,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userAccountBalance.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/payment/service.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html" />
       </list>
     </option>
   </component>
@@ -1711,14 +1708,7 @@
       <workItem from="1484982794135" duration="5254000" />
       <workItem from="1485027581516" duration="375000" />
       <workItem from="1485028459182" duration="3499000" />
-      <workItem from="1485081175001" duration="4999000" />
-    </task>
-    <task id="LOCAL-00029" summary="поправки от ягора">
-      <created>1484612179640</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1484612179640</updated>
+      <workItem from="1485081175001" duration="5702000" />
     </task>
     <task id="LOCAL-00030" summary="немного по фронту от Егора">
       <created>1484687627804</created>
@@ -2056,11 +2046,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485096451877</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="остались  точки в деньгах и валидация названий организаций">
+      <created>1485100248022</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1485100248022</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="394104000" />
+    <option name="totallyTimeSpent" value="394807000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -2163,7 +2160,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Валидация на уровне Angular контроллеров (не проверено)" />
     <MESSAGE value="Платежи проходят" />
     <MESSAGE value="Положить деньги на счет" />
     <MESSAGE value="Баланс карт в профиле пользователя" />
@@ -2188,7 +2184,8 @@
     <MESSAGE value="добавление комментов к ФИО в пользователе и операторе" />
     <MESSAGE value="выбор оператора" />
     <MESSAGE value="убрал ненужный pwmatch" />
-    <option name="LAST_COMMIT_MESSAGE" value="убрал ненужный pwmatch" />
+    <MESSAGE value="остались  точки в деньгах и валидация названий организаций" />
+    <option name="LAST_COMMIT_MESSAGE" value="остались  точки в деньгах и валидация названий организаций" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2644,18 +2641,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="48" column="180" selection-start-line="48" selection-start-column="180" selection-end-line="48" selection-end-column="180" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
           <caret line="45" column="176" selection-start-line="45" selection-start-column="176" selection-end-line="45" selection-end-column="176" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/transaction/transferCards.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="48" column="221" selection-start-line="48" selection-start-column="221" selection-end-line="48" selection-end-column="221" />
           <folding />
         </state>
       </provider>
