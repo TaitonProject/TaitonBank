@@ -22,7 +22,6 @@ PersonalEditingController = function ($scope, $http) {
 
     $scope.editUser = function (user) {
         $scope.resetError();
-        if (user.surName == $scope.userOld)
         $http.put('/personal/editUser', user).success(function (response) {
             $scope.fetchUsersList();
             $scope.user = {
