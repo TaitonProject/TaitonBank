@@ -15,7 +15,7 @@ ArchivePaymentController = function ($scope, $http) {
         $http.get('/archive/listPayment.json/'+number).success(function (response) {
             $scope.payments = response;
         }).error(function () {
-            $scope.setError('Ошибка в предоставлении списка платежей');
+            $scope.setError(' Ошибка в предоставлении списка платежей. Пожалуйста, повторите позже');
         });
     };
 
@@ -24,7 +24,7 @@ ArchivePaymentController = function ($scope, $http) {
         $http.get('/payment/cardList.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
-            $scope.setError('Ошибка в предосталвнии списка карт.')
+            $scope.setError(' Ошибка в предоставлении списка карт. Пожалуйста, повторите позже')
         });
     };
 

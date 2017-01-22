@@ -23,7 +23,7 @@ UserEditingController = function ($scope, $http) {
         }).error(function () {
             $scope.isLoading = false;
 
-            $scope.setError('беда в предосталвнии списка пользователей')
+            $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')
         });
     };
 
@@ -46,7 +46,7 @@ UserEditingController = function ($scope, $http) {
             if (status === 400){
                 $scope.setError(response);
             } else {
-                $scope.setError('Некорректные данные.');
+                $scope.setError(' Некорректные данные.');
             }
         })
     };

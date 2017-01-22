@@ -63,7 +63,7 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/listUsersAccount.json/'+id).success(function (response) {
             $scope.accounts = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка аккаунтов')
+            $scope.setError('Не удалось получить список счетов. Пожалуйста, повторите позже')
         });
     };
 
@@ -72,7 +72,7 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/organizationList.json/'+id).success(function (response) {
             $scope.organizations = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка организаций')
+            $scope.setError('Не удалось список организаций. Пожалуйста, повторите позже')
         });
     };
 
@@ -81,7 +81,7 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/categoryList.json').success(function (response) {
             $scope.categoryies = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка категорий')
+            $scope.setError('Не удалось получить список категорий. Пожалуйста, повторите позже')
         });
     };
 
@@ -90,7 +90,7 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/cardList.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка карт')
+            $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')
         });
     };
 

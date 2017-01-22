@@ -46,7 +46,7 @@ TransferCardsController = function ($scope, $http) {
         $http.get('/payment/cardList.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
-            $scope.setError('Ошибка в предосталвнии списка карт.')
+            $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')
         });
     };
 
