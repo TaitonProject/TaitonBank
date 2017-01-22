@@ -43,7 +43,7 @@
         <div class="form-group">
             <div class="controls">
                 <input type="text" class="form-control" id="user_account" name="accountName" ng-model="organization.name"
-                       placeholder="Название организации" required="required" ng-pattern="/^([A-ZА-ЯЁ][a-zа-яё]+(-[a-zа-яё]+){0,})( [[A-ZА-ЯЁa-zа-яё]+(-[a-zа-яё]+){0,}){0,2}$/"/>
+                       placeholder="Название организации" required="required" ng-pattern="/^([A-ZА-ЯЁ][a-zа-яё]+(-[a-zа-яё]+){0,})( [[A-ZА-ЯЁ][a-zа-яё]+(-[a-zа-яё]+){0,}){0,2}$/"/>
                 <span class="hasnt-error" ng-show="userForm.accountName.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.accountName.$invalid && !userForm.accountName.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
  Неверное написание организации</span>
