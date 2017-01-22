@@ -1,6 +1,6 @@
 <div class="container row ">
     <div class="title col-12">
-        <h1>Регистрация пользовательскогой карты</h1>
+        <h1>Регистрация пользовательской карты</h1>
         <hr>
         <div style="margin-top: 10px" class="alert alert-danger" ng-show="error">
             <strong>Ошибка! </strong> {{errorMessage}}
@@ -22,8 +22,8 @@
                 </th>
                 <th>Номер паспорта
                 </th>
-                <th>Блокировка
-                </th>
+                <!--<th>Блокировка
+                </th>-->
                 <th>Выбрать
                 </th>
             </tr>
@@ -40,9 +40,9 @@
                 <td>
                     {{us.pasportNumber}}
                 </td>
-                <td>
+                <!--<td>
                     {{us.userByUserId.isBlocked}}
-                </td>
+                </td>-->
                 <td>
                     <input  type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setUser(us)"/>
                 </td>

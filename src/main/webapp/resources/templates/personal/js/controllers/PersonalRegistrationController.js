@@ -8,13 +8,13 @@
 
 PersonalRegistrationController = function ($scope, $http) {
 
-    $scope.click = false;
+    $scope.isLoading = false;
 
     $scope.addNewUser = function (user) {
-        $scope.click = true;
+        $scope.isLoading = true;
         $scope.resetError();
         $http.post('/personal/addUser', user).success(function (response) {
-            $scope.click = false;
+            $scope.isLoading = false;
             $scope.setTrueMessage(response);
             $scope.user = {
                 surName: null,
@@ -29,7 +29,7 @@ PersonalRegistrationController = function ($scope, $http) {
                 }
             };
         }).error(function (response, status) {
-            $scope.click = false;
+            $scope.isLoading = false;
             if(status === 400) {
                 $scope.setError(response);
             } else
@@ -45,7 +45,7 @@ PersonalRegistrationController = function ($scope, $http) {
         $http.get('/personal/rolesList.json').success(function (response) {
             $scope.roles = response;
         }).error(function () {
-            $scope.setError(' Невозможно предоставить список ролей')
+            $scope.setError(' В предоставлении списка ролей')
         });
     };
 
