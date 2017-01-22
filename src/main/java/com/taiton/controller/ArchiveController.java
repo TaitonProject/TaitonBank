@@ -48,9 +48,9 @@ public class ArchiveController {
     }
 
     @GetMapping("/listPayment.json/{number}")
-    public @ResponseBody List<PaymentArchive> getListPayment(@PathVariable int number) {
-        CardEntity card = cardService.find(number);
-        List<PaymentEntity> payments = paymentService.findByCard(number);
+    public @ResponseBody List<PaymentArchive> getListPayment(@PathVariable String number) {
+        CardEntity card = cardService.findByCardNumber(number);
+        List<PaymentEntity> payments = paymentService.findByCard(card.getId());
         List<PaymentArchive> listPayment = new ArrayList<>();
         if (card == null) {
             return null;
@@ -67,8 +67,9 @@ public class ArchiveController {
     }
 
     @GetMapping("/listTransfer.json/{number}")
-    public @ResponseBody List<CardTransfer> getListTransfer(@PathVariable int number) {
-        List<TransferEntity> listTransfer = transferService.findByCard(number);
+    public @ResponseBody List<CardTransfer> getListTransfer(@PathVariable String number) {
+        CardEntity card = cardService.findByCardNumber(number);
+        List<TransferEntity> listTransfer = transferService.findByCard(card.getId());
         List<CardTransfer> listTransferCard = new ArrayList<>();
 
         for (TransferEntity o : listTransfer){

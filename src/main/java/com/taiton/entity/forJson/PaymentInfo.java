@@ -21,13 +21,13 @@ $scope.payment = {
 public class PaymentInfo {
     private CategoryEntity category;
     private OrganizationEntity organization;
-    private CardEntity card;
+    private CardBalance card;
     private PaymentEntity payment;
 
     public PaymentInfo() {
     }
 
-    public PaymentInfo(CategoryEntity categoryEntity, OrganizationEntity organizationEntity, CardEntity cardEntity, PaymentEntity paymentEntity) {
+    public PaymentInfo(CategoryEntity categoryEntity, OrganizationEntity organizationEntity, CardBalance cardEntity, PaymentEntity paymentEntity) {
         this.category = categoryEntity;
         this.organization = organizationEntity;
         this.card = cardEntity;
@@ -50,11 +50,11 @@ public class PaymentInfo {
         this.organization = organization;
     }
 
-    public CardEntity getCard() {
+    public CardBalance getCard() {
         return card;
     }
 
-    public void setCard(CardEntity card) {
+    public void setCard(CardBalance card) {
         this.card = card;
     }
 

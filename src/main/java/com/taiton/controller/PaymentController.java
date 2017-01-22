@@ -82,7 +82,7 @@ public class PaymentController {
             } else {
                 paymentEntity.setDate(new Timestamp(System.currentTimeMillis()));
                 paymentService.save(paymentEntity);
-                AccountEntity accountEntity = accountService.find(paymentInfo.getCard().getAccountId());
+                AccountEntity accountEntity = accountService.findByAccountNumber(paymentInfo.getCard().getAccountNumber());
                 double currentBalance = accountEntity.getAccountBalance() - paymentEntity.getAmount();
                 accountEntity.setAccountBalance(currentBalance);
 
