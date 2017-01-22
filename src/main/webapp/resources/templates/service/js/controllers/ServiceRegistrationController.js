@@ -75,11 +75,14 @@ ServiceRegistrationController = function ($scope, $http) {
         $scope.resetError();
         $scope.organization = organization;
         $scope.formVisible = true;
+        $scope.Fieldshow = true;
+        $scope.formVisible = false;
     };
 
     $scope.setCategory = function (category) {
         $scope.resetError();
         $scope.category = category;
+        $scope.formVisible = true;
     };
 
     $scope.setError = function (message) {
