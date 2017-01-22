@@ -12,8 +12,11 @@ ServiceRegistrationController = function ($scope, $http) {
     $scope.organization = {};
     $scope.account = {};
     $scope.category = {};
+    $scope.isLoading = false;
 
     $scope.addService = function (service) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         /*service.organizationId = $scope.organization.id;
         service.accountId = $scope.account.id;
@@ -22,6 +25,8 @@ ServiceRegistrationController = function ($scope, $http) {
         service.organizationId = $scope.organization.id;
         service.categoryIdCategory = $scope.category.idCategory;
         $http.post('/service/addService', service).success(function (response) {
+            $scope.isLoading = false;
+
             $scope.fetchServiceList();
             $scope.service = {
                 categoryIdCategory: null,
@@ -29,6 +34,8 @@ ServiceRegistrationController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response);
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             if (status === 400){
                 $scope.setError(response)
             } else {

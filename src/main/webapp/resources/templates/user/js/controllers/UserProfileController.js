@@ -19,6 +19,7 @@ UserProfileController = function ($scope, $http) {
         password: '',
         confirmPassword: ''
     };
+    $scope.isLoading = false;
 
     $scope.helloUser = function () {
         $scope.resetError();
@@ -31,14 +32,20 @@ UserProfileController = function ($scope, $http) {
     };
 
     $scope.editPassword = function (password) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         $http.put('/user/editPassword', password).success(function (response) {
+            $scope.isLoading = false;
+
             $scope.password = {
                 password: '',
                 confirmPassword: ''
             };
             $scope.setTrueMessage(response)
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             if (status === 400) {
                 $scope.setError(response);
             } else {

@@ -9,10 +9,15 @@
 OrganizationRegistrationController = function ($scope, $http) {
 
     $scope.organization = {};
+    $scope.isLoading = false;
 
     $scope.addOrganization = function (organization) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         $http.post('/organization/addOrganization', organization).success(function (response) {
+            $scope.isLoading = false;
+
             $scope.fetchOrganizationList();
             $scope.organization = {
                 id: '',
@@ -20,6 +25,8 @@ OrganizationRegistrationController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response);
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             if (status === 400) {
                 $scope.setError(response)
             } else

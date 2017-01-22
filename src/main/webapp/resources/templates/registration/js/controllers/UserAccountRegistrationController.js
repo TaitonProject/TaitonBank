@@ -15,6 +15,7 @@ UserAccountRegistrationController = function ($scope, $http) {
         number: '',
         userId: ''
     };
+    $scope.isLoading = false;
 
     $scope.fetchUsersList = function () {
         $scope.resetError();
@@ -26,8 +27,12 @@ UserAccountRegistrationController = function ($scope, $http) {
     };
 
     $scope.addUserAccount = function (account) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         $http.post('/registration/userAccount', account).success(function (response) {
+            $scope.isLoading = false;
+
             $scope.fetchUsersList();
             $scope.account = {
                 userId: '',
@@ -35,6 +40,8 @@ UserAccountRegistrationController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response)
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             if (status === 400){
                 $scope.setError(response)
             } else {

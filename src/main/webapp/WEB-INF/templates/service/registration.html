@@ -55,7 +55,7 @@
 
         <div class="form-group">
             <div class="controls">
-                <button id="addServ" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                <button id="addServ" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid || isLoading"
                         ng-click="addService(service); closed()">Добавить услугу</button>
             </div>
         </div>

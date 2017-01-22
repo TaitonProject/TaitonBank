@@ -13,12 +13,17 @@ TransferCardsController = function ($scope, $http) {
         cardFrom: '',
         amount: ''
     };
+    $scope.isLoading = false;
 
     $scope.addTransfer = function (transfer) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         transfer.cardFrom = $scope.transfer.cardFrom;
         transfer.amount = $scope.transfer.amount;
         $http.post('/transaction/addTransfer', transfer).success(function (response) {
+            $scope.isLoading = false;
+
             $scope.setTrueMessage(response);
             $scope.transfer = {
                 cardTo: null,
@@ -27,6 +32,8 @@ TransferCardsController = function ($scope, $http) {
             };
 
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             if(status === 400) {
                 $scope.setError(response);
             } else

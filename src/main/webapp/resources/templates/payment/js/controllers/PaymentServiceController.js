@@ -17,8 +17,11 @@ PaymentServiceController = function ($scope, $http) {
             amount: ''
         }
     };
+    $scope.isLoading = false;
 
     $scope.addPayment = function (paymentInfo) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         //card.accountId = $scope.account.id;
         paymentInfo = {
@@ -33,6 +36,8 @@ PaymentServiceController = function ($scope, $http) {
         };
         $http.post('/payment/addPayment', paymentInfo).success(function (response) {
             //$scope.fetchServiceList();
+            $scope.isLoading = false;
+
             $scope.paymentInfo = {
                 category: '',
                 organization: '',
@@ -44,6 +49,7 @@ PaymentServiceController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response);
         }).error(function (response, status) {
+            $scope.isLoading = false;
             if (status === 400){
                 $scope.setError(response)
             } else {

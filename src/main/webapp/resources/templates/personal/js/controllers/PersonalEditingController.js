@@ -10,6 +10,7 @@ PersonalEditingController = function ($scope, $http) {
 
     $scope.user = {};
     $scope.editingUser = null;
+    $scope.isLoading = false;
 
     $scope.fetchUsersList = function () {
         $scope.resetError();
@@ -21,8 +22,12 @@ PersonalEditingController = function ($scope, $http) {
     };
 
     $scope.editUser = function (user) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         $http.put('/personal/editUser', user).success(function (response) {
+            $scope.isLoading = false;
+
             $scope.fetchUsersList();
             $scope.user = {
                 surName: null,
@@ -36,6 +41,8 @@ PersonalEditingController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response);
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             $scope.fetchUsersList();
             if(status === 400) {
                 $scope.setError(response);

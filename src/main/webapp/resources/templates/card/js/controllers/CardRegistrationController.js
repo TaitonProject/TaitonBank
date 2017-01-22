@@ -16,17 +16,22 @@ CardRegistrationController = function ($scope, $http) {
         accountId: ''
     };
     $scope.account = {};
+    $scope.isLoading = false;
 
     $scope.addCard = function (card) {
         $scope.resetError();
+        $scope.isLoading = true;
         card.accountId = $scope.account.id;
         $http.post('/card/addCard', card).success(function (response) {
+            $scope.isLoading = false;
             $scope.card = {
                 cardNumber: '',
                 dateOfExpiry: null
             };
             $scope.setTrueMessage(response);
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             if (status === 400){
                 $scope.setError(response)
             } else {

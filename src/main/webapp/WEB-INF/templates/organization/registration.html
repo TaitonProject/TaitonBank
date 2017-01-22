@@ -52,7 +52,7 @@
 
         <div class="form-group ">
             <div class="controls">
-                <button id="addOrg" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                <button id="addOrg" type="button" class="btn btn-warning" ng-disabled="userForm.$invalid || isLoading"
                         ng-click="addOrganization(organization)">Добавить организацию</button>
             </div>
         </div>

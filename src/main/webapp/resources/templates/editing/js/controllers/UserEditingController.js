@@ -10,12 +10,19 @@ UserEditingController = function ($scope, $http) {
 
     $scope.user = {};
     $scope.editingUser = null;
+    $scope.isLoading = false;
 
     $scope.fetchUsersList = function () {
+        $scope.isLoading = true;
+
         $scope.resetError();
         $http.get('/editing/listUsers.json').success(function (response) {
+            $scope.isLoading = false;
+
             $scope.users = response;
         }).error(function () {
+            $scope.isLoading = false;
+
             $scope.setError('беда в предосталвнии списка пользователей')
         });
     };

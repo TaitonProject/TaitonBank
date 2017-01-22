@@ -8,9 +8,15 @@
 
 UserRegistrationController = function ($scope, $http) {
 
+    $scope.isLoading = false;
+
     $scope.addNewUser = function (user) {
+        $scope.isLoading = true;
+
         $scope.resetError();
         $http.post('/registration/addUser', user).success(function (response) {
+            $scope.isLoading = false;
+
             $scope.user = {
                 surName: '',
                 firstName: '',
@@ -24,6 +30,8 @@ UserRegistrationController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response)
         }).error(function (response, status) {
+            $scope.isLoading = false;
+
             if (status === 400){
                 $scope.setError(response)
             } else {
