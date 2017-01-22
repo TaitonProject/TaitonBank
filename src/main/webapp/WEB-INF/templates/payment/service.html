@@ -10,7 +10,7 @@
     <div style="margin-top: 10px; margin-left: 0px !important;" class="alert alert-success" ng-show="success">
         <strong>Выполнено! </strong> {{successMessage}}
     </div>
-    <div ng-show="isLoading">
+    <div class="loading" ng-show="isLoading">
         <img src="resources/content/default.gif">
     </div>
     <div class="control-group">
@@ -52,7 +52,7 @@
 
 
         <div class="controls" style="margin: 25px auto" ng-show="formVisibleSelect">
-            <h4>Виды платежей:</h4>
+            <h4>Виды услуг:</h4>
             <select ng-change="setCategory(paymentInfo.category)" ng-model="paymentInfo.category"
                     ng-options="category as category.categoryName for category in categoryies">
             </select>
