@@ -39,7 +39,7 @@
                     {{card.accountNumber}}
                 </td>
                 <td>
-                    {{card.date}}
+                    {{card.dateOfExpiry}}
                 </td>
                 <td>
                     <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setCard(card.cardNumber)"/>
@@ -64,7 +64,7 @@
             <div class="form-group">
                 <label for="inputEmail3" class="control-label">Рубли</label>
                 <div class="controls">
-                    <input type="text" name="PayCard" class="form-control" id="inputEmail4" placeholder="Рубли" ng-model="transfer.amount" ng-pattern="/^((([1-9]\d{0,5})|([1-9]))(([.]\d{1,2})?))$|^-?0[.]((\d[1-9])|([1-9]\d?))$/"><span class="cost-info">BYN</span>
+                    <input type="text" name="PayCard" class="form-control" id="inputEmail4" placeholder="Сумма" ng-model="transfer.amount" ng-pattern="/^((([1-9]\d{0,5})|([1-9]))(([.]\d{1,2})?))$|^-?0[.]((\d[1-9])|([1-9]\d?))$/"><span class="cost-info">BYN</span>
                     <span class="hasnt-error" ng-show="userForm.PayCard.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                     <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.PayCard.$invalid && !userForm.PayCard.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
 неверный формат суммы (цифры и . максимум 6 цифр до точки)</span>

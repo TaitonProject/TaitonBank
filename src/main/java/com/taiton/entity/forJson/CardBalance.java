@@ -9,24 +9,24 @@ public class CardBalance {
     private String cardNumber;
     private double balance;
     private String accountNumber;
-    private Date date;
+    private Date dateOfExpiry;
 
     public CardBalance(String cardNumber, double balance, String accountNumber, Date date) {
         this.cardNumber = cardNumber;
         this.balance = balance;
         this.accountNumber = accountNumber;
-        this.date = date;
+        this.dateOfExpiry = date;
     }
 
     public CardBalance() {
     }
 
-    public Date getDate() {
-        return date;
+    public Date getDateOfExpiry() {
+        return dateOfExpiry;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateOfExpiry(Date dateOfExpiry) {
+        this.dateOfExpiry = dateOfExpiry;
     }
 
     public String getAccountNumber() {

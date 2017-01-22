@@ -29,7 +29,7 @@ public class CardDeserializer extends JsonDeserializer<CardEntity>{
         card.setAccountId(node.get("accountId").asInt());
         //card.setAccountId(accountService.findByAccountNumber(node.get("accountNumber").asText()).getId());
         card.setCardNumber(node.get("cardNumber").asText());
-        String dateOfExpiryStr = node.get("date").asText();
+        String dateOfExpiryStr = node.get("dateOfExpiry").asText();
         SimpleDateFormat dateFomatter = new SimpleDateFormat("yyyy-MM-dd");
         Date dateOfExpiry = null;
         try {
