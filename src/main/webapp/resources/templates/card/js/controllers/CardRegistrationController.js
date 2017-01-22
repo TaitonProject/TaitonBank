@@ -48,7 +48,7 @@ CardRegistrationController = function ($scope, $http) {
                 $scope.setError(' Нет счета у данного пользоватлея.')
             }
         }).error(function () {
-            $scope.setError(' Не удалось получить список счетов. Попробуйте повторить позже')
+            $scope.setError(' Не удалось получить список счетов. Пожалуйста, повторите позже')
         });
     };
 
@@ -57,7 +57,7 @@ CardRegistrationController = function ($scope, $http) {
         $http.get('/card/listUsers.json').success(function (response) {
             $scope.users = response;
         }).error(function () {
-            $scope.setError(' Не удалось получить список пользователей. Пожалуйтса, повторите позже')
+            $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')
         });
     };
 
