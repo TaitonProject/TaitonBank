@@ -49,28 +49,35 @@ public class TransferCardController {
             TransferEntity transferEntity = new TransferEntity();
             CardEntity findCardFrom = cardService.findByCardNumber(cardTransfer.getCardFrom());
             CardEntity findCardTo = cardService.findByCardNumber(cardTransfer.getCardTo());
-
+            AccountEntity accFrom  = null;
+            AccountEntity accTo = null;
             double money = 0;
-            if (findCardFrom != null && findCardTo != null){
-                transferEntity.setCardFrom(findCardFrom.getId());
+            if (findCardTo != null){
                 transferEntity.setCardTo(findCardTo.getId());
+                transferEntity.setCardFrom(findCardFrom.getId());
                 transferEntity.setAmount(cardTransfer.getAmount());
+                accFrom  = accountService.find(findCardFrom.getAccountId());
+                accTo = accountService.find(findCardTo.getAccountId());
+                //money = accountService.find(transferEntity.getCardFrom()).getAccountBalance() - cardTransfer.getAmount();
+                if (accFrom != null && accTo != null){
+                    money = accFrom.getAccountBalance() - cardTransfer.getAmount();
+                }
             }
 
 
-            if (findCardFrom == null) {
+            if (cardTransfer.getCardFrom() == null) {
                 return new ResponseEntity<>(" Карты отправителя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(findCardFrom.getAccountId()) == null) {
+            } else if (accFrom == null) {
                 return new ResponseEntity<>(" Счета отправителя не существует.", HttpStatus.BAD_REQUEST);
             } else if (findCardTo == null) {
                 return new ResponseEntity<>(" Карты получателя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(findCardTo.getAccountId()) == null) {
+            } else if (findCardFrom == null) {
                 return new ResponseEntity<>(" Счета получателя не существует.", HttpStatus.BAD_REQUEST);
             } else if (transferEntity.getAmount() <= 0) {
                 return new ResponseEntity<>(" Некорректная сумма.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.findByAccountNumber(findCardFrom.getCardNumber()).getAccountBalance() < cardTransfer.getAmount()) {
+            } else if (money < 0) {
                 return new ResponseEntity<>(" На карте недостаточно средств.", HttpStatus.BAD_REQUEST);
-            } else if (transferEntity.getCardFrom().equals(transferEntity.getCardTo())) {
+            } else if (findCardFrom.getCardNumber() == findCardTo.getCardNumber()) {
                 return new ResponseEntity<>(" Нельзя переводить деньги на тот же счет.", HttpStatus.BAD_REQUEST);
             } else if (findCardTo.getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>(" Срок карты получателя истек.", HttpStatus.BAD_REQUEST);
@@ -90,8 +97,10 @@ public class TransferCardController {
     private void transferFromToCard(TransferEntity transfer){
         AccountEntity accCardFrom = accountService.find(cardService.find(transfer.getCardFrom()).getAccountId());
         AccountEntity accCardTo = accountService.find(cardService.find(transfer.getCardTo()).getAccountId());
-        accCardFrom.setAccountBalance(accCardFrom.getAccountBalance() - transfer.getAmount());
-        accCardTo.setAccountBalance(accCardTo.getAccountBalance() + transfer.getAmount());
+        double minus = accCardFrom.getAccountBalance() - transfer.getAmount();
+        double plus = accCardTo.getAccountBalance() + transfer.getAmount();
+        accCardFrom.setAccountBalance(minus);
+        accCardTo.setAccountBalance(plus);
         accountService.save(accCardFrom);
         accountService.save(accCardTo);
         int idCardFrom = cardService.find(transfer.getCardFrom()).getId();

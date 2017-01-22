@@ -1,5 +1,6 @@
 package com.taiton.entity.forJson;
 
+import com.taiton.entity.CardEntity;
 import com.taiton.entity.TransferEntity;
 
 import java.sql.Date;
@@ -14,6 +15,7 @@ public class CardTransfer {
     private String cardTo;
     private String cardFrom;
     private Timestamp date;
+
 
     public CardTransfer(double amount, String cardTo, String cardFrom, Timestamp date) {
         this.amount = amount;
