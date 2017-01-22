@@ -10,7 +10,7 @@ ArchiveTransferController = function ($scope, $http) {
 
     $scope.fetchTransferList = function (card) {
         $scope.resetError();
-        number = card.id;
+        number = card.cardNumber;
         $scope.formVisible = true;
         $http.get('/archive/listTransfer.json/'+number).success(function (response) {
             $scope.transfers = response;

@@ -35,7 +35,7 @@ PaymentServiceController = function ($scope, $http) {
 
         };
         $http.post('/payment/addPayment', paymentInfo).success(function (response) {
-            //$scope.fetchServiceList();
+            $scope.fetchCardList();
             $scope.isLoading = false;
 
             $scope.paymentInfo = {

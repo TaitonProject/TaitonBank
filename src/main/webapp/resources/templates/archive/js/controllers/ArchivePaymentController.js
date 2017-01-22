@@ -10,7 +10,7 @@ ArchivePaymentController = function ($scope, $http) {
 
     $scope.fetchPaymentList = function (card) {
         $scope.resetError();
-        number = card.id;
+        number = card.cardNumber;
         $scope.formVisible = true;
         $http.get('/archive/listPayment.json/'+number).success(function (response) {
             $scope.payments = response;
