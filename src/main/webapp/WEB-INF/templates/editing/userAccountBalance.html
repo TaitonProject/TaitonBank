@@ -35,7 +35,7 @@
 
         <div class="form-group ">
             <div class="controls">
-                <button type="button" class="btn btn-warning" ng-disabled="userForm.$invalid"
+                <button type="button" class="btn btn-warning" ng-disabled="isLoading || userForm.$invalid"
                         ng-click="editUserBalance(account)">Изменить баланс пользователя</button>
 
             </div>

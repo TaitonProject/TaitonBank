@@ -21,8 +21,8 @@
                 </th>
                 <th>Номер паспорта
                 </th>
-                <th>Блокировка
-                </th>
+                <!--<th>Блокировка
+                </th>-->
                 <th>Действие
                 </th>
             </tr>
@@ -39,9 +39,9 @@
                 <td>
                     {{user.pasportNumber}}
                 </td>
-                <td>
+                <!--<td>
                     {{user.userByUserId.isBlocked}}
-                </td>
+                </td>-->
                 <td>
                     <input id="add-account" type="button" value="Добавить счет" class="update-button btn btn-warning"
                            ng-click="setUser(user.userByUserId.id)"/>

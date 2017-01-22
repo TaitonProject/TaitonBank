@@ -13,17 +13,23 @@ UserBalanceEditingController = function ($scope, $http) {
         accountBalance: ''
     };
 
+    $scope.isLoading = false;
+
     $scope.editUserBalance = function (account) {
+        $scope.isLoading = true;
         $scope.resetError();
-        $http.post('/editing/addUserBalance', account).success(function (response) {
-            $scope.account = {
-                accountNumber: '',
-                accountBalance: 0
-            };
-            $scope.setTrueMessage(response);
-        }).error(function (response) {
-            $scope.setError(response);
-        })
+
+            $http.post('/editing/addUserBalance', account).success(function (response) {
+                $scope.isLoading = false;
+                $scope.account = {
+                    accountNumber: null,
+                    accountBalance: null
+                };
+                $scope.setTrueMessage(response);
+            }).error(function (response) {
+                $scope.isLoading = false;
+                $scope.setError(response);
+            })
     };
 
     $scope.setError = function (message) {
