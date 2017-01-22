@@ -7,7 +7,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/editing.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/editing.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -65,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userInfo.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userInfo.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="90" column="102" selection-start-line="90" selection-start-column="102" selection-end-line="90" selection-end-column="102" />
+            <state relative-caret-position="495">
+              <caret line="93" column="55" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -88,8 +87,8 @@
       <file leaf-file-name="editing.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/editing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="76" column="140" selection-start-line="76" selection-start-column="140" selection-end-line="76" selection-end-column="140" />
+            <state relative-caret-position="270">
+              <caret line="80" column="28" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -110,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registration.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="63" column="141" selection-start-line="63" selection-start-column="122" selection-end-line="63" selection-end-column="141" />
+            <state relative-caret-position="435">
+              <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -123,8 +122,8 @@
       <file leaf-file-name="userInfo.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="60" column="80" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="80" />
+            <state relative-caret-position="390">
+              <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -214,10 +213,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/service/registration.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/organization/registration.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/templates/home/dist/css/main.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/editing.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html" />
       </list>
     </option>
   </component>
@@ -1622,14 +1621,7 @@
       <workItem from="1484982794135" duration="5254000" />
       <workItem from="1485027581516" duration="375000" />
       <workItem from="1485028459182" duration="3499000" />
-      <workItem from="1485081175001" duration="1669000" />
-    </task>
-    <task id="LOCAL-00025" summary="поменял иерархию url'ов">
-      <created>1484500846534</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1484500846534</updated>
+      <workItem from="1485081175001" duration="2776000" />
     </task>
     <task id="LOCAL-00026" summary="Добавление аккаунта рабоатет (осталось толкьо скрыть)">
       <created>1484508552762</created>
@@ -1967,11 +1959,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485082227198</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="последние на данный момент обновления">
+      <created>1485084246985</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1485084246985</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="390774000" />
+    <option name="totallyTimeSpent" value="391881000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -2074,7 +2073,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="добавлены отловы ошибок на bad request еще парочка" />
     <MESSAGE value="поправил в редактировании пользователя сделал исчезновение формы, но только там, так как на работе пока" />
     <MESSAGE value="еще правки по скрытию форм и мелкие изменения" />
     <MESSAGE value="изменения в пользователе, минимум гавнеца, максимум красоты)" />
@@ -2099,7 +2097,8 @@
     <MESSAGE value="попытка исправить имя организации в лоукейсе" />
     <MESSAGE value="еще обновления по обновлению интерфейса" />
     <MESSAGE value="еще обновления по обновлению" />
-    <option name="LAST_COMMIT_MESSAGE" value="еще обновления по обновлению" />
+    <MESSAGE value="последние на данный момент обновления" />
+    <option name="LAST_COMMIT_MESSAGE" value="последние на данный момент обновления" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -2531,22 +2530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="90" column="102" selection-start-line="90" selection-start-column="102" selection-end-line="90" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/editing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="76" column="140" selection-start-line="76" selection-start-column="140" selection-end-line="76" selection-end-column="140" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/service/registration.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -2555,18 +2538,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="60" column="80" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="80" />
+        <state relative-caret-position="435">
+          <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/registration.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/personal/editing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="63" column="141" selection-start-line="63" selection-start-column="122" selection-end-line="63" selection-end-column="141" />
+        <state relative-caret-position="270">
+          <caret line="80" column="28" selection-start-line="80" selection-start-column="28" selection-end-line="80" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/registration/userInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/editing/userInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="93" column="55" selection-start-line="93" selection-start-column="55" selection-end-line="93" selection-end-column="55" />
           <folding />
         </state>
       </provider>
