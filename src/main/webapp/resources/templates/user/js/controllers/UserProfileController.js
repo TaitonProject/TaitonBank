@@ -62,7 +62,7 @@ UserProfileController = function ($scope, $http) {
         $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
-            $scope.setError('Ошибка в предоставлении списка карт')
+            $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')
         });
     };
 

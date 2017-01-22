@@ -42,7 +42,7 @@ OrganizationRegistrationController = function ($scope, $http) {
                 name: ''
             };
         }).error(function () {
-            $scope.setError('беда при удалении организации');
+            $scope.setError('Не удалось удалить организацию. Пожалуйста, повторите позже');
         })
     };
 
@@ -51,7 +51,7 @@ OrganizationRegistrationController = function ($scope, $http) {
         $http.get('/organization/organizationList.json').success(function (response) {
             $scope.organizations = response;
         }).error(function () {
-            $scope.setError(" Не удалось предоставить список организаций")
+            $scope.setError(" Не удалось предоставить список организаций. Пожалуйста, повторите позже")
         });
     };
 

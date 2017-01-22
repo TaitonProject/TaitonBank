@@ -49,7 +49,7 @@ ServiceRegistrationController = function ($scope, $http) {
         $http.get('/service/serviceList.json').success(function (response) {
             $scope.services = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка сервисов')
+            $scope.setError(' Не удалось получить список сервисов. Пожалуйста, повторите позже')
         });
     };
 
@@ -58,7 +58,7 @@ ServiceRegistrationController = function ($scope, $http) {
         $http.get('/service/organizationList.json').success(function (response) {
             $scope.organizations = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка организаций')
+            $scope.setError('Не удалось получить список организаций. Пожалуйста, повторите позже')
         });
     };
 
@@ -67,7 +67,7 @@ ServiceRegistrationController = function ($scope, $http) {
         $http.get('/service/categoryList.json').success(function (response) {
             $scope.categoryies = response;
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка организаций')
+            $scope.setError('Не удалось получить список категорий. Пожалуйста, повторите позже')
         });
     };
 

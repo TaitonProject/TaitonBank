@@ -17,7 +17,7 @@ PersonalEditingController = function ($scope, $http) {
         $http.get('/personal/personalsList.json').success(function (response) {
             $scope.users = response;
         }).error(function () {
-            $scope.setError(' Невозможно предоставить список пользователей')
+            $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')
         });
     };
 

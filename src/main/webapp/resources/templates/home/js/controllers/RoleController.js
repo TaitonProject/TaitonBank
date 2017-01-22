@@ -19,7 +19,7 @@ RoleController = function ($scope, $http) {
             $scope.roles = response;
             $scope.selectedOption = $scope.roles[0];
         }).error(function () {
-            $scope.setError('беда в предосталвнии списка ролей')
+            $scope.setError(' Не удалось получить список ролей. Попробуйте, повторить позже')
         });
     };
 
