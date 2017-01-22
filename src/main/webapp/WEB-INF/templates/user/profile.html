@@ -9,6 +9,9 @@
         <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
             <strong>Выполнено! </strong> {{successMessage}}
         </div>
+        <div class="loading" ng-show="isLoading">
+            <img src="resources/content/default.gif">
+        </div>
     </div>
     <div sec:authorize="hasRole('ROLE_client')" class="container row table-cont" >
         <h4>Ваши карты:</h4>
