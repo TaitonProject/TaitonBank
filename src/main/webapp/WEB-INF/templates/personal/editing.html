@@ -9,7 +9,9 @@
             <strong>Выполнено! </strong> {{successMessage}}
         </div>
     </div>
-
+    <div ng-show="isLoading">
+        <img src="resources/content/default.gif">
+    </div>
 
     <input class="form-control col-sm-4" ng-model="userSelect" placeholder="Поиск пользователя по фамилии" type="text">
     <div class="container table-cont row table-cont">

@@ -10,6 +10,9 @@
     <div style="margin-top: 10px; margin-left: -15px !important;" class="alert alert-success" ng-show="success">
         <strong>Выполнено! </strong> {{successMessage}}
     </div>
+    <div ng-show="isLoading">
+        <img src="resources/content/default.gif">
+    </div>
     <h2>Выберите карту, с которой хотите перевести средства</h2>
     <div class="container row">
         <table border="1" class="table row" style="padding-left: 0 !important;">
