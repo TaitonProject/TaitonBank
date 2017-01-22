@@ -40,7 +40,9 @@ public class UserEditController {
     }
 
     @GetMapping("/listUsers.json")
-    public @ResponseBody List<UserInfoEntity> fetchListUsers() {
+    public
+    @ResponseBody
+    List<UserInfoEntity> fetchListUsers() {
         return userInfoService.findByUserRole(ROLE_CLIENT);
     }
 
@@ -57,13 +59,15 @@ public class UserEditController {
     }
 
     @PostMapping("/addUserBalance")
-    public @ResponseBody ResponseEntity<String> addUserBalance(@RequestBody UserBalance userBalance) {
+    public
+    @ResponseBody
+    ResponseEntity<String> addUserBalance(@RequestBody UserBalance userBalance) {
         try {
             AccountEntity accountEntity = accountService.findByAccountNumber(userBalance.getAccountNumber());
             double money = accountEntity.getAccountBalance() + userBalance.getAccountBalance();
             if (accountEntity == null) {
                 return new ResponseEntity<>(" Такого счета не существует.", HttpStatus.BAD_REQUEST);
-            } else if (money < 0)  {
+            } else if (money < 0) {
                 return new ResponseEntity<>(" Неверные данные. Баланс счета должен оставаться неотрицательным числом. " +
                         "Сейчас баланс данного счета составляет " + accountEntity.getAccountBalance() + " рублей", HttpStatus.BAD_REQUEST);
             } else {
@@ -71,26 +75,35 @@ public class UserEditController {
                 accountService.save(accountEntity);
                 return new ResponseEntity<>(HttpStatus.OK);
             }
-        } catch (Exception e){
-            return new ResponseEntity<>(" Некорректные данные.",HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(" Некорректные данные.", HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping("/editUser")
-    public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
+    public
+    @ResponseBody
+    ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
         try {
-             if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
-                return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
-            } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
-                return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
-            } else {
-                // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
-                userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+            String oldPassportNumber = userInfoService.findOne(userInfo.getId()).getPasportNumber();
+            String newPassportNumber = userInfo.getPasportNumber();
+
+            if (oldPassportNumber.equals(newPassportNumber)) {
+                //userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
                 userInfoService.save(userInfo);
-                return new ResponseEntity<>(" Пользователь успешно зарегестрирован.", HttpStatus.OK);
+                return new ResponseEntity<>(" Пользователь успешно отредактирован.", HttpStatus.OK);
+            } else {
+                if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
+                    int h = 0;
+                    return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
+                } else {
+                    //userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+                    userInfoService.save(userInfo);
+                    return new ResponseEntity<>(" Пользователь успешно отредактирован.", HttpStatus.OK);
+                }
             }
-        } catch (Exception e){
-            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity<>(" Неизвестная ошибка. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
     }
 

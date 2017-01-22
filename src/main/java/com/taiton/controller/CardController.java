@@ -38,17 +38,23 @@ public class CardController {
     }
 
     @GetMapping("/listUsers.json")
-    public @ResponseBody List<UserInfoEntity> fetchListUsers(){
+    public
+    @ResponseBody
+    List<UserInfoEntity> fetchListUsers() {
         return userInfoService.findByUserRole(ROLE_CLIENT);
     }
 
     @GetMapping("/listUsersAccount.json/{idUser}")
-    public @ResponseBody List<AccountEntity> fetchUsersAccount(@PathVariable int idUser){
+    public
+    @ResponseBody
+    List<AccountEntity> fetchUsersAccount(@PathVariable int idUser) {
         return accountService.findByUserId(idUser);
     }
 
     @PostMapping("/addCard")
-    public @ResponseBody ResponseEntity<String> registrationCard(@RequestBody CardEntity card){
+    public
+    @ResponseBody
+    ResponseEntity<String> registrationCard(@RequestBody CardEntity card) {
         try {
             if (cardService.findByCardNumber(card.getCardNumber()) != null) {
                 return new ResponseEntity<>("Данная карта уже существует.", HttpStatus.BAD_REQUEST);
@@ -58,11 +64,8 @@ public class CardController {
                 cardService.save(card);
                 return new ResponseEntity<>("Карта успешно добавлена", HttpStatus.OK);
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>("Некорректные данные", HttpStatus.BAD_REQUEST);
         }
     }
-
-
-
 }

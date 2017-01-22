@@ -22,6 +22,7 @@ PersonalEditingController = function ($scope, $http) {
 
     $scope.editUser = function (user) {
         $scope.resetError();
+        if (user.surName == $scope.userOld)
         $http.put('/personal/editUser', user).success(function (response) {
             $scope.fetchUsersList();
             $scope.user = {
@@ -36,16 +37,18 @@ PersonalEditingController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response);
         }).error(function (response, status) {
+            $scope.fetchUsersList();
             if(status === 400) {
                 $scope.setError(response);
             } else
-                $scope.setError(" Некорректные данные.")
+                $scope.setError(" Некорректные данные.");
         })
     };
 
     $scope.edit = function (user) {
         $scope.resetError();
         $scope.user = user;
+        $scope.userOld = user;
         $scope.formVisible = true;
     };
 
@@ -68,7 +71,6 @@ PersonalEditingController = function ($scope, $http) {
     $scope.closed= function () { 
         $scope.formVisible = false; 
     };
-
 
     $scope.errorMessage = '';
     $scope.successMessage = '';

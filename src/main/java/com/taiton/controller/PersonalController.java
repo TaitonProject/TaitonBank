@@ -47,16 +47,20 @@ public class PersonalController {
     }
 
     @GetMapping("/rolesList.json")
-    public @ResponseBody ResponseEntity<List<RoleEntity>> getRolesList(){
-        if (roleService.findWithoutRole(ROLE_CLIENT) != null){
+    public
+    @ResponseBody
+    ResponseEntity<List<RoleEntity>> getRolesList() {
+        if (roleService.findWithoutRole(ROLE_CLIENT) != null) {
             return new ResponseEntity<>(roleService.findWithoutRole(ROLE_CLIENT), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/personalsList.json")
-    public @ResponseBody ResponseEntity<List<UserInfoEntity>> getListPersonals(){
-        if (userInfoService.findWithoutRole(ROLE_CLIENT) != null){
+    public
+    @ResponseBody
+    ResponseEntity<List<UserInfoEntity>> getListPersonals() {
+        if (userInfoService.findWithoutRole(ROLE_CLIENT) != null) {
             return new ResponseEntity<>(userInfoService.findWithoutRole(ROLE_CLIENT), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -64,11 +68,12 @@ public class PersonalController {
 
 
     @PostMapping("/addUser")
-    public @ResponseBody ResponseEntity<String> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
-        try { if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
+    public
+    @ResponseBody
+    ResponseEntity<String> registeredUser(@RequestBody UserInfoEntity userInfo, BindingResult bindingResult) {
+        try {
+            if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
                 return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
-            } else if (userInfo.getUserByUserId().getRoleByRoleIdRole() == null) {
-                return new ResponseEntity<>(" Не выбрана роль пользователя.", HttpStatus.BAD_REQUEST);
             } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
                 return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
             } else {
@@ -81,29 +86,35 @@ public class PersonalController {
                 userInfoService.save(userInfo);
                 return new ResponseEntity<>(" Пользователь успешно зарегестрирован.", HttpStatus.OK);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping("/editUser")
-    public @ResponseBody ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
-        try { if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
-                return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
-            } else if (userInfo.getFirstName() == null || userInfo.getSecondName() == null || userInfo.getSurName() == null || userInfo.getPasportNumber() == null) {
-                return new ResponseEntity<>(" Не все поля заполнены.", HttpStatus.BAD_REQUEST);
-            } else {
-                int i = 0;
-                //Устанавливаем роль пользоватлея
-                //userInfo.getUserByUserId().setRoleByRoleIdRole(userInfo.getUserByUserId().getRoleByRoleIdRole());
-                //userService.save(userInfo.getUserByUserId());
-                // Присваиваем информации пользователя самого пользователя, всунув id пользователя из БД
-                userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+    public
+    @ResponseBody
+    ResponseEntity<String> editUser(@RequestBody UserInfoEntity userInfo) {
+        try {
+            String oldPassportNumber = userInfoService.findOne(userInfo.getId()).getPasportNumber();
+            String newPassportNumber = userInfo.getPasportNumber();
+
+            if (oldPassportNumber.equals(newPassportNumber)) {
+                //userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
                 userInfoService.save(userInfo);
                 return new ResponseEntity<>(" Пользователь успешно отредактирован.", HttpStatus.OK);
+            } else {
+                if (userInfoService.findByPasportNumber(userInfo.getPasportNumber()) != null) {
+                    return new ResponseEntity<>(" Пользователь с такими паспортными данными уже существует.", HttpStatus.BAD_REQUEST);
+                } else {
+                    //userInfo.getUserByUserId().setId(userService.findByUsername(userInfo.getUserByUserId().getUsername()).getId());
+                    userInfoService.save(userInfo);
+                    return new ResponseEntity<>(" Пользователь успешно отредактирован.", HttpStatus.OK);
+                }
             }
-        } catch (Exception e){
-            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
+
+        } catch (Exception e) {
+            return new ResponseEntity<>(" Неизвестная ошибка. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
     }
 
