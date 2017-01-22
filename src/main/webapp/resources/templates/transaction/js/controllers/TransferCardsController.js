@@ -23,7 +23,7 @@ TransferCardsController = function ($scope, $http) {
         transfer.amount = $scope.transfer.amount;
         $http.post('/transaction/addTransfer', transfer).success(function (response) {
             $scope.isLoading = false;
-
+            $scope.fetchCardList();
             $scope.setTrueMessage(response);
             $scope.transfer = {
                 cardTo: null,
