@@ -8,6 +8,9 @@
         <div style="margin-top: 10px" class="alert alert-success" ng-show="success">
             <strong>Выполнено! </strong> {{successMessage}}
         </div>
+        <div ng-show="isLoading">
+            <img src="resources/content/default.gif">
+        </div>
     </div>
     <form class="form-horizontal col-sm-4 " name="userForm">
 
