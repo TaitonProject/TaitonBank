@@ -21,7 +21,7 @@ ArchivePaymentController = function ($scope, $http) {
 
     $scope.fetchCardList = function () {
         $scope.resetError();
-        $http.get('/payment/cardList.json').success(function (response) {
+        $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
             $scope.setError('Ошибка в предосталвнии списка карт.')

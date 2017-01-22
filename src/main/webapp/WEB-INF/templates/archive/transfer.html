@@ -10,12 +10,27 @@
             <tr>
                 <th>Номер карты
                 </th>
+                <th>Баланс карты
+                </th>
+                <th>Номер счета
+                </th>
+                <th>Срок до
+                </th>
                 <th>Выбрать
                 </th>
             </tr>
-            <tr ng-repeat="card in cards">
+            <tr ng-repeat="card in cards | date:'medium'">
                 <td>
                     {{card.cardNumber}}
+                </td>
+                <td>
+                    {{card.balance}} руб.
+                </td>
+                <td>
+                    {{card.accountNumber}}
+                </td>
+                <td>
+                    {{card.date}}
                 </td>
                 <td>
                     <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="fetchTransferList(card)"/>
@@ -38,7 +53,7 @@
                 <th>Сумма
                 </th>
             </tr>
-            <tr ng-repeat="trans in transfers">
+            <tr ng-repeat="trans in transfers | orderBy: trans.date ">
                 <td>
                     {{trans.date | date:'medium'}}
                 </td>

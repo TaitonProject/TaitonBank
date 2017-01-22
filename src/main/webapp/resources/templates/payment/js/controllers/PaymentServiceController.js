@@ -87,7 +87,7 @@ PaymentServiceController = function ($scope, $http) {
 
     $scope.fetchCardList = function () {
         $scope.resetError();
-        $http.get('/payment/cardList.json').success(function (response) {
+        $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
             $scope.setError('беда в предосталвнии списка карт')
@@ -111,6 +111,7 @@ PaymentServiceController = function ($scope, $http) {
         $scope.fetchOrganizationList(category.idCategory);
         //$scope.organization = organization;
         $scope.paymentInfo.category = category;
+
     };
 
     $scope.setError = function (message) {

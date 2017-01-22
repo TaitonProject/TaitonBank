@@ -144,10 +144,12 @@ public class PaymentController {
     public @ResponseBody
     ResponseEntity fetchListCardBalance(){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserEntity userEntity = userService.findByUsername(user.getUsername());
         List<CardEntity> cardList = cardService.findByUser(userService.findByUsername(user.getUsername()).getId());
         List<CardBalance> cardBalanceList = new ArrayList<>();
         for (int i = 0 ; i < cardList.size(); i++){
-            cardBalanceList.add(new CardBalance(cardList.get(i).getCardNumber(), accountService.find(cardList.get(i).getAccountId()).getAccountBalance()));
+            AccountEntity acc = accountService.find(cardList.get(i).getAccountId());
+            cardBalanceList.add(new CardBalance(cardList.get(i).getCardNumber(), acc.getAccountBalance(), acc.getAccountNumber(), cardList.get(i).getDateOfExpiry()));
         }
         return new ResponseEntity<>(cardBalanceList, HttpStatus.OK);
     }
