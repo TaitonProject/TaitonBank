@@ -23,10 +23,10 @@
                 </th>
                 <th>Номер счета
                 </th>
-                <th>Срок до
+                <th>Действительна до
                 </th>
             </tr>
-            <tr ng-repeat="card in cards | date:'medium'">
+            <tr ng-repeat="card in cards | dateOfExpiry:'medium'| orderBy: card.balance">
                 <td>
                     {{card.cardNumber}}
                 </td>
@@ -37,7 +37,7 @@
                     {{card.accountNumber}}
                 </td>
                 <td>
-                    {{card.date}}
+                    {{card.dateOfExpiry}}
                 </td>
             </tr>
         </table>

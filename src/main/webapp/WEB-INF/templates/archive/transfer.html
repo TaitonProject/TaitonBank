@@ -14,7 +14,7 @@
                 </th>
                 <th>Номер счета
                 </th>
-                <th>Срок до
+                <th>Действительна до
                 </th>
                 <th>Выбрать
                 </th>
@@ -30,7 +30,7 @@
                     {{card.accountNumber}}
                 </td>
                 <td>
-                    {{card.date}}
+                    {{card.dateOfExpiry}}
                 </td>
                 <td>
                     <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="fetchTransferList(card)"/>
@@ -44,7 +44,7 @@
         <h2>Переводы:</h2>
         <table border="1" class="table row">
             <tr>
-                <th>Дата
+                <th>Дата и время операции
                 </th>
                 <th>Карта отправителя
                 </th>
