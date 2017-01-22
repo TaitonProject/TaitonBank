@@ -1,7 +1,9 @@
 package com.taiton.controller;
 
 import com.taiton.entity.AccountEntity;
+import com.taiton.entity.CardEntity;
 import com.taiton.entity.TransferEntity;
+import com.taiton.entity.forJson.CardTransfer;
 import com.taiton.service.AccountService;
 import com.taiton.service.CardService;
 import com.taiton.service.TransferService;
@@ -42,25 +44,37 @@ public class TransferCardController {
 
     @PostMapping("/addTransfer")
     public @ResponseBody
-    ResponseEntity<String> addTransfer(@RequestBody TransferEntity transferEntity){
+    ResponseEntity<String> addTransfer(@RequestBody CardTransfer cardTransfer){
         try {
-            if (cardService.findByCardNumber(transferEntity.getCardFrom().toString()) == null) {
+            TransferEntity transferEntity = new TransferEntity();
+            CardEntity findCardFrom = cardService.findByCardNumber(cardTransfer.getCardFrom());
+            CardEntity findCardTo = cardService.findByCardNumber(cardTransfer.getCardTo());
+
+            double money = 0;
+            if (findCardFrom != null && findCardTo != null){
+                transferEntity.setCardFrom(findCardFrom.getId());
+                transferEntity.setCardTo(findCardTo.getId());
+                transferEntity.setAmount(cardTransfer.getAmount());
+            }
+
+
+            if (findCardFrom == null) {
                 return new ResponseEntity<>(" Карты отправителя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(cardService.find(transferEntity.getCardFrom()).getAccountId()) == null) {
+            } else if (accountService.find(findCardFrom.getAccountId()) == null) {
                 return new ResponseEntity<>(" Счета отправителя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (cardService.find(transferEntity.getCardTo()) == null) {
+            } else if (findCardTo == null) {
                 return new ResponseEntity<>(" Карты получателя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(cardService.find(transferEntity.getCardTo()).getAccountId()) == null) {
+            } else if (accountService.find(findCardTo.getAccountId()) == null) {
                 return new ResponseEntity<>(" Счета получателя не существует.", HttpStatus.BAD_REQUEST);
             } else if (transferEntity.getAmount() <= 0) {
                 return new ResponseEntity<>(" Некорректная сумма.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(cardService.find(transferEntity.getCardFrom()).getAccountId()).getAccountBalance() < transferEntity.getAmount()) {
+            } else if (accountService.findByAccountNumber(findCardFrom.getCardNumber()).getAccountBalance() < cardTransfer.getAmount()) {
                 return new ResponseEntity<>(" На карте недостаточно средств.", HttpStatus.BAD_REQUEST);
-            } else if (transferEntity.getCardFrom() == transferEntity.getCardTo()) {
+            } else if (transferEntity.getCardFrom().equals(transferEntity.getCardTo())) {
                 return new ResponseEntity<>(" Нельзя переводить деньги на тот же счет.", HttpStatus.BAD_REQUEST);
-            } else if (cardService.find(transferEntity.getCardTo()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
+            } else if (findCardTo.getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>(" Срок карты получателя истек.", HttpStatus.BAD_REQUEST);
-            } else if (cardService.find(transferEntity.getCardFrom()).getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
+            } else if (findCardFrom.getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>(" Срок Вашей карты истек. Обратитесь в банк.", HttpStatus.BAD_REQUEST);
             } else {
                 transferEntity.setDate(new Timestamp(System.currentTimeMillis()));

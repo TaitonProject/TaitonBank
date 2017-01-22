@@ -85,7 +85,7 @@ public class ArchiveController {
                 card = cardService.find(o.getCardFrom());
             }*/
 
-            listTransferCard.add(new CardTransfer (o, cardService.find(o.getCardTo()).getCardNumber() ,cardService.find(o.getCardFrom()).getCardNumber()));
+            listTransferCard.add(new CardTransfer (o.getAmount(), cardService.find(o.getCardTo()).getCardNumber() ,cardService.find(o.getCardFrom()).getCardNumber(), o.getDate()));
         }
         return listTransferCard;
     }
