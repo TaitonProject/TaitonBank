@@ -50,7 +50,8 @@
             </table>
         </div>
 
-        <div class="controls" style="margin: 25px auto" ng-show="formVisible">
+
+        <div class="controls" style="margin: 25px auto" ng-show="formVisibleSelect">
             <h4>Виды платежей:</h4>
             <select ng-change="setCategory(paymentInfo.category)" ng-model="paymentInfo.category"
                     ng-options="category as category.categoryName for category in categoryies">
@@ -85,14 +86,15 @@
     <div class="container pays-history">
         <form class="form-horizontal col-sm-4 " role="form" name="userForm" style="padding: 0 !important;" ng-show="Fieldshow">
 
-            <div class="form-group">
-                <label for="inputEmail3" class="control-label">Введите платженые данные</label>
+                <div class="form-group" data-title="Например номер телефона 298945859">
+                <label for="inputEmail3" class="control-label">Введите платженые данные<br> (например номер телефона 298945859)</label>
                 <div class="controls">
-                    <input type="text" name="paymentInfo" class="form-control" id="inputEmail3" placeholder="Платежные данные"
-                           ng-model="paymentInfo.payment.info" ng-pattern="/^[0-9]{9}$/">
+                    <input type="text" name="paymentInfo" class="form-control " id="inputEmail3" placeholder="Платежные данные"
+                           ng-model="paymentInfo.payment.info" ng-pattern="/^[0-9]{2,9}$/">
                     <span class="hasnt-error" ng-show="userForm.paymentInfo.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
-                    <span style="position:relative; padding-bottom: 10px" class="has-error" ng-show="userForm.paymentInfo.$invalid && !userForm.paymentInfo.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
-неверный формат платежных данных</span>
+                    <span style="position:relative; padding-bottom: 10px" class="has-error "
+                          ng-show="userForm.paymentInfo.$invalid && !userForm.paymentInfo.$pristine "><i class="fa fa-times" aria-hidden="true"></i>
+неверный формат платежных данных <br>(например номер телефона 298945859)</span>
                 </div>
             </div>
             <div class="form-group">
