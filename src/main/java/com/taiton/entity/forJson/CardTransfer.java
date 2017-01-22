@@ -2,30 +2,43 @@ package com.taiton.entity.forJson;
 
 import com.taiton.entity.TransferEntity;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 /**
  * Created by Taiton on 1/21/2017.
  */
 public class CardTransfer {
 
-    private TransferEntity transfer;
+    private double amount;
     private String cardTo;
     private String cardFrom;
+    private Timestamp date;
 
-    public CardTransfer(TransferEntity transfer, String cardTo, String cardFrom) {
-        this.transfer = transfer;
+    public CardTransfer(double amount, String cardTo, String cardFrom, Timestamp date) {
+        this.amount = amount;
         this.cardTo = cardTo;
         this.cardFrom = cardFrom;
+        this.date = date;
     }
 
     public CardTransfer() {
     }
 
-    public TransferEntity getTransfer() {
-        return transfer;
+    public Timestamp getDate() {
+        return date;
     }
 
-    public void setTransfer(TransferEntity transfer) {
-        this.transfer = transfer;
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     public String getCardTo() {
