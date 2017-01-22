@@ -155,7 +155,7 @@ button{
 }*/
 
 .has-error{
-  position: absolute;
+  position: relative;
   color: red;
   padding-left: 3px;
 }
