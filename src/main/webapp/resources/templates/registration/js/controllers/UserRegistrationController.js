@@ -62,8 +62,10 @@ UserRegistrationController = function ($scope, $http) {
 
     $scope.errorMessage = '';
     $scope.successMessage = '';
+
+    function stageController($scope) {
+        $scope.user_password = 'password';
+    }
 };
 
-function stageController($scope) {
-    $scope.user_password = 'password';
-}
+

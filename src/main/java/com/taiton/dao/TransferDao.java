@@ -14,6 +14,6 @@ public interface TransferDao extends JpaRepository<TransferEntity, Integer> {
     @Override
     void delete(Integer integer);
 
-    @Query("select a from TransferEntity a where a.cardFrom = ?1 or a.cardTo = ?1")
+    @Query("select a from TransferEntity a where a.cardFrom = ?1 or a.cardTo = ?1 order by a.date")
     List<TransferEntity> findByCard(int card);
 }

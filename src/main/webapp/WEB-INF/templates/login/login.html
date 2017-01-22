@@ -92,12 +92,6 @@
     <div class="shade"></div>
     <form th:action="@{/login}" method="post" class="sign-up">
         <h1 class="sign-up-title">Вход в банк</h1>
-        <div th:if="${param.error}" class="alert alert-error">
-            Неправильное имя пользователя или пароль
-        </div>
-        <div th:if="${param.logout}" class="alert alert-success">
-            Вы вышли из аккаунта
-        </div>
         <input type="text" id="username" class="sign-up-input" name="username" autofocus="autofocus" placeholder="Имя пользователя"/> <br/>
         <input type="password" id="password" name="password" class="sign-up-input" placeholder="Пароль"/> <br/>
         <button class="sign-up-button icon-arrow-right" type="submit">Войти</button>
