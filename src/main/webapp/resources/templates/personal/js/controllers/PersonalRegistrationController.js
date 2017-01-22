@@ -8,9 +8,13 @@
 
 PersonalRegistrationController = function ($scope, $http) {
 
+    $scope.click = false;
+
     $scope.addNewUser = function (user) {
+        $scope.click = true;
         $scope.resetError();
         $http.post('/personal/addUser', user).success(function (response) {
+            $scope.click = false;
             $scope.setTrueMessage(response);
             $scope.user = {
                 surName: null,
@@ -25,6 +29,7 @@ PersonalRegistrationController = function ($scope, $http) {
                 }
             };
         }).error(function (response, status) {
+            $scope.click = false;
             if(status === 400) {
                 $scope.setError(response);
             } else

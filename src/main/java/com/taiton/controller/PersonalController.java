@@ -91,7 +91,7 @@ public class PersonalController {
                 return new ResponseEntity<>(" Пользователь успешно зарегестрирован.", HttpStatus.OK);
             }
         } catch (Exception e) {
-            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(" Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
     }
 

@@ -64,7 +64,9 @@ public class UserEditController {
     ResponseEntity<String> addUserBalance(@RequestBody UserBalance userBalance) {
         try {
             AccountEntity accountEntity = accountService.findByAccountNumber(userBalance.getAccountNumber());
-            double money = accountEntity.getAccountBalance() + userBalance.getAccountBalance();
+            double money = 0;
+            if (accountEntity != null)
+                money = accountEntity.getAccountBalance() + userBalance.getAccountBalance();
             if (accountEntity == null) {
                 return new ResponseEntity<>(" Такого счета не существует.", HttpStatus.BAD_REQUEST);
             } else if (money < 0) {
@@ -73,7 +75,7 @@ public class UserEditController {
             } else {
                 accountEntity.setAccountBalance(accountEntity.getAccountBalance() + userBalance.getAccountBalance());
                 accountService.save(accountEntity);
-                return new ResponseEntity<>(HttpStatus.OK);
+                return new ResponseEntity<>("Средства успешно переведены. Текущий баланс счета " + accountEntity.getAccountNumber() + " составляет: " + accountEntity.getAccountBalance()  + " рублей",HttpStatus.OK);
             }
         } catch (Exception e) {
             return new ResponseEntity<>(" Некорректные данные.", HttpStatus.BAD_REQUEST);
