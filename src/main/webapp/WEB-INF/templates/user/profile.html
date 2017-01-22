@@ -18,13 +18,23 @@
                 </th>
                 <th>Баланс карты
                 </th>
+                <th>Номер счета
+                </th>
+                <th>Срок до
+                </th>
             </tr>
-            <tr ng-repeat="card in cards">
+            <tr ng-repeat="card in cards | date:'medium'">
                 <td>
                     {{card.cardNumber}}
                 </td>
                 <td>
                     {{card.balance}} руб.
+                </td>
+                <td>
+                    {{card.accountNumber}}
+                </td>
+                <td>
+                    {{card.date}}
                 </td>
             </tr>
         </table>

@@ -72,19 +72,6 @@ public class ArchiveController {
         List<CardTransfer> listTransferCard = new ArrayList<>();
 
         for (TransferEntity o : listTransfer){
-            /*String s = "";
-            CardEntity card = null;
-            if (cardService.find(o.getCardTo()).getAccountId() == number){
-                s = "Получено";
-            } else {
-                s = "Отправлено";
-            }
-            if (cardService.find(o.getCardTo()).getAccountId() != number && cardService.find(o.getCardFrom()).getAccountId() == number){
-                card = cardService.find(o.getCardTo());
-            } else {
-                card = cardService.find(o.getCardFrom());
-            }*/
-
             listTransferCard.add(new CardTransfer (o.getAmount(), cardService.find(o.getCardTo()).getCardNumber() ,cardService.find(o.getCardFrom()).getCardNumber(), o.getDate()));
         }
         return listTransferCard;

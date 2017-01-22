@@ -21,38 +21,35 @@ App.config(['$routeProvider', function ($routeProvider) {
 
 
 App.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/registration', {
+/*    $routeProvider.when('/registration', {
         templateUrl: 'registration/layout',
 
-    });
+    });*/
     $routeProvider.when('/registration/userInfo', {
         templateUrl: 'registration/userInfo',
         controller: 'UserRegistrationController'
     });
-
+/*
     $routeProvider.when('/user', {
         templateUrl: 'user',
         controller: 'UserController'
-    });
-    $routeProvider.when('/phone', {
-        templateUrl: 'pay/phone',
-        controller: 'UserController'
-    });
+    });*/
+
     $routeProvider.when('/editing/userInfo', {
         templateUrl: 'editing/userInfo',
         controller: 'UserEditingController'
     });
-    $routeProvider.when('/edit_personal', {
-        templateUrl: 'editing/personal',
+/*    $routeProvider.when('/edit_personal', {
+        templateUrl: 'editing/personal'
     });
 
     $routeProvider.when('/editing/personal', {
-        templateUrl: 'editing/personal',
+        templateUrl: 'editing/personal'
     });
 
     $routeProvider.when('/editing/userAccount', {
-        templateUrl: 'editing/userAccount',
-    });
+        templateUrl: 'editing/userAccount'
+    });*/
 
     $routeProvider.when('/registration/userAccount', {
         templateUrl: 'registration/userAccount',

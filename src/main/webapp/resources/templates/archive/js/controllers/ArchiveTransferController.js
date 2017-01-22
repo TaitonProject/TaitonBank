@@ -15,16 +15,16 @@ ArchiveTransferController = function ($scope, $http) {
         $http.get('/archive/listTransfer.json/'+number).success(function (response) {
             $scope.transfers = response;
         }).error(function () {
-            $scope.setError('Ошибка в предоставлении списка переводов');
+            $scope.setError(' Не удалось получить список переводов. Пожалуйста, повторите позже');
         });
     };
 
     $scope.fetchCardList = function () {
         $scope.resetError();
-        $http.get('/payment/cardList.json').success(function (response) {
+        $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.cards = response;
         }).error(function () {
-            $scope.setError('Ошибка в предосталвнии списка карт.')
+            $scope.setError(' Не удалось получить список карт. Пожалуйста, повторите позже')
         });
     };
 

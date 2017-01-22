@@ -15,16 +15,31 @@
     </div>
     <h2>Выберите карту, с которой хотите перевести средства</h2>
     <div class="container row">
-        <table border="1" class="table row" style="padding-left: 0 !important;">
+        <table border="1" class="table row">
             <tr>
                 <th>Номер карты
+                </th>
+                <th>Баланс карты
+                </th>
+                <th>Номер счета
+                </th>
+                <th>Срок до
                 </th>
                 <th>Выбрать
                 </th>
             </tr>
-            <tr ng-repeat="card in cards">
+            <tr ng-repeat="card in cards | date:'medium'">
                 <td>
                     {{card.cardNumber}}
+                </td>
+                <td>
+                    {{card.balance}} руб.
+                </td>
+                <td>
+                    {{card.accountNumber}}
+                </td>
+                <td>
+                    {{card.date}}
                 </td>
                 <td>
                     <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setCard(card.cardNumber)"/>
@@ -58,7 +73,7 @@
             </div>
             <div class="form-group">
                 <div class="">
-                    <button type="submit" class="btn btn-warning" ng-click="addTransfer(transfer);closed();" ng-disabled="userForm.$invalid || isLoading">Оплатить</button>
+                    <button type="submit" class="btn btn-warning" ng-click="addTransfer(transfer);closed();" ng-disabled="userForm.$invalid || isLoading">Перевести</button>
                 </div>
 
             </div>

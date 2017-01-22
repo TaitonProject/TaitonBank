@@ -65,20 +65,22 @@ public class TransferCardController {
             }
 
 
-            if (cardTransfer.getCardFrom() == null) {
+            if (findCardFrom == null) {
                 return new ResponseEntity<>(" Карты отправителя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (accFrom == null) {
+            } else if (accountService.find(findCardFrom.getAccountId()) == null) {
                 return new ResponseEntity<>(" Счета отправителя не существует.", HttpStatus.BAD_REQUEST);
             } else if (findCardTo == null) {
                 return new ResponseEntity<>(" Карты получателя не существует.", HttpStatus.BAD_REQUEST);
-            } else if (findCardFrom == null) {
+            } else if (accountService.find(findCardTo.getAccountId()) == null) {
                 return new ResponseEntity<>(" Счета получателя не существует.", HttpStatus.BAD_REQUEST);
             } else if (transferEntity.getAmount() <= 0) {
                 return new ResponseEntity<>(" Некорректная сумма.", HttpStatus.BAD_REQUEST);
             } else if (money < 0) {
                 return new ResponseEntity<>(" На карте недостаточно средств.", HttpStatus.BAD_REQUEST);
             } else if (findCardFrom.getCardNumber() == findCardTo.getCardNumber()) {
-                return new ResponseEntity<>(" Нельзя переводить деньги на тот же счет.", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(" Нельзя переводить деньги на одну и ту же карту.", HttpStatus.BAD_REQUEST);
+            } else if (accountService.find(findCardFrom.getAccountId()).getAccountNumber() == accountService.find(findCardTo.getAccountId()).getAccountNumber()) {
+                return new ResponseEntity<>(" Нельзя переводить деньги на один и тот же счет.", HttpStatus.BAD_REQUEST);
             } else if (findCardTo.getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>(" Срок карты получателя истек.", HttpStatus.BAD_REQUEST);
             } else if (findCardFrom.getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {

@@ -17,17 +17,31 @@
 
         <div class="container row table-cont">
             <h4>Выбирете карту для оплаты:</h4>
-
             <table border="1" class="table row">
                 <tr>
                     <th>Номер карты
                     </th>
+                    <th>Баланс карты
+                    </th>
+                    <th>Номер счета
+                    </th>
+                    <th>Срок до
+                    </th>
                     <th>Выбрать
                     </th>
                 </tr>
-                <tr ng-repeat="card in cards">
+                <tr ng-repeat="card in cards | date:'medium'">
                     <td>
                         {{card.cardNumber}}
+                    </td>
+                    <td>
+                        {{card.balance}} руб.
+                    </td>
+                    <td>
+                        {{card.accountNumber}}
+                    </td>
+                    <td>
+                        {{card.date}}
                     </td>
                     <td>
                         <input id="add-update2" type="button" value="Выбрать" class="update-button btn btn-warning" ng-click="setCard(card)"/>
