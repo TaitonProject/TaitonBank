@@ -24,7 +24,7 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="accountBalance" ng-pattern="/^-?((([1-9]\d+)|([1-9]))(([.,]\d{1,2})?))$|^-?0[,.]((\d[1-9])|([1-9]\d))$/" name="accountBalance" ng-model="account.accountBalance"
+                <input type="text" class="form-control" id="accountBalance" ng-pattern="/^-?((([1-9]\d+)|([1-9]))(([.]\d{1,2})?))$|^-?0[.]((\d[1-9])|([1-9]\d))$/" name="accountBalance" ng-model="account.accountBalance"
                        placeholder="93.20" required="required"/><span class="cost-info">BYN</span>
                 <span class="hasnt-error" ><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="hasnt-error" ng-show="userForm.accountBalance.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
