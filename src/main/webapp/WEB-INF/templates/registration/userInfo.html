@@ -13,7 +13,7 @@
 
         <div class="form-group">
             <div class="controls">
-                <input type="text" class="form-control" id="user_surName" ng-model="user.surName" ng-pattern="/^[[а-яА-]{2,20}$/"
+                <input type="text" class="form-control" id="user_surName" ng-model="user.surName" ng-pattern="/^[[а-яА-Я]{2,20}$/"
                        placeholder="Фамилия" name="surname" required="required" />
                 <span class="hasnt-error" ng-show="userForm.surname.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                 <span class="has-error" ng-show="userForm.surname.$invalid && !userForm.surname.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
