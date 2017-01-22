@@ -35,6 +35,7 @@ UserEditingController = function ($scope, $http) {
             };
             $scope.setTrueMessage(response)
         }).error(function (response, status) {
+            $scope.fetchUsersList();
             if (status === 400){
                 $scope.setError(response);
             } else {
