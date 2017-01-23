@@ -84,8 +84,8 @@
 
             <div class="form-group">
                 <div class="controls">
-                    <input type="text" class="form-control" id="user_surName" name="cardNamber" ng-model="card.cardNumber"
-                           placeholder="Номер карты" required="required" ng-pattern="/^[0-9]{9}$/"/>
+                    <input required type="text" class="form-control" id="user_surName" name="cardNamber" ng-model="card.cardNumber"
+                           placeholder="Номер карты" ng-pattern="/^[0-9]{9}$/"/>
                     <span class="hasnt-error" ng-show="userForm.cardNamber.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                     <span class="has-error" ng-show="userForm.cardNamber.$invalid && !userForm.cardNamber.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
  Неверное написание номера карты (9 цифр)</span>
@@ -94,8 +94,8 @@
 
             <div class="form-group">
                 <div class="controls">
-                    <input type="date" class="form-control" id="user_firstName" name="cardData" ng-model="card.dateOfExpiry"
-                           placeholder="Имя" required="required"/>
+                    <input required type="date" class="form-control" id="user_firstName" name="cardData" ng-model="card.dateOfExpiry"
+                           placeholder="Имя"/>
                     <span class="hasnt-error" ng-show="userForm.cardData.$valid"><i class="fa fa-check" aria-hidden="true"></i></span>
                     <span class="has-error" ng-show="userForm.cardData.$invalid && !userForm.cardData.$pristine"><i class="fa fa-times" aria-hidden="true"></i>
  Некорректная дата</span>
