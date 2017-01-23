@@ -18,10 +18,13 @@ UserAccountRegistrationController = function ($scope, $http) {
     $scope.isLoading = false;
 
     $scope.fetchUsersList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/editing/listUsers.json').success(function (response) {
             $scope.users = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')
         });
     };

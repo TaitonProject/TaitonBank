@@ -45,28 +45,37 @@ ServiceRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchServiceList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/service/serviceList.json').success(function (response) {
             $scope.services = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' Не удалось получить список сервисов. Пожалуйста, повторите позже')
         });
     };
 
     $scope.fetchOrganizationList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/service/organizationList.json').success(function (response) {
             $scope.organizations = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('Не удалось получить список организаций. Пожалуйста, повторите позже')
         });
     };
 
     $scope.fetchCategoryList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/service/categoryList.json').success(function (response) {
             $scope.categoryies = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('Не удалось получить список категорий. Пожалуйста, повторите позже')
         });
     };

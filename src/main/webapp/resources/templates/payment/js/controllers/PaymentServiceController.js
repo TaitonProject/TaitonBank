@@ -59,37 +59,49 @@ PaymentServiceController = function ($scope, $http) {
     };
 
     $scope.fetchAccountList = function (id) {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/listUsersAccount.json/'+id).success(function (response) {
             $scope.accounts = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('Не удалось получить список счетов. Пожалуйста, повторите позже')
         });
     };
 
     $scope.fetchOrganizationList = function (id) {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/organizationList.json/'+id).success(function (response) {
+            $scope.isLoading = false;
             $scope.organizations = response;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('Не удалось список организаций. Пожалуйста, повторите позже')
         });
     };
 
     $scope.fetchCategoryList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/categoryList.json').success(function (response) {
             $scope.categoryies = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('Не удалось получить список категорий. Пожалуйста, повторите позже')
         });
     };
 
     $scope.fetchCardList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.cards = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')
         });
     };

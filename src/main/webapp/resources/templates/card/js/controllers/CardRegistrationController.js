@@ -41,19 +41,25 @@ CardRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchAccountList = function (id) {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/card/listUsersAccount.json/'+id).success(function (response) {
             $scope.accounts = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' Не удалось получить список счетов. Пожалуйста, повторите позже')
         });
     };
 
     $scope.fetchUsersList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/card/listUsers.json').success(function (response) {
             $scope.users = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')
         });
     };
