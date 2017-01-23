@@ -68,6 +68,8 @@ CardRegistrationController = function ($scope, $http) {
         $scope.resetError();
         $scope.fetchAccountList(user.userByUserId.id);
         $scope.user = user;
+        $scope.tableVisible = true;
+        $scope.formVisible = false;
     };
 
     $scope.setAccount = function (account) {
