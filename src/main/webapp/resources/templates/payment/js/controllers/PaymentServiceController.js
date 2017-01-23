@@ -121,8 +121,9 @@ PaymentServiceController = function ($scope, $http) {
     $scope.setCard = function (card) {
         $scope.resetError();
         $scope.paymentInfo.card = card;
-        $scope.formVisible = true;
+        $scope.formVisible = false;
         $scope.formVisibleSelect = true;
+        $scope.Fieldshow = false;
     };
 
     $scope.setCategory = function (category) {
@@ -131,6 +132,7 @@ PaymentServiceController = function ($scope, $http) {
         //$scope.organization = organization;
         $scope.paymentInfo.category = category;
         $scope.Fieldshow = false;
+        $scope.formVisible = true;
     };
 
     $scope.setError = function (message) {
