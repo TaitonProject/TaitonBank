@@ -79,7 +79,7 @@ public class TransferCardController {
                 return new ResponseEntity<>(" На карте недостаточно средств.", HttpStatus.BAD_REQUEST);
             } else if (findCardFrom.getId() == findCardTo.getId()) {
                 return new ResponseEntity<>(" Нельзя переводить деньги на одну и ту же карту.", HttpStatus.BAD_REQUEST);
-            } else if (accountService.find(findCardFrom.getAccountId()).getAccountNumber() == accountService.find(findCardTo.getAccountId()).getAccountNumber()) {
+            } else if (accountService.find(findCardFrom.getAccountId()).getId() == accountService.find(findCardTo.getAccountId()).getId()) {
                 return new ResponseEntity<>(" Нельзя переводить деньги на один и тот же счет.", HttpStatus.BAD_REQUEST);
             } else if (findCardTo.getDateOfExpiry().getTime() < new Date(System.currentTimeMillis()).getTime()) {
                 return new ResponseEntity<>(" Срок карты получателя истек.", HttpStatus.BAD_REQUEST);
