@@ -10,6 +10,7 @@ OrganizationRegistrationController = function ($scope, $http) {
 
     $scope.organization = {};
     $scope.isLoading = false;
+    $scope.isOrgNull = false;
 
     $scope.addOrganization = function (organization) {
         $scope.isLoading = true;
@@ -52,6 +53,9 @@ OrganizationRegistrationController = function ($scope, $http) {
         $http.get('/organization/organizationList.json').success(function (response) {
             $scope.organizations = response;
             $scope.isLoading = false;
+            if( $scope.organizations.length == 0){
+                $scope.isOrgNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(" Не удалось предоставить список организаций. Пожалуйста, повторите позже")

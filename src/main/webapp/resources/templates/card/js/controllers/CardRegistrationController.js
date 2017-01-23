@@ -17,6 +17,8 @@ CardRegistrationController = function ($scope, $http) {
     };
     $scope.account = {};
     $scope.isLoading = false;
+    $scope.isAccountsNull = false;
+    $scope.isUsersNull = false;
 
     $scope.addCard = function (card) {
         $scope.resetError();
@@ -46,6 +48,9 @@ CardRegistrationController = function ($scope, $http) {
         $http.get('/card/listUsersAccount.json/'+id).success(function (response) {
             $scope.accounts = response;
             $scope.isLoading = false;
+            if ($scope.accounts.length == 0){
+                $scope.isAccountsNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список счетов. Пожалуйста, повторите позже')
@@ -58,6 +63,9 @@ CardRegistrationController = function ($scope, $http) {
         $http.get('/card/listUsers.json').success(function (response) {
             $scope.users = response;
             $scope.isLoading = false;
+            if ($scope.users.length == 0){
+                $scope.isUsersNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')

@@ -18,6 +18,10 @@ PaymentServiceController = function ($scope, $http) {
         }
     };
     $scope.isLoading = false;
+    $scope.isOrgNull = false;
+    $scope.isCardsNull = false;
+    $scope.isAccountsNull = false;
+    $scope.isCatNull = false;
 
     $scope.addPayment = function (paymentInfo) {
         $scope.isLoading = true;
@@ -70,6 +74,9 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/listUsersAccount.json/'+id).success(function (response) {
             $scope.accounts = response;
             $scope.isLoading = false;
+            if ($scope.accounts.length == 0){
+                $scope.isAccountsNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось получить список счетов. Пожалуйста, повторите позже')
@@ -82,6 +89,9 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/organizationList.json/'+id).success(function (response) {
             $scope.organizations = response;
             $scope.isLoading = false;
+            if ($scope.organizations.length == 0){
+                $scope.isOrgNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось список организаций. Пожалуйста, повторите позже')
@@ -94,6 +104,9 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/categoryList.json').success(function (response) {
             $scope.categoryies = response;
             $scope.isLoading = false;
+            if ($scope.categoryies.length == 0){
+                $scope.isCatNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось получить список категорий. Пожалуйста, повторите позже')
@@ -106,6 +119,9 @@ PaymentServiceController = function ($scope, $http) {
         $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.cards = response;
             $scope.isLoading = false;
+            if($scope.cards.length == 0){
+                $scope.isCardsNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')

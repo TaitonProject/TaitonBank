@@ -9,6 +9,7 @@
 PersonalRegistrationController = function ($scope, $http) {
 
     $scope.isLoading = false;
+    $scope.isRolesNull = false;
 
     $scope.addNewUser = function (user) {
         $scope.isLoading = true;
@@ -46,6 +47,9 @@ PersonalRegistrationController = function ($scope, $http) {
         $http.get('/personal/rolesList.json').success(function (response) {
             $scope.roles = response;
             $scope.isLoading = false;
+            if($scope.roles.length == 0 ){
+                $scope.isRolesNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' В предоставлении списка ролей')

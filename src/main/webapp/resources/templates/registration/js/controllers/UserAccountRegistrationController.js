@@ -16,6 +16,8 @@ UserAccountRegistrationController = function ($scope, $http) {
         userId: ''
     };
     $scope.isLoading = false;
+    $scope.isUsersNull = false;
+
 
     $scope.fetchUsersList = function () {
         $scope.isLoading = true;
@@ -23,6 +25,9 @@ UserAccountRegistrationController = function ($scope, $http) {
         $http.get('/editing/listUsers.json').success(function (response) {
             $scope.users = response;
             $scope.isLoading = false;
+            if ($scope.users.length == 0){
+                $scope.isUsersNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')

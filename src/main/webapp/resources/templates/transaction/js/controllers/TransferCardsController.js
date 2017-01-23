@@ -14,6 +14,7 @@ TransferCardsController = function ($scope, $http) {
         amount: ''
     };
     $scope.isLoading = false;
+    $scope.isCardsNull = false;
 
     $scope.addTransfer = function (transfer) {
         $scope.isLoading = true;
@@ -47,7 +48,9 @@ TransferCardsController = function ($scope, $http) {
         $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.isLoading = false;
             $scope.cards = response;
-
+            if ($scope.cards.length == 0){
+                $scope.isCardsNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')

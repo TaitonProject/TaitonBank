@@ -11,6 +11,7 @@ UserEditingController = function ($scope, $http) {
     $scope.user = {};
     $scope.editingUser = null;
     $scope.isLoading = false;
+    $scope.isUsersNull = false;
 
     $scope.fetchUsersList = function () {
         $scope.isLoading = true;
@@ -18,8 +19,10 @@ UserEditingController = function ($scope, $http) {
         $scope.resetError();
         $http.get('/editing/listUsers.json').success(function (response) {
             $scope.isLoading = false;
-
             $scope.users = response;
+            if ($scope.users.length == 0){
+                $scope.isUsersNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
 

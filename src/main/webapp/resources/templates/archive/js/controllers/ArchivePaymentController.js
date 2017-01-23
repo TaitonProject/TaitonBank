@@ -10,6 +10,7 @@ ArchivePaymentController = function ($scope, $http) {
 
     $scope.isLoading = false;
     $scope.isPaymentsNull = false;
+    $scope.isCardsNull = false;
 
     $scope.fetchPaymentList = function (card) {
         $scope.isLoading = true;
@@ -34,6 +35,9 @@ ArchivePaymentController = function ($scope, $http) {
         $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.isLoading = false;
             $scope.cards = response;
+            if ($scope.cards.length == 0){
+                $scope.isCardsNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список карт. Пожалуйста, повторите позже')

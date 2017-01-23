@@ -21,6 +21,9 @@
                         ng-options="role as role.nameRole for role in roles">
                 </select>
             </div>
+            <div class="alert alert-info" ng-show="isRolesNull">
+                <strong>Внимание!</strong> Список пуст
+            </div>
         </div>
 
         <div class="form-group">

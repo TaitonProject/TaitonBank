@@ -11,6 +11,7 @@ PersonalEditingController = function ($scope, $http) {
     $scope.user = {};
     $scope.editingUser = null;
     $scope.isLoading = false;
+    $scope.isUsersNull = false;
 
     $scope.fetchUsersList = function () {
         $scope.isLoading = true;
@@ -18,6 +19,9 @@ PersonalEditingController = function ($scope, $http) {
         $http.get('/personal/personalsList.json').success(function (response) {
             $scope.isLoading = false;
             $scope.users = response;
+            if ($scope.users.length == 0){
+                $scope.isUsersNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')

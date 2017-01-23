@@ -14,6 +14,7 @@ UserProfileController = function ($scope, $http) {
     };
 
     $scope.user = {};
+    $scope.isCardsNull = false;
 
     $scope.password = {
         password: '',
@@ -67,6 +68,9 @@ UserProfileController = function ($scope, $http) {
         $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.isLoading = false;
             $scope.cards = response;
+            if ($scope.cards.length == 0){
+                $scope.isCardsNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')

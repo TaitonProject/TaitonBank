@@ -51,7 +51,9 @@
                 </td>
             </tr>
         </table>
-
+        <div class="alert alert-info" ng-show="isUsersNull">
+            <strong>Внимание!</strong> Список пуст
+        </div>
     </div>
 
     <div class="container container-table row" ng-show="tableVisible">
@@ -80,6 +82,9 @@
                 </script>-->
             </tr>
         </table>
+        <div class="alert alert-info" ng-show="isAccountsNull">
+            <strong>Внимание!</strong> Список пуст
+        </div>
         <form class="form-horizontal col-sm-4 add-account" name="userForm" ng-show="formVisible">
 
             <div class="form-group">

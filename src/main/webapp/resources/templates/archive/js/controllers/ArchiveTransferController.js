@@ -9,6 +9,8 @@
 ArchiveTransferController = function ($scope, $http) {
 
     $scope.isLoading = false;
+    $scope.isTransferNull = false;
+    $scope.isCardsNull = false;
 
     $scope.fetchTransferList = function (card) {
         $scope.isLoading = true;
@@ -18,6 +20,9 @@ ArchiveTransferController = function ($scope, $http) {
         $http.get('/archive/listTransfer.json/'+number).success(function (response) {
             $scope.isLoading = false;
             $scope.transfers = response;
+            if($scope.transfers.length == 0){
+                $scope.isTransferNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список переводов. Пожалуйста, повторите позже');
@@ -30,6 +35,9 @@ ArchiveTransferController = function ($scope, $http) {
         $http.get('/payment/cardListBalance.json').success(function (response) {
             $scope.isLoading = false;
             $scope.cards = response;
+            if($scope.cards.length == 0){
+                $scope.isCardsNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список карт. Пожалуйста, повторите позже')

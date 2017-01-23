@@ -13,6 +13,9 @@ ServiceRegistrationController = function ($scope, $http) {
     $scope.account = {};
     $scope.category = {};
     $scope.isLoading = false;
+    $scope.isServicesNull = false;
+    $scope.isOrgNull = false;
+    $scope.isCatNull = false;
 
     $scope.addService = function (service) {
         $scope.isLoading = true;
@@ -50,6 +53,9 @@ ServiceRegistrationController = function ($scope, $http) {
         $http.get('/service/serviceList.json').success(function (response) {
             $scope.services = response;
             $scope.isLoading = false;
+            if ($scope.services.length == 0){
+                $scope.isServicesNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError(' Не удалось получить список сервисов. Пожалуйста, повторите позже')
@@ -62,6 +68,9 @@ ServiceRegistrationController = function ($scope, $http) {
         $http.get('/service/organizationList.json').success(function (response) {
             $scope.organizations = response;
             $scope.isLoading = false;
+            if ($scope.organizations.length == 0){
+                $scope.isOrgNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось получить список организаций. Пожалуйста, повторите позже')
@@ -74,6 +83,9 @@ ServiceRegistrationController = function ($scope, $http) {
         $http.get('/service/categoryList.json').success(function (response) {
             $scope.categoryies = response;
             $scope.isLoading = false;
+            if ($scope.categoryies.length == 0){
+                $scope.isCatNull = true;
+            }
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось получить список категорий. Пожалуйста, повторите позже')
