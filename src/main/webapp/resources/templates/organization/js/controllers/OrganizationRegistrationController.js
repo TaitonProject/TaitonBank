@@ -49,6 +49,8 @@ OrganizationRegistrationController = function ($scope, $http) {
 
     $scope.fetchOrganizationList = function () {
         $scope.isLoading = true;
+        $scope.isOrgNull = false;
+
         $scope.resetError();
         $http.get('/organization/organizationList.json').success(function (response) {
             $scope.organizations = response;

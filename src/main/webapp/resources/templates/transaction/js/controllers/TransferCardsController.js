@@ -43,6 +43,8 @@ TransferCardsController = function ($scope, $http) {
     };
 
     $scope.fetchCardList = function () {
+        $scope.isCardsNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/cardListBalance.json').success(function (response) {

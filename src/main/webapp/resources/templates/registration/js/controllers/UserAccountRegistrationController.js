@@ -20,6 +20,8 @@ UserAccountRegistrationController = function ($scope, $http) {
 
 
     $scope.fetchUsersList = function () {
+        $scope.isUsersNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/editing/listUsers.json').success(function (response) {

@@ -43,6 +43,8 @@ CardRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchAccountList = function (id) {
+        $scope.isAccountsNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/card/listUsersAccount.json/'+id).success(function (response) {
@@ -58,6 +60,8 @@ CardRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchUsersList = function () {
+        $scope.isUsersNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/card/listUsers.json').success(function (response) {

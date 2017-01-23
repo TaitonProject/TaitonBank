@@ -49,6 +49,8 @@ ServiceRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchServiceList = function () {
+        $scope.isServicesNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/service/serviceList.json').success(function (response) {
@@ -64,6 +66,8 @@ ServiceRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchOrganizationList = function () {
+        $scope.isOrgNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/service/organizationList.json').success(function (response) {
@@ -79,6 +83,8 @@ ServiceRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchCategoryList = function () {
+        $scope.isCatNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/service/categoryList.json').success(function (response) {

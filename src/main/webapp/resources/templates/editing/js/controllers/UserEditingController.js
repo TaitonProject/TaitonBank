@@ -14,6 +14,8 @@ UserEditingController = function ($scope, $http) {
     $scope.isUsersNull = false;
 
     $scope.fetchUsersList = function () {
+        $scope.isUsersNull = false;
+
         $scope.isLoading = true;
 
         $scope.resetError();

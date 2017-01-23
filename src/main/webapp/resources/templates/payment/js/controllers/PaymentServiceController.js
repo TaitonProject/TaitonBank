@@ -70,6 +70,8 @@ PaymentServiceController = function ($scope, $http) {
 
     $scope.fetchAccountList = function (id) {
         $scope.isLoading = true;
+        $scope.isAccountsNull = false;
+
         $scope.resetError();
         $http.get('/payment/listUsersAccount.json/'+id).success(function (response) {
             $scope.accounts = response;
@@ -84,6 +86,7 @@ PaymentServiceController = function ($scope, $http) {
     };
 
     $scope.fetchOrganizationList = function (id) {
+        $scope.isOrgNull = false;
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/organizationList.json/'+id).success(function (response) {
@@ -99,6 +102,8 @@ PaymentServiceController = function ($scope, $http) {
     };
 
     $scope.fetchCategoryList = function () {
+        $scope.isCatNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/categoryList.json').success(function (response) {
@@ -114,6 +119,8 @@ PaymentServiceController = function ($scope, $http) {
     };
 
     $scope.fetchCardList = function () {
+        $scope.isCardsNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/cardListBalance.json').success(function (response) {

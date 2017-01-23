@@ -43,6 +43,8 @@ PersonalRegistrationController = function ($scope, $http) {
 
     $scope.fetchRoleList = function () {
         $scope.isLoading = true;
+        $scope.isRolesNull = false;
+
         $scope.resetError();
         $http.get('/personal/rolesList.json').success(function (response) {
             $scope.roles = response;

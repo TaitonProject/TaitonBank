@@ -13,6 +13,8 @@ ArchiveTransferController = function ($scope, $http) {
     $scope.isCardsNull = false;
 
     $scope.fetchTransferList = function (card) {
+        $scope.isTransferNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         number = card.cardNumber;
@@ -30,6 +32,8 @@ ArchiveTransferController = function ($scope, $http) {
     };
 
     $scope.fetchCardList = function () {
+        $scope.isCardsNull = false;
+
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/cardListBalance.json').success(function (response) {
