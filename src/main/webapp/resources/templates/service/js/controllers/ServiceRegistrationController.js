@@ -31,6 +31,7 @@ ServiceRegistrationController = function ($scope, $http) {
             $scope.isLoading = false;
 
             $scope.fetchServiceList();
+            $scope.category = null;
             $scope.service = {
                 categoryIdCategory: null,
                 account: ''
