@@ -60,11 +60,13 @@ public class PaymentController {
     ResponseEntity<String> addPayment(@RequestBody PaymentInfo paymentInfo){
         try {
             PaymentEntity paymentEntity = new PaymentEntity();
+            if (paymentInfo.getCategory() == null) {
+                return new ResponseEntity<>(" Не выбрана категория", HttpStatus.BAD_REQUEST);
+            }
             paymentEntity.setAmount(paymentInfo.getPayment().getAmount());
             paymentEntity.setCardId(cardService.findByCardNumber(paymentInfo.getCard().getCardNumber()).getId());
             paymentEntity.setInfo(paymentInfo.getPayment().getInfo());
             int service = serviceService.findByOrganizationAndCategory(paymentInfo.getOrganization().getId(), paymentInfo.getCategory().getIdCategory()).getId();
-
             paymentEntity.setServiceId(service);
 
             if (categoryService.find(paymentInfo.getCategory().getIdCategory()) == null) {
@@ -96,7 +98,7 @@ public class PaymentController {
                 return new ResponseEntity<>(" Платеж успешно прошел.", HttpStatus.OK);
             }
         } catch (Exception e){
-            return new ResponseEntity<>(" Некорректный ввод. Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(" Попробуйте еще раз.", HttpStatus.BAD_REQUEST);
         }
     }
 

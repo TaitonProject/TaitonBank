@@ -34,28 +34,34 @@ PaymentServiceController = function ($scope, $http) {
             }
 
         };
-        $http.post('/payment/addPayment', paymentInfo).success(function (response) {
-            $scope.fetchCardList();
-            $scope.isLoading = false;
+        if ($scope.paymentInfo.category != '') {
+            $http.post('/payment/addPayment', paymentInfo).success(function (response) {
+                $scope.fetchCardList();
+                $scope.isLoading = false;
 
-            $scope.paymentInfo = {
-                category: '',
-                organization: '',
-                card: '',
-                payment: {
-                    info: '',
-                    amount: ''
+                $scope.paymentInfo = {
+                    category: '',
+                    organization: '',
+                    card: '',
+                    payment: {
+                        info: '',
+                        amount: ''
+                    }
+                };
+                $scope.setTrueMessage(response);
+            }).error(function (response, status) {
+                $scope.isLoading = false;
+                if (status === 400) {
+                    $scope.setError(response)
+                } else {
+                    $scope.setError(' Некорректные данные.');
                 }
-            };
-            $scope.setTrueMessage(response);
-        }).error(function (response, status) {
+            })
+        }
+        else {
+            $scope.setError(' Не выбрана услуга!');
             $scope.isLoading = false;
-            if (status === 400){
-                $scope.setError(response)
-            } else {
-                $scope.setError(' Некорректные данные.');
-            }
-        })
+        }
     };
 
     $scope.fetchAccountList = function (id) {
@@ -74,8 +80,8 @@ PaymentServiceController = function ($scope, $http) {
         $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/organizationList.json/'+id).success(function (response) {
-            $scope.isLoading = false;
             $scope.organizations = response;
+            $scope.isLoading = false;
         }).error(function () {
             $scope.isLoading = false;
             $scope.setError('Не удалось список организаций. Пожалуйста, повторите позже')

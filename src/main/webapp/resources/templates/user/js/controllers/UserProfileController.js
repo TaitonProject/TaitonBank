@@ -53,7 +53,7 @@ UserProfileController = function ($scope, $http) {
             if (status === 400) {
                 $scope.setError(response);
             } else {
-                $scope.setError(' Некорректный ввод.');
+                $scope.setError(' Попробуйте еще раз.');
             }
         })
     };
