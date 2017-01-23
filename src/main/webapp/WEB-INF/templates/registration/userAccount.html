@@ -12,7 +12,7 @@
             <img src="resources/content/default.gif">
         </div>
     </div>
-    <input class="form-control col-sm-4" ng-model="userSelect" placeholder="Поиск пользователя по фамилии" type="text">
+    <input class="form-control col-sm-4" ng-model="searchText" placeholder="Поиск пользователя" type="text">
     <div class="container row table-cont">
         <table border="1" class="table  row">
             <tr>
@@ -29,7 +29,7 @@
                 <th>Действие
                 </th>
             </tr>
-            <tr ng-repeat="user in users | filter:{surName:userSelect}">
+            <tr ng-repeat="user in users | filter:searchText">
                 <td>
                     {{user.surName}}
                 </td>

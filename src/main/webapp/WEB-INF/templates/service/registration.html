@@ -13,8 +13,8 @@
         </div>
     </div>
 
-    <input class="form-control col-sm-4" ng-model="orgSearch" placeholder="Поиск организации по названию" type="text">
-    <div class="container row table-cont">
+    <input class="form-control col-sm-4" ng-model="searchText" placeholder="Поиск организации" type="text">
+    <div class="container row table-cont" style="margin-bottom: 20px">
         <table border="1" class="table row">
             <tr>
                 <th>Номер
@@ -24,7 +24,7 @@
                 <th>Выбрать
                 </th>
             </tr>
-            <tr ng-repeat="org in organizations | filter:{name:orgSearch}">
+            <tr ng-repeat="org in organizations | filter:searchText">
                 <td>
                     {{org.id}}
                 </td>
@@ -37,14 +37,14 @@
             </tr>
         </table>
     </div>
+    <div class="controls" ng-show="Fieldshow">
+        <select ng-change="setCategory(category)" ng-model="category"
+                ng-options="category as category.categoryName for category in categoryies">
+        </select>
+    </div>
     <form class="form-horizontal col-sm-4 add-account" name="userForm" ng-show="formVisible">
         <div class="control-group">
             <h4>Выберите категорию</h4>
-            <div class="controls" >
-                <select ng-change="setCategory(category)" ng-model="category"
-                        ng-options="category as category.categoryName for category in categoryies">
-                </select>
-            </div>
         </div>
         <div class="form-group">
             <div class="controls">
