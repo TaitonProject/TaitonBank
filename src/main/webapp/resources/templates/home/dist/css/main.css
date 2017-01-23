@@ -445,3 +445,7 @@ body{
   top:45%;
   left:50%;
 }
+
+.alert-info{
+  margin-left: -15px !important;
+}
