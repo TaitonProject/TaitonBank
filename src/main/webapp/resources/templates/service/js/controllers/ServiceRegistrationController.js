@@ -32,7 +32,7 @@ ServiceRegistrationController = function ($scope, $http) {
 
             $scope.fetchServiceList();
             $scope.service = {
-                categoryIdCategory: null,
+                categoryIdCategory: '',
                 account: ''
             };
             $scope.setTrueMessage(response);
@@ -128,6 +128,7 @@ ServiceRegistrationController = function ($scope, $http) {
 
     $scope.closed= function () {
         $scope.formVisible = false;
+        $scope.Fieldshow = false;
     };
 
     $scope.fetchCategoryList();
