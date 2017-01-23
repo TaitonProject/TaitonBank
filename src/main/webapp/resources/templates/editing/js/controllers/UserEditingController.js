@@ -28,8 +28,10 @@ UserEditingController = function ($scope, $http) {
     };
 
     $scope.editUser = function (user) {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.put('/editing/editUser', user).success(function (response) {
+            $scope.isLoading = false;
             $scope.fetchUsersList();
             $scope.user = {
                 surName: '',
@@ -40,8 +42,9 @@ UserEditingController = function ($scope, $http) {
                     isBlocked: null
                 }
             };
-            $scope.setTrueMessage(response)
+            $scope.setTrueMessage(response);
         }).error(function (response, status) {
+            $scope.isLoading = false;
             $scope.fetchUsersList();
             if (status === 400){
                 $scope.setError(response);

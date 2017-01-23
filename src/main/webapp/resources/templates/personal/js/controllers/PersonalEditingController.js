@@ -13,10 +13,13 @@ PersonalEditingController = function ($scope, $http) {
     $scope.isLoading = false;
 
     $scope.fetchUsersList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/personal/personalsList.json').success(function (response) {
+            $scope.isLoading = false;
             $scope.users = response;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' Не удалось получить список пользователей. Пожалуйста, повторите позже')
         });
     };

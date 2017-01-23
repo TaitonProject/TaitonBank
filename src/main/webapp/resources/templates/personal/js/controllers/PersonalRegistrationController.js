@@ -41,10 +41,13 @@ PersonalRegistrationController = function ($scope, $http) {
     }
 
     $scope.fetchRoleList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/personal/rolesList.json').success(function (response) {
             $scope.roles = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' В предоставлении списка ролей')
         });
     };

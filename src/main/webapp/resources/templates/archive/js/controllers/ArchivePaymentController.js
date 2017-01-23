@@ -8,22 +8,30 @@
 
 ArchivePaymentController = function ($scope, $http) {
 
+    $scope.isLoading = false;
+
     $scope.fetchPaymentList = function (card) {
+        $scope.isLoading = true;
         $scope.resetError();
         number = card.cardNumber;
         $scope.formVisible = true;
         $http.get('/archive/listPayment.json/'+number).success(function (response) {
+            $scope.isLoading = false;
             $scope.payments = response;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' Не удалось получить список платежей. Пожалуйста, повторите позже');
         });
     };
 
     $scope.fetchCardList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/cardListBalance.json').success(function (response) {
+            $scope.isLoading = false;
             $scope.cards = response;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(' Не удалось получить список карт. Пожалуйста, повторите позже')
         });
     };

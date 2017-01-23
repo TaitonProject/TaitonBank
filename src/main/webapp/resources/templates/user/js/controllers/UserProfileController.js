@@ -22,10 +22,14 @@ UserProfileController = function ($scope, $http) {
     $scope.isLoading = false;
 
     $scope.helloUser = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/user/hello').success(function (response) {
+
             $scope.user = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('беда в предосталвнии имени пользователя')
         });
 
@@ -58,10 +62,13 @@ UserProfileController = function ($scope, $http) {
     }
 
     $scope.fetchCardList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/payment/cardListBalance.json').success(function (response) {
+            $scope.isLoading = false;
             $scope.cards = response;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError('Не удалось получить список карт. Пожалуйста, повторите позже')
         });
     };

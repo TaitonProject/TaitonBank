@@ -47,10 +47,13 @@ OrganizationRegistrationController = function ($scope, $http) {
     };
 
     $scope.fetchOrganizationList = function () {
+        $scope.isLoading = true;
         $scope.resetError();
         $http.get('/organization/organizationList.json').success(function (response) {
             $scope.organizations = response;
+            $scope.isLoading = false;
         }).error(function () {
+            $scope.isLoading = false;
             $scope.setError(" Не удалось предоставить список организаций. Пожалуйста, повторите позже")
         });
     };
