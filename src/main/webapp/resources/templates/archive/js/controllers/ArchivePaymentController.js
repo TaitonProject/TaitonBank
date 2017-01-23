@@ -17,6 +17,7 @@ ArchivePaymentController = function ($scope, $http) {
         $scope.resetError();
         number = card.cardNumber;
         $scope.formVisible = true;
+        $scope.isPaymentsNull = false;
         $http.get('/archive/listPayment.json/'+number).success(function (response) {
             $scope.isLoading = false;
             $scope.payments = response;
