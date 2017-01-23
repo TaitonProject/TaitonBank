@@ -39,7 +39,7 @@
     </div>
     <div class="controls" ng-show="Fieldshow">
         <h4>Выберите категорию</h4>
-        <select ng-change="setCategory(category)" ng-model="category"
+        <select class="form-control" ng-change="setCategory(category)" ng-model="category"
                 ng-options="category as category.categoryName for category in categoryies">
         </select>
     </div>
