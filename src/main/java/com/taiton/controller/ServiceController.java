@@ -64,6 +64,8 @@ public class ServiceController {
                 return new ResponseEntity<>(" Данной организации не существует.", HttpStatus.BAD_REQUEST);
             } else if (categoryService.find(service.getCategoryIdCategory()) == null) {
                 return new ResponseEntity<>(" Данной категории не существует.", HttpStatus.BAD_REQUEST);
+            } else if (serviceService.findByOrganizationAndCategory(service.getOrganizationId(), service.getCategoryIdCategory()) != null) {
+                return new ResponseEntity<>(" Выбранный сервис уже есть у данной организации.", HttpStatus.BAD_REQUEST);
             } else {
                 accountService.save(accountEntity);
                 serviceEntity.setAccountId(accountService.findByAccountNumber(service.getAccount()).getId());

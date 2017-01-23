@@ -53,7 +53,8 @@
 
         <div class="controls" style="margin: 25px auto" ng-show="formVisibleSelect">
             <h4>Виды услуг:</h4>
-            <select ng-change="setCategory(paymentInfo.category)" ng-model="paymentInfo.category"
+            <select ng-change="setCategory(paymentInfo.category)"
+                    ng-model="paymentInfo.category"
                     ng-options="category as category.categoryName for category in categoryies">
             </select>
         </div>
