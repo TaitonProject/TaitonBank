@@ -29,11 +29,11 @@ App.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'registration/userInfo',
         controller: 'UserRegistrationController'
     });
-/*
+
     $routeProvider.when('/user', {
         templateUrl: 'user',
         controller: 'UserController'
-    });*/
+    });
 
     $routeProvider.when('/editing/userInfo', {
         templateUrl: 'editing/userInfo',
