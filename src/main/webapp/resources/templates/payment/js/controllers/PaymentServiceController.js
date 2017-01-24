@@ -27,7 +27,6 @@ PaymentServiceController = function ($scope, $http) {
         $scope.isLoading = true;
 
         $scope.resetError();
-        //card.accountId = $scope.account.id;
         paymentInfo = {
             category: $scope.paymentInfo.category,
             organization: $scope.paymentInfo.organization,
@@ -40,13 +39,25 @@ PaymentServiceController = function ($scope, $http) {
         };
         if ($scope.paymentInfo.category != '') {
             $http.post('/payment/addPayment', paymentInfo).success(function (response) {
+                $scope.closed();
                 $scope.fetchCardList();
                 $scope.isLoading = false;
 
                 $scope.paymentInfo = {
-                    category: '',
-                    organization: '',
-                    card: '',
+                    category: {
+                        categoryName : '',
+                        idCategory : ''
+                    },
+                    organization: {
+                        id: '',
+                        name: ''
+                    },
+                    card: {
+                        accountNumber : '',
+                        balance : '',
+                        cardNumber : '',
+                        dateOfExpiry : ''
+                    },
                     payment: {
                         info: '',
                         amount: ''
@@ -143,7 +154,13 @@ PaymentServiceController = function ($scope, $http) {
 
     $scope.setCard = function (card) {
         $scope.resetError();
-        $scope.paymentInfo.card = card;
+
+        $scope.paymentInfo = {
+            card : card,
+            category: null,
+            organization: null,
+            payment: null
+        };
         $scope.formVisible = false;
         $scope.formVisibleSelect = true;
         $scope.Fieldshow = false;

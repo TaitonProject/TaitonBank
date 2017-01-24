@@ -10,7 +10,7 @@
 
     <http auto-config="true">
         <csrf token-repository-ref="tokenRepository"/>
-        <intercept-url pattern="/" access="hasAnyRole('ROLE_client', 'ROLE_operator' ,'ROLE_administration')"/>
+
         <intercept-url pattern="/home" access="hasAnyRole('ROLE_client', 'ROLE_operator' ,'ROLE_administration')"/>
 
         <intercept-url pattern="/registration/**" access="hasRole('ROLE_operator')"/>
@@ -23,7 +23,7 @@
 
         <intercept-url pattern="/personal/**" access="hasRole('ROLE_administration')"/>
 
-        <form-login login-page="/login" default-target-url="/home#/user" authentication-failure-url="/loginError"
+        <form-login login-page="/" default-target-url="/home#/user" authentication-failure-url="/loginError"
                 always-use-default-target="true"
                     username-parameter="username" password-parameter="password"/>
         <logout logout-url="/logout" logout-success-url="/login?logout"/>
