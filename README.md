@@ -1,6 +1,6 @@
 # Интернет-банкинг TaitonBank
 
-##Ссылка на heroku: http://taitonbank.herokuapp.com/
+##Ссылка на проект: http://taitonbank.herokuapp.com/
 
 ###Вход под администратором:
 ####Логин: admin123
